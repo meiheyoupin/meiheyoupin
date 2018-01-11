@@ -1,0 +1,227 @@
+/*头部logo部分*/
+#header{
+	position: relative;
+	width: 100%;
+	height: 82px;
+	background: #fff;
+}
+#header .container{
+	position:relative;
+	width: 1090px;
+	margin: 0 auto;
+}
+#header .logo{
+	float: left;
+}
+#header .logo>a{
+	display: inline-block;
+	width: 251px;
+	height: 53px;
+	margin-top: 16px;
+	background: url(../img/logo.png) no-repeat;
+}
+#header .company-title{
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 170px;
+	height: 82px;
+	line-height: 82px;
+	font-weight: lighter;
+	font-size: 38px;
+	color: #fff;
+	background: #FED500;
+	margin-left: 10px;
+}
+/*页脚*/	
+footer{
+    width:100%;
+    padding: 40px 0 20px;
+    background: #fff;
+}
+footer div{
+    /*width: 500px;*/
+    margin:0 auto;
+    text-align: center;
+    font-size: 14px;
+    color:#666;
+    margin-bottom:7px;
+}
+body{
+	background-color: #EBEBEB;
+}
+#main{
+	position: relative;
+	width: 100%;
+	background-color: #EBEBEB;
+}
+#main .container{
+	width: 1090px;
+	margin: 0 auto;
+	padding: 44px 0 62px;
+	overflow: hidden;
+}
+/*左侧导航*/
+#main .order-nav{
+	position: relative;
+	float: left;
+	width: 200px;
+	min-height: 700px;
+	background: #fff;
+}
+.order-nav dl{
+	padding: 40px 40px 45px 60px;
+	text-align: left;
+}
+.order-nav dt{
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	padding-top: 40px;
+    padding-bottom: 5px;
+}
+.order-nav dt:first-child{
+	padding: 0;
+}
+.order-nav dd{
+	padding-top: 15px;
+}
+.order-nav dd a{
+	font-size: 16px;
+	color: #999;
+	transition: .2s all;
+}
+.order-nav dd a:hover{
+	color: #FED500;
+	transition: .2s all;
+}
+/*右侧订单*/
+.orders{
+	position: relative;
+	float: right;
+	width: 878px;
+	min-height: 500px;
+	/*border: 1px solid red;*/
+}
+/*头部*/
+.orders-head{
+	position: relative;
+	width: 100%;
+	height: 60px;	
+	background: #fff;
+	margin-bottom: 21px;
+}
+.orders-head ul{
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.orders-head li{
+	width: 91px;
+	height: 35px;
+	margin: ;
+	float: left;
+	text-align: center;
+	border-bottom: 4px solid transparent;
+	margin: 0 25px;
+}
+.orders-head li{
+	border-bottom: 4px solid #FED500;
+}
+.orders-head li a{
+	display: block;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+}
+/*详情内容*/
+.orders-body{
+	position: relative;
+	width: 100%;
+}
+/*人员信息******************/
+#cpy-person{
+	background: #fff;
+	padding: 15px 25px;
+}
+#cpy-person .title{
+	font-size: 24px;
+	color: #333;
+	padding: 0 20px 25px;
+	line-height: 40px;
+}
+#cpy-person table{
+	padding: 0 20px;
+}
+#cpy-person tr{
+	height: 42px;
+	text-align: left;
+}
+#cpy-person tr:nth-child(2n){
+	background: #FBFBFB;
+}
+#cpy-person tr th{
+	font-size: 20px;
+	color: #999;
+	font-weight: inherit;
+}
+#cpy-person tr td{
+	font-size: 18px;
+	color: #666;
+	border: none;
+	margin: 0;
+}
+#cpy-person tr td:first-child{
+	width: 120px;
+}
+#cpy-person tr td:nth-child(2){
+	width: 100px;
+}
+#cpy-person tr td:nth-child(3){
+	width: 200px;
+}
+#cpy-person tr td:nth-child(4){
+	width: 150px;
+}
+#cpy-person tr td:nth-child(5){
+	width: 180px;
+}
+#cpy-person tr td:nth-child(6){
+	width: 40px;
+	font-size: 16px;
+	color: #999;
+	cursor: pointer;
+}
+.add_up td input{
+	height: 25px;
+	padding: 0 5px;
+	border: 1px solid #cacaca;
+	outline: none;
+}
+.add_up td select{
+	height: 26px;
+	border: 1px solid #cacaca;
+	outline: none;
+}
+
+#cpy-person .spread{
+	line-height: 42px;
+	padding: 0 20px;
+}
+#cpy-person .spread .add{
+	font-size: 18px;
+	color: #999;
+	cursor: pointer;
+}
+#cpy-person .spread .btn_up{
+	float: right;
+	margin-left: 32px;
+	margin-right: 22px;
+	cursor: pointer;
+}
+#cpy-person .spread .cut{
+	float: right;
+	font-size: 18px;
+	color: #FED500;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="img/favicon.ico" rel="shortcut icon">
+		<title>美盒优品-我的订单</title>
+		<link rel="stylesheet" type="text/css" href="/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/css/for_alter.css" />
+	</head>
+	<body>
+	<!--TOP-->
+	<div id="topbar">
+		<div class="container">
+			<div class="left-part">
+				<a class="ty dw" href="#">
+					<i></i>
+					<span>杭州</span>
+				</a>
+			</div>
+			<ul class="right-part">
+				<li>
+					<a class="ty" href="/login">登录</a>
+					<span>|</span>
+				</li>
+				<li>
+					<a class="ty" href="/register">注册</a>
+					<span>|</span>
+				</li>
+				<li class="top-nav-my">
+					<a href="/for_boon">我的订单</a>
+					<ul class="nav-js">
+						<li><a href="/for_boon">福利订单</a></li>
+						<li><a href="/for_custom">定制订单</a></li>
+						<li><a href="/for_pay">待付款订单</a></li>
+						<li><a href="/for_eval">待评价订单</a></li>
+						<li><a href="/for_refund">我的退款</a></li>
+						<li><a href="/for_data">个人资料</a></li>
+						<li><a href="/address">地址管理</a></li>
+						<li><a href="/for_alter" style="color: #FED500;">修改密码</a></li>
+					</ul>
+				</li>
+				<li>
+					<span>|</span>
+					<a class="ty" href="/merchant">客户服务</a>
+					<span>|</span>
+				</li>
+				<li>
+					<a class="hover-code" href="#">
+						关注微信号
+						<img class="wx-code" src="/img/mhyp_code.jpg" alt=""/>
+					</a>
+					<span>|</span>
+				</li>
+				<li><a class="ty boss" href="/boss_register">商家入驻</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--头部logo部分-->
+	<div id="header">
+		<div class="container">
+			<h1 class="logo">
+				<a href="/index" title="美盒优品"></a>
+			</h1>
+			<div class="tui">
+				<a href="#"><img src="/img/tui.png" alt=""/></a>
+				<div class="refund">未消费，随便退！</div>
+			</div>
+			<div class="pei">
+				<a href="#"><img src="/img/pei.png" alt=""/></a>
+				<div class="mid">消费不满意先行赔付！</div>
+			</div>
+			<div class="cart">
+				<a href="#"></a>
+			</div>
+		</div>
+	</div>
+		<!--页面开始-->
+		<div id="main">
+			<div class="container">
+				<div class="order-nav">
+					<dl>
+						<dt class="order">我的订单</dt>
+						<dd><a style="color:#FED500;" href="/for_boon">企业福利订单</a></dd>
+						<dd><a href="/for_custom">企业定制订单</a></dd>
+						<dd><a href="/for_pay">待付款订单</a></dd>
+						<dd><a href="/for_eval">待评价订单</a></dd>
+						<dd><a href="/for_refund">退款</a></dd>
+						<dt class="vip">我的会员</dt>
+						<dd>我的会员</dd>
+						<dd>优惠券</dd>
+						<dd>我的积分</dd>
+						<dd>我的收藏</dd>
+						<dd>积分商城</dd>
+						<dd>我的邀请</dd>
+						<dd>邀请有礼</dd>
+						<dd>我的客服</dd>
+						<dt class="profile">我的资料</dt>
+						<dd><a href="/for_data">个人资料</a></dd>
+						<dd><a href="/address">地址管理</a></dd>
+						<dd><a href="/for_alter">修改密码</a></dd>
+					</dl>
+				</div>
+				<div class="orders">
+					<div class="orders-head">
+						<ul>
+							<li><a href="#">修改密码</a></li>
+						</ul>
+					</div>
+					<div class="orders-body">
+						<!--修改密码-->
+						<form id="alter" action="">
+							<p>
+								<span>手机号:&nbsp;</span>
+								<b>138******18</b>
+								<a href="#"></a>
+							</p>
+							<input class="btn-code" type="button" value="获取验证码" /><input class="input-code" type="text" placeholder="输入验证码        " /><br/>
+							<input class="newcode" type="password" placeholder="新密码" /><br/>
+							<input class="againcode" type="password" placeholder="确认密码" /><br/>
+							<input class="btn-submit" type="submit" value="提交" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--页面结束-->
+		<iframe src="/footer" frameborder="0" width="100%" height="490px" style="margin-bottom: -5px;"></iframe>
+		
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="/js/common.js"></script>
+	</body>
+</html>

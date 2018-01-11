@@ -1,0 +1,167 @@
+/*表单*/
+form{
+	position: relative;
+	width: 300px;
+	margin: 0 auto;
+	margin-right: 30px;
+	padding-top: 50px;
+}
+form h2{
+	font-size: 20px;
+	color: #666;
+	font-weight: 500;
+}
+form .hidden{
+	height: 30px;
+	padding: 5px 0;
+}
+#error{
+	background: #FFF7D1;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 5px;
+}
+form p{
+	width: 100%;
+	height: 46px;
+	margin-bottom: 20px;
+}
+form p input{
+	width: 278px;
+	height: 36px;
+	padding: 5px 10px;
+	border: 1px solid #c8c8c8;
+	outline: none;
+	border-radius: 4px;
+}
+form p input:focus{
+	border-color: #FED500;
+}
+form .login-code input{
+	display: inline-block;
+	width: 160px;
+}
+form .login-code a{
+	display: inline-block;
+	position: absolute;
+	width: 100px;
+	line-height: 46px;
+	background: #EBEBEB;
+	border-radius: 4px;
+	text-align: center;
+	right: 0;
+}
+form .login-submit input{
+	width: 300px;
+	height: 46px;
+	background: #FED500;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+form .login-submit input:hover{
+	opacity: .75;
+}
+form .login-info{
+	text-align: right;
+}
+form .login-info a{
+	font-size: 14px;
+	color: #FED500;
+}
+form .login-info span{
+	color: #FED500;
+}
+#code{  
+    font-family:Arial;  
+    font-style:italic;  
+    font-weight:bold;  
+    border:0;  
+    letter-spacing:2px;  
+    color:blue;  
+}
+/*登录框*/
+body{
+	background: #FCFCFC;
+}
+.wrapper{
+	width: 1090px;
+	margin: 0 auto;
+	padding: 0 0 40px;
+}
+.wrapper .login-img{
+	float: left;
+	margin-top: 70px;
+	margin-left: 100px;
+}
+.wrapper .login-img img{
+	display: block;
+	width: 616px;
+	height: 321px;
+}
+/*页头*******************/
+#header{
+	position: relative;
+	width: 100%;
+	height: 99px;
+	background: #fff;
+	border-bottom: 1px solid #DBDBDB;
+}
+#header .container{
+	position:relative;
+	width: 1090px;
+	margin: 0 auto;
+}
+#header .logo{
+	float: left;
+}
+#header .logo>a{
+	display: inline-block;
+	width: 192px;
+	height: 41px;
+	margin-top: 35px;
+	margin-left: 15px;
+	background: url(../img/logo666.png) no-repeat;
+}
+#header .logo-text{
+	float: left;
+	width: 80px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+	margin: 38px 0 0 30px;
+	text-align: center;
+	border-left: 1px solid #333;
+}
+#header span{
+	float: right;
+	margin-top: 25px;
+	margin-right: 15px;
+	font-size: 18px;
+	color: gray;
+}
+#header span a{
+	font-size: 16px;
+	color: #FED500;
+}
+#header span a:hover{
+	text-decoration: underline;
+}
+/*页脚*/	
+footer{
+    width:100%;
+    padding: 40px 0 20px;
+	background: #e6e6e6;
+}
+footer div{
+    margin:0 auto;
+    text-align: center;
+    font-size: 14px;
+    color:#666;
+    margin-bottom:7px;
+}

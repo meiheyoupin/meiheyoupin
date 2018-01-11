@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="/img/favicon.ico" rel="shortcut icon">
+    <title>美盒优品-确认付款</title>
+    <link rel="stylesheet" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/payments.css"/>
+</head>
+<body>
+<!--TOP-->
+<div id="topbar">
+    <div class="container">
+        <div class="left-part">
+            <a class="ty dw" href="#">
+                <i></i>
+                <span>杭州</span>
+            </a>
+        </div>
+        <ul class="right-part">
+            <li>
+                <a class="ty" href="login.html">登录</a>
+                <span>|</span>
+            </li>
+            <li>
+                <a class="ty" href="register.html">注册</a>
+                <span>|</span>
+            </li>
+            <li class="top-nav-my">
+                <a href="for_boon.html">我的订单</a>
+                <ul class="nav-js">
+                    <li><a href="for_boon.html">福利订单</a></li>
+                    <li><a href="for_custom.html">定制订单</a></li>
+                    <li><a href="for_pay.html">待付款订单</a></li>
+                    <li><a href="for_eval.html">待评价订单</a></li>
+                    <li><a href="for_refund.html">我的退款</a></li>
+                    <li><a href="for_data.html">个人资料</a></li>
+                    <li><a href="for_address.html">地址管理</a></li>
+                    <li><a href="for_alter.html">修改密码</a></li>
+                </ul>
+            </li>
+            <li>
+                <span>|</span>
+                <a class="ty" href="merchant.html">客户服务</a>
+                <span>|</span>
+            </li>
+            <li>
+                <a class="hover-code" href="#">
+                    关注微信号
+                    <img class="wx-code" src="/img/mhyp_code.jpg" alt=""/>
+                </a>
+                <span>|</span>
+            </li>
+            <li><a class="ty boss" href="boss_register.html">商家入驻</a></li>
+        </ul>
+    </div>
+</div>
+<!--头部logo部分-->
+<div id="header">
+    <div class="container">
+        <h1 class="logo">
+            <a href="index.html" title="美盒优品"></a>
+        </h1>
+        <div class="tui">
+            <a href="#"><img src="/img/tui.png" alt=""/></a>
+            <div class="refund">未消费，随便退！</div>
+        </div>
+        <div class="pei">
+            <a href="#"><img src="/img/pei.png" alt=""/></a>
+            <div class="mid">消费不满意先行赔付！</div>
+        </div>
+        <div class="cart">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+<!--页面开始-->
+<div id="main">
+    <div class="content">
+        <div id="orders">
+            <div class="orders-head">
+                <ul>
+                    <li><a href="#">订单详情</a></li>
+                </ul>
+            </div>
+            <div class="orders-body">
+                <div class="orders">
+                    <#list order.orderGoodsList as orderGoods>
+                        <div class="box-list">
+                            <div class="title-box">
+                                <span class="list-id" hidden>${orderGoods.goodsId}</span>
+                                <span class="list-title">${orderGoods.name}</span>
+                                <span class="list-price">${orderGoods.price}</span>
+                                <div class="deal-leading">
+                                    <button class="minus" type="button">-</button>
+                                    <input class="quantity" type="number" value="${orderGoods.count}"
+                                           onKeypress="return(/[\d]/.test(String.fromCharCode(event.keyCode)))"/>
+                                    <button class="add" type="button">+</button>
+                                </div>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th class="set-meal">套餐内容</th>
+                                    <th class="tasty">口味</th>
+                                    <th class="amount">数量/规格</th>
+                                </tr>
+                                <#list orderGoods.goodsContentList as goodsContent>
+                                    <tr>
+                                        <td class="set-meal">${goodsContent.title}</td>
+                                        <td class="tasty">${goodsContent.taste}</td>
+                                        <td class="amount">${goodsContent.count} <span>/份</span></td>
+                                    </tr>
+                                </#list>
+                            </table>
+                        </div>
+                    </#list>
+                </div>
+            </div>
+        </div>
+        <div id="addr">
+            <div class="orders-head">
+                <ul>
+                    <li><a href="#">收货地址</a></li>
+                    <li class="more"><a href="for_address.html">添加新地址></a></li>
+                </ul>
+            </div>
+            <div class="orders-body">
+                <ul id="addr-box">
+                    <li class="addr-item">
+                        <div class="addr">
+                            <div>
+                                <p class="addr-name">
+                                    <span>唐马儒</span><span>先生</span><span class="addr-phone">13556474567</span>
+                                </p>
+                                <p class="addr-box">
+                                    <span>安阿达瓦区安仁共为街道万科大厦2楼</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="addr-item">
+                        <div class="addr">
+                            <div>
+                                <p class="addr-name">
+                                    <span>唐马儒</span><span>先生</span><span class="addr-phone">13556474567</span>
+                                </p>
+                                <p class="addr-box">
+                                    <span>安阿达瓦区安仁共为街道万科大厦2楼</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="addr-item">
+                        <div class="addr">
+                            <div>
+                                <p class="addr-name">
+                                    <span>唐马儒</span><span>先生</span><span class="addr-phone">13556474567</span>
+                                </p>
+                                <p class="addr-box">
+                                    <span>安阿达瓦区安仁共为街道万科大厦2楼</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="addr-item">
+                        <div class="addr">
+                            <div>
+                                <p class="addr-name">
+                                    <span>唐马儒</span><span>先生</span><span class="addr-phone">13556474567</span>
+                                </p>
+                                <p class="addr-box">
+                                    <span>安阿达瓦区安仁共为街道万科大厦2楼</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="addr-item">
+                        <div class="addr">
+                            <div>
+                                <p class="addr-name">
+                                    <span>唐马儒</span><span>先生</span><span class="addr-phone">13556474567</span>
+                                </p>
+                                <p class="addr-box">
+                                    <span>安阿达瓦区安仁共为街道万科大厦2楼</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <a class="cout cout-on" href="javascript:;">显示更多地址</a>
+                    <a class="cout cout-up" href="javascript:;">收起</a>
+                </ul>
+            </div>
+        </div>
+        <div id="coupon">
+            <div class="orders-head">
+                <ul>
+                    <li><a href="#">选择优惠</a></li>
+                </ul>
+            </div>
+            <div class="orders-body">
+                <p class="red-pack">
+                    <label>可用红包:</label>
+                    <select name="redEnvelope">
+                        <#list redEnvelopeList as redEnvelope>
+                            <option value="${redEnvelope.amount}">-${redEnvelope.amount}</option>
+                        </#list>
+                        <#if (redEnvelopeList?size>0)>
+                            <option value="0">不使用</option>
+                            <#else>
+                                <option value="0">无</option>
+                        </#if>
+                    </select>
+                </p>
+                <p class="coupon">
+                    <label>可用优惠券:</label>
+                    <select name="coupon">
+                        <#list couponList as coupon>
+                            <option value="${coupon.amount}">-${coupon.amount}</option>
+                        </#list>
+                        <#if (couponList?size>0)>
+                            <option value="0">不使用</option>
+                            <#else>
+                                <option value="0">无</option>
+                        </#if>
+                    </select>
+                </p>
+            </div>
+        </div>
+        <div id="other">
+            <div class="orders-head">
+                <ul>
+                    <li><a href="#">其他信息</a></li>
+                </ul>
+            </div>
+            <div class="orders-body">
+                <div class="express">
+                    <label>送达时间:</label>
+                    <div id="box">
+                        <select class="day">
+                            <option value="">今天</option>
+                            <option value="">明天</option>
+                            <option value="">后天</option>
+                        </select>
+                        <select name="" id="hour">
+                            <option value="选择">选择</option>
+                            <option value="">10:00－12:00</option>
+                            <option value="">12:00－14:00</option>
+                            <option value="">14:00－16:00</option>
+                            <option value="">16:00－18:00</option>
+                            <option value="">18:00以后</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="invoice">
+                    <label>是否开发票:</label>
+                    <select name="">
+                        <option value="选择" selected="selected">选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </p>
+                <p class="remarks">
+                    <label>优盒备注:</label>
+                    <textarea name="comment"></textarea>
+                </p>
+            </div>
+        </div>
+        <!--付款页面-->
+        <div id="payment">
+            <div class="orders-head">
+                <ul>
+                    <li><a href="#">支付商品</a></li>
+                </ul>
+            </div>
+            <div class="orders-body">
+                <p class="buy-text">您需要支付 : </p>
+                <span class="buy-price">￥<strong id="paymentAmount">${order.paymentAmount}</strong></span>
+                <div class="havelook">
+                    <a href="">再挑挑</a>
+                </div>
+                <div class="buy-now">
+                    <a href="javascript:;" class="onBuy">确认购买</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页面结束-->
+<iframe src="footer.html" frameborder="0" width="100%" height="490px" style="margin-bottom: -5px;"></iframe>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.base64.js"></script>
+<script type="text/javascript" src="/js/order.js"></script>
+<script type="text/javascript" src="/js/times.js"></script>
+
+</body>
+</html>

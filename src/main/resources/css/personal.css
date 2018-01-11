@@ -1,0 +1,1431 @@
+#main{
+	position: relative;
+	width: 100%;
+	background-color: #EBEBEB;
+}
+#main .container{
+	width: 1090px;
+	/*min-height: 1000px;*/
+	margin: 0 auto;
+	padding: 44px 0 62px;
+	overflow: hidden;
+}
+/*左侧导航*/
+#main .order-nav{
+	position: relative;
+	float: left;
+	width: 200px;
+	min-height: 700px;
+	background: #fff;
+}
+.order-nav dl{
+	padding: 40px 40px 45px 60px;
+	text-align: left;
+}
+.order-nav dt{
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+}
+.order-nav dd{
+	padding-top: 15px;
+}
+.order-nav dd a{
+	font-size: 16px;
+	color: #999;
+	transition: .2s all;
+}
+.order-nav dd a:hover{
+	color: #FED500;
+	transition: .2s all;
+}
+.order-nav .order{
+	padding-bottom: 5px;
+}
+.order-nav .vip{
+	padding-top: 40px;
+	padding-bottom: 5px;
+}
+.order-nav .profile{
+	padding-top: 40px;
+	padding-bottom: 5px;
+}
+/*右侧订单*/
+.orders{
+	position: relative;
+	float: right;
+	width: 878px;
+	min-height: 500px;
+	/*border: 1px solid red;*/
+}
+/*头部*/
+.orders-head{
+	position: relative;
+	width: 100%;
+	height: 60px;	
+	background: #fff;
+	margin-bottom: 21px;
+}
+.orders-head ul{
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.orders-head li{
+	width: 121px;
+	height: 35px;
+	float: left;
+	text-align: center;
+	border-bottom: 4px solid transparent;
+	margin: 0 25px;
+}
+.orders-head li{
+	border-bottom: 4px solid #FED500;
+}
+.orders-head li a{
+	display: block;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+}
+/*详情内容*/
+.orders-body{
+	position: relative;
+	width: 100%;
+}
+/*企业福利订单******************/
+#for_boon{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+}
+#for_boon li{
+	position: relative;
+	margin-bottom: 8px;
+	background: #fff;
+	overflow: hidden;
+}
+#for_boon .img-box{
+	float: left;
+	position: absolute;
+}
+#for_boon .img-box img{
+	display: block;
+	width: 607px;
+	height: 153px;
+}
+#for_boon .content{
+	position: relative;
+	width: 830px;
+	height: 117px;
+	padding: 18px 24px 18px;
+	color: #fff;
+}
+#for_boon .info-box{
+	float: left;
+	width: 500px;
+}
+#for_boon .title{
+	display: block;
+	height: 30px;
+	font-size: 22px;
+	color: #fff;
+	margin-top: -5px;
+	overflow: hidden;
+}
+#for_boon .title-list{
+	display: block;
+	height: 30px;
+	font-size: 22px;
+	color: #fff;
+	overflow: hidden;
+}
+#for_boon .title-list span{
+	margin-right: 8px;
+}
+#for_boon .str p{
+	display: inline-block;
+	color: #fff;
+}
+#for_boon .str p strong{
+	font-size: 16px;
+	color: #333;
+	font-weight: 500;
+}
+#for_boon .maybe{
+	width: 100px;
+	font-size: 14px;
+	/*color: #333;*/
+}
+#for_boon .time{
+	width: 100px;
+	font-size: 14px;
+	/*color: #999;*/
+}
+#for_boon .spread{
+	display: block;
+	width: 14px;
+	height: 11px;
+	background: url(../img/custom_spr.png);
+	margin: 3px 0 0 2px;
+	cursor: pointer;
+}
+#for_boon .end{
+	float: right;
+	width: 90px;
+}
+#for_boon .end .state{
+	text-align: center;
+	margin: 5px 7px 0;
+}
+#for_boon .end .state a{
+	display: block;
+	font-size: 14px;
+	color: #FED500;
+}
+#for_boon .end .price{
+	text-align: center;
+	margin: 20px 18px 16px;
+}
+#for_boon .end .price a{
+	display: block;
+	font-size: 18px;
+	color: #d71e1e;
+	font-weight: bold;
+}
+#for_boon .end .btn-again{
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	background: #FED500;
+	border-radius: 20px;
+}
+#for_boon .end .btn-again a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #fff;
+}
+/*订单详情hidden*/
+.boon-info{
+	position: relative;
+	width: 878px;
+	
+}
+.boon-info .box-info{
+	float: left;
+	width: 704px;
+	padding: 0 10px;
+	border-right: 1px dashed #f2f2f2;
+}
+.boon-info .text{
+	font-size: 16px;
+	color: #666;
+	min-height: 75px;
+	padding: 5px 15px 0;
+	border-bottom: 1px dashed #E6E6E6;
+}
+.boon-info .times{
+	line-height: 35px;
+	padding: 0 15px;
+}
+.boon-info .times span{
+	display: inline-block;
+	font-size: 16px;
+	color: #666;
+}
+.boon-info .times div{
+	display: inline-block;
+	width: 25px;
+	height: 5px;
+	border-top: 1px solid #e6e6e6;
+}
+.boon-info .addr{
+	font-size: 20px;
+	color: #FED500;
+	line-height: 55px;
+	padding: 0 10px;
+	border-top: 1px dashed #FFEE99;
+}
+.boon-info .addr .phone{
+	float: right;
+	font-size: 18px;
+}
+.boon-info .info-rt{
+	float: right;
+	width: 153px;
+	text-align: center;
+}
+.boon-info .info-rt .name{
+	margin-top: 50%;
+	font-size: 20px;
+	color: #FED500;
+}
+.boon-info .info-rt .sex{
+	font-size: 16px;
+	color: #FED500;
+}
+/*企业定制订单******************/
+#for_custom{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+}
+#for_custom li{
+	position: relative;
+	margin-bottom: 8px;
+	background: #fff;
+	overflow: hidden;
+}
+#for_custom .img-box{
+	float: left;
+	position: absolute;
+}
+#for_custom .img-box img{
+	display: block;
+	width: 607px;
+	height: 153px;
+}
+#for_custom .content{
+	position: relative;
+	width: 830px;
+	height: 117px;
+	padding: 18px 24px 18px;
+	color: #fff;
+}
+#for_custom .info-box{
+	float: left;
+	width: 500px;
+}
+#for_custom .title{
+	display: block;
+	height: 60px;
+	font-size: 22px;
+	color: #fff;
+	margin-top: -5px;
+	overflow: hidden;
+}
+#for_custom .str p{
+	display: inline-block;
+	color: #fff;
+}
+#for_custom .str p strong{
+	font-size: 16px;
+	color: #333;
+	font-weight: 500;
+}
+#for_custom .maybe{
+	width: 100px;
+	font-size: 14px;
+	/*color: #333;*/
+}
+#for_custom .time{
+	width: 100px;
+	font-size: 14px;
+	/*color: #999;*/
+}
+#for_custom .spread{
+	display: block;
+	width: 14px;
+	height: 11px;
+	background: url(../img/custom_spr.png);
+	margin: 3px 0 0 2px;
+	cursor: pointer;
+}
+#for_custom .end{
+	float: right;
+	width: 90px;
+}
+#for_custom .end .state{
+	text-align: center;
+	margin: 5px 7px 0;
+}
+#for_custom .end .state a{
+	display: block;
+	font-size: 14px;
+	color: #FED500;
+}
+#for_custom .end .price{
+	text-align: center;
+	margin: 20px 18px 16px;
+}
+#for_custom .end .price a{
+	display: block;
+	font-size: 18px;
+	color: #d71e1e;
+	font-weight: bold;
+}
+#for_custom .end .btn-again{
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	background: #FED500;
+	border-radius: 20px;
+}
+#for_custom .end .btn-again a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #fff;
+}
+/*订单详情hidden*/
+.custom-info{
+	position: relative;
+	width: 878px;
+	
+}
+.custom-info .box-info{
+	float: left;
+	width: 704px;
+	padding: 0 10px;
+	border-right: 1px dashed #f2f2f2;
+}
+.custom-info .text{
+	font-size: 16px;
+	color: #666;
+	min-height: 75px;
+	padding: 5px 15px 0;
+	border-bottom: 1px dashed #E6E6E6;
+}
+.custom-info .times{
+	line-height: 35px;
+	padding: 0 15px;
+}
+.custom-info .times span{
+	display: inline-block;
+	font-size: 16px;
+	color: #666;
+}
+.custom-info .times div{
+	display: inline-block;
+	width: 25px;
+	height: 5px;
+	border-top: 1px solid #e6e6e6;
+}
+.custom-info .addr{
+	font-size: 20px;
+	color: #FED500;
+	line-height: 55px;
+	padding: 0 10px;
+	border-top: 1px dashed #FFEE99;
+}
+.custom-info .addr .phone{
+	float: right;
+	font-size: 18px;
+}
+.custom-info .info-rt{
+	float: right;
+	width: 153px;
+	text-align: center;
+}
+.custom-info .info-rt .name{
+	margin-top: 50%;
+	font-size: 20px;
+	color: #FED500;
+}
+.custom-info .info-rt .sex{
+	font-size: 16px;
+	color: #FED500;
+}
+/*待付款订单详情***************************/
+#for_pay{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+}
+#for_pay li{
+	position: relative;
+	width: 100%;
+	height: 124px;
+	padding: 18px 24px 18px;
+	margin-bottom: 8px;
+	background: #fff;
+	overflow: hidden;
+}
+#for_pay .img-box{
+	float: left;
+}
+#for_pay .img-box a{
+	display: block;
+}
+#for_pay .img-box a img{
+	display: block;
+	width: 105px;
+	height: 105px;
+}
+#for_pay .info-box{
+	float: left;
+	width: 500px;
+	margin-left: 10px;
+}
+#for_pay .title{
+	display: block;
+	font-size: 18px;
+	color: #333;
+	/*margin: 0 0 5px 0;*/
+	margin-top: -5px;
+}
+#for_pay .order-title{
+	display: block;
+	font-size: 16px;
+	color: #999;
+	margin-bottom: 10px;
+}
+#for_pay .order-title em{
+	font-style: inherit;
+	color: #FED500;
+}
+#for_pay .maybe{
+	width: 100px;
+	font-size: 14px;
+	color: #333;
+}
+#for_pay .time{
+	width: 100px;
+	font-size: 14px;
+	color: #999;
+}
+#for_pay .end{
+	float: right;
+	width: 90px;
+}
+#for_pay .end .state{
+	text-align: center;
+}
+#for_pay .end .state p{
+	display: block;
+	font-size: 14px;
+	color: #333;
+}
+#for_pay .end .state b{
+	display: block;
+	font-size: 14px;
+	color: #d71e1e;
+}
+#for_pay .end .price{
+	text-align: center;
+	margin: 10px 17px 6px;
+}
+#for_pay .end .price a{
+	display: block;
+	font-size: 18px;
+	color: #d71e1e;
+}
+#for_pay .end .btn-again{
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	background: #FED500;
+	border-radius: 20px;
+}
+#for_pay .end .btn-again a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #fff;
+}
+#for_pay .end>p{
+	font-size: 14px;
+	color: #999;
+	margin-top: 5px;
+}
+#for_pay .addr{
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 10px;
+}
+#for_pay .addr span{
+	display: inline-block;
+	font-size: 16px;
+	color: #666;
+}
+#for_pay .addr a{
+	position: relative;
+	display: inline-block;
+	width: 17px;
+	height: 19px;
+	top: 3px;
+	background: url(../img/addr_a.png);
+	background-size: cover;
+}
+/*待评价订单详情*/
+#for_eval{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+}
+#for_eval li{
+	position: relative;
+	margin-bottom: 8px;
+	background: #fff;
+	overflow: hidden;
+}
+#for_eval .img-box{
+	position: absolute;
+}
+#for_eval .img-box img{
+	display: block;
+	width: 453px;
+	height: 153px;
+}
+#for_eval .content{
+	position: relative;
+	width: 830px;
+	height: 117px;
+	padding: 18px 24px 18px;
+	color: #fff;
+}
+#for_eval .info-box{
+	float: left;
+	width: 500px;
+}
+#for_eval .btn-eval{
+	position: absolute;
+	bottom: 15px;
+	right: 305px;
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	border: 1px solid #cacaca;
+	border-radius: 20px;
+}
+#for_eval .btn-eval a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #cacaca;
+}
+#for_eval .title{
+	display: block;
+	font-size: 22px;
+	color: #fff;
+	margin-top: -5px;
+}
+#for_eval .order-title{
+	display: block;
+	font-size: 22px;
+	color: #fff;
+}
+#for_eval .str p{
+	width: 100px;
+	color: #fff;
+}
+#for_eval .str p strong{
+	font-size: 16px;
+	color: #333;
+	font-weight: 500;
+}
+#for_eval .maybe{
+	width: 100px;
+	font-size: 14px;
+	/*color: #333;*/
+}
+#for_eval .time{
+	width: 100px;
+	font-size: 14px;
+	/*color: #999;*/
+}
+#for_eval .spread{
+	display: block;
+    width: 14px;
+    height: 11px;
+    background: url(../img/custom_spr.png);
+    margin-top: 3px;
+    cursor: pointer;
+}
+#for_eval .eval{
+	float: right;
+	width: 90px;
+	margin-right: 66px;
+}
+#for_eval .proce{
+	text-align: center;
+	margin: 5px 12px 0;
+}
+#for_eval .proce a{
+	display: block;
+	font-size: 14px;
+	color: #333;
+}
+#for_eval .reminder{
+	text-align: center;
+	margin: 24px 30px 18px;
+}
+#for_eval .reminder a{
+	display: block;
+	font-size: 14px;
+	color: #fed500;
+}
+#for_eval .refund{
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	border: 1px solid #333;
+	border-radius: 20px;
+}
+#for_eval .refund:hover{
+	opacity: .8;
+}
+#for_eval .refund a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #333;
+}
+#for_eval .end{
+	float: right;
+	width: 90px;
+}
+#for_eval .end .state{
+	text-align: center;
+	margin: 5px 7px 0;
+}
+#for_eval .end .state a{
+	display: block;
+	font-size: 14px;
+	color: #333;
+}
+#for_eval .end .price{
+	text-align: center;
+	margin: 20px 18px 16px;
+}
+#for_eval .end .price a{
+	display: block;
+	font-size: 18px;
+	color: #d71e1e;
+}
+#for_eval .end .btn-again{
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	background: #FED500;
+	border-radius: 20px;
+}
+#for_eval .end .btn-again a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #fff;
+}
+/*订单详情hidden*/
+.eval-info{
+	position: relative;
+	width: 878px;
+}
+.eval-info .box-info{
+	float: left;
+	width: 704px;
+	padding: 0 10px;
+	border-right: 1px dashed #f2f2f2;
+}
+.eval-info .rt{
+	float: right;
+}
+.eval-info .info-price{
+	width: 65px;
+	margin-right: 40px;
+	text-align: left;
+}
+.eval-info .info-unit{
+	width: 65px;
+	margin-right: 60px;
+	text-align: left;
+}
+.eval-info .text{
+	font-size: 16px;
+	color: #666;
+	line-height: 35px;
+	padding: 5px 15px 0;
+	border-bottom: 1px dashed #E6E6E6;
+}
+.eval-info .times{
+	line-height: 35px;
+	padding: 0 15px;
+}
+.eval-info .times span{
+	display: inline-block;
+	font-size: 16px;
+	color: #666;
+}
+.eval-info .times div{
+	display: inline-block;
+	width: 25px;
+	height: 5px;
+	border-top: 1px solid #e6e6e6;
+}
+.eval-info .addr{
+	font-size: 20px;
+	color: #FED500;
+	line-height: 55px;
+	padding: 0 10px;
+	border-top: 1px dashed #FFEE99;
+}
+.eval-info .addr .phone{
+	float: right;
+	font-size: 18px;
+}
+.eval-info .info-rt{
+	float: right;
+	width: 153px;
+	text-align: center;
+}
+.eval-info .info-rt .name{
+	margin-top: 50%;
+	font-size: 20px;
+	color: #FED500;
+}
+.eval-info .info-rt .sex{
+	font-size: 16px;
+	color: #FED500;
+}
+/*我的退款*/
+#for_refund{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+}
+#for_refund li{
+	position: relative;
+	margin-bottom: 8px;
+	background: #fff;
+	overflow: hidden;
+}
+#for_refund .img-box{
+	position: absolute;
+}
+#for_refund .img-box img{
+	display: block;
+	width: 453px;
+	height: 153px;
+}
+#for_refund .content{
+	position: relative;
+	width: 830px;
+	height: 117px;
+	padding: 18px 24px 18px;
+	color: #fff;
+}
+#for_refund .info-box{
+	float: left;
+	width: 500px;
+}
+#for_refund .btn-eval{
+	position: absolute;
+	bottom: 15px;
+	right: 305px;
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	border: 1px solid #cacaca;
+	border-radius: 20px;
+}
+#for_refund .btn-eval a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #cacaca;
+}
+#for_refund .title{
+	display: block;
+	font-size: 22px;
+	color: #fff;
+	margin-top: -5px;
+}
+#for_refund .order-title{
+	display: block;
+	font-size: 22px;
+	color: #fff;
+}
+#for_refund .str p{
+	width: 100px;
+	color: #fff;
+}
+#for_refund .str p strong{
+	font-size: 16px;
+	color: #333;
+	font-weight: 500;
+}
+#for_refund .maybe{
+	width: 100px;
+	font-size: 14px;
+	/*color: #333;*/
+}
+#for_refund .time{
+	width: 100px;
+	font-size: 14px;
+	/*color: #999;*/
+}
+#for_refund .spread{
+	display: block;
+    width: 14px;
+    height: 11px;
+    background: url(../img/custom_spr.png);
+    margin-top: 3px;
+    cursor: pointer;
+}
+#for_refund .eval{
+	float: right;
+	width: 90px;
+	margin-right: 66px;
+}
+#for_refund .proce{
+	text-align: center;
+	margin: 5px 12px 0;
+}
+#for_refund .proce a{
+	display: block;
+	font-size: 14px;
+	color: #333;
+}
+#for_refund .reminder{
+	text-align: center;
+	margin: 24px 30px 18px;
+}
+#for_refund .reminder a{
+	display: block;
+	font-size: 14px;
+	color: #fed500;
+}
+#for_refund .refund{
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	border: 1px solid #333;
+	border-radius: 20px;
+}
+#for_refund .refund:hover{
+	opacity: .8;
+}
+#for_refund .refund a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #333;
+}
+#for_refund .end{
+	float: right;
+	width: 90px;
+}
+#for_refund .end .state{
+	text-align: center;
+	margin: 5px 7px 0;
+}
+#for_refund .end .state a{
+	display: block;
+	font-size: 14px;
+	color: #333;
+}
+#for_refund .end .price{
+	text-align: center;
+	margin: 20px 18px 16px;
+}
+#for_refund .end .price a{
+	display: block;
+	font-size: 18px;
+	color: #d71e1e;
+}
+#for_refund .end .btn-cancel{
+	width: 88px;
+	height: 33px;
+	text-align: center;
+	background: #FED500;
+	border-radius: 20px;
+}
+#for_refund .end .btn-cancel a{
+	display: block;
+	line-height: 33px;
+	font-size: 12px;
+	color: #fff;
+}
+/*订单详情hidden*/
+.refund-info{
+	position: relative;
+	width: 878px;
+}
+.refund-info .box-info{
+	float: left;
+	width: 704px;
+	padding: 0 10px;
+	border-right: 1px dashed #f2f2f2;
+}
+.refund-info .rt{
+	float: right;
+}
+.refund-info .info-price{
+	width: 65px;
+	margin-right: 40px;
+	text-align: left;
+}
+.refund-info .info-unit{
+	width: 65px;
+	margin-right: 60px;
+	text-align: left;
+}
+.refund-info .text{
+	font-size: 16px;
+	color: #666;
+	line-height: 35px;
+	padding: 5px 15px 0;
+	border-bottom: 1px dashed #E6E6E6;
+}
+.refund-info .times{
+	line-height: 35px;
+	padding: 0 15px;
+}
+.refund-info .times span{
+	display: inline-block;
+	font-size: 16px;
+	color: #666;
+}
+.refund-info .times div{
+	display: inline-block;
+	width: 25px;
+	height: 5px;
+	border-top: 1px solid #e6e6e6;
+}
+.refund-info .addr{
+	font-size: 20px;
+	color: #FED500;
+	line-height: 55px;
+	padding: 0 10px;
+	border-top: 1px dashed #FFEE99;
+}
+.refund-info .addr .phone{
+	float: right;
+	font-size: 18px;
+}
+.refund-info .info-rt{
+	float: right;
+	width: 153px;
+	text-align: center;
+}
+.refund-info .info-rt .name{
+	margin-top: 50%;
+	font-size: 20px;
+	color: #FED500;
+}
+.refund-info .info-rt .sex{
+	font-size: 16px;
+	color: #FED500;
+}
+/*******************************************VIP*/
+/*个人资料***************************/
+#data input:focus{
+	border-color: #FED500;
+}
+#data{
+	padding: 25px 25px 40px;
+}
+#data p{
+	position: relative;
+	margin-bottom: 5px;
+	font-size: 18px;
+	color: #999;
+}
+#data label{
+	display: inline-block;
+	width: 100px;
+	font-size: 18px;
+	color: #999;
+	text-align: right;
+}
+#data input{
+	width: 130px;
+	height: 26px;
+	margin-left: 28px;
+	padding: 0 5px;
+	font-size: 14px;
+	color: #666;
+	border: 1px solid #999;
+	outline: none;
+}
+#data p a{
+	position: absolute;
+	display: inline-block;
+	background: url(../img/form_alter.png);
+	width: 17px;
+	height: 20px;
+	margin: 5px 0 0 20px;
+}
+#data .name>input{
+	width: 200px;
+}
+#data .section>input{
+	width: 200px;
+}
+#data .phone{
+	margin-bottom: 15px;
+}
+#data .addr{
+	margin: 15px 0 15px;
+}
+#data .addr input{
+	margin-bottom: 5px;
+}
+
+#data .linkman select{
+	width: 50px;
+	height: 29.5px;
+	outline: none;
+	font-size: 13px;
+	color: #666;
+}
+#data .linkman input{
+	width: 75px;
+}
+#data .submit{
+	margin-top: 10px;
+	display: block;
+	width: 116px;
+	height: 35px;
+	background: #FED500;
+	color: #fff;
+	border: none;
+	margin-left: 132px;
+}
+/*地址管理***************************/
+#address{
+	padding: 24px 24px 80px;
+}
+#address h3{
+	font-size: 16px;
+	color: #FED500;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+.address{
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -8px;
+	margin-bottom: -8px;
+}
+.address li:first-child{
+	border: 1px solid #FED500;
+}
+.address li{
+	position: relative;
+	width: 385px;
+	height: 108px;
+	padding: 16px 12px;
+	border: 1px solid #e2e2e2;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	overflow: hidden;
+}
+.address li .alter{
+	position: absolute;
+	display: block;
+	width: 17px;
+	height: 20px;
+	top: 17px;
+	right: 13px;
+	background: url(../img/ul_alter.png);
+}
+.address li .alter:hover{
+	background: url(../img/form_alter.png);
+}
+.address li .delete{
+	position: absolute;
+	display: block;
+	width: 11px;
+	height: 11px;
+	bottom: 16px;
+	right: 12px;
+	background: url(../img/ul_delete.png);
+}
+.address li p{
+	margin: 2px 0;
+	font-size: 18px;
+	color: #333;
+}
+.address li span{
+	font-size: 18px;
+	color: #666;
+}
+.address .user{
+	display: inline-block;
+	margin-right: 8px;
+}
+.address .region{
+	display: inline-block;
+	margin-right: 15px;
+}
+.address .street{
+	display: inline-block;
+}
+.address .room{
+	width:300px;
+	height:60px;
+	overflow: hidden;
+}
+.address .new{
+	background: #fff;
+}
+.address .new:hover{
+	background: #fbfbfb;
+	transition: .2s all;
+}
+.address .new a{
+	display: block;
+	line-height: 142px;
+	/*margin-top: -19px;*/
+	margin: -19px -13px 0;
+	text-align: center;
+}
+.address .new a p:before{
+	content: url(../img/ul_new.png);
+	position: relative;
+	top: 3px;
+	right: 12px;
+}
+/*修改密码***************************/
+#alter{
+	padding: 25px 25px 30px;
+}
+#alter p{
+	margin-bottom: 15px;
+}
+#alter span{
+	display: inline-block;
+	font-size: 18px;
+	color: #999;
+}
+#alter b{
+	display: inline-block;
+	font-size: 16px;
+	color: #666;
+	font-weight: 500;
+}
+#alter a{
+	position: absolute;
+	display: inline-block;
+	width: 17px;
+	height: 20px;
+	background: url(../img/form_alter.png);
+	margin: 2px 0 0 25px;
+}
+#alter input{
+	outline: none;
+}
+#alter .btn-code{
+	width: 116px;
+	height: 27px;
+	font-size: 16px;
+	color: #fff;
+	background: #FED500;
+	border: none;
+	margin-right: 10px;
+}
+#alter .input-code{
+	position: absolute;
+	width: 150px;
+	height: 25px;
+	font-size: 16px;
+	color: #bfbfbf;
+	border: 1px solid #ddd;
+	padding: 0 10px;
+}
+input::-webkit-input-placeholder{
+    color: #bfbfbf;
+    font-size: 16px;
+}
+#alter .newcode, .againcode{
+	width: 276px;
+	height: 25px;
+	padding: 0 10px;
+	margin: 10px 0;
+	border: 1px solid #ddd;
+}
+#alter .btn-submit{
+	width: 116px;
+	height: 35px;
+	background: #FED500;
+	font-size: 12px;
+	color: #fff;
+	border: none;
+}
+/*弹框*************************/
+.black_overlay{
+display: none;
+position: fixed;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+background-color: #aaa;
+z-index:1001;
+-moz-opacity: 0.8;
+opacity:.80;
+/*filter: alpha(opacity=80);*/
+}
+.white_content{
+display: none;
+position: fixed;
+width: 632px;
+min-height: 304px;
+top: 45%;
+left: 50%;
+margin-top: -152px;
+margin-left: -351px;
+padding: 0 35px 0;
+background-color: #fff;
+z-index:1002;
+overflow: hidden;
+}
+/*申请退款弹框***/
+#MyRefund .move{
+	position: relative;
+	height: 72px;
+	border-bottom: 1px solid #EBEBEB;
+}
+#MyRefund .title{
+	position: absolute;
+	width: 88px;
+	height: 35px;
+	left: 50%;
+	bottom: 0;
+	margin-left: -36px;
+	border-bottom: 4px solid #FED500;
+	text-align: center;
+	bottom: -1px;
+}
+#MyRefund .title a{
+	display: block;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+}
+#MyRefund .list ul{
+	list-style-image: url(../img/list_not.png);
+	list-style-position: inside;
+	padding: 30px 30px 40px;
+}
+#MyRefund .list ul li{
+	line-height: 30px;
+	font-size: 16px;
+	color: #333;
+}
+#MyRefund .btn-refund{
+	position: absolute;
+	right: 90px;
+	top: 108px;
+	width: 108px;
+	height: 35px;
+	background: #FED500;
+	text-align: center;
+}
+#MyRefund .btn-refund a{
+	display: block;
+	line-height: 35px;
+	font-size: 14px;
+	color: #fefefe;
+}
+#MyRefund .btn-back{
+	position: absolute;
+	right: 90px;
+	top: 156px;
+	width: 106px;
+	height: 33px;
+	border: 1px solid #FED500;
+	text-align: center;
+}
+#MyRefund .btn-back a{
+	display: block;
+	line-height: 33px;
+	font-size: 14px;
+	color: #FED500;
+}
+/*修改地址弹框***/
+#MyTake input:focus{
+	border-color: #FED500;
+}
+#MyTake{
+	/*padding: 20px 25px 20px;*/
+	padding-bottom: 20px;
+}
+#MyTake .move{
+	position: relative;
+	height: 72px;
+	border-bottom: 1px solid #EBEBEB;
+}
+#MyTake .title{
+	position: absolute;
+	width: 120px;
+	height: 35px;
+	left: 50%;
+	bottom: 0;
+	margin-left: -60px;
+	border-bottom: 4px solid #FED500;
+	text-align: center;
+	bottom: -1px;
+}
+#MyTake .title span{
+	display: block;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+}
+#MyTake p{
+	position: relative;
+	margin-top: 15px;
+	font-size: 18px;
+	color: #999;
+}
+#MyTake label{
+	display: inline-block;
+	width: 100px;
+	font-size: 18px;
+	color: #999;
+	text-align: right;
+}
+#MyTake input{
+	width: 130px;
+	height: 26px;
+	margin-left: 27px;
+	padding: 0 5px;
+	font-size: 14px;
+	color: #666;
+	border: 1px solid #999;
+	outline: none;
+}
+#MyTake p a{
+	position: absolute;
+	display: inline-block;
+	background: url(../img/form_alter.png);
+	width: 17px;
+	height: 20px;
+	margin: 5px 0 0 20px;
+}
+#MyTake .phone{
+	margin-bottom: 15px;
+}
+#MyTake .addr{
+	margin: 15px 0;
+}
+#MyTake .addr input{
+	margin-bottom: 5px;
+}
+#MyTake .user select{
+	width: 50px;
+	height: 27.5px;
+	outline: none;
+	font-size: 13px;
+	color: #666;
+}
+#MyTake .submit{
+	margin-top: 10px;
+	display: block;
+	width: 116px;
+	height: 35px;
+	background: #FED500;
+	color: #fff;
+	border: none;
+	margin-left: 132px;
+}
+#MyTake .close{
+	position: absolute;
+	top: 5px;
+	right: 15px;
+	font-size: 30px;
+}

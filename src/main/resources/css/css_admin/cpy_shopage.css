@@ -1,0 +1,528 @@
+/*头部logo部分*/
+#header{
+	position: relative;
+	width: 100%;
+	height: 82px;
+	background: #fff;
+}
+#header .container{
+	position:relative;
+	width: 1090px;
+	margin: 0 auto;
+}
+#header .logo{
+	float: left;
+}
+#header .logo>a{
+	display: inline-block;
+	width: 251px;
+	height: 53px;
+	margin-top: 16px;
+	background: url(../img/logo.png) no-repeat;
+}
+#header .company-title{
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 170px;
+	height: 82px;
+	line-height: 82px;
+	font-weight: lighter;
+	font-size: 38px;
+	color: #fff;
+	background: #FED500;
+	margin-left: 10px;
+}
+/*页脚*/	
+footer{
+    width:100%;
+    padding: 40px 0 20px;
+    background: #fff;
+}
+footer div{
+    /*width: 500px;*/
+    margin:0 auto;
+    text-align: center;
+    font-size: 14px;
+    color:#666;
+    margin-bottom:7px;
+}
+body{
+	background-color: #EBEBEB;
+}
+#main{
+	position: relative;
+	width: 100%;
+	background-color: #EBEBEB;
+}
+#main .container{
+	width: 1090px;
+	margin: 0 auto;
+	padding: 44px 0 62px;
+	overflow: hidden;
+}
+/*左侧导航*/
+#main .order-nav{
+	position: relative;
+	float: left;
+	width: 200px;
+	min-height: 700px;
+	background: #fff;
+}
+.order-nav dl{
+	padding: 40px 40px 45px 60px;
+	text-align: left;
+}
+.order-nav dt{
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	padding-top: 40px;
+    padding-bottom: 5px;
+}
+.order-nav dt:first-child{
+	padding: 0;
+}
+.order-nav dd{
+	padding-top: 15px;
+}
+.order-nav dd a{
+	font-size: 16px;
+	color: #999;
+	transition: .2s all;
+}
+.order-nav dd a:hover{
+	color: #FED500;
+	transition: .2s all;
+}
+/*右侧订单*/
+.orders{
+	position: relative;
+	float: right;
+	width: 878px;
+	min-height: 500px;
+	/*border: 1px solid red;*/
+}
+/*头部*/
+.orders-head{
+	position: relative;
+	width: 100%;
+	height: 60px;	
+	background: #fff;
+	margin-bottom: 21px;
+}
+.orders-head ul{
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.orders-head li{
+	width: 91px;
+	height: 35px;
+	margin: ;
+	float: left;
+	text-align: center;
+	border-bottom: 4px solid transparent;
+	margin: 0 25px;
+}
+.orders-head li{
+	border-bottom: 4px solid #FED500;
+}
+.orders-head li a{
+	display: block;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+}
+/*详情内容*/
+.orders-body{
+	position: relative;
+	width: 100%;
+}
+/*商品审核******************/
+#cpy-shopage .menu{
+	width: 100%;
+	height: 35px;
+	background: #fff;
+	margin-bottom: 12px;
+}
+#cpy-shopage .menu a{
+	display: inline-block;
+	height: 35px;
+	line-height: 35px;
+	font-size: 14px;
+	color: #999;
+	padding: 0 25px;
+	transition: .2s all;
+}
+#cpy-shopage .menu a:focus{
+	background: #DCDCDC;
+	color: #fff;
+	border-bottom: 1px solid #FED500;
+}
+#cpy-shopage ul{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+	margin-right: -10px;
+}
+#cpy-shopage li{
+	position: relative;
+	margin-bottom: 8px;
+	margin-right: 10px;
+}
+#cpy-shopage .content{
+	position: relative;
+	width: 434px;
+	height: 132px;
+	background: #fff;
+}
+#cpy-shopage .title-box{
+	position: relative;
+	background: #333;
+	height: 26px;
+	overflow: hidden;
+}
+#cpy-shopage .title-box .img-bg{
+	position: absolute;
+}
+#cpy-shopage .title-box .img-bg img{
+	display: block;
+	width: 348px;
+	height: 26px;
+}
+#cpy-shopage .title-info{
+	position: relative;
+	line-height: 26px;
+}
+#cpy-shopage .title-info span{
+	font-size: 16px;
+	color: #fff;
+}
+#cpy-shopage .title-info .title{
+	margin-left: 8px;
+}
+#cpy-shopage .title-info .times{
+	float: right;
+}
+#cpy-shopage .shop-box{
+	position: relative;
+	background: #fff;
+	height: 106px;
+	overflow: hidden;
+}
+#cpy-shopage .img-shop{
+	float: left;
+	width: 186px;
+	height: 106px;
+}
+#cpy-shopage .img-shop img{
+	display: block;
+	width: 186px;
+	height: 106px; 
+}
+#cpy-shopage .shop-info{
+	float: right;
+	width: 238px;
+	height: 106px;
+	padding-right: 10px;
+	text-align: right;
+}
+#cpy-shopage .shop-info span{
+	display: block;
+}
+#cpy-shopage .info-title{
+	font-size: 20px;
+	color: #333;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+#cpy-shopage .info-text{
+	font-size: 18px;
+	color: #333;
+	width: 238px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+}
+#cpy-shopage .info-number{
+	font-size: 18px;
+	color: #d71e1e;
+}
+#cpy-shopage .info-number strong{
+	font-weight: 500;
+	margin-left: -4px;
+}
+#cpy-shopage .info-age{
+	font-size: 16px;
+	color: #FED500;
+	cursor: pointer;
+}
+#cpy-shopage .info-age:before{
+	content: url(../img/company/shop-list-check.png);
+	position: relative;
+	top: 2px;
+	right: 5px;
+}
+/*弹框bg*/
+.black_overlay{
+display: none;
+position: fixed;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+background-color: #aaa;
+z-index:1001;
+-moz-opacity: 0.8;
+opacity:.80;
+/*filter: alpha(opacity=80);*/
+}
+/*商品信息审核弹框******************/
+#MyShopage {
+display: none;
+position: fixed;
+width: 682px;
+height: 876px;
+top: 50%;
+left: 50%;
+margin-top: -438px;
+margin-left: -341px;
+background-color: #fff;
+z-index:1002;
+overflow: hidden;
+}
+#MyShopage .check_add{
+	width: 100%;
+}
+#MyShopage .check_add .cont-box{
+	position: relative;
+	width: 632px;
+	height: 430px;
+	top: 0;
+	left: 0;
+	padding: 25px;
+	background: #fff;
+}
+#MyShopage .check_add .cont-box .onClose{
+	position: absolute;
+	right: 35px;
+	top: 25px;
+	font-size: 30px;
+	color: #333;
+	cursor: pointer;
+}
+#MyShopage .check_add .cont-box h2{
+	font-size: 26px;
+	color: #999;
+	font-weight: 500;
+	padding: 20px 0;
+}
+#MyShopage .check_add .cont-box .cont_lf{
+	float: left;
+}
+#MyShopage .check_add .shop-lf-title span{
+	display: block;
+	width: 395px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 24px;
+	color: #333;
+	overflow: hidden;
+}
+#MyShopage .check_add .shop-lf-img{
+	width: 395px;
+	height: 207px;
+	background: url(../img/shop_img.png);
+}
+#MyShopage .check_add .shop-lf-depict{
+	position: relative;
+	margin-top: 20px;
+}
+#MyShopage .check_add .shop-lf-depict textarea{
+	width: 395px;
+	height: 70px;
+	font-size: 20px;
+	color: #333;
+	resize: none;
+	border: none;
+	outline: none;
+}
+#MyShopage .check_add .cont_rt{
+	float: right;
+	margin-right: 30px;
+}
+#MyShopage .check_add .shop-rt-price{
+	display: block;
+	width: 169px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	color: #333;
+	overflow: hidden;
+}
+#MyShopage .check_add .shop-rt-price span{
+	font-size: 24px;
+	color: #D71E1E;
+}
+#MyShopage .check_add .shop-rt-price strong{
+	font-size: 24px;
+	color: #D71E1E;
+	font-weight: 500;
+}
+#MyShopage .check_add .shop-rt-img{
+	width: 169px;
+	height: 98px;
+	background: url(../img/shop-rt-img.png);
+}
+#MyShopage .check_add .shop-rt-img img{
+	display: block;
+	width: 169px;
+	height: 98px;
+}
+#MyShopage table{
+	display: block;
+	width: 642px;
+	height: 204px;
+	border-top: 1px solid #F2F2F2;
+	border-bottom: 1px solid #F2F2F2;
+	padding: 20px 0;
+	margin: 0 20px;
+	overflow: auto;
+}
+#MyShopage table tr{
+	height: 32px;
+	line-height: 32px;
+}
+#MyShopage table tr:nth-child(2n){
+	background: #FBFBFB;
+}
+#MyShopage table tr th{
+	font-size: 16px;
+	color: #999;
+	font-weight: 500;
+	text-align: left;
+	padding: 5px 12px;
+}
+#MyShopage table tr td{
+	height: 32px;
+	font-size: 16px;
+	color: #333;
+	text-align: left;
+	padding: 0 12px;
+}
+#MyShopage table tr td:nth-child(1){
+	width: 326px;
+}
+#MyShopage table tr td:nth-child(2){
+	width: 136px;
+}
+#MyShopage table tr td:nth-child(3){
+	width: 108px;
+}
+#MyShopage .btn-box{
+	position: relative;
+	width: 632px;
+	height: 100px;
+	background: #fff;
+	margin: 0 25px;
+}
+#MyShopage .btn{
+	margin-top: 50px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+#MyShopage .pass{
+	width: 108px;
+	height: 35px;
+	background: #FED500;
+	font-size: 16px;
+	color: #fff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin-right: 140px;
+}
+#MyShopage .not{
+	width: 108px;
+	height: 35px;
+	background: #fff;
+	font-size: 16px;
+	color: #FED500;
+	border: 1px solid #FED500;
+	outline: none;
+	cursor: pointer;
+}
+#MyShopage .btn button:hover{
+	opacity: .75;
+}
+/*弹框bg*/
+#delete{
+display: none;
+position: fixed;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+background-color: #aaa;
+z-index:1003;
+-moz-opacity: 0.8;
+opacity:.80;
+/*filter: alpha(opacity=80);*/
+}
+
+/*删除商品弹框*/
+#MyDelete{
+	display: none;
+	position: fixed;
+	width: 450px;
+	height: 260px;
+	top: 45%;
+	left: 50%;
+	margin-top: -130px;
+	margin-left: -225px;
+	padding: 0 35px 0;
+	background-color: #fff;
+	z-index:1004;
+	overflow: hidden;
+}
+#MyDelete p {
+	display: block;
+	padding:70px 0 30px;
+	text-align: center;
+	font-size:20px;
+	color: #666;
+}
+#MyDelete .btn-box{
+	margin-top:20px;
+	height:35px;
+	line-height:35px;
+	text-align: center;
+}
+#MyDelete .btn-box button{
+	width:115px;
+	height:35px;
+	border:none;
+	outline:none;
+	cursor: pointer;
+}
+#MyDelete .btn-box button:hover{
+	opacity:.85;
+}
+#MyDelete .btn-box .yes{
+	font-size:18px;
+	color: #fff;
+	background: #FED500;
+	margin-right:80px;
+}
+#MyDelete .btn-box .no{
+	width:113px;
+	height:33px;
+	font-size:18px;
+	color: #FED500;
+	background: #fff;
+	border:1px solid #FED500;
+}

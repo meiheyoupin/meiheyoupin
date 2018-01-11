@@ -1,0 +1,636 @@
+/*头部logo部分*/
+#header{
+	position: relative;
+	width: 100%;
+	height: 82px;
+	background: #fff;
+}
+#header .container{
+	position:relative;
+	width: 1090px;
+	margin: 0 auto;
+}
+#header .logo{
+	float: left;
+}
+#header .logo>a{
+	display: inline-block;
+	width: 251px;
+	height: 53px;
+	margin-top: 16px;
+	background: url(../img/logo.png) no-repeat;
+}
+#header .company-title{
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 170px;
+	height: 82px;
+	line-height: 82px;
+	font-weight: lighter;
+	font-size: 38px;
+	color: #fff;
+	background: #FED500;
+	margin-left: 10px;
+}
+/*页脚*/	
+footer{
+    width:100%;
+    padding: 40px 0 20px;
+    background: #fff;
+}
+footer div{
+    /*width: 500px;*/
+    margin:0 auto;
+    text-align: center;
+    font-size: 14px;
+    color:#666;
+    margin-bottom:7px;
+}
+body{
+	background-color: #EBEBEB;
+}
+#main{
+	position: relative;
+	width: 100%;
+	background-color: #EBEBEB;
+}
+#main .container{
+	width: 1090px;
+	margin: 0 auto;
+	padding: 44px 0 62px;
+	overflow: hidden;
+}
+/*左侧导航*/
+#main .order-nav{
+	position: relative;
+	float: left;
+	width: 200px;
+	min-height: 700px;
+	background: #fff;
+}
+.order-nav dl{
+	padding: 40px 40px 45px 60px;
+	text-align: left;
+}
+.order-nav dt{
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	padding-top: 40px;
+    padding-bottom: 5px;
+}
+.order-nav dt:first-child{
+	padding: 0;
+}
+.order-nav dd{
+	padding-top: 15px;
+}
+.order-nav dd a{
+	font-size: 16px;
+	color: #999;
+	transition: .2s all;
+}
+.order-nav dd a:hover{
+	color: #FED500;
+	transition: .2s all;
+}
+/*右侧订单*/
+.orders{
+	position: relative;
+	float: right;
+	width: 878px;
+	min-height: 500px;
+	/*border: 1px solid red;*/
+}
+/*头部*/
+.orders-head{
+	position: relative;
+	width: 100%;
+	height: 60px;	
+	background: #fff;
+	margin-bottom: 21px;
+}
+.orders-head ul{
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.orders-head li{
+	width: 91px;
+	height: 35px;
+	margin: ;
+	float: left;
+	text-align: center;
+	border-bottom: 4px solid transparent;
+	margin: 0 25px;
+}
+.orders-head li{
+	border-bottom: 4px solid #FED500;
+}
+.orders-head li a{
+	display: block;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+}
+/*详情内容*/
+.orders-body{
+	position: relative;
+	width: 100%;
+}
+/*套餐审核******************/
+#cpy-pack ul{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+	margin-right: -10px;
+}
+#cpy-pack li{
+	position: relative;
+	margin-bottom: 8px;
+	margin-right: 10px;
+}
+#cpy-pack .content{
+	position: relative;
+	width: 434px;
+	height: 132px;
+	background: #fff;
+}
+#cpy-pack .title-box{
+	position: relative;
+	background: #333;
+	height: 26px;
+	overflow: hidden;
+}
+#cpy-pack .title-box .img-bg{
+	position: absolute;
+}
+#cpy-pack .title-box .img-bg img{
+	display: block;
+	width: 348px;
+	height: 26px;
+}
+#cpy-pack .title-info{
+	position: relative;
+	line-height: 26px;
+}
+#cpy-pack .title-info span{
+	font-size: 16px;
+	color: #fff;
+}
+#cpy-pack .title-info .title{
+	margin-left: 8px;
+}
+#cpy-pack .title-info .times{
+	float: right;
+}
+#cpy-pack .pack-box{
+	position: relative;
+	background: #fff;
+	height: 106px;
+	overflow: hidden;
+}
+#cpy-pack .img-pack{
+	float: left;
+	width: 186px;
+	height: 106px;
+}
+#cpy-pack .img-pack img{
+	display: block;
+	width: 186px;
+	height: 106px; 
+}
+#cpy-pack .pack-info{
+	float: right;
+	width: 238px;
+	height: 106px;
+	padding-right: 10px;
+	text-align: right;
+}
+#cpy-pack .pack-info span{
+	display: block;
+}
+#cpy-pack .info-title{
+	font-size: 20px;
+	color: #333;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+#cpy-pack .info-text{
+	font-size: 18px;
+	color: #333;
+	width: 238px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+}
+#cpy-pack .info-text strong{
+	font-weight: 500;
+	color: #FED500;
+}
+#cpy-pack .info-number{
+	font-size: 18px;
+	color: #d71e1e;
+}
+#cpy-pack .info-number strong{
+	font-weight: 500;
+	margin-left: -4px;
+}
+#cpy-pack .info-check{
+	font-size: 16px;
+	color: #FED500;
+	cursor: pointer;
+}
+#cpy-pack .info-check:before{
+	content: url(../img/company/check.png);
+	position: relative;
+	top: 2px;
+	right: 5px;
+}
+/*弹框bg*/
+.black_overlay{
+display: none;
+position: fixed;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+background-color: #aaa;
+z-index:1001;
+-moz-opacity: 0.8;
+opacity:.80;
+/*filter: alpha(opacity=80);*/
+}
+/*套餐信息审核弹框******************/
+#MyPack {
+display: none;
+position: fixed;
+width: 682px;
+height: 895px;
+top: 50%;
+left: 50%;
+margin-top: -447px;
+margin-left: -341px;
+background-color: #fff;
+z-index:1002;
+overflow: hidden;
+}
+#MyPack .pack{
+	width: 100%;
+}
+#MyPack .pack .cont-box{
+	position: relative;
+	width: 632px;
+	top: 0;
+	left: 0;
+	padding: 25px;
+	padding-bottom: 0;
+	background: #fff;
+}
+#MyPack .pack .upload-img{
+	display: flex;
+	flex-wrap: wrap;
+	width: 632px;
+	height: 360px;
+	overflow: auto;
+}
+#MyPack .pack .upload-img>li{
+	margin-bottom: 6px;
+}
+#MyPack .pack .upload-img>li:nth-child(1){
+	width: 100%;
+	height: 356px;
+}
+#MyPack .pack .upload-img>li:nth-child(1) img{
+	display: block;
+	width: 615px;
+	height: 356px;
+}
+#MyPack .pack .upload-img>li:nth-child(2){
+	width: 356px;
+	height: 210px;
+	margin-right: 6px;
+}
+#MyPack .pack .upload-img>li:nth-child(2) img{
+	display: block;
+	width: 356px;
+	height: 210px;
+}
+#MyPack .pack .list-img-box{
+	width: 250px;
+	height: 210px;
+}
+#MyPack .pack .list-img-box ul{
+	display: flex;
+	flex-wrap: wrap;
+}
+#MyPack .pack .list-img-box ul li{
+	width: 118px;
+	height: 70px;
+	margin-right: 6px;
+}
+#MyPack .pack .list-img-box ul li img{
+	display: block;
+	width: 118px;
+	height: 70px;
+}
+#MyPack .pack table{
+	display: block;
+	width: 632px;
+	height: 144px;
+	margin: 20px 0;
+	overflow: auto;
+}
+#MyPack .pack table tr{
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+}
+#MyPack .pack table tr:nth-child(2n){
+	background: #FBFBFB;
+}
+#MyPack .pack table tr th{
+	font-size: 16px;
+	color: #999;
+	font-weight: 500;
+	text-align: left;
+	padding: 5px 12px;
+}
+#MyPack .pack table tr td{
+	height: 32px;
+	font-size: 16px;
+	color: #333;
+	text-align: left;
+	padding: 0 12px;
+}
+#MyPack .pack table tr td:nth-child(1){
+	width: 188px;
+}
+#MyPack .pack table tr td:nth-child(2){
+	width: 176px;
+}
+#MyPack .pack table tr td:nth-child(3){
+	width: 86px;
+}
+#MyPack .pack table tr td:nth-child(4){
+	width: 86px;
+}
+
+#MyPack .pack .cont-box .onClose{
+	position: absolute;
+	right: 35px;
+	top: 25px;
+	font-size: 30px;
+	color: #333;
+	cursor: pointer;
+}
+#MyPack .pack .cont-box .classify{
+	font-size: 20px;
+	color: #666;
+}
+#MyPack .pack .cont-box .classify span{
+	font-size: 18px;
+}
+#MyPack .pack .cont-box h2{
+	font-size: 26px;
+	color: #999;
+	font-weight: 500;
+	padding: 20px 0;
+}
+#MyPack .pack .title-pack span{
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	font-size: 24px;
+	color: #333;
+	overflow: hidden;
+}
+#MyPack .pack .title-pack .pri{
+	float: right;
+	margin-right: 25px;
+	font-size: 18px;
+	color: #333;
+}
+#MyPack .pack .title-pack .pri i{
+	font-size: 24px;
+	color: #F74342;
+	font-weight: 500;
+	font-style: normal;
+}
+#MyPack .pack .title-pack .pri strong{
+	font-size: 24px;
+	color: #F74342;
+	font-weight: 500;
+}
+#MyPack .pack .remarks{
+	width: 100%;
+	height: 70px;
+	font-size: 16px;
+	color: #333;
+	border: 1px solid #EBEBEB;
+	resize: none;
+	outline: none;
+	text-indent: 1.2em;
+}
+#MyPack .btn-box{
+	position: relative;
+	width: 632px;
+	background: #fff;
+	margin: 0 25px;
+	padding: 30px 0 30px;
+}
+#MyPack .btn{
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+#MyPack .pass{
+	width: 108px;
+	height: 35px;
+	background: #FED500;
+	font-size: 16px;
+	color: #fff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin-right: 140px;
+}
+#MyPack .not{
+	width: 108px;
+	height: 35px;
+	background: #fff;
+	font-size: 16px;
+	color: #FED500;
+	border: 1px solid #FED500;
+	outline: none;
+	cursor: pointer;
+}
+#MyPack .btn button:hover{
+	opacity: .75;
+}
+/*通过/未通过弹框bg*/
+#pass, #not{
+display: none;
+position: fixed;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+background-color: #aaa;
+z-index:1003;
+-moz-opacity: 0.8;
+opacity:.80;
+/*filter: alpha(opacity=80);*/
+}
+/*审核通过弹框*/
+#MyPass {
+display: none;
+position: fixed;
+width: 470px;
+height: 262px;
+top: 45%;
+left: 50%;
+margin-top: -131px;
+margin-left: -235px;
+background-color: #fff;
+z-index:1004;
+overflow: hidden;
+}
+#MyPass .move{
+	position: relative;
+	height: 140px;
+	margin-bottom: 20px;
+}
+#MyPass .title{
+	position: absolute;
+	left: 50%;
+	margin-left: -50px;
+	bottom: 0;
+	text-align: center;
+}
+#MyPass .title img{
+	display: block;
+	width: 100px;
+	height: 100px;
+}
+#MyPass .list{
+	margin-top: 10px;
+}
+#MyPass .list p{
+	font-size: 24px;
+	color: #666;
+	text-align: center;
+}
+#MyPass .back{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	font-size: 30px;
+	color: #FED500;
+	font-family: simsun;
+	padding: 5px 5px 0 0;
+}
+/*套餐审核未通过弹框*/
+#MyNot {
+display: none;
+position: fixed;
+width: 632px;
+height: 319px;
+top: 45%;
+left: 50%;
+margin-top: -160px;
+margin-left: -316px;
+background-color: #fff;
+z-index:1004;
+overflow: hidden;
+}
+#MyNot .move{
+	position: relative;
+	height: 72px;
+	border-bottom: 1px solid #EBEBEB;
+	margin: 0 35px;
+}
+#MyNot .title{
+	position: absolute;
+	width: 88px;
+	height: 35px;
+	left: 50%;
+	bottom: 0;
+	margin-left: -36px;
+	border-bottom: 4px solid #FED500;
+	text-align: center;
+	bottom: -1px;
+}
+#MyNot .title span{
+	display: block;
+	line-height: 35px;
+	font-size: 20px;
+	color: #999;
+}
+#MyNot .list ul{
+	padding: 30px;
+	padding-left: 45px;
+}
+#MyNot .list ul li{
+	position: relative;
+	line-height: 30px;
+	font-size: 16px;
+	color: #333;
+}
+#MyNot .list ul li input{
+	margin-right: 5px;
+	cursor: pointer;
+}
+#MyNot .list ul li span{
+	display: inline-block;
+	position: absolute;
+	line-height: 10px;
+	margin-left: 20px;
+}
+#MyNot .list ul li textarea{
+	width: 175px;
+	height: 50px;
+	font-size: 14px;
+	resize: none;
+	outline: none;
+	margin-left: 60px;
+}
+#MyNot .list .last-item{
+	margin-top: 5px;
+}
+#MyNot .list .last-item input{
+	position: absolute;
+}
+#MyNot .btn-send{
+	position: absolute;
+	right: 90px;
+	top: 108px;
+	width: 108px;
+	height: 35px;
+	background: #FED500;
+	text-align: center;
+}
+#MyNot .btn-send a{
+	display: block;
+	line-height: 35px;
+	font-size: 14px;
+	color: #fefefe;
+}
+#MyNot .btn-back{
+	position: absolute;
+	right: 90px;
+	top: 156px;
+	width: 106px;
+	height: 33px;
+	border: 1px solid #FED500;
+	text-align: center;
+}
+#MyNot .btn-back a{
+	display: block;
+	line-height: 33px;
+	font-size: 14px;
+	color: #FED500;
+}

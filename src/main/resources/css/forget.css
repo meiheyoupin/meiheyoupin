@@ -1,0 +1,175 @@
+input{
+	outline: none;
+	font-size: 16px;
+}
+/*warpper*/
+.wrapper{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #EBEBEB;
+	min-height: 656px;
+}
+.dialog{
+	position: absolute;
+	width: 468px;
+	top: 50%;
+	left: 50%;
+	margin-left: -234px;
+	margin-top: -278px;
+	border-radius: 10px;
+	background: #fff;
+}
+/*logo部分*/
+.title{
+	position: relative;
+	height: 225px;
+	border-bottom: 1px solid #f4f4f4;
+}
+.title h1{
+	position: relative;
+	text-align: center;
+	padding: 14px 0;
+}
+.title h1>a{
+	display: block;
+	width: 154px;
+	height: 143px;
+	margin-left: 157px;
+	background: url(../img/logo-dl.png) no-repeat;
+	background-position: cover;
+}
+.title .dl{
+	position: absolute;
+	display: inline-block;
+	width: 124px;
+	height: 50px;
+	bottom: -1px;
+	border-bottom: 2.5px solid #FED500;
+	text-align: center;
+	left: 172px;
+}
+.title .dl a{
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	color: #FED500;
+}
+/*form表单*/
+.content{
+	position: relative;
+	/*height: 200px;*/
+}
+.content form{
+	padding: 30px 84px;
+}
+.content ul{
+	/*position: relative;*/
+	/*height: 200px;*/
+}
+.content ul li{
+	position: relative;
+	margin-bottom: 28px;
+}
+input::-webkit-input-placeholder{
+    color: #bfbfbf;
+    font-size: 16px;
+}
+/*第1行*****/
+.content ul li .inpnt-user{
+	display: inline-block;
+	width: 298px;
+	height: 46px;
+	border: 1px solid #CDCDCD;
+	border-radius: 4px;
+}
+.content ul li .inpnt-user input{
+	width: 278px;
+	height: 36px;
+	padding: 5px 10px 5px 10px;
+	border: none;
+	border-radius: 4px;
+}
+/*第2行*****/
+.content ul li .inpnt-password{
+	display: inline-block;
+	width: 298px;
+	height: 46px;
+	border: 1px solid #CDCDCD;
+	border-radius: 4px;
+}
+.content ul li .inpnt-password input{
+	width: 278px;
+	height: 36px;
+	padding: 5px 10px 5px 10px;
+	border: none;
+	border-radius: 4px;
+}
+/*第3行*****/
+.content ul li .input-code{
+	display: inline-block;
+	width: 140px;
+	height: 46px;
+	border: 1px solid #cdcdcd;
+	border-radius: 4px;
+}
+.content .input-code input{
+	width: 120px;
+	height: 36px;
+	padding: 5px 10px 5px 10px;
+	border: none;
+	border-radius: 4px;
+}
+.content .btn-code{
+	position: absolute;
+	display: inline-block;
+	width: 150px;
+	height: 48px;
+	background: #EBEBEB;
+	border-radius: 4px;
+	text-align: center;
+	right: 0;
+}
+.content .btn-code a{
+	display: block;
+	height: 48px;
+	line-height: 48px;
+	font-size: 30px;
+	color: red;
+	border-radius: 4px;
+}
+/*注册按钮*/
+.content ul li .btn-form{
+	width: 300px;
+	height: 48px;
+	text-align: center;
+	background: #FED500;
+	border-radius: 4px;
+}
+.content ul li .btn-form a{
+	display: block;
+	height: 48px;
+	line-height: 48px;
+	font-size: 16px;
+	color: #fff;
+}
+.content ul li .info-form{
+	margin-top: 20px;
+	text-align: right;
+}
+.content ul li .info-form a{
+	font-size: 14px;
+	color: #FED500;
+}
+.content ul li .info-form span{
+	color: #FED500;
+}
+
+
+input::-webkit-input-placeholder{
+    color: #bfbfbf;
+    font-size: 16px;
+}

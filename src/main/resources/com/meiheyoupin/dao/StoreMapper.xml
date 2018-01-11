@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meiheyoupin.dao.StoreMapper">
+  <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.Store">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="state" jdbcType="TINYINT" property="state" />
+    <result column="invitation_code" jdbcType="VARCHAR" property="invitationCode" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+    <result column="store_addr" jdbcType="VARCHAR" property="storeAddr" />
+    <result column="boss_name" jdbcType="VARCHAR" property="bossName" />
+    <result column="boss_gender" jdbcType="TINYINT" property="bossGender" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="store_outside_photo_url" jdbcType="VARCHAR" property="storeOutsidePhotoUrl" />
+    <result column="store_inside_photo_url" jdbcType="VARCHAR" property="storeInsidePhotoUrl" />
+    <result column="boss_idcard_photo_url" jdbcType="VARCHAR" property="bossIdcardPhotoUrl" />
+    <result column="certificate_photo_url" jdbcType="VARCHAR" property="certificatePhotoUrl" />
+    <result column="store_licence_photo_url" jdbcType="VARCHAR" property="storeLicencePhotoUrl" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, tel, password, state, invitation_code, store_name, store_addr, boss_name, boss_gender, 
+    avatar_url, store_outside_photo_url, store_inside_photo_url, boss_idcard_photo_url, 
+    certificate_photo_url, store_licence_photo_url, create_time, update_time
+  </sql>
+  <update id="updateStoreStateByStoreId" parameterType="Integer[]">
+    UPDATE store SET state=1
+    <where>
+      id
+      <foreach collection="array" item="ids" open="in (" close=")" separator=",">
+        #{ids}
+      </foreach>
+    </where>
+  </update>
+
+  <select id="selectUnauditStores" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM store
+    WHERE state=0
+  </select>
+</mapper>

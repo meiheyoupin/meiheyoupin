@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="/img/favicon.ico" rel="shortcut icon">
+    <title>美盒优品-生日聚会</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/product_list.css"/>
+</head>
+<body>
+<#include "header.html"/>
+<!--页面开始-->
+<div id="main">
+    <!--头部导航-->
+    <div id="nav">
+        <div class="menu1">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="/"></a>
+                </h1>
+                <div class="menu-rt">
+                    <div><a href="#">5人</a></div>
+                    <div><a href="#">10人</a></div>
+                    <div><a href="#">15人</a></div>
+                    <div><a href="#">20人</a></div>
+                    <div><a href="#">更多</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu2">
+            <div class="container">
+                <div class="menu-less">
+                    <a href="#">最新上架</a><a href="#">综合排序</a><a href="#">价格优先</a><a href="#">距离最近</a><a href="#">好评优先</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--产品详情-->
+    <div id="main-box">
+        <div class="container">
+            <ul id="productList">
+                <script id="goodsListTemplate" type="text/html">
+                    {{each goodsList}}
+                    <li class="border">
+                        <div class="img-box">
+                            <img src="{{$value.primaryPictureUrl}}" alt=""/>
+                        </div>
+                        <div class="title_01">{{$value.name}}</div>
+                        <div class="title_02">{{$value.content}}
+                            <br/>共<strong>{{$value.amount}}</strong>个商品>
+                        </div>
+                        <div class="title_03">人均<strong>￥{{$value.pricePeople}}</strong>
+                            <br/><strong>￥{{$value.price}}</strong>/{{$value.numOfPeople}}人
+                        </div>
+                        <p>评分:<strong>{{$value.grade}}</strong></p>
+                        <div class="button">
+                            <a href="/product/{{$value.id}}">查看套餐</a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </script>
+                <#list goodsList as goods>
+                    <li class="border">
+                        <div class="img-box">
+                            <img src="${goods.primaryPictureUrl}" alt=""/>
+                        </div>
+                        <div class="title_01">${goods.name}</div>
+                        <div class="title_02">${goods.content}
+                            <br/>共<strong>${goods.amount}</strong>个商品>
+                        </div>
+                        <div class="title_03">人均<strong>￥${goods.pricePeople}</strong>
+                            <br/><strong>￥${goods.price}</strong>/${goods.numOfPeople}人
+                        </div>
+                        <p>评分:<strong>${goods.grade}</strong></p>
+                        <div class="button">
+                            <a href="/product/${goods.id}">查看套餐</a>
+                        </div>
+                    </li>
+
+                </#list>
+
+            </ul>
+
+            <#if (goodsList?size==10)>
+                <div id="loadMore" class="more-line">
+                    <a href="#">点击加载更多</a>
+                </div>
+                <#else>
+                    <div class="more-line">
+                        <a>没有更多了</a>
+                    </div>
+            </#if>
+        </div>
+    </div>
+</div>
+<!--页面结束-->
+<iframe src="/footer" frameborder="0" width="100%" height="490px" style="margin-bottom: -5px;"></iframe>
+
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/product_list.js"></script>
+<script src="/js/template-web.js"></script>
+</body>
+</html>

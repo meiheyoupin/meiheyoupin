@@ -1,0 +1,508 @@
+/*TOP*/
+#topbar {
+    position: relative;
+    width: 100%;
+    height: 44px;
+    background-color: #333;
+}
+
+#topbar .container {
+    width: 1090px;
+    margin: 0 auto;
+}
+
+#topbar .left-part {
+    float: left;
+    height: 44px;
+    line-height: 44px;
+}
+
+#topbar .dw {
+    display: block;
+    color: #e6e6e6;
+    font-size: 16px;
+    transition: .3s all;
+}
+
+#topbar .dw:hover {
+    opacity: .65;
+    transition: .3s all;
+}
+
+#topbar .dw i {
+    position: relative;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    top: 5px;
+    background: url(../img/zb.png) no-repeat;
+}
+
+/*下拉框*/
+#topbar .right-part {
+    position: relative;
+    float: right;
+    height: 44px;
+    line-height: 44px;
+}
+
+#topbar .right-part li {
+    float: left;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#topbar .top-nav-my {
+    /*background: #fff;*/
+    color: #e6e6e6;
+    width: 70px;
+}
+
+#topbar .top-nav-my:after {
+    content: "";
+    position: absolute;
+    border: 4px solid transparent;
+    border-top: 4px solid #E6E6E6;
+    top: 22px;
+}
+
+#topbar .top-nav-my ul {
+    display: none;
+    position: absolute;
+    /*top: 42px;*/
+    /*padding-left: -5px;*/
+    width: 75px;
+    background: #fff;
+    text-align: center;
+    z-index: 3;
+    border: 1px solid #E6E6E6;
+    border-top: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    transition: .2s all;
+}
+
+#topbar .top-nav-my:hover .nav-js {
+    display: block;
+    transition: 2s all;
+}
+
+#topbar .top-nav-my ul li {
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    transition: .2s all;
+}
+
+#topbar .top-nav-my ul li:hover a {
+    background: #FED500;
+    color: #fff;
+    transition: .2s all;
+}
+
+#topbar .top-nav-my ul li a {
+    display: block;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+}
+
+#topbar .right-part a {
+    display: inline-block;
+    color: #e6e6e6;
+    transition: .3s all;
+}
+
+#topbar .right-part .ty:hover {
+    opacity: .65;
+    transition: .3s all;
+}
+
+#topbar .hover-code img {
+    position: absolute;
+    display: none;
+    width: 100px;
+    height: 100px;
+    right: 77px;
+    margin-top: 10px;
+    z-index: 9;
+}
+
+#topbar .hover-code {
+    /*transition: .3s all;*/
+}
+
+#topbar .hover-code:hover .wx-code {
+    display: block;
+    transition: .3s all;
+}
+
+#topbar .right-part .boss {
+    position: relative;
+    color: #FED500;
+}
+
+#topbar .right-part span {
+    color: #5a5a5a;
+    margin: 0 5px;
+}
+
+/*头部logo部分*/
+#header {
+    position: relative;
+    width: 100%;
+    height: 82px;
+    background: #fff;
+}
+
+#header .container {
+    position: relative;
+    width: 1090px;
+    margin: 0 auto;
+}
+
+#header .logo {
+    float: left;
+}
+
+#header .logo > a {
+    display: inline-block;
+    width: 251px;
+    height: 53px;
+    margin-top: 16px;
+    background: url(../img/logo.png) no-repeat;
+}
+
+#header .tui {
+    float: right;
+    margin: 13px 0 0;
+}
+
+#header .tui a {
+    display: block;
+}
+
+#header .tui a img {
+    width: 53px;
+    height: 53px;
+}
+
+#header .pei {
+    float: right;
+    margin: 15px 15px 0;
+}
+
+#header .pei a {
+    display: block;
+}
+
+#header .pei a img {
+    width: 48px;
+    height: 48px;
+}
+
+#header .tui .refund {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 0 2px #dfdfdf;
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    color: #313137;
+    position: absolute;
+    right: -43px;
+    padding: 0 12px;
+    z-index: 999;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#header .pei .mid {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 0 2px #dfdfdf;
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    color: #313137;
+    position: absolute;
+    right: 8px;
+    padding: 0 12px;
+    z-index: 999;
+    text-align: left;
+    white-space: nowrap;
+    margin-top: 3px;
+}
+
+#header .cart {
+    float: right;
+    width: 32px;
+    height: 32px;
+    margin-left: 20px;
+}
+
+#header .cart > a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url(../img/gwc.png) no-repeat;
+    margin-top: 22px;
+    transition: .3s all;
+}
+
+#header .cart > a:hover {
+    opacity: .65;
+    transition: .3s all;
+}
+
+#header .search {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 285px;
+    height: 42px;
+    margin-top: 15px;
+}
+
+#header .search input {
+    position: absolute;
+    display: inline-block;
+    width: 215px;
+    height: 26px;
+    line-height: 26px;
+    border: 0;
+    border-bottom: 1px solid #333;
+    top: 7.5px;
+    outline: none;
+    padding: 0 15px;
+    transition: .3s all;
+}
+
+#header .search input:hover {
+    opacity: .65;
+    transition: .3s all;
+}
+
+#header .search a {
+    position: absolute;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background: url(../img/fdj.png) 0 3.5px no-repeat;
+    top: 7.5px;
+    transition: .3s all;
+}
+
+#header .search a:hover {
+    opacity: .65;
+    transition: .3s all;
+}
+
+#header .prompt {
+    position: absolute;
+    top: 52px;
+    right: 182px;
+    width: 265px;
+    height: 20px;
+    text-align: left;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+#header .prompt a {
+    display: inline-block;
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+    margin-right: 10px;
+}
+
+#header .prompt a:hover {
+    color: #FED500;
+}
+
+body {
+    background-color: #EEF0F5;
+}
+
+#main {
+    position: relative;
+    width: 1090px;
+    margin: 0 auto;
+    min-height: 696px;
+    background: #fff;
+}
+
+/*弹框*/
+.black_overlay {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #aaa;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    /*filter: alpha(opacity=80);*/
+}
+
+.white_content {
+    display: none;
+    position: fixed;
+    width: 632px;
+    height: 300px;
+    top: 45%;
+    left: 50%;
+    margin-top: -145px;
+    margin-left: -351px;
+    padding: 0 35px 0;
+    background-color: #fff;
+    z-index: 1002;
+    overflow: hidden;
+}
+
+.white_content .move {
+    position: relative;
+    height: 160px;
+}
+
+.white_content .title {
+    position: absolute;
+    left: 42%;
+    bottom: 0;
+    text-align: center;
+}
+
+.white_content .title p {
+    font-size: 18px;
+    color: #FED500;
+}
+
+.white_content .list {
+    margin-top: 30px;
+}
+
+.white_content .list p {
+    font-size: 24px;
+    color: #666;
+    text-align: center;
+}
+
+.white_content .back {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 30px;
+    color: #FED500;
+    font-family: simsun;
+    padding: 5px 5px 0 0;
+}
+
+/*标题*/
+#main h3 {
+    position: relative;
+    margin-top: 28px;
+    padding: 25px 0 0;
+    text-align: center;
+    border-bottom: 1px solid #F4F4F4;
+}
+
+#main h3 .title {
+    margin: 0 auto;
+    width: 160px;
+    height: 48px;
+    margin-bottom: -1px;
+    text-align: center;
+    border-bottom: 2.5px solid #FED500;
+}
+
+#main h3 .title a {
+    display: block;
+    line-height: 46px;
+    font-size: 36px;
+    color: #333;
+    font-weight: 300;
+}
+
+/*表单*/
+#main form {
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 48px;
+}
+
+#main form p label {
+    display: block;
+    margin: 12px 0 5px;
+    font-size: 22px;
+    color: #c6c6c6;
+    text-align: center;
+}
+
+#main form p input {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    outline: none;
+}
+
+#main .time input {
+    width: 142px;
+    height: 56px;
+}
+
+#main .time input::-webkit-calendar-picker-indicator {
+    font-size: 35px;
+}
+
+#main .phone input {
+    width: 142px;
+    height: 44px;
+    font-size: 16px;
+    /*color: #bfbfbf;*/
+    text-align: center;
+}
+
+#main .details input {
+    width: 142px;
+    height: 44px;
+    text-align: center;
+}
+
+#main .remark textarea {
+    width: 298px;
+    height: 188px;
+    font-size: 16px;
+    line-height: 2;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+    overflow: hidden;
+    outline: none;
+}
+
+#main .submit {
+    width: 300px;
+    height: 48px;
+    background: #FED500;
+    color: #fff;
+    border-radius: 4px;
+    margin: 28px 0 30px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+input::-webkit-input-placeholder {
+    color: #bfbfbf;
+    font-size: 16px;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #bfbfbf;
+    font-size: 16px;
+}

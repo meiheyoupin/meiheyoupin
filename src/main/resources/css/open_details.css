@@ -1,0 +1,177 @@
+body{
+	background-color: #eaeaea;
+}
+#main{
+	position: relative;
+	width: 100%;
+	/*min-height: 1000px;*/
+	background-color: #EBEBEB;
+	margin-top: 20px;
+}
+/*nav*/
+#nav{
+	position: relative;
+	width: 100%;
+	height: 95px;
+}
+/*第一个导航条*/
+#nav .menu1{
+	position: relative;
+	width: 100%;
+	height: 62px;
+	background: #fff;
+}
+#nav .menu1 .container{
+	width: 1090px;
+	margin: 0 auto;
+}
+#nav .menu1 .logo{
+	float: left;
+}
+#nav .menu1 .logo a{
+	display: inline-block;
+	width: 113px;
+	height: 21px;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 15px;
+	background: url(../img/open/open-logo.png) no-repeat;
+}
+#nav .menu1 .menu-rt{
+	float: left;
+	margin-top: 12px;
+}
+#nav .menu1 .menu-rt>div{
+	float: left;
+	width: 150px;
+	height: 38px;
+	text-align: center;
+	border-right: 1px solid #FED500;
+}
+#nav .menu1 .menu-rt a{
+	display: block;
+	line-height: 25px;
+	font-size: 16px;
+	color: #666;
+	margin-top: 6.5px;
+	transition: .3s all;
+}
+#nav .menu1 .menu-rt div:hover{
+	background: #FED70D;
+	color: #fff;
+	transition: .2s all;
+}
+#nav .menu1 .menu-rt div:hover a{
+	color: #fff;
+}
+/*第二个导航条*/
+#nav .menu2{
+	position: relative;
+	width: 100%;
+	height: 33px;
+	background: #FBFCFE;
+	margin-bottom: 8px;
+}
+#nav .menu2 .container{
+	width: 1090px;
+	margin: 0 auto;
+}
+#nav .menu-less{
+	margin-left: 137px;
+}
+#nav .menu-less a{
+	display: inline-block;
+	height: 33px;
+	line-height: 33px;
+	font-size: 14px;
+	color: #999;
+	padding: 0 40px 0;
+	transition: .2s all;
+}
+#nav .menu-less a:hover{
+	background: #DCDCDC;
+	color: #fff;
+	transition: .2s all;
+}
+/*活动详情*/
+#container{
+	width: 1090px;
+	margin: 12px auto 50px;
+	background: #fff;
+}
+#container .open-one{
+	padding: 12px;
+}
+#container .open-one img{
+	display: block;
+	width: 1066px;
+	height: 553px;
+}
+#container .one-title{
+	position: relative;
+}
+#container .one-title p{
+	display: inline-block;
+	font-size: 36px;
+	color: #333;
+	font-weight: bold;
+	line-height: 70px;
+}
+#container .one-title span{
+	font-size: 22px;
+	color: #d71e1e;
+	font-weight: bold;
+}
+#container .one-title .zan{
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+#container .one-title .zan a{
+	display: block;
+	background: url(../img/open/open-up.png);
+	width: 28px;
+	height: 28px;
+}
+#container .one-title .zan a:hover{
+	background: url(../img/open/open_up.png);
+}
+#container .one-title .zan span{
+	font-size: 14px;
+	color: #FED500;
+}
+#container .open-two{
+	padding: 0 30px;
+}
+#container .open-two .two-title{
+	font-size: 22px;
+	color: #666;
+	text-align: center;
+	padding: 10px 0;
+}
+#container .open-two .time{
+	width: 396px;
+	height: 46px;
+	line-height: 46px;
+	background: #D71E1E;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+	margin: 0 auto 40px;
+}
+#container .open-two .open-text p{
+	font-size: 20px;
+	color: #666;
+	font-weight: inherit;
+	text-indent: 2em;
+	line-height: 1.5;
+}
+#container .open-two .open-text span{
+	display: block;
+	text-align: right;
+	font-size: 22px;
+	color: #999;
+	padding: 50px 0 70px;
+	font-weight: lighter;
+}
