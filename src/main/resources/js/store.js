@@ -1,8 +1,11 @@
 
 function auditStore() {
-    var Ids = new Array();
-    console.log(44);
-    Ids.push(4);
+    var Ids = [];
+    var storeId = $("#storeId").val();
+    console.log($('#storeId').val())
+    var toInt = Number(storeId);
+    console.log(toInt);
+    Ids.push(toInt);
     $.ajax({
         url:'platform/auditStores',
         type:'get',

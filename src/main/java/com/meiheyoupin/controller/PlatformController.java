@@ -27,13 +27,14 @@ public class PlatformController {
     UserAdminService userAdminService;
 
     @GetMapping("auditStores")
-    public String toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,Model model){
+    @ResponseBody
+    public R1 toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,Model model){
         try {
             storeService.autidStores(storeIds);
             model.addAttribute("unauditStores",storeService.getUnauditStores());
-            return "cpy_store";
+            return R1.success(200,"请求成功");
         }catch (Exception e){
-            return "error";
+            return R1.error(500,"服务器内部错误");
         }
     }
 
