@@ -73,7 +73,7 @@
                                     <div class="pack-info">
                                         <span class="info-title">激爽夏日可乐聚会套餐</span>
                                         <span class="info-text">此套餐包含的商品有<strong>3</strong>个</span>
-                                        <span class="info-number">￥<strong class="price">148.0</strong></span>
+                                        <span class="info-number"> ￥ <strong class="price">148.0</strong></span>
                                         <span class="info-check">审核套餐信息+</span>
                                     </div>
                                 </div>
