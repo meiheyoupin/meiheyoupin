@@ -39,7 +39,7 @@
                                             <img src="img/company/user-list-bg.png" alt="" />
                                         </div>
                                         <div class="title-info">
-                                            <span class="storeId" id="storeId" type="hidden" value="${store.id}"/>
+                                            <input class="storeId" id="storeId" type="hidden" value="${store.id}"/>
                                             <span class="title-box">${store.storeName}</span>
                                             <span class="times-box">${store.createTime?string('yyyy-MM-dd')}</span>
                                             <span class="num-box">${store.invitationCode}</span>
@@ -194,6 +194,7 @@
         $("#not").hide();
         $("#MyNot").hide();
     });
+
 </script>
 </body>
 </html>

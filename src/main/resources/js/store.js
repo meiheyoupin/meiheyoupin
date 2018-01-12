@@ -2,7 +2,6 @@
 function auditStore() {
     var Ids = [];
     var storeId = $("#storeId").val();
-    console.log($('#storeId').val())
     var toInt = Number(storeId);
     console.log(toInt);
     Ids.push(toInt);
