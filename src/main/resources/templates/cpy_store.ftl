@@ -29,89 +29,174 @@
             </div>
             <div class="orders-body">
                 <!--店铺信息-->
-                <ul id="cpy-store">
-                    <li>
-                        <div class="user-info">
-                            <div class="info-lf">
-                                <div class="title">
-                                    <div class="img-box">
-                                        <img src="img/company/user-list-bg.png" alt="" />
+                <#list unauditStores as stores>
+                    <ul id="cpy-store">
+                        <li>
+                            <div class="user-info">
+                                <div class="info-lf">
+                                    <div class="title">
+                                        <div class="img-box">
+                                            <img src="img/company/user-list-bg.png" alt="" />
+                                        </div>
+                                        <div class="title-info">
+                                            <span class="title-box">杭州佳妮万科安仁蛋糕店</span>
+                                            <span class="times-box">12-14-10:52</span>
+                                            <span class="num-box">MHYP1254</span>
+                                        </div>
                                     </div>
-                                    <div class="title-info">
-                                        <span class="title-box">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times-box">12-14-10:52</span>
-                                        <span class="num-box">MHYP1254</span>
+                                    <div class="check-shop">
+                                        <span class="ck-shop">审核店家信息+</span>
                                     </div>
                                 </div>
-                                <div class="check-shop">
-                                    <span class="ck-shop">审核店家信息+</span>
+                                <div class="info-rt">
+                                    <div class="phone">13846245915</div>
+                                    <div class="name">
+                                        <span>唐马儒</span>
+                                        <span class="sex">先生</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="info-rt">
-                                <div class="phone">13846245915</div>
-                                <div class="name">
-                                    <span>唐马儒</span>
-                                    <span class="sex">先生</span>
+                            <div id="store">
+                                <div class="shop-name">
+                                    <p class="title-shop">店铺名称</p>
+                                    <p class="name-box">
+                                        <span class="name1">杭州佳妮万科安仁蛋糕店</span>
+                                        <span class="name2"> 账号: </span>
+                                        <span class="name3">13834523569</span>
+                                    </p>
+                                </div>
+                                <div class="shop-addr">
+                                    <p class="title-shop">店铺地址</p>
+                                    <p class="addr-box">
+                                        <span class="addr1">杭州上城区</span>
+                                        <span class="span"></span>
+                                        <span class="addr2">相符街道</span>
+                                        <span class="span"></span>
+                                        <span class="addr3">阿里瓦迪路222号法兰大夏2单元6楼</span>
+                                    </p>
+                                </div>
+                                <div class="shop-env">
+                                    <p class="title-shop">店铺环境</p>
+                                    <p class="env-shop">
+                                        <img class="file-bg" src="img/company/file-0101.jpg" alt="" />
+                                        <img class="file-bg" src="img/company/file-0102.jpg" alt="" />
+                                    </p>
+                                </div>
+                                <div class="shop-id">
+                                    <p class="title-shop">法人身份证</p>
+                                    <p class="id-shop">
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                    </p>
+                                    <span>正面</span>
+                                    <span>背面</span>
+                                </div>
+                                <div class="shop-license">
+                                    <p class="title-shop">营业执照</p>
+                                    <p class="license-shop" style="text-align: center;">
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                    </p>
+                                </div>
+                                <div class="shop-licence">
+                                    <p class="title-shop">卫生许可证</p>
+                                    <p class="licence-shop" style="text-align: center;">
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                    </p>
+                                </div>
+                                <div class="examine">
+                                    <p>
+                                        <button class="pass" type="button" onclick="auditStore()">审核通过</button>
+                                        <button class="not" type="button">审核未通过</button>
+                                    </p>
+                                </div>
+                                <span class="close">×</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="cpy-store">
+                        <li>
+                            <div class="user-info">
+                                <div class="info-lf">
+                                    <div class="title">
+                                        <div class="img-box">
+                                            <img src="img/company/user-list-bg.png" alt="" />
+                                        </div>
+                                        <div class="title-info">
+                                            <span class="title-box">杭州佳妮万科安仁蛋糕店</span>
+                                            <span class="times-box">12-14-10:52</span>
+                                            <span class="num-box">MHYP1254</span>
+                                        </div>
+                                    </div>
+                                    <div class="check-shop">
+                                        <span class="ck-shop">审核店家信息+</span>
+                                    </div>
+                                </div>
+                                <div class="info-rt">
+                                    <div class="phone">13846245915</div>
+                                    <div class="name">
+                                        <span>唐马儒</span>
+                                        <span class="sex">先生</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="store">
-                            <div class="shop-name">
-                                <p class="title-shop">店铺名称</p>
-                                <p class="name-box">
-                                    <span class="name1">杭州佳妮万科安仁蛋糕店</span>
-                                    <span class="name2"> 账号: </span>
-                                    <span class="name3">13834523569</span>
-                                </p>
+                            <div id="store">
+                                <div class="shop-name">
+                                    <p class="title-shop">店铺名称</p>
+                                    <p class="name-box">
+                                        <span class="name1">杭州佳妮万科安仁蛋糕店</span>
+                                        <span class="name2"> 账号: </span>
+                                        <span class="name3">13834523569</span>
+                                    </p>
+                                </div>
+                                <div class="shop-addr">
+                                    <p class="title-shop">店铺地址</p>
+                                    <p class="addr-box">
+                                        <span class="addr1">杭州上城区</span>
+                                        <span class="span"></span>
+                                        <span class="addr2">相符街道</span>
+                                        <span class="span"></span>
+                                        <span class="addr3">阿里瓦迪路222号法兰大夏2单元6楼</span>
+                                    </p>
+                                </div>
+                                <div class="shop-env">
+                                    <p class="title-shop">店铺环境</p>
+                                    <p class="env-shop">
+                                        <img class="file-bg" src="img/company/file-0101.jpg" alt="" />
+                                        <img class="file-bg" src="img/company/file-0102.jpg" alt="" />
+                                    </p>
+                                </div>
+                                <div class="shop-id">
+                                    <p class="title-shop">法人身份证</p>
+                                    <p class="id-shop">
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                    </p>
+                                    <span>正面</span>
+                                    <span>背面</span>
+                                </div>
+                                <div class="shop-license">
+                                    <p class="title-shop">营业执照</p>
+                                    <p class="license-shop" style="text-align: center;">
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                    </p>
+                                </div>
+                                <div class="shop-licence">
+                                    <p class="title-shop">卫生许可证</p>
+                                    <p class="licence-shop" style="text-align: center;">
+                                        <img class="file-bg" src="img/file_bg.png" alt="" />
+                                    </p>
+                                </div>
+                                <div class="examine">
+                                    <p>
+                                        <button class="pass" type="button" onclick="auditStore()">审核通过</button>
+                                        <button class="not" type="button">审核未通过</button>
+                                    </p>
+                                </div>
+                                <span class="close">×</span>
                             </div>
-                            <div class="shop-addr">
-                                <p class="title-shop">店铺地址</p>
-                                <p class="addr-box">
-                                    <span class="addr1">杭州上城区</span>
-                                    <span class="span"></span>
-                                    <span class="addr2">相符街道</span>
-                                    <span class="span"></span>
-                                    <span class="addr3">阿里瓦迪路222号法兰大夏2单元6楼</span>
-                                </p>
-                            </div>
-                            <div class="shop-env">
-                                <p class="title-shop">店铺环境</p>
-                                <p class="env-shop">
-                                    <img class="file-bg" src="img/company/file-0101.jpg" alt="" />
-                                    <img class="file-bg" src="img/company/file-0102.jpg" alt="" />
-                                </p>
-                            </div>
-                            <div class="shop-id">
-                                <p class="title-shop">法人身份证</p>
-                                <p class="id-shop">
-                                    <img class="file-bg" src="img/file_bg.png" alt="" />
-                                    <img class="file-bg" src="img/file_bg.png" alt="" />
-                                </p>
-                                <span>正面</span>
-                                <span>背面</span>
-                            </div>
-                            <div class="shop-license">
-                                <p class="title-shop">营业执照</p>
-                                <p class="license-shop" style="text-align: center;">
-                                    <img class="file-bg" src="img/file_bg.png" alt="" />
-                                </p>
-                            </div>
-                            <div class="shop-licence">
-                                <p class="title-shop">卫生许可证</p>
-                                <p class="licence-shop" style="text-align: center;">
-                                    <img class="file-bg" src="img/file_bg.png" alt="" />
-                                </p>
-                            </div>
-                            <div class="examine">
-                                <p>
-                                    <button class="pass" type="button">审核通过</button>
-                                    <button class="not" type="button">审核未通过</button>
-                                </p>
-                            </div>
-                            <span class="close">×</span>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </#list>
             </div>
         </div>
     </div>
@@ -164,6 +249,7 @@
 </footer>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/store.js"></script>
 <script type="text/javascript">
     //店铺审核弹框
     $(".ck-shop").click(function(){

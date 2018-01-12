@@ -99,4 +99,17 @@
     FROM store
     WHERE state=0
   </select>
+
+  <select id="selectStoresByStoreId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM store
+    WHERE id=#{storeId}
+  </select>
+
+  <update id="updatePasswordByStoreId" parameterType="com.meiheyoupin.entity.Store">
+    UPDATE store
+    SET password=#{password}
+    WHERE id=#{id}
+  </update>
 </mapper>

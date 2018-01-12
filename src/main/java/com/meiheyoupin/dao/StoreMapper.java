@@ -15,4 +15,14 @@ public interface StoreMapper {
     拿到所有未审核的商家
      */
     List<Store> selectUnauditStores();
+
+    /*
+    根据商家ID拿到商家实体
+     */
+    Store selectStoresByStoreId(Integer storeId);
+
+    /*
+    根据商家ID修改商家密码
+     */
+    int updatePasswordByStoreId(Store store);
 }

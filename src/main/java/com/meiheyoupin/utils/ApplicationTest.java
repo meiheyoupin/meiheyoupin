@@ -1,8 +1,10 @@
-/*
+
 package com.meiheyoupin.utils;
 
 
+import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.dao.UserAdminMapper;
+import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.entity.UserAdmin;
 import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StoreService;
@@ -12,8 +14,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -53,5 +55,19 @@ public class ApplicationTest {
     public void test3(){
         System.out.println(userAdminService.getUser().get(0).getUsername());
     }
+
+    @Test
+    public void test4(){
+        Integer[] integers = new Integer[]{4};
+        storeService.autidStores(integers);
+    }
+
+    @Autowired
+    StoreMapper storeMapper;
+
+    @Test
+    public void test5(){
+        storeMapper.updatePasswordByStoreId(new Store(4,"243124"));
+    }
 }
-*/
+

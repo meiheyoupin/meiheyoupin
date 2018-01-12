@@ -8,7 +8,7 @@
         <dt class="examine-age">审核管理</dt>
         <dd><a class="" href="/cpyStore">店铺审核</a></dd>
         <dd><a class="" href="/cpyShop">商品审核</a></dd>
-        <dd><a class="" href="cpy_pack.html">套餐审核</a></dd>
+        <dd><a class="" href="/cpyPack">套餐审核</a></dd>
         <dd><a class="" href="cpy_shopage.html">商品管理</a></dd>
         <dd><a class="" href="cpy_package.html">套餐管理</a></dd>
         <dt class="order-age">订单管理</dt>

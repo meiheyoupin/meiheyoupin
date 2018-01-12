@@ -31,7 +31,7 @@ public class PlatformController {
         try {
             storeService.autidStores(storeIds);
             model.addAttribute("unauditStores",storeService.getUnauditStores());
-            return "error";
+            return "cpy_store";
         }catch (Exception e){
             return "error";
         }

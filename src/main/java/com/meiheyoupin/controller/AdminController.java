@@ -50,10 +50,17 @@ public class AdminController {
         return "cpy_store";
     }
 
-    //商品
+    //未审核商品
     @GetMapping("cpyShop")
     public String unauditGoods(Model model){
         model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
         return "cpy_shop";
+    }
+
+    //未审核商品
+    @GetMapping("cpyPack")
+    public String unauditPacks(Model model){
+        model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
+        return "cpy_Pack";
     }
 }

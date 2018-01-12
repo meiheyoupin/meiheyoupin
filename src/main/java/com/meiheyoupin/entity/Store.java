@@ -23,6 +23,34 @@ public class Store {
 
     private String avatarUrl;
 
+    public Store(Integer id, String password) {
+        this.id = id;
+        this.password = password;
+    }
+
+    public Store() {
+    }
+
+    public Store(Integer id, String tel, String password, Byte state, String invitationCode, String storeName, String storeAddr, String bossName, Byte bossGender, String avatarUrl, String storeOutsidePhotoUrl, String storeInsidePhotoUrl, String bossIdcardPhotoUrl, String certificatePhotoUrl, String storeLicencePhotoUrl, Date createTime, Date updateTime) {
+        this.id = id;
+        this.tel = tel;
+        this.password = password;
+        this.state = state;
+        this.invitationCode = invitationCode;
+        this.storeName = storeName;
+        this.storeAddr = storeAddr;
+        this.bossName = bossName;
+        this.bossGender = bossGender;
+        this.avatarUrl = avatarUrl;
+        this.storeOutsidePhotoUrl = storeOutsidePhotoUrl;
+        this.storeInsidePhotoUrl = storeInsidePhotoUrl;
+        this.bossIdcardPhotoUrl = bossIdcardPhotoUrl;
+        this.certificatePhotoUrl = certificatePhotoUrl;
+        this.storeLicencePhotoUrl = storeLicencePhotoUrl;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
+
     private String storeOutsidePhotoUrl;
 
     private String storeInsidePhotoUrl;
