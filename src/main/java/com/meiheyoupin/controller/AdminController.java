@@ -31,12 +31,12 @@ public class AdminController {
 
     @GetMapping("cpyPerson")
     public String toCpyPerson(){
-        return "admin/cpy_person";
+        return "cpy_person";
     }
 
     @GetMapping("cpyStore")
     public String toCpyStore(){
-        return "admin/cpy_store";
+        return "cpy_store";
     }
 
 }
