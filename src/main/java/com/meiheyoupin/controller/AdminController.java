@@ -2,11 +2,14 @@ package com.meiheyoupin.controller;
 
 
 import com.meiheyoupin.entity.UserAdmin;
+import com.meiheyoupin.service.GoodsService;
+import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.TokenService;
 import com.meiheyoupin.service.UserAdminService;
 import com.meiheyoupin.utils.R1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -17,6 +20,12 @@ public class AdminController {
 
     @Autowired
     TokenService tokenService;
+
+    @Autowired
+    StoreService storeService;
+
+    @Autowired
+    GoodsService goodsService;
 
     @PostMapping("adminLogin")
     @ResponseBody
@@ -34,9 +43,17 @@ public class AdminController {
         return "cpy_person";
     }
 
+    //未审核商家
     @GetMapping("cpyStore")
-    public String toCpyStore(){
+    public String unauditStores(Model model){
+        model.addAttribute("unauditStores",storeService.getUnauditStores());
         return "cpy_store";
     }
 
+    //商品
+    @GetMapping("cpyShop")
+    public String unauditGoods(Model model){
+        model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
+        return "cpy_shop";
+    }
 }
