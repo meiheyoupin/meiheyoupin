@@ -26,6 +26,7 @@ public class PlatformController {
     @Autowired
     UserAdminService userAdminService;
 
+    //商家审核
     @GetMapping("auditStores")
     @ResponseBody
     public R1 toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,Model model){
@@ -38,14 +39,16 @@ public class PlatformController {
         }
     }
 
+    //套餐审核
     @GetMapping("auditGoods")
-    public String toAuditGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds,Model model){
+    @ResponseBody
+    public R1 toAuditGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds,Model model){
         try {
             goodsService.auditGoods(goodIds);
             model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
-            return "admin/cpy_shop";
+            return R1.success(200,"请求成功");
         }catch (Exception e){
-            return "error";
+            return R1.error(500,"服务器内部错误");
         }
     }
 

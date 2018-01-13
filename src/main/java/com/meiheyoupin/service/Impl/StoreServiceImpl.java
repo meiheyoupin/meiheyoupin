@@ -43,7 +43,7 @@ public class StoreServiceImpl implements StoreService {
         String password = UUID.randomUUID().toString().substring(0,8);
         Boolean Sms = false;
         try {
-            Sms = SMSUtils.sendMessages(store.getTel(),
+            Sms = SMSUtils.auditStoresMessage(store.getTel(),
                     store.getTel(),
                     password);
         }catch (Exception e){

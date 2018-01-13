@@ -103,4 +103,11 @@
       </foreach>
     </where>
   </update>
+
+  <select id="selectGoodByGoodId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM goods
+    WHERE id=#{goodId}
+  </select>
 </mapper>

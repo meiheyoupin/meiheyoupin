@@ -1,15 +1,15 @@
 
 function auditStore() {
-    var Ids = [];
+    var storeIds = [];
     var storeId = $("#storeId").val();
     var toInt = Number(storeId);
     console.log(toInt);
-    Ids.push(toInt);
+    storeIds.push(toInt);
     $.ajax({
         url:'platform/auditStores',
         type:'get',
         data:{
-            storeIds:Ids
+            storeIds:storeIds
         },
         datatype:'text',
         headers: {

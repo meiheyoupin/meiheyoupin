@@ -9,4 +9,6 @@ public interface GoodsMapper {
     List<Goods> selectUnauditGoods();
 
     int updateGoodsStateByGoodsIds(Integer[] goodsIds);
+
+    Goods selectGoodByGoodId(Integer goodId);
 }

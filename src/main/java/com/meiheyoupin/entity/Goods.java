@@ -44,6 +44,34 @@ public class Goods {
 
     private Date updateTime;
 
+    public Goods() {
+    }
+
+
+
+    public Goods(Integer id, String name, Byte state, Integer amount, BigDecimal price, BigDecimal pricePeople, String content, Byte grade, Integer numOfPeople, String occasion, String pictureUrl, String primaryPictureUrl, Integer category, Integer subject, Integer stockAmount, Integer recommended, Integer sales, Integer storeId, Date createTime, Date updateTime) {
+        this.id = id;
+        this.name = name;
+        this.state = state;
+        this.amount = amount;
+        this.price = price;
+        this.pricePeople = pricePeople;
+        this.content = content;
+        this.grade = grade;
+        this.numOfPeople = numOfPeople;
+        this.occasion = occasion;
+        this.pictureUrl = pictureUrl;
+        this.primaryPictureUrl = primaryPictureUrl;
+        this.category = category;
+        this.subject = subject;
+        this.stockAmount = stockAmount;
+        this.recommended = recommended;
+        this.sales = sales;
+        this.storeId = storeId;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
+
     public Integer getId() {
         return id;
     }

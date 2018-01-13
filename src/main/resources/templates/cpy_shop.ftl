@@ -34,6 +34,7 @@
                         <a href="#">综合排序</a><a href="#">价格优先</a><a href="#">销量优先</a><a href="#">好评优先</a>
                     </div>
                     <ul>
+                        <#list unauditGoods as good>
                         <li>
                             <div class="content">
                                 <div class="title-box">
@@ -41,8 +42,9 @@
                                         <img src="img/company/shop-list-bg.png" alt="" />
                                     </div>
                                     <div class="title-info">
+                                        <input class="goodId" id="goodId" type="hidden" value="${good.id}"/>
                                         <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
+                                        <span class="times">${good.createTime?string('yyyy-MM-dd')}</span>
                                     </div>
                                 </div>
                                 <div class="shop-box">
@@ -50,86 +52,16 @@
                                         <img src="img/company/shop-list-img.jpg" alt="" />
                                     </div>
                                     <div class="shop-info">
-                                        <span class="info-title">薄荷夏日可乐</span>
-                                        <span class="info-text">清新水果黄桃味</span>
-                                        <span class="info-number">￥<strong class="price">3.5</strong></span>
+                                        <span class="info-title">${good.name}</span>
+                                        <span class="info-text">${good.content}</span>
+                                        <span class="info-number">￥<strong class="price">${good.price}</strong></span>
                                         <span class="info-check">审核商品信息+</span>
+                                        <#include "white_content.ftl"/>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="content">
-                                <div class="title-box">
-                                    <div class="img-bg">
-                                        <img src="img/company/shop-list-bg.png" alt="" />
-                                    </div>
-                                    <div class="title-info">
-                                        <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
-                                    </div>
-                                </div>
-                                <div class="shop-box">
-                                    <div class="img-shop">
-                                        <img src="img/company/shop-list-img.jpg" alt="" />
-                                    </div>
-                                    <div class="shop-info">
-                                        <span class="info-title">薄荷夏日可乐</span>
-                                        <span class="info-text">清新水果黄桃味</span>
-                                        <span class="info-number">￥<strong class="price">3.5</strong></span>
-                                        <span class="info-check">审核商品信息+</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <div class="title-box">
-                                    <div class="img-bg">
-                                        <img src="img/company/shop-list-bg.png" alt="" />
-                                    </div>
-                                    <div class="title-info">
-                                        <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
-                                    </div>
-                                </div>
-                                <div class="shop-box">
-                                    <div class="img-shop">
-                                        <img src="img/company/shop-list-img.jpg" alt="" />
-                                    </div>
-                                    <div class="shop-info">
-                                        <span class="info-title">薄荷夏日可乐</span>
-                                        <span class="info-text">清新水果黄桃味</span>
-                                        <span class="info-number">￥<strong class="price">3.5</strong></span>
-                                        <span class="info-check">审核商品信息+</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <div class="title-box">
-                                    <div class="img-bg">
-                                        <img src="img/company/shop-list-bg.png" alt="" />
-                                    </div>
-                                    <div class="title-info">
-                                        <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
-                                    </div>
-                                </div>
-                                <div class="shop-box">
-                                    <div class="img-shop">
-                                        <img src="img/company/shop-list-img.jpg" alt="" />
-                                    </div>
-                                    <div class="shop-info">
-                                        <span class="info-title">薄荷夏日可乐</span>
-                                        <span class="info-text">清新水果黄桃味</span>
-                                        <span class="info-number">￥<strong class="price">3.5</strong></span>
-                                        <span class="info-check">审核商品信息+</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        </#list>
                     </ul>
                 </div>
             </div>
@@ -138,39 +70,39 @@
 </div>
 <!--审核商品信息弹框-->
 <div id="shop" class="black_overlay"></div>
-<div id="MyShop" class="white_content">
+<#--<div id="MyShop" class="white_content">
     <div class="check_add">
         <div class="cont-box">
             <span class="onClose">×</span>
             <h2>审核商品信息</h2>
             <div class="cont_lf">
                 <p class="shop-lf-title">
-                    <span>激爽夏日可乐</span>
+                    <span>${good.content}</span>
                 </p>
                 <p class="shop-lf-img">
-                    <img src="img/check_m2987084839.jpg" alt="" />
+                    <img src="${good.pictureUrl}" alt="" />
                 </p>
                 <p class="shop-lf-depict">
-                    <textarea readonly="readonly" placeholder="描述一下你的商品...">可乐聚会，激爽夏日，给这个热不可挡的夏日带来最酷的体验</textarea>
+                    <textarea readonly="readonly" placeholder="描述一下你的商品...">${good.content}</textarea>
                 </p>
             </div>
             <div class="cont_rt">
                 <p class="shop-rt-price">
-                    单价:<span>￥</span><strong>3.5</strong>
+                    单价:<span>￥</span><strong>${good.price}</strong>
                 </p>
                 <p class="shop-rt-img">
-                    <img src="img/check_bg.jpg" alt="" />
+                    <img src="${good.primaryPictureUrl}" alt="" />
                 </p>
             </div>
         </div>
         <div class="btn-box">
             <div class="btn">
-                <button class="pass" type="button">审核通过</button>
+                <button class="pass" type="button" onclick="auditGood()">审核通过</button>
                 <button class="not" type="button">审核未通过</button>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--审核通过弹框-->
 <div id="pass" class="black_overlay"></div>
 <div id="MyPass" class="white_content">
@@ -215,6 +147,7 @@
 </footer>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/shop.js"></script>
 <script type="text/javascript">
     //商品审核弹框
     $(".info-check").click(function(){
