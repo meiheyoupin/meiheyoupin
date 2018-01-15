@@ -29,8 +29,8 @@
             </div>
             <div class="orders-body">
                 <!--店铺信息-->
-                <#list unauditStores as store>
-                    <ul id="cpy-store">
+                <ul id="cpy-store">
+                    <#list unauditStores as store>
                         <li>
                             <div class="user-info">
                                 <div class="info-lf">
@@ -113,8 +113,8 @@
                                 <span class="close">×</span>
                             </div>
                         </li>
-                    </ul>
-                </#list>
+                    </#list>
+                </ul>   
             </div>
         </div>
     </div>
