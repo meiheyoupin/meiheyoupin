@@ -8,10 +8,7 @@ import com.meiheyoupin.utils.R1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("platform/")
@@ -39,11 +36,12 @@ public class PlatformController {
     }
 
     //商家审核未通过
-    @GetMapping("unsanctionedStore")
+    @PostMapping("unsanctionedStore")
     @ResponseBody
-    public R1 toUnsanctionedStore(@RequestParam(value = "storeIds",required = false) Integer[] storeIds){
+    public R1 toUnsanctionedStore(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,
+                                  @RequestParam(value = "reason",required = false) String reason){
         try {
-            storeService.unsanctionedStores(storeIds);
+            storeService.unsanctionedStores(storeIds,reason);
             return R1.success(200,"请求成功");
         }catch (Exception e){
             return R1.error(500,"服务器内部错误");

@@ -5,6 +5,7 @@ package com.meiheyoupin.utils;
 import com.meiheyoupin.dao.GoodsMapper;
 import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.dao.UserAdminMapper;
+import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.entity.UserAdmin;
 import com.meiheyoupin.service.GoodsService;
@@ -71,7 +72,10 @@ public class ApplicationTest {
 
     @Test
     public void test5(){
-        System.out.println(goodsMapper.selectGoodByGoodId(2).getContent());
+        Goods good = goodsMapper.selectGoodByGoodId(1);
+        Store store = storeMapper.selectStoresByStoreId(good.getStoreId());
+        System.out.println(store.getStoreName());
+        System.out.println(good.getName());
     }
 }
 

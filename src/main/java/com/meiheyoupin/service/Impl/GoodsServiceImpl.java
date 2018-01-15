@@ -29,6 +29,9 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsMapper.selectUnauditGoods();
     }
 
+    /*
+    套餐审核通过
+     */
     @Override
     public void auditGoods(Integer[] goodsIds) {
         goodsMapper.updateGoodsStateByGoodsIds(goodsIds);
@@ -37,6 +40,9 @@ public class GoodsServiceImpl implements GoodsService {
         }
     }
 
+    /*
+    套餐审核未通过
+     */
     @Override
     public void unsanctionedGoods(Integer[] goodsIds) {
         goodsMapper.updateGoodsStateByGoodsIdsRefuse(goodsIds);
@@ -45,6 +51,9 @@ public class GoodsServiceImpl implements GoodsService {
         }
     }
 
+    /*
+    套餐审核通过短信发送
+     */
     public void sendAuditGoodsMessage(Integer goodId){
         Goods good = goodsMapper.selectGoodByGoodId(goodId);
         Store store = storeMapper.selectStoresByStoreId(good.getStoreId());
@@ -53,7 +62,19 @@ public class GoodsServiceImpl implements GoodsService {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
 
+    /*
+    套餐审核未通过短信发送
+     */
+    public void sendUnsanctionedGoods(Integer goodId){
+        Goods good = goodsMapper.selectGoodByGoodId(goodId);
+        Store store = storeMapper.selectStoresByStoreId(good.getStoreId());
+        try {
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
 

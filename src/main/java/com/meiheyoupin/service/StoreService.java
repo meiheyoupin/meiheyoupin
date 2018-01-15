@@ -11,5 +11,5 @@ public interface StoreService {
 
     List<Store> getUnauditStores();
 
-    void unsanctionedStores(Integer[] storeIds);
+    void unsanctionedStores(Integer[] storeIds,String reason);
 }

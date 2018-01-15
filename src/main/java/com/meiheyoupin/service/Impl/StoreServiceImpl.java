@@ -36,10 +36,10 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public void unsanctionedStores(Integer[] storeIds) {
+    public void unsanctionedStores(Integer[] storeIds,String reason) {
         storeMapper.updateStoreStateByStoreIdRefuse(storeIds);
         for (int i=0;i<storeIds.length;i++){
-            sendSMSRefuse(storeIds[i]);
+            sendSMSRefuse(storeIds[i],reason);
         }
     }
 
@@ -63,10 +63,10 @@ public class StoreServiceImpl implements StoreService {
     /*
     未通过审核（发送短信）
      */
-    public void sendSMSRefuse(Integer storeId){
+    public void sendSMSRefuse(Integer storeId,String reason){
         Store store = storeMapper.selectStoresByStoreId(storeId);
         try {
-            SMSUtils.unsanctionedStoreMessage(store.getTel(),store.getTel());
+            SMSUtils.unsanctionedStoreMessage(store.getTel(),reason);
         } catch (ClientException e) {
             e.printStackTrace();
         }

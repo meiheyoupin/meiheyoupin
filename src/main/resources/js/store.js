@@ -28,9 +28,10 @@ function unsanctionedStore() {
     var toInt = Number(storeId);
     console.log(toInt);
     storeIds.push(toInt);
+    var reason = $("")
     $.ajax({
         url:'platform/unsanctionedStore',
-        type:'get',
+        type:'post',
         data:{
             storeIds:storeIds
         },
