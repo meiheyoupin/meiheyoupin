@@ -10,4 +10,6 @@ public interface StoreService {
     void autidStores(Integer[] storeIds);
 
     List<Store> getUnauditStores();
+
+    void unsanctionedStores(Integer[] storeIds);
 }

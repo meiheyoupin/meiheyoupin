@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface StoreMapper {
     /*
-    根据商家ID进行审核
+    根据商家ID进行审核(通过审核）
      */
     int updateStoreStateByStoreId(Integer[] storeIds);
 
@@ -25,4 +25,9 @@ public interface StoreMapper {
     根据商家ID修改商家密码
      */
     int updatePasswordByStoreId(Store store);
+
+    /*
+    根据商家ID进行审核(未通过审核）
+     */
+    int updateStoreStateByStoreIdRefuse(Integer[] storeIds);
 }

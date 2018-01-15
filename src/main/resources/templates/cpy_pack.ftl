@@ -31,6 +31,7 @@
                 <!--套餐审核信息-->
                 <div id="cpy-pack">
                     <ul>
+                        <#list unauditGoods as good>
                         <li>
                             <div class="content">
                                 <div class="title-box">
@@ -38,8 +39,9 @@
                                         <img src="img/company/pack-list-bg.png" alt="" />
                                     </div>
                                     <div class="title-info">
+                                        <input class="goodId" id="goodId" type="hidden" value="${good.id}"/>
                                         <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
+                                        <span class="times">${good.createTime?string('yyyy-MM-dd')}</span>
                                     </div>
                                 </div>
                                 <div class="pack-box">
@@ -47,86 +49,16 @@
                                         <img src="img/company/pack-list-img.jpg" alt="" />
                                     </div>
                                     <div class="pack-info">
-                                        <span class="info-title">激爽夏日可乐聚会套餐</span>
-                                        <span class="info-text">此套餐包含的商品有<strong>3</strong>个</span>
-                                        <span class="info-number">￥<strong class="price">148.0</strong></span>
+                                        <span class="info-title">${good.name}</span>
+                                        <span class="info-text">此套餐包含的商品有<strong>${good.amount}</strong>个</span>
+                                        <span class="info-number">￥<strong class="price">${good.price}</strong></span>
                                         <span class="info-check">审核套餐信息+</span>
+                                        <#include "myPack_dev.ftl"/>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="content">
-                                <div class="title-box">
-                                    <div class="img-bg">
-                                        <img src="img/company/pack-list-bg.png" alt="" />
-                                    </div>
-                                    <div class="title-info">
-                                        <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
-                                    </div>
-                                </div>
-                                <div class="pack-box">
-                                    <div class="img-pack">
-                                        <img src="img/company/pack-list-img.jpg" alt="" />
-                                    </div>
-                                    <div class="pack-info">
-                                        <span class="info-title">激爽夏日可乐聚会套餐</span>
-                                        <span class="info-text">此套餐包含的商品有<strong>3</strong>个</span>
-                                        <span class="info-number"> ￥ <strong class="price">148.0</strong></span>
-                                        <span class="info-check">审核套餐信息+</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <div class="title-box">
-                                    <div class="img-bg">
-                                        <img src="img/company/pack-list-bg.png" alt="" />
-                                    </div>
-                                    <div class="title-info">
-                                        <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
-                                    </div>
-                                </div>
-                                <div class="pack-box">
-                                    <div class="img-pack">
-                                        <img src="img/company/pack-list-img.jpg" alt="" />
-                                    </div>
-                                    <div class="pack-info">
-                                        <span class="info-title">激爽夏日可乐聚会套餐</span>
-                                        <span class="info-text">此套餐包含的商品有<strong>3</strong>个</span>
-                                        <span class="info-number">￥<strong class="price">148.0</strong></span>
-                                        <span class="info-check">审核套餐信息+</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="content">
-                                <div class="title-box">
-                                    <div class="img-bg">
-                                        <img src="img/company/pack-list-bg.png" alt="" />
-                                    </div>
-                                    <div class="title-info">
-                                        <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">12-12-10:52</span>
-                                    </div>
-                                </div>
-                                <div class="pack-box">
-                                    <div class="img-pack">
-                                        <img src="img/company/pack-list-img.jpg" alt="" />
-                                    </div>
-                                    <div class="pack-info">
-                                        <span class="info-title">激爽夏日可乐聚会套餐</span>
-                                        <span class="info-text">此套餐包含的商品有<strong>3</strong>个</span>
-                                        <span class="info-number">￥<strong class="price">148.0</strong></span>
-                                        <span class="info-check">审核套餐信息+</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        </#list>
                     </ul>
                 </div>
             </div>
@@ -135,79 +67,7 @@
 </div>
 <!--审核商品信息弹框-->
 <div id="pack" class="black_overlay"></div>
-<div id="MyPack" class="white_content">
-    <div class="pack">
-        <div class="cont-box">
-            <span class="onClose">×</span>
-            <h2>审核套餐内容</h2>
-            <div class="cont">
-                <p class="classify">分类: <span>生日聚会</span>><span>蛋糕组合</span></p>
-                <p class="title-pack">
-                    <span>激爽夏日可乐聚会套餐</span>
-                    <span class="pri">套餐价:<i>￥</i><strong>148</strong></span>
-                </p>
-                <ul class="upload-img">
-                    <li>
-                        <img src="img/company/pack-upload-img.jpg" alt="" />
-                    </li>
-                    <li>
-                        <img src="img/company/pack-upload-img02.jpg" alt="" />
-                    </li>
-                    <li class="list-img-box">
-                        <ul>
-                            <li>
-                                <img src="img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <table border="0" cellspacing="0" cellpadding="0">
-                <tr><th>勾选商品</th></tr>
-                <tr>
-                    <td>激爽夏日可乐</td>
-                    <td>清新水果黄桃味</td>
-                    <td>包含1份</td>
-                    <td>￥3.5</td>
-                </tr>
-                <tr>
-                    <td>激爽夏日可乐</td>
-                    <td>清新水果黄桃味</td>
-                    <td>包含1份</td>
-                    <td>￥3.5</td>
-                </tr>
-                <tr>
-                    <td>激爽夏日可乐</td>
-                    <td>清新水果黄桃味</td>
-                    <td>包含1份</td>
-                    <td>￥3.5</td>
-                </tr>
-            </table>
-            <textarea readonly="readonly" class="remarks">可乐聚会，激爽夏日，给这个热不可挡的夏日带来最酷的体验</textarea>
-        </div>
-        <div class="btn-box">
-            <div class="btn">
-                <button class="pass" type="button">审核通过</button>
-                <button class="not" type="button">审核未通过</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--审核通过弹框-->
 <div id="pass" class="black_overlay"></div>
 <div id="MyPass" class="white_content">

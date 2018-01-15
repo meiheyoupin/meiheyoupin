@@ -107,7 +107,7 @@
                                 <div class="examine">
                                     <p>
                                         <button class="pass" type="button" onclick="auditStore()">审核通过</button>
-                                        <button class="not" type="button">审核未通过</button>
+                                        <button class="not" type="button" onclick="unsanctionedStore()">审核未通过</button>
                                     </p>
                                 </div>
                                 <span class="close">×</span>

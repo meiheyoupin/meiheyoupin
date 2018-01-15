@@ -26,26 +26,48 @@ public class PlatformController {
     @Autowired
     UserAdminService userAdminService;
 
-    //商家审核
+    //商家审核通过
     @GetMapping("auditStores")
     @ResponseBody
     public R1 toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,Model model){
         try {
             storeService.autidStores(storeIds);
-            model.addAttribute("unauditStores",storeService.getUnauditStores());
             return R1.success(200,"请求成功");
         }catch (Exception e){
             return R1.error(500,"服务器内部错误");
         }
     }
 
-    //套餐审核
+    //商家审核未通过
+    @GetMapping("unsanctionedStore")
+    @ResponseBody
+    public R1 toUnsanctionedStore(@RequestParam(value = "storeIds",required = false) Integer[] storeIds){
+        try {
+            storeService.unsanctionedStores(storeIds);
+            return R1.success(200,"请求成功");
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    //套餐审核通过
     @GetMapping("auditGoods")
     @ResponseBody
-    public R1 toAuditGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds,Model model){
+    public R1 toAuditGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
         try {
             goodsService.auditGoods(goodIds);
-            model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
+            return R1.success(200,"请求成功");
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    //套餐审核未通过
+    @GetMapping("unsanctionedGood")
+    @ResponseBody
+    public R1 toUnsanctionedGood(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
+        try {
+            goodsService.unsanctionedGoods(goodIds);
             return R1.success(200,"请求成功");
         }catch (Exception e){
             return R1.error(500,"服务器内部错误");

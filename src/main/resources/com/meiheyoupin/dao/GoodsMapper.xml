@@ -110,4 +110,14 @@
     FROM goods
     WHERE id=#{goodId}
   </select>
+
+  <update id="updateGoodsStateByGoodsIdsRefuse" parameterType="Integer[]">
+    UPDATE goods SET state=2
+    <where>
+      id
+      <foreach collection="array" item="ids" open="in (" close=")" separator=",">
+        #{ids}
+      </foreach>
+    </where>
+  </update>
 </mapper>

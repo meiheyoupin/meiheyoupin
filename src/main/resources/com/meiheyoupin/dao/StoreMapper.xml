@@ -112,4 +112,14 @@
     SET password=#{password}
     WHERE id=#{id}
   </update>
+
+  <update id="updateStoreStateByStoreIdRefuse" parameterType="Integer[]">
+    UPDATE store SET state=2
+    <where>
+      id
+      <foreach collection="array" item="ids" open="in (" close=")" separator=",">
+        #{ids}
+      </foreach>
+    </where>
+  </update>
 </mapper>

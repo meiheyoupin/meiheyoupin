@@ -22,6 +22,28 @@ function auditStore() {
     })
 }
 
+function unsanctionedStore() {
+    var storeIds = [];
+    var storeId = $("#storeId").val();
+    var toInt = Number(storeId);
+    console.log(toInt);
+    storeIds.push(toInt);
+    $.ajax({
+        url:'platform/unsanctionedStore',
+        type:'get',
+        data:{
+            storeIds:storeIds
+        },
+        datatype:'text',
+        headers: {
+            "token": localStorage.getItem("token")
+        },
+        traditional: true,
+        success:function () {
+            window.location.href='/cpyStore';
+        }
+    })
+}
 
 /*const vm = new Vue({
  el:'#app',

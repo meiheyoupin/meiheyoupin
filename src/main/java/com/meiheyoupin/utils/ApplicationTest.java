@@ -2,6 +2,7 @@
 package com.meiheyoupin.utils;
 
 
+import com.meiheyoupin.dao.GoodsMapper;
 import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.dao.UserAdminMapper;
 import com.meiheyoupin.entity.Store;
@@ -65,9 +66,12 @@ public class ApplicationTest {
     @Autowired
     StoreMapper storeMapper;
 
+    @Autowired
+    GoodsMapper goodsMapper;
+
     @Test
     public void test5(){
-        storeMapper.updatePasswordByStoreId(new Store(4,"243124"));
+        System.out.println(goodsMapper.selectGoodByGoodId(2).getContent());
     }
 }
 

@@ -11,4 +11,6 @@ public interface GoodsMapper {
     int updateGoodsStateByGoodsIds(Integer[] goodsIds);
 
     Goods selectGoodByGoodId(Integer goodId);
+
+    int updateGoodsStateByGoodsIdsRefuse(Integer[] goodsIds);
 }

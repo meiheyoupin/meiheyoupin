@@ -10,4 +10,6 @@ public interface GoodsService {
     List<Goods> getUnauditGoods();
 
     void auditGoods(Integer[] goodsIds);
+
+    void unsanctionedGoods(Integer[] goodsIds);
 }

@@ -56,7 +56,7 @@
                                         <span class="info-text">${good.content}</span>
                                         <span class="info-number">￥<strong class="price">${good.price}</strong></span>
                                         <span class="info-check">审核商品信息+</span>
-                                        <#include "white_content.ftl"/>
+                                        <#include "myShop_dev.ftl"/>
                                     </div>
                                 </div>
                             </div>

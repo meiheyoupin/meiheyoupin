@@ -2,6 +2,7 @@
 package com.meiheyoupin.service.Impl;
 
 
+import com.aliyuncs.exceptions.ClientException;
 import com.meiheyoupin.common.SMSUtils;
 import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.entity.Store;
@@ -22,24 +23,31 @@ public class StoreServiceImpl implements StoreService {
     private StoreMapper storeMapper;
 
     @Override
-    public void autidStores(Integer[] storeIds) {
-        storeMapper.updateStoreStateByStoreId(storeIds);
-        for (int i = 0;i<storeIds.length;i++){
-            sendSMS(storeIds[i]);
-        }
-    }
-
-    @Override
     public List<Store> getUnauditStores() {
         return storeMapper.selectUnauditStores();
     }
 
+    @Override
+    public void autidStores(Integer[] storeIds) {
+        storeMapper.updateStoreStateByStoreId(storeIds);
+        for (int i = 0;i<storeIds.length;i++){
+            sendSMSSuccess(storeIds[i]);
+        }
+    }
+
+    @Override
+    public void unsanctionedStores(Integer[] storeIds) {
+        storeMapper.updateStoreStateByStoreIdRefuse(storeIds);
+        for (int i=0;i<storeIds.length;i++){
+            sendSMSRefuse(storeIds[i]);
+        }
+    }
+
     /*
-    发送短信并且设置密码
+    通过审核（发送短信并且设置密码）
      */
-    public void sendSMS(Integer storeId){
-        Store store = null;
-        store = storeMapper.selectStoresByStoreId(storeId);
+    public void sendSMSSuccess(Integer storeId){
+        Store store = storeMapper.selectStoresByStoreId(storeId);
         String password = UUID.randomUUID().toString().substring(0,8);
         Boolean Sms = false;
         try {
@@ -52,5 +60,15 @@ public class StoreServiceImpl implements StoreService {
             storeMapper.updatePasswordByStoreId(new Store(storeId,password));
         }
     }
-
+    /*
+    未通过审核（发送短信）
+     */
+    public void sendSMSRefuse(Integer storeId){
+        Store store = storeMapper.selectStoresByStoreId(storeId);
+        try {
+            SMSUtils.unsanctionedStoreMessage(store.getTel(),store.getTel());
+        } catch (ClientException e) {
+            e.printStackTrace();
+        }
+    }
 }
