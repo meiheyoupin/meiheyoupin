@@ -16,8 +16,14 @@ function auditStore() {
             "token": localStorage.getItem("token")
         },
         traditional: true,
-        success:function () {
+        success:function (data) {
+          if (data.code==200){
             window.location.href='/cpyStore';
+          }else if (data.code==401){
+            alert("对不起，您没有权限")
+          }else if (data.code==500){
+            alert("服务器内部错误")
+          }
         }
     })
 }
@@ -46,8 +52,15 @@ function unsanctionedStore() {
             "token": localStorage.getItem("token")
         },
         traditional: true,
-        success:function () {
+        success:function (data) {
+          if (data.code==200){
             window.location.href='/cpyStore';
+          }else if (data.code==401){
+            alert("对不起，您没有权限")
+          }else if (data.code==500){
+            alert("服务器内部错误")
+          }
+
         }
     })
 }
