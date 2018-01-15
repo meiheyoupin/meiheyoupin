@@ -92,10 +92,10 @@
     </div>
     <div class="list">
         <ul>
-            <li><input type="checkbox" checked="checked"/>套餐名违规</li>
-            <li><input type="checkbox"/>价格不合理</li>
-            <li><input type="checkbox"/>套餐搭配不完善</li>
-            <li><input type="checkbox"/>套餐描述违规</li>
+            <li><input name="reason" type="checkbox" checked="checked" value="套餐名违规"/>套餐名违规</li>
+            <li><input name="reason" type="checkbox" value="价格不合理"/>价格不合理</li>
+            <li><input name="reason" type="checkbox" value="套餐搭配不完善"/>套餐搭配不完善</li>
+            <li><input name="reason" type="checkbox" value="套餐描述违规"/>套餐描述违规</li>
             <li class="last-item">
                 <input type="checkbox"/>
                 <span>其他</span><textarea class="other"></textarea>

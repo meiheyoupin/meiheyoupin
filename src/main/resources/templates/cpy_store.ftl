@@ -107,7 +107,7 @@
                                 <div class="examine">
                                     <p>
                                         <button class="pass" type="button" onclick="auditStore()">审核通过</button>
-                                        <button class="not" type="button" onclick="unsanctionedStore()">审核未通过</button>
+                                        <button class="not" type="button">审核未通过</button>
                                     </p>
                                 </div>
                                 <span class="close">×</span>
@@ -143,21 +143,21 @@
     </div>
     <div class="list">
         <ul>
-            <li><input type="checkbox"/>店铺环境照片不符</li>
-            <li><input type="checkbox"/>店铺环境照片模糊</li>
-            <li><input type="checkbox"/>身份证照片身份不符</li>
-            <li><input type="checkbox"/>身份证照片模糊</li>
-            <li><input type="checkbox"/>身份证照片模糊、不符</li>
-            <li><input type="checkbox"/>卫生证照片模糊</li>
-            <li><input type="checkbox"/>营业执照照片过期、不符</li>
-            <li><input type="checkbox"/>营业执照照片模糊</li>
+            <li><input name="reason" type="checkbox" value="店铺环境照片不符"/>店铺环境照片不符</li>
+            <li><input name="reason" type="checkbox" value="店铺环境照片模糊"/>店铺环境照片模糊</li>
+            <li><input name="reason" type="checkbox" value="身份证照片身份不符"/>身份证照片身份不符</li>
+            <li><input name="reason" type="checkbox" value="身份证照片模糊"/>身份证照片模糊</li>
+            <li><input name="reason" type="checkbox" value="身份证照片模糊、不符"/>身份证照片模糊、不符</li>
+            <li><input name="reason" type="checkbox" value="卫生证照片模糊"/>卫生证照片模糊</li>
+            <li><input name="reason" type="checkbox" value="营业执照照片过期"/>营业执照照片过期、不符</li>
+            <li><input name="reason" type="checkbox" value="营业执照照片模糊"/>营业执照照片模糊</li>
             <li class="last-item">
                 <input type="checkbox"/>
-                <span>其他</span><textarea class="other"></textarea>
+                <span>其他</span><textarea name="reason" class="other"></textarea>
             </li>
         </ul>
-        <div class="btn-send"><a href="">发送</a></div>
-        <div class="btn-back"><a href="javascript:;">返回</a></div>
+        <div class="btn-send"><a onclick="unsanctionedStore()">发送</a></div>
+        <div class="btn-back"><a href="/cpyStore">返回</a></div>
     </div>
 </div>
 <!--页脚-->

@@ -29,9 +29,9 @@ function unsanctionedStore() {
     console.log(toInt);
     storeIds.push(toInt);
     var obj = document.getElementsByName("reason");
-    var reason='';
+    var reason ='';
     for (var i=0;i<obj.length;i++){
-      if(obj[i].checked) reason+=obj[i].value+',';
+      if(obj[i].checked) reason+=obj[i].value+' ';
     }
     console.log(reason);
     $.ajax({

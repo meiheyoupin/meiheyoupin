@@ -27,11 +27,18 @@ function unsanctionedGood() {
     var toInt = Number(goodId);
     console.log(toInt);
     goodIds.push(toInt);
+    var obj = document.getElementsByName("reason");
+    var reason ='';
+    for (var i=0;i<obj.length;i++){
+        if(obj[i].checked) reason+=obj[i].value+' ';
+    }
+    console.log(reason);
     $.ajax({
         url:'platform/unsanctionedGood',
         type:'post',
         data:{
-            goodIds:goodIds
+            goodIds:goodIds,
+            reason:reason
         },
         datatype:'text',
         headers: {
