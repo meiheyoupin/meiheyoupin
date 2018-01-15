@@ -11,5 +11,5 @@ public interface GoodsService {
 
     void auditGoods(Integer[] goodsIds);
 
-    void unsanctionedGoods(Integer[] goodsIds);
+    void unsanctionedGoods(Integer[] goodsIds,String reason);
 }

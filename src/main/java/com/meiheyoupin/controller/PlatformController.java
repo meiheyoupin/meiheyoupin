@@ -61,11 +61,12 @@ public class PlatformController {
     }
 
     //套餐审核未通过
-    @GetMapping("unsanctionedGood")
+    @PostMapping("unsanctionedGood")
     @ResponseBody
-    public R1 toUnsanctionedGood(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
+    public R1 toUnsanctionedGood(@RequestParam(value = "goodIds",required = false) Integer[] goodIds,
+                                 @RequestParam(value = "reason",required = false) String reason){
         try {
-            goodsService.unsanctionedGoods(goodIds);
+            goodsService.unsanctionedGoods(goodIds,reason);
             return R1.success(200,"请求成功");
         }catch (Exception e){
             return R1.error(500,"服务器内部错误");

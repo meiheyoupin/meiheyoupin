@@ -147,7 +147,7 @@
             <li><input type="checkbox"/>店铺环境照片模糊</li>
             <li><input type="checkbox"/>身份证照片身份不符</li>
             <li><input type="checkbox"/>身份证照片模糊</li>
-            <li><input type="checkbox"/>卫生证照片过期、不符</li>
+            <li><input type="checkbox"/>身份证照片模糊、不符</li>
             <li><input type="checkbox"/>卫生证照片模糊</li>
             <li><input type="checkbox"/>营业执照照片过期、不符</li>
             <li><input type="checkbox"/>营业执照照片模糊</li>

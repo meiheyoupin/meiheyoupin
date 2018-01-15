@@ -11,11 +11,12 @@ import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
 
-
+@Transactional
 @Service
 public class GoodsServiceImpl implements GoodsService {
     @Autowired
@@ -44,10 +45,10 @@ public class GoodsServiceImpl implements GoodsService {
     套餐审核未通过
      */
     @Override
-    public void unsanctionedGoods(Integer[] goodsIds) {
+    public void unsanctionedGoods(Integer[] goodsIds,String reason) {
         goodsMapper.updateGoodsStateByGoodsIdsRefuse(goodsIds);
         for (int i=0;i<goodsIds.length;i++){
-
+            sendUnsanctionedGoods(goodsIds[i],reason);
         }
     }
 
@@ -67,11 +68,11 @@ public class GoodsServiceImpl implements GoodsService {
     /*
     套餐审核未通过短信发送
      */
-    public void sendUnsanctionedGoods(Integer goodId){
+    public void sendUnsanctionedGoods(Integer goodId,String reason){
         Goods good = goodsMapper.selectGoodByGoodId(goodId);
         Store store = storeMapper.selectStoresByStoreId(good.getStoreId());
         try {
-
+            SMSUtils.unsanctionedGoodMessage(store.getTel(),store.getStoreName(),good.getName(),reason);
         }catch (Exception e){
             e.printStackTrace();
         }

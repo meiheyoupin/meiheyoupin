@@ -29,7 +29,7 @@ function unsanctionedGood() {
     goodIds.push(toInt);
     $.ajax({
         url:'platform/unsanctionedGood',
-        type:'get',
+        type:'post',
         data:{
             goodIds:goodIds
         },
