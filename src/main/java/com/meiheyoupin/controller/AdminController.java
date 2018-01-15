@@ -59,7 +59,6 @@ public class AdminController {
 
     //未审核套餐
     @GetMapping("cpyPack")
-    @ResponseBody
     public String unauditPacks(Model model){
         model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
         return "cpy_Pack";
