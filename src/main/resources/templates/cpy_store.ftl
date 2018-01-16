@@ -24,84 +24,34 @@
                 <!--店铺信息-->
                 <ul id="cpy-store">
                     <#list unauditStores as store>
-                        <li>
-                            <div class="user-info">
-                                <div class="info-lf">
-                                    <div class="title">
-                                        <div class="img-box">
-                                            <img src="/img/company/user-list-bg.png" alt="" />
-                                        </div>
-                                        <div class="title-info">
-                                            <input class="storeId" id="storeId" type="hidden" value="${store.id}"/>
-                                            <span class="title-box">${store.storeName}</span>
-                                            <span class="times-box">${store.createTime?string('yyyy-MM-dd')}</span>
-                                            <span class="num-box">${store.invitationCode}</span>
-                                        </div>
+                    <li class="storelist">
+                        <div class="user-info">
+                            <div class="info-lf">
+                                <div class="title">
+                                    <div class="img-box">
+                                        <img src="/img/company/user-list-bg.png" alt="" />
                                     </div>
-                                    <div class="check-shop">
-                                        <span class="ck-shop">审核店家信息+</span>
+                                    <div class="title-info">
+                                        <input class="storeId" id="storeId" type="hidden" value="${store.id?c}"/>
+                                        <span class="title-box">${store.storeName}</span>
+                                        <span class="times-box">${store.createTime?string('yyyy-MM-dd')}</span>
+                                        <span class="num-box">${store.invitationCode}</span>
                                     </div>
                                 </div>
-                                <div class="info-rt">
-                                    <div class="phone">${store.tel}</div>
-                                    <div class="name">
-                                        <span>${store.bossName}</span>
-                                        <span class="sex">先生</span>
-                                    </div>
+                                <div class="check-shop">
+                                    <span class="ck-shop">审核店家信息+</span>
                                 </div>
                             </div>
-                            <div id="store">
-                                <div class="shop-name">
-                                    <p class="title-shop">店铺名称</p>
-                                    <p class="name-box">
-                                        <span class="name1">${store.storeName}</span>
-                                        <span class="name2"> 账号: </span>
-                                        <span class="name3">${store.tel}</span>
-                                    </p>
+                            <div class="info-rt">
+                                <div class="phone">${store.tel}</div>
+                                <div class="name">
+                                    <span>${store.bossName}</span>
+                                    <span class="sex">先生</span>
                                 </div>
-                                <div class="shop-addr">
-                                    <p class="title-shop">店铺地址</p>
-                                    <p class="addr-box">
-                                        <span class="addr1">${store.storeAddr}</span>
-                                    </p>
-                                </div>
-                                <div class="shop-env">
-                                    <p class="title-shop">店铺环境</p>
-                                    <p class="env-shop">
-                                        <img class="file-bg" src="${store.storeOutsidePhotoUrl}" alt="" />
-                                        <img class="file-bg" src="${store.storeInsidePhotoUrl}" alt="" />
-                                    </p>
-                                </div>
-                                <div class="shop-id">
-                                    <p class="title-shop">法人身份证</p>
-                                    <p class="id-shop">
-                                        <img class="file-bg" src="${store.bossIdcardPhotoUrl}" alt="" />
-                                        <img class="file-bg" src="${store.bossIdcardPhotoUrl}" alt="" />
-                                    </p>
-                                    <span>正面</span>
-                                    <span>背面</span>
-                                </div>
-                                <div class="shop-license">
-                                    <p class="title-shop">营业执照</p>
-                                    <p class="license-shop">
-                                        <img class="file-bg" src="${store.certificatePhotoUrl}" alt="" />
-                                    </p>
-                                </div>
-                                <div class="shop-licence">
-                                    <p class="title-shop">卫生许可证</p>
-                                    <p class="licence-shop">
-                                        <img class="file-bg" src="${store.storeLicencePhotoUrl}" alt="" />
-                                    </p>
-                                </div>
-                                <div class="examine">
-                                    <p>
-                                        <button class="pass" type="button" onclick="auditStore()">审核通过</button>
-                                        <button class="not" type="button">审核未通过</button>
-                                    </p>
-                                </div>
-                                <span class="close">×</span>
                             </div>
-                        </li>
+                        </div>
+                        <#include "my_store_dev.ftl"/>
+                    </li>
                     </#list>
                 </ul>
             </div>
@@ -109,8 +59,8 @@
     </div>
 </div>
 <!--审核通过弹框-->
-<div id="pass" class="black_overlay"></div>
-<div id="MyPass" class="white_content">
+<div id="Pass"></div>
+<div id="MyPass">
     <div class="move">
         <div class="title">
             <img src="/img/complete.png" alt="" />
@@ -123,8 +73,8 @@
     <a class="back" href="javascript:;">×</a>
 </div>
 <!--审核未通过弹框-->
-<div id="not" class="black_overlay"></div>
-<div id="MyNot" class="white_content">
+<div id="ot"></div>N
+<div id="MyNot">
     <div class="move">
         <div class="title">
             <span>填写原因</span>

@@ -140,7 +140,7 @@ body{
 	text-align: center;
 }
 /*店家审核box*/
-#store{
+.Store{
 	position: relative;
 	top: 0;
 	left: 0;
@@ -150,57 +150,57 @@ body{
 	background: #fff;
 	display: none;
 }
-#store>div{
+.Store>div{
 	border-bottom: 1px solid #EFEFEF;
 	padding: 20px 15px;
 }
-#store>div .title-shop{
+.Store>div .title-shop{
 	font-size: 24px;
 	color: #333;
 }
-#store>div .license-shop{
+.Store>div .license-shop{
 	text-align:center;
 }
-#store>div .licence-shop{
+.Store>div .licence-shop{
 	text-align:center;
 }
-#store>div .file-bg{
+.Store>div .file-bg{
 	display: inline-block;
 	background: url("/img/file_bg.png");
 	width: 390px;
 	height: 222px;
 	margin: 10px 0;
 }
-#store .name-box .name1{
+.Store .name-box .name1{
 	display: inline-block;
 	font-size: 36px;
 	color: #666;
 	font-weight: bold;
 }
-#store .name-box .name2{
+.Store .name-box .name2{
 	display: inline-block;
 	font-size: 18px;
 	color: #666;
 	margin-left: 10px;
 }
-#store .name-box .name3{
+.Store .name-box .name3{
 	display: inline-block;
 	font-size: 18px;
 	color: #666;
 }
-#store .addr-box .addr1, .addr2, .addr3{
+.Store .addr-box .addr1, .addr2, .addr3{
 	display: inline-block;
 	font-size: 18px;
 	color: #666;
 	font-weight: bold;
 }
-#store .addr-box .span{
+.Store .addr-box .span{
 	display: inline-block;
 	width: 25px;
 	height: 5px;
 	border-top: 1px solid #e2e2e2;
 }
-#store .shop-id>span{
+.Store .shop-id>span{
 	display: inline-block;
 	width: 390px;
 	line-height: 19px;
@@ -208,13 +208,13 @@ body{
 	color: #999;
 	text-align: center;
 }
-#store .examine{
+.Store .examine{
 	padding: 60px 0 80px;
 }
-#store .examine p{
+.Store .examine p{
 	text-align: center;
 }
-#store .pass{
+.Store .pass{
 	width: 108px;
 	height: 35px;
 	background: #FED500;
@@ -225,7 +225,7 @@ body{
 	cursor: pointer;
 	margin-right: 140px;
 }
-#store .not{
+.Store .not{
 	width: 108px;
 	height: 35px;
 	background: #fff;
@@ -235,10 +235,10 @@ body{
 	outline: none;
 	cursor: pointer;
 }
-#store .examine button:hover{
+.Store .examine button:hover{
 	opacity: .75;
 }
-#store .close{
+.Store .close{
 	position: absolute;
 	top: 15px;
 	right: 25px;
@@ -246,7 +246,7 @@ body{
 	cursor: pointer;
 }
 /*弹框bg*/
-.black_overlay{
+#Pass{
 display: none;
 position: fixed;
 top: 0%;
@@ -307,6 +307,20 @@ overflow: hidden;
 	font-family: simsun;
 	padding: 5px 5px 0 0;
 }
+/*弹框*/
+#Not{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #aaa;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	/*filter: alpha(opacity=80);*/
+}
 /*审核未通过弹框*/
 #MyNot {
 display: none;
@@ -332,7 +346,6 @@ overflow: hidden;
 	width: 88px;
 	height: 35px;
 	left: 50%;
-	bottom: 0;
 	margin-left: -36px;
 	border-bottom: 4px solid #FED500;
 	text-align: center;

@@ -62,8 +62,7 @@ body{
 	margin-bottom: -8px;
 	margin-right: -10px;
 }
-#cpy-pack li{
-	position: relative;
+#cpy-pack .goodlist{
 	margin-bottom: 8px;
 	margin-right: 10px;
 }
@@ -166,7 +165,7 @@ body{
 	right: 5px;
 }
 /*弹框bg*/
-#pack{
+.Pack{
 display: none;
 position: fixed;
 top: 0%;
@@ -180,23 +179,23 @@ opacity:.80;
 /*filter: alpha(opacity=80);*/
 }
 /*套餐信息审核弹框******************/
-#MyPack {
+.MyPack {
 display: none;
-position: relative;
+position: absolute;
 width: 682px;
-height: 895px;
+height:895px;
 top: 50%;
 left: 50%;
-margin-top: -895px;
+margin-top: -256px;
 margin-left: -341px;
 background-color: #fff;
-z-index:1002;
+z-index: 1002;
 overflow: hidden;
 }
-#MyPack .pack{
+.MyPack .pack{
 	width: 100%;
 }
-#MyPack .pack .cont-box{
+.MyPack .pack .cont-box{
 	position: relative;
 	width: 632px;
 	top: 0;
@@ -205,96 +204,95 @@ overflow: hidden;
 	padding-bottom: 0;
 	background: #fff;
 }
-#MyPack .pack .upload-img{
+.MyPack .pack .upload-img{
 	display: flex;
 	flex-wrap: wrap;
 	width: 632px;
 	height: 360px;
 	overflow: auto;
 }
-#MyPack .pack .upload-img>li{
+.MyPack .pack .upload-img>li{
 	margin-bottom: 6px;
 }
-#MyPack .pack .upload-img>li:nth-child(1){
+.MyPack .pack .upload-img>li:nth-child(1){
 	width: 100%;
 	height: 356px;
 }
-#MyPack .pack .upload-img>li:nth-child(1) img{
+.MyPack .pack .upload-img>li:nth-child(1) img{
 	display: block;
 	width: 615px;
 	height: 356px;
 }
-#MyPack .pack .upload-img>li:nth-child(2){
+.MyPack .pack .upload-img>li:nth-child(2){
 	width: 356px;
 	height: 210px;
 	margin-right: 6px;
 }
-#MyPack .pack .upload-img>li:nth-child(2) img{
+.MyPack .pack .upload-img>li:nth-child(2) img{
 	display: block;
 	width: 356px;
 	height: 210px;
 }
-#MyPack .pack .list-img-box{
-	width: 250px;
+.MyPack .pack .list-img-box{
+	width: 245px;
 	height: 210px;
 }
-#MyPack .pack .list-img-box ul{
+.MyPack .pack .list-img-box ul{
 	display: flex;
 	flex-wrap: wrap;
 }
-#MyPack .pack .list-img-box ul li{
+.MyPack .pack .list-img-box ul li{
 	width: 118px;
 	height: 70px;
-	margin-right: 6px;
+	margin-right: 4px;
 }
-#MyPack .pack .list-img-box ul li img{
+.MyPack .pack .list-img-box ul li img{
 	display: block;
 	width: 118px;
 	height: 70px;
 }
-#MyPack .pack table{
+.MyPack .pack table{
 	display: block;
 	width: 632px;
 	height: 144px;
 	margin: 20px 0;
 	overflow: auto;
 }
-#MyPack .pack table tr{
+.MyPack .pack table tr{
 	width: 100%;
 	height: 32px;
 	line-height: 32px;
 }
-#MyPack .pack table tr:nth-child(2n){
+.MyPack .pack table tr:nth-child(2n){
 	background: #FBFBFB;
 }
-#MyPack .pack table tr th{
+.MyPack .pack table tr th{
 	font-size: 16px;
 	color: #999;
 	font-weight: 500;
 	text-align: left;
 	padding: 5px 12px;
 }
-#MyPack .pack table tr td{
+.MyPack .pack table tr td{
 	height: 32px;
 	font-size: 16px;
 	color: #333;
 	text-align: left;
 	padding: 0 12px;
 }
-#MyPack .pack table tr td:nth-child(1){
+.MyPack .pack table tr td:nth-child(1){
 	width: 188px;
 }
-#MyPack .pack table tr td:nth-child(2){
+.MyPack .pack table tr td:nth-child(2){
 	width: 176px;
 }
-#MyPack .pack table tr td:nth-child(3){
+.MyPack .pack table tr td:nth-child(3){
 	width: 86px;
 }
-#MyPack .pack table tr td:nth-child(4){
+.MyPack .pack table tr td:nth-child(4){
 	width: 86px;
 }
-
-#MyPack .pack .cont-box .onClose{
+.MyPack .pack .cont-box .onClose{
 	position: absolute;
 	right: 35px;
 	top: 25px;
@@ -302,20 +300,20 @@ overflow: hidden;
 	color: #333;
 	cursor: pointer;
 }
-#MyPack .pack .cont-box .classify{
+.MyPack .pack .cont-box .classify{
 	font-size: 20px;
 	color: #666;
 }
-#MyPack .pack .cont-box .classify span{
+.MyPack .pack .cont-box .classify span{
 	font-size: 18px;
 }
-#MyPack .pack .cont-box h2{
+.MyPack .pack .cont-box h2{
 	font-size: 26px;
 	color: #999;
 	font-weight: 500;
 	padding: 20px 0;
 }
-#MyPack .pack .title-pack span{
+.MyPack .pack .title-pack span{
 	display: inline-block;
 	height: 50px;
 	line-height: 50px;
@@ -323,24 +321,24 @@ overflow: hidden;
 	color: #333;
 	overflow: hidden;
 }
-#MyPack .pack .title-pack .pri{
+.MyPack .pack .title-pack .pri{
 	float: right;
 	margin-right: 25px;
 	font-size: 18px;
 	color: #333;
 }
-#MyPack .pack .title-pack .pri i{
+.MyPack .pack .title-pack .pri i{
 	font-size: 24px;
 	color: #F74342;
 	font-weight: 500;
 	font-style: normal;
 }
-#MyPack .pack .title-pack .pri strong{
+.MyPack .pack .title-pack .pri strong{
 	font-size: 24px;
 	color: #F74342;
 	font-weight: 500;
 }
-#MyPack .pack .remarks{
+.MyPack .pack .remarks{
 	width: 100%;
 	height: 70px;
 	font-size: 16px;
@@ -350,19 +348,19 @@ overflow: hidden;
 	outline: none;
 	text-indent: 1.2em;
 }
-#MyPack .btn-box{
+.MyPack .btn-box{
 	position: relative;
 	width: 632px;
 	background: #fff;
 	margin: 0 25px;
 	padding: 30px 0 30px;
 }
-#MyPack .btn{
+.MyPack .btn{
 	height: 35px;
 	line-height: 35px;
 	text-align: center;
 }
-#MyPack .pass{
+.MyPack .pass{
 	width: 108px;
 	height: 35px;
 	background: #FED500;
@@ -373,7 +371,7 @@ overflow: hidden;
 	cursor: pointer;
 	margin-right: 140px;
 }
-#MyPack .not{
+.MyPack .not{
 	width: 108px;
 	height: 35px;
 	background: #fff;
@@ -383,7 +381,7 @@ overflow: hidden;
 	outline: none;
 	cursor: pointer;
 }
-#MyPack .btn button:hover{
+.MyPack .btn button:hover{
 	opacity: .75;
 }
 /*通过/未通过弹框bg*/
