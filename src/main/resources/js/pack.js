@@ -62,3 +62,31 @@ function unsanctionedGood() {
         }
     })
 }
+
+//套餐审核弹框
+$(".info-check").click(function(){
+    $("#pack").show();
+    $("#MyPack").show();
+});
+$(".onClose").click(function(){
+    $("#pack").hide();
+    $("#MyPack").hide();
+});
+//审核通过弹框
+$(".pass").click(function(){
+    $("#pass").show();
+    $("#MyPass").show();
+});
+$(".back").click(function(){
+    $("#pass").hide();
+    $("#MyPass").hide();
+});
+//审核未通过弹框
+$(".not").click(function(){
+    $("#not").show();
+    $("#MyNot").show();
+});
+$(".btn-back, .btn-send").click(function(){
+    $("#not").hide();
+    $("#MyNot").hide();
+});

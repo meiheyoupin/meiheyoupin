@@ -2,25 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="img/favicon.ico" rel="shortcut icon">
+    <link href="/img/favicon.ico" rel="shortcut icon">
     <title>美盒优品-公司后台</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/cpy_store.css" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/cpy_store.css" />
 </head>
 <body>
-<!--头部logo部分-->
-<div id="header">
-    <div class="container">
-        <h1 class="logo">
-            <a href="index.html" title="美盒优品"></a>
-        </h1>
-        <span class="company-title">公司后台</span>
-    </div>
-</div>
+<!--header-->
+<#include "cpy_header.html"/>
 <!--页面开始-->
 <div id="main">
     <div class="container">
-    <#include "order-nav.ftl"/>
+    <#include "cpy_nav.ftl"/>
         <div class="orders">
             <div class="orders-head">
                 <ul>
@@ -36,7 +29,7 @@
                                 <div class="info-lf">
                                     <div class="title">
                                         <div class="img-box">
-                                            <img src="img/company/user-list-bg.png" alt="" />
+                                            <img src="/img/company/user-list-bg.png" alt="" />
                                         </div>
                                         <div class="title-info">
                                             <input class="storeId" id="storeId" type="hidden" value="${store.id}"/>
@@ -70,10 +63,6 @@
                                     <p class="title-shop">店铺地址</p>
                                     <p class="addr-box">
                                         <span class="addr1">${store.storeAddr}</span>
-                                        <#--<span class="span"></span>
-                                        <span class="addr2">相符街道</span>
-                                        <span class="span"></span>
-                                        <span class="addr3">阿里瓦迪路222号法兰大夏2单元6楼</span>-->
                                     </p>
                                 </div>
                                 <div class="shop-env">
@@ -94,13 +83,13 @@
                                 </div>
                                 <div class="shop-license">
                                     <p class="title-shop">营业执照</p>
-                                    <p class="license-shop" style="text-align: center;">
+                                    <p class="license-shop">
                                         <img class="file-bg" src="${store.certificatePhotoUrl}" alt="" />
                                     </p>
                                 </div>
                                 <div class="shop-licence">
                                     <p class="title-shop">卫生许可证</p>
-                                    <p class="licence-shop" style="text-align: center;">
+                                    <p class="licence-shop">
                                         <img class="file-bg" src="${store.storeLicencePhotoUrl}" alt="" />
                                     </p>
                                 </div>
@@ -124,7 +113,7 @@
 <div id="MyPass" class="white_content">
     <div class="move">
         <div class="title">
-            <img src="img/complete.png" alt="" />
+            <img src="/img/complete.png" alt="" />
         </div>
     </div>
     <div class="list">
@@ -156,45 +145,13 @@
                 <span>其他</span><textarea name="reason" class="other"></textarea>
             </li>
         </ul>
-        <div class="btn-send"><a onclick="unsanctionedStore()">发送</a></div>
-        <div class="btn-back"><a href="/cpyStore">返回</a></div>
+        <div class="btn-send"><a href="javascript:;" onclick="unsanctionedStore()">发送</a></div>
+        <div class="btn-back"><a href="javascript:;">返回</a></div>
     </div>
 </div>
-<!--页脚-->
-<footer>
-    <div>客服电话：<span>0571-86438349</span>（每天9:00 - 22:00）</div>
-    <div>Copyright © 2017, meiheyoupin.com. All rights reserved | 浙ICP备16043943号-1 </div>
-</footer>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/store.js"></script>
-<script type="text/javascript">
-    //店铺审核弹框
-    $(".ck-shop").click(function(){
-        $("#store").show();
-    })
-    $(".close").click(function(){
-        $("#store").hide();
-    })
-    //审核通过弹框
-    $(".pass").click(function(){
-        $("#pass").show();
-        $("#MyPass").show();
-    })
-    $(".back").click(function(){
-        $("#pass").hide();
-        $("#MyPass").hide();
-    })
-    //审核未通过弹框
-    $(".not").click(function(){
-        $("#not").show();
-        $("#MyNot").show();
-    });
-    $(".btn-back, .btn-send").click(function(){
-        $("#not").hide();
-        $("#MyNot").hide();
-    });
-
-</script>
+<!--footer-->
+<#include "cpy_footer.ftl"/>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/store.js"></script>
 </body>
 </html>

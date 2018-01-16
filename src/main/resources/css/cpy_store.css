@@ -1,51 +1,3 @@
-/*头部logo部分*/
-#header{
-	position: relative;
-	width: 100%;
-	height: 82px;
-	background: #fff;
-}
-#header .container{
-	position:relative;
-	width: 1090px;
-	margin: 0 auto;
-}
-#header .logo{
-	float: left;
-}
-#header .logo>a{
-	display: inline-block;
-	width: 251px;
-	height: 53px;
-	margin-top: 16px;
-	background: url(../img/logo.png) no-repeat;
-}
-#header .company-title{
-	display: inline-block;
-	float: left;
-	text-align: center;
-	width: 170px;
-	height: 82px;
-	line-height: 82px;
-	font-weight: lighter;
-	font-size: 38px;
-	color: #fff;
-	background: #FED500;
-	margin-left: 10px;
-}
-/*页脚*/	
-footer{
-    width:100%;
-    padding: 40px 0 20px;
-    background: #fff;
-}
-footer div{
-    margin:0 auto;
-    text-align: center;
-    font-size: 14px;
-    color:#666;
-    margin-bottom:7px;
-}
 body{
 	background-color: #EBEBEB;
 }
@@ -60,47 +12,12 @@ body{
 	padding: 44px 0 62px;
 	overflow: hidden;
 }
-/*左侧导航*/
-#main .order-nav{
-	position: relative;
-	float: left;
-	width: 200px;
-	min-height: 700px;
-	background: #fff;
-}
-.order-nav dl{
-	padding: 40px 40px 45px 60px;
-	text-align: left;
-}
-.order-nav dt{
-	font-size: 20px;
-	font-weight: bold;
-	color: #333;
-	padding-top: 40px;
-    padding-bottom: 5px;
-}
-.order-nav dt:first-child{
-	padding: 0;
-}
-.order-nav dd{
-	padding-top: 15px;
-}
-.order-nav dd a{
-	font-size: 16px;
-	color: #999;
-	transition: .2s all;
-}
-.order-nav dd a:hover{
-	color: #FED500;
-	transition: .2s all;
-}
 /*右侧订单*/
 .orders{
 	position: relative;
 	float: right;
 	width: 878px;
 	min-height: 500px;
-	/*border: 1px solid red;*/
 }
 /*头部*/
 .orders-head{
@@ -119,7 +36,6 @@ body{
 .orders-head li{
 	width: 91px;
 	height: 35px;
-	margin: ;
 	float: left;
 	text-align: center;
 	border-bottom: 4px solid transparent;
@@ -138,7 +54,6 @@ body{
 .orders-body{
 	position: relative;
 	width: 100%;
-	min-height: 1684px;
 }
 /*店铺审核******************/
 #cpy-store{
@@ -214,7 +129,7 @@ body{
 	cursor: pointer;
 }
 #cpy-store .ck-shop:before{
-	content: url(../img/company/shop-list-check.png);
+	content: url(/img/company/shop-list-check.png);
 	position: relative;
 	width: 14px;
 	height: 14px;
@@ -226,7 +141,7 @@ body{
 }
 /*店家审核box*/
 #store{
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 818px;
@@ -243,8 +158,15 @@ body{
 	font-size: 24px;
 	color: #333;
 }
+#store>div .license-shop{
+	text-align:center;
+}
+#store>div .licence-shop{
+	text-align:center;
+}
 #store>div .file-bg{
 	display: inline-block;
+	background: url("/img/file_bg.png");
 	width: 390px;
 	height: 222px;
 	margin: 10px 0;

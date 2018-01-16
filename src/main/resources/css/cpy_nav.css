@@ -1,0 +1,34 @@
+/*左侧导航*/
+#main .order-nav{
+    position: relative;
+    float: left;
+    width: 200px;
+    min-height: 700px;
+    background: #fff;
+}
+.order-nav dl{
+    padding: 40px 40px 45px 60px;
+    text-align: left;
+}
+.order-nav dt{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    padding-top: 40px;
+    padding-bottom: 5px;
+}
+.order-nav dt:first-child{
+    padding: 0;
+}
+.order-nav dd{
+    padding-top: 15px;
+}
+.order-nav dd a{
+    font-size: 16px;
+    color: #999;
+    transition: .2s all;
+}
+.order-nav dd a:hover{
+    color: #FED500;
+    transition: .2s all;
+}

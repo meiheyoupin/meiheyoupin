@@ -1,0 +1,49 @@
+#header{
+    position: relative;
+    width: 100%;
+    height: 82px;
+    background: #fff;
+}
+#header .container{
+    position:relative;
+    width: 1090px;
+    margin: 0 auto;
+}
+#header .logo{
+    float: left;
+}
+#header .logo>a{
+    display: inline-block;
+    width: 251px;
+    height: 53px;
+    margin-top: 16px;
+    background: url(/img/logo.png) no-repeat;
+}
+#header .company-title{
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 170px;
+    height: 82px;
+    line-height: 82px;
+    font-weight: lighter;
+    font-size: 38px;
+    color: #fff;
+    background: #FED500;
+    margin-left: 10px;
+}
+#header .out{
+    float: right;
+    line-height: 35px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top:23px;
+}
+#header .out a{
+    display: block;
+    font-size:18px;
+    color: #666;
+}
+#header .out a:hover{
+    color: #FED500;
+}
