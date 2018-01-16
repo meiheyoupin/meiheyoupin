@@ -1,6 +1,7 @@
 package com.meiheyoupin.controller;
 
 import com.meiheyoupin.common.ImdadaUtils;
+import com.meiheyoupin.entity.orderInfo;
 import com.meiheyoupin.utils.R1;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,9 +15,9 @@ public class ImdadaController {
     private static final String ADD_ORDER_URL = "http://newopen.qa.imdada.cn/api/order/addOrder";
 
     @PostMapping("imdada")
-    public R1 toImdada(@RequestBody Map orderInfo){
+    public R1 toImdada(@RequestBody orderInfo orderinfo){
         try {
-            Map<String, Object> paramMap = ImdadaUtils.getRequestParam(orderInfo);
+            Map<String, Object> paramMap = ImdadaUtils.getRequestParam(ImdadaUtils.toMap(orderinfo));
             paramMap.put("signature", ImdadaUtils.getSign(paramMap));
             String response =ImdadaUtils.sendPost(ADD_ORDER_URL,ImdadaUtils.toJson(paramMap));
             System.out.println(response);

@@ -1,6 +1,7 @@
 package com.meiheyoupin.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.meiheyoupin.entity.orderInfo;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -196,4 +197,36 @@ public class ImdadaUtils {
         return null;
     }
 
+
+    // 将对象转换成map
+    public static Map toMap(orderInfo orderinfo){
+        Map map = new HashMap();
+        map.put("shop_no",orderinfo.getShop_no());
+        map.put("origin_id",orderinfo.getOrigin_id());
+        map.put("city_code",orderinfo.getCity_code());
+        map.put("cargo_price",orderinfo.getCargo_price());
+        map.put("is_prepay",orderinfo.getIs_prepay());
+        map.put("expected_fetch_time",orderinfo.getExpected_fetch_time());
+        map.put("receiver_name",orderinfo.getReceiver_name());
+        map.put("receiver_address",orderinfo.getReceiver_address());
+        map.put("receiver_lat",orderinfo.getReceiver_lat());
+        map.put("receiver_lng",orderinfo.getReceiver_lng());
+        map.put("callback",orderinfo.getCallback());
+        map.put("receiver_phone",orderinfo.getReceiver_phone());
+        map.put("receiver_tel",orderinfo.getReceiver_tel());
+        map.put("tips",orderinfo.getTips());
+        map.put("info",orderinfo.getInfo());
+        map.put("cargo_type",orderinfo.getCargo_type());
+        map.put("cargo_weight",orderinfo.getCargo_weight());
+        map.put("cargo_num",orderinfo.getCargo_num());
+        map.put("invoice_title",orderinfo.getInvoice_title());
+        map.put("deliver_locker_code",orderinfo.getDeliver_locker_code());
+        map.put("pickup_locker_code",orderinfo.getPickup_locker_code());
+        map.put("origin_mark",orderinfo.getOrigin_mark());
+        map.put("origin_mark_no",orderinfo.getOrigin_mark_no());
+        map.put("insurance_fee",orderinfo.getInsurance_fee());
+        map.put("is_finish_code_needed",orderinfo.getIs_finish_code_needed());
+        map.put("delay_publish_time",orderinfo.getDelay_publish_time());
+        return map;
+    }
 }

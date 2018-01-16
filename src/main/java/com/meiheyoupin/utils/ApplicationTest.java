@@ -75,8 +75,6 @@ public class ApplicationTest {
         storeService.autidStores(integers);
     }
 
-
-
     @Test
     public void test5(){
         Goods good = goodsMapper.selectGoodByGoodId(1);
