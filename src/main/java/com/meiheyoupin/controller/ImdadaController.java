@@ -1,7 +1,10 @@
 package com.meiheyoupin.controller;
 
+import com.meiheyoupin.common.ImdadaOrderUtils;
+import com.meiheyoupin.common.ImdadaStoreUtils;
 import com.meiheyoupin.common.ImdadaUtils;
 import com.meiheyoupin.entity.OrderInfo;
+import com.meiheyoupin.entity.StoreInfo;
 import com.meiheyoupin.utils.R1;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +25,13 @@ public class ImdadaController {
     订单派送接口
      */
     @PostMapping("imdada_send")
-    public R1 toImdadaSend(@RequestBody OrderInfo orderinfo){
+    public R1 toImdadaSend(@RequestBody OrderInfo orderInfo){
         try {
-            Map<String, Object> paramMap = ImdadaUtils.getRequestParam(ImdadaUtils.toMap(orderinfo));
-            paramMap.put("signature", ImdadaUtils.getSign(paramMap));
-            String response =ImdadaUtils.sendPost(ADD_ORDER_URL,ImdadaUtils.toJson(paramMap));
+            Map map = ImdadaOrderUtils.toMap(orderInfo);
+            Map<String, Object> paramMap = ImdadaOrderUtils.getRequestParam(map);
+            String sign = ImdadaOrderUtils.getSign(paramMap);
+            paramMap.put("signature", sign);
+            String response = ImdadaOrderUtils.sendPost(ADD_ORDER_URL, ImdadaOrderUtils.toJson(paramMap));
             System.out.println(response);
             return R1.success(200,"订单发送成功");
         }catch (Exception e){
@@ -38,9 +43,13 @@ public class ImdadaController {
     商家入驻接口
      */
     @PostMapping("imdada_enter")
-    public R1 toImdadaEnter(){
+    public R1 toImdadaEnter(@RequestBody StoreInfo storeInfo){
         try {
-
+            Map map = ImdadaStoreUtils.toMap(storeInfo);
+            Map<String, Object> paramMap = ImdadaStoreUtils.getRequestParam(map);
+            paramMap.put("signature",ImdadaStoreUtils.getSign(paramMap));
+            String response = ImdadaStoreUtils.sendPost(ENTER_STORE_URL,ImdadaStoreUtils.toJson(paramMap));
+            System.out.println(response);
             return R1.success(200,"商家入驻成功");
         }catch (Exception e){
             return R1.success(500,"服务器内部错误");

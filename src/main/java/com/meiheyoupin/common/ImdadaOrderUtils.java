@@ -1,45 +1,39 @@
 package com.meiheyoupin.common;
 
-import org.codehaus.jackson.map.ObjectMapper;
+
 import com.meiheyoupin.entity.OrderInfo;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
-public class ImdadaUtils {
-    //app key & app secret
-    private static final String appKey = "dada85a86c579633e89";
+/**
+ * 发单接口示例代码
+ * 以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
+ * 该代码仅供学习和研究使用，只是提供一个参考
+ */
+public class ImdadaOrderUtils {
+    //请使用开发者对应的 app key & app secret
     private static final String appSecret = "9acbd2d7755719045ee2f50bcdcd477d";
-
+    private static final String appKey = "dada85a86c579633e89";
     // 测试环境发单url
     private static final String ADD_ORDER_URL = "http://newopen.qa.imdada.cn/api/order/addOrder";
 
     //json 序列化使用,本示例使用jackson
     private static ObjectMapper mapper = new ObjectMapper();
 
-    /*public static void main(String[] arg) {
-        //第一步：根据需求按照文档构造请求参数
-        Map<String, Object> paramMap = getRequestParam();
-        //第二步：按照文档生成签名
+    public static void main(String[] arg) {
+        //根据需求按照文档构造请求参数
+
+        Map<String, Object> paramMap = getRequestParam(new HashMap());
+        //按照文档生成签名
         String sign = getSign(paramMap);
         paramMap.put("signature", sign);
-        //第三步：发送请求
+        //发送请求
         String response = sendPost(ADD_ORDER_URL, toJson(paramMap));
         System.out.println(response);
-    }*/
-
-    //根据业务需求按照文档构造请求参数
-    public static Map<String, Object> getRequestParam(Map orderInfo) {
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("body", toJson(orderInfo));  // 注意body是json字符串
-        paramMap.put("format", "json");
-        paramMap.put("timestamp", System.currentTimeMillis());
-        paramMap.put("app_key", appKey);
-        paramMap.put("v", "1.0");
-        paramMap.put("source_id", 73753);
-        return paramMap;
     }
 
     /**
@@ -73,74 +67,28 @@ public class ImdadaUtils {
         return sign.toUpperCase();
     }
 
-    // 发送http请求，注意post请求方式，json数据格式，可以使用其他http工具
-    public static String sendPost(String urlStr, String param) {
-        PrintWriter out = null;
-        BufferedReader in = null;
-        StringBuilder result = new StringBuilder();
-        try {
-            URL url = new URL(urlStr);
-            HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
-            //设置参数
-            httpConn.setDoOutput(true);   //需要输出
-            httpConn.setDoInput(true);   //需要输入
-            httpConn.setRequestMethod("POST");   //设置POST方式连接
-            //设置请求属性
-            httpConn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-            //建立输入流，向指向的URL传入参数
-            DataOutputStream dos = new DataOutputStream(httpConn.getOutputStream());
-            dos.write(param.getBytes("utf-8"));
-            dos.flush();
-            dos.close();
-            //获得响应状态
-            int resultCode = httpConn.getResponseCode();
-            if (HttpURLConnection.HTTP_OK == resultCode) {
-                String readLine;
-                BufferedReader responseReader = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), "UTF-8"));
-                while ((readLine = responseReader.readLine()) != null) {
-                    result.append(readLine).append("\n");
-                }
-                responseReader.close();
-            }
-        } catch (Exception e) {
-            result.append("发送 POST 请求出现异常！" + e);
-            e.printStackTrace();
-        }
-        //使用finally块来关闭输出流、输入流
-        finally {
-            try {
-                if (out != null) {
-                    out.close();
-                }
-                if (in != null) {
-                    in.close();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return result.toString();
+    //根据业务需求按照文档构造请求参数
+    public static Map<String, Object> getRequestParam(Map map) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("body", toJson(map));  // 注意body是json字符串
+        paramMap.put("format", "json");
+        paramMap.put("timestamp", System.currentTimeMillis());
+        paramMap.put("app_key", appKey);
+        paramMap.put("v", "1.0");
+        paramMap.put("source_id", 73753);
+        return paramMap;
     }
 
     //根据业务需求按照文档构造请求参数
     public static Map<String, Object> getBizParam() {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("origin_id", "2016091301");
-        paramMap.put("city_name", "上海");
+        paramMap.put("origin_id", "2038091414");
         paramMap.put("city_code", "021");
-        paramMap.put("pay_for_supplier_fee", 0.0);
-        paramMap.put("fetch_from_receiver_fee", 0.0);
-        paramMap.put("deliver_fee", 0.0);
-        paramMap.put("tips", 0);
-        paramMap.put("info", "测试订单");
         paramMap.put("cargo_price", 10);
         paramMap.put("is_prepay", 0);
-        paramMap.put("expected_fetch_time", "1468996502768");
-        paramMap.put("expected_finish_time", "1468996502768");
-        paramMap.put("invoice_title", "测试");
+        paramMap.put("expected_fetch_time", 1516099967);
         paramMap.put("receiver_name", "测试");
         paramMap.put("receiver_address", "上海市崇明岛");
-        paramMap.put("receiver_phone", "18588888888");
         paramMap.put("receiver_tel", "18599999999");
         paramMap.put("receiver_lat", 31.2);
         paramMap.put("receiver_lng", 121.5);
@@ -197,6 +145,54 @@ public class ImdadaUtils {
         return null;
     }
 
+    // 发送http请求，注意post请求方式，json数据格式，可以使用其他http工具
+    public static String sendPost(String urlStr, String param) {
+        PrintWriter out = null;
+        BufferedReader in = null;
+        StringBuilder result = new StringBuilder();
+        try {
+            URL url = new URL(urlStr);
+            HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+            //设置参数
+            httpConn.setDoOutput(true);   //需要输出
+            httpConn.setDoInput(true);   //需要输入
+            httpConn.setRequestMethod("POST");   //设置POST方式连接
+            //设置请求属性
+            httpConn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            //建立输入流，向指向的URL传入参数
+            DataOutputStream dos = new DataOutputStream(httpConn.getOutputStream());
+            dos.write(param.getBytes("utf-8"));
+            dos.flush();
+            dos.close();
+            //获得响应状态
+            int resultCode = httpConn.getResponseCode();
+            if (HttpURLConnection.HTTP_OK == resultCode) {
+                String readLine;
+                BufferedReader responseReader = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), "UTF-8"));
+                while ((readLine = responseReader.readLine()) != null) {
+                    result.append(readLine).append("\n");
+                }
+                responseReader.close();
+            }
+        } catch (Exception e) {
+            result.append("发送 POST 请求出现异常！" + e);
+            e.printStackTrace();
+        }
+        //使用finally块来关闭输出流、输入流
+        finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result.toString();
+    }
 
     // 将对象转换成map
     public static Map toMap(OrderInfo orderinfo){
@@ -212,8 +208,9 @@ public class ImdadaUtils {
         map.put("receiver_lat",orderinfo.getReceiver_lat());
         map.put("receiver_lng",orderinfo.getReceiver_lng());
         map.put("callback",orderinfo.getCallback());
-        map.put("receiver_phone",orderinfo.getReceiver_phone());
         map.put("receiver_tel",orderinfo.getReceiver_tel());
+
+        /*map.put("receiver_phone",orderinfo.getReceiver_phone());
         map.put("tips",orderinfo.getTips());
         map.put("info",orderinfo.getInfo());
         map.put("cargo_type",orderinfo.getCargo_type());
@@ -226,7 +223,7 @@ public class ImdadaUtils {
         map.put("origin_mark_no",orderinfo.getOrigin_mark_no());
         map.put("insurance_fee",orderinfo.getInsurance_fee());
         map.put("is_finish_code_needed",orderinfo.getIs_finish_code_needed());
-        map.put("delay_publish_time",orderinfo.getDelay_publish_time());
+        map.put("delay_publish_time",orderinfo.getDelay_publish_time());*/
         return map;
     }
 }
