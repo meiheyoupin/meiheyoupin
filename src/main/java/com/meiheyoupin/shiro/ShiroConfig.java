@@ -43,10 +43,15 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+        //登录
         filterChainDefinitionMap.put("/toLogin","anon");
         filterChainDefinitionMap.put("/logout","logout");
         filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/**","authc");
+
+        //权限
+        filterChainDefinitionMap.put("/admin/**","roles[admin]");
+        filterChainDefinitionMap.put("/user/**","roles[user]");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 

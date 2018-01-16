@@ -68,4 +68,14 @@ public class AdminController {
     public String toCpyCustom(){
         return "cpy_custom";
     }
+
+    @GetMapping("admin/toAdmin")
+    public String toAdmin(){
+        return "shiro/toAdmin";
+    }
+
+    @GetMapping("user/toUser")
+    public String toUser(){
+        return "shiro/toUser";
+    }
 }

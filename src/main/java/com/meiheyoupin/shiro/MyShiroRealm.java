@@ -9,6 +9,9 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class MyShiroRealm extends AuthorizingRealm {
 
@@ -18,9 +21,11 @@ public class MyShiroRealm extends AuthorizingRealm {
     //授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        SimpleAuthorizationInfo info = null;
         String name = principals.toString();
-        info.addRole("admin");
+        Set<String> roles = new HashSet<String>();
+        info = new SimpleAuthorizationInfo(roles);
+        //info.addRole("admin");
         return info;
     }
 
