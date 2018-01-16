@@ -39,41 +39,42 @@ function unsanctionedStore() {
     var obj = document.getElementsByName("reason");
     var reason ='';
     for (var i=0;i<obj.length;i++){
-        if(obj[i].checked) reason+=obj[i].value+' ';
-            /*$("#not").hide();
-            $("#MyNot").hide();*/
+        if(obj[i].checked) {
+            reason += obj[i].value + ' ';
+            $("#not").hide();
+            $("#MyNot").hide();
 
             $.ajax({
-                url:'platform/unsanctionedStore',
-                type:'post',
-                data:{
-                    storeIds:storeIds,
-                    reason:reason
+                url: 'platform/unsanctionedStore',
+                type: 'post',
+                data: {
+                    storeIds: storeIds,
+                    reason: reason
                 },
-                datatype:'text',
+                datatype: 'text',
                 headers: {
                     "token": localStorage.getItem("token")
                 },
                 traditional: true,
-                success:function (data) {
-                    if (data.code==200){
-                        window.location.href='/cpyStore';
-                    }else if (data.code==401){
+                success: function (data) {
+                    if (data.code == 200) {
+                        window.location.href = '/cpyStore';
+                    } else if (data.code == 401) {
                         alert("对不起，您没有权限")
-                    }else if (data.code==500){
+                    } else if (data.code == 500) {
                         alert("服务器内部错误")
                     }
 
                 }
             })
-        /*else{
+        }else{
             return false;
-        }*/
+        }
     }
 
 }
 
-/*//店铺审核弹框
+//店铺审核弹框
 $(".ck-shop").click(function(){
     $("#store").show();
 });
@@ -97,7 +98,7 @@ $(".not").click(function(){
 $(".btn-back").click(function(){
     $("#not").hide();
     $("#MyNot").hide();
-});*/
+});
 
 
 

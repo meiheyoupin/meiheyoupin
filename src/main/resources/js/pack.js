@@ -63,7 +63,6 @@ function unsanctionedGood() {
     })
 }
 
-/*
 //套餐审核弹框
 $(".info-check").click(function(){
     $("#pack").show();
@@ -90,4 +89,4 @@ $(".not").click(function(){
 $(".btn-back, .btn-send").click(function(){
     $("#not").hide();
     $("#MyNot").hide();
-});*/
+});
