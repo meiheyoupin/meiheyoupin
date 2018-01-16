@@ -4,24 +4,17 @@
     <meta charset="UTF-8">
     <link href="/img/favicon.ico" rel="shortcut icon">
     <title>美盒优品-登录</title>
-    <link rel="stylesheet" type="text/css" href="./css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/login.css"/>
 </head>
 <body>
-<!--页头-->
-<div id="header">
-    <div class="container">
-        <h1 class="logo">
-            <a href="/" title="美盒优品"></a>
-        </h1>
-        <div class="logo-text">公司版</div>
-    </div>
-</div>
+<!--header-->
+<#include "cpy_header.html"/>
 <!--登录框-->
 <div class="body">
     <div class="wrapper">
         <div class="login-img">
-            <img src="img/login_pic.png" alt=""/>
+            <img src="/img/login-bg.png" alt=""/>
         </div>
         <form id="loginForm">
             <h2>登录美盒优品</h2>
@@ -38,17 +31,11 @@
             <p class="login-submit">
                 <input id="loginButton" type="button" value="登录"/>
             </p>
-            <p class="login-info">
-                <a href="/forget.html">忘记密码 </a>
-            </p>
         </form>
     </div>
 </div>
-<!--页脚-->
-<footer>
-    <div>客服电话：<span>4006-888-887</span>（每天9:00 - 22:00）</div>
-    <div>Copyright © 2017, meiheyoupin.com. All rights reserved | 浙ICP备16043943号-1</div>
-</footer>
+<!--footer-->
+<#include "cpy_footer.ftl"/>
 <!--js-->
 <div id='cover'></div>
 <div id='tishi' style="display: none;">
