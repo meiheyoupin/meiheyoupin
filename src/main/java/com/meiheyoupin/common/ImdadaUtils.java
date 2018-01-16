@@ -1,7 +1,7 @@
 package com.meiheyoupin.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.meiheyoupin.entity.orderInfo;
+import com.meiheyoupin.entity.OrderInfo;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -199,7 +199,7 @@ public class ImdadaUtils {
 
 
     // 将对象转换成map
-    public static Map toMap(orderInfo orderinfo){
+    public static Map toMap(OrderInfo orderinfo){
         Map map = new HashMap();
         map.put("shop_no",orderinfo.getShop_no());
         map.put("origin_id",orderinfo.getOrigin_id());

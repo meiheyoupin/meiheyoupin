@@ -63,4 +63,9 @@ public class AdminController {
         model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
         return "cpy_pack";
     }
+
+    @GetMapping("cpyCustom")
+    public String toCpyCustom(){
+        return "cpy_custom";
+    }
 }

@@ -2,7 +2,7 @@ package com.meiheyoupin.entity;
 
 
 
-public class orderInfo {
+public class OrderInfo {
     private String shop_no;
     private String origin_id;
     private String city_code;
@@ -30,10 +30,10 @@ public class orderInfo {
     private Integer is_finish_code_needed;
     private Integer delay_publish_time;
 
-    public orderInfo() {
+    public OrderInfo() {
     }
 
-    public orderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback) {
+    public OrderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback) {
         this.shop_no = shop_no;
         this.origin_id = origin_id;
         this.city_code = city_code;
@@ -47,7 +47,7 @@ public class orderInfo {
         this.callback = callback;
     }
 
-    public orderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback, Integer insurance_fee) {
+    public OrderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback, Integer insurance_fee) {
         this.shop_no = shop_no;
         this.origin_id = origin_id;
         this.city_code = city_code;
@@ -62,7 +62,7 @@ public class orderInfo {
         this.insurance_fee = insurance_fee;
     }
 
-    public orderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback, String receiver_phone, String receiver_tel, Double tips, String info, Integer cargo_type, Double cargo_weight, Integer cargo_num, String invoice_title, String deliver_locker_code, String pickup_locker_code, String origin_mark, String origin_mark_no, Integer insurance_fee, Integer is_finish_code_needed, Integer delay_publish_time) {
+    public OrderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback, String receiver_phone, String receiver_tel, Double tips, String info, Integer cargo_type, Double cargo_weight, Integer cargo_num, String invoice_title, String deliver_locker_code, String pickup_locker_code, String origin_mark, String origin_mark_no, Integer insurance_fee, Integer is_finish_code_needed, Integer delay_publish_time) {
         this.shop_no = shop_no;
         this.origin_id = origin_id;
         this.city_code = city_code;
