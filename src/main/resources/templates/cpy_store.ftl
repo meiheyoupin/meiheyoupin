@@ -103,7 +103,7 @@
                             </div>
                         </li>
                     </#list>
-                </ul>   
+                </ul>
             </div>
         </div>
     </div>

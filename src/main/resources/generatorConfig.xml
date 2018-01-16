@@ -37,8 +37,10 @@
 
         <!--table是指定每个表的生成策略-->
         <!--<table tableName="token" domainObjectName="Token"></table>-->
-        <table tableName="goods" domainObjectName="Goods"></table>
-        <table tableName="store" domainObjectName="Store"></table>
+        <!--<table tableName="goods" domainObjectName="Goods"></table>
+        <table tableName="store" domainObjectName="Store"></table>-->
+        <!--<table tableName="orders" domainObjectName="Orders"></table>-->
+        <table tableName="saler" domainObjectName="Saler"></table>
 
     </context>
 </generatorConfiguration>

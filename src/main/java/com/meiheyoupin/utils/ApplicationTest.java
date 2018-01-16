@@ -3,18 +3,14 @@ package com.meiheyoupin.utils;
 
 
 import com.meiheyoupin.common.ImdadaUtils;
-import com.meiheyoupin.common.SMSUtils;
-import com.meiheyoupin.common.dada;
 import com.meiheyoupin.dao.GoodsMapper;
+import com.meiheyoupin.dao.OrdersMapper;
 import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.dao.UserAdminMapper;
 import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.entity.UserAdmin;
-import com.meiheyoupin.service.GoodsService;
-import com.meiheyoupin.service.StoreService;
-import com.meiheyoupin.service.TokenService;
-import com.meiheyoupin.service.UserAdminService;
+import com.meiheyoupin.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +40,15 @@ public class ApplicationTest {
     @Autowired
     GoodsService goodsService;
 
+    @Autowired
+    StoreMapper storeMapper;
+
+    @Autowired
+    GoodsMapper goodsMapper;
+
+    @Autowired
+    OrdersService ordersService;
+
     @Test
     public void test1(){
         UserAdmin userAdmin = userAdminMapper.selectByNameAndPassword(new UserAdmin("admin", "admin"));
@@ -70,11 +75,7 @@ public class ApplicationTest {
         storeService.autidStores(integers);
     }
 
-    @Autowired
-    StoreMapper storeMapper;
 
-    @Autowired
-    GoodsMapper goodsMapper;
 
     @Test
     public void test5(){
@@ -116,8 +117,5 @@ public class ApplicationTest {
         System.out.println(response);
     }
 
-    public void test7(){
-
-    }
 }
 
