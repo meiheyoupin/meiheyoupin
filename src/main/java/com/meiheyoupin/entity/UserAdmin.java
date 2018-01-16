@@ -21,6 +21,15 @@ public class UserAdmin {
 
     private Date updateTime;
 
+
+    public UserAdmin() {
+    }
+
+    public UserAdmin(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public UserAdmin(String username, String password, String role, Integer inviteCode, Integer tel, Integer sex, Date createTime) {
         this.username = username;
         this.password = password;
@@ -69,14 +78,6 @@ public class UserAdmin {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public UserAdmin() {
-    }
-
-    public UserAdmin(String username, String password) {
-        this.username = username;
-        this.password = password;
     }
 
     public Integer getId() {
