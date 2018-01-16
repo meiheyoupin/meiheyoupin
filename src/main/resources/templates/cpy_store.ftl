@@ -59,7 +59,7 @@
     </div>
 </div>
 <!--审核通过弹框-->
-<div id="Pass"></div>
+<div id="ass"></div>
 <div id="MyPass">
     <div class="move">
         <div class="title">
@@ -73,7 +73,7 @@
     <a class="back" href="javascript:;">×</a>
 </div>
 <!--审核未通过弹框-->
-<div id="ot"></div>N
+<div id="not"></div>
 <div id="MyNot">
     <div class="move">
         <div class="title">

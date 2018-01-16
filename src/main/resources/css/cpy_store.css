@@ -246,7 +246,7 @@ body{
 	cursor: pointer;
 }
 /*弹框bg*/
-#Pass{
+#pass{
 display: none;
 position: fixed;
 top: 0%;
@@ -308,7 +308,7 @@ overflow: hidden;
 	padding: 5px 5px 0 0;
 }
 /*弹框*/
-#Not{
+#ot{
 	display: none;
 	position: fixed;
 	top: 0%;

@@ -13,7 +13,7 @@
         <dd><a class="dd" href="cpy_package.html">套餐管理</a></dd>
         <dt class="order-age">订单管理</dt>
         <dd><a class="dd" href="#">普通订单</a></dd>
-        <dd><a class="dd" href="#">企业定制订单</a></dd>
+        <dd><a class="dd" href="/cpyCustom">企业定制订单</a></dd>
         <dd><a class="dd" href="#">企业福利订单</a></dd>
         <dt class="count-age">统计管理</dt>
         <dd><a class="dd" href="#">订单总额</a></dd>
