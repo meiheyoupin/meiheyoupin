@@ -10,4 +10,6 @@ public interface UserAdminService {
     UserAdmin getUserByPassword(UserAdmin userAdmin);
 
     List<UserAdmin> getUser();
+
+    UserAdmin getUserByName(String username);
 }

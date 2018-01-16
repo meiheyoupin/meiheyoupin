@@ -29,12 +29,10 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
         String username = (String) usernamePasswordToken.getPrincipal();
-        String password = new String((char[]) token.getCredentials());
-        UserAdmin userAdmin = new UserAdmin(username,password);
-        UserAdmin result = userAdminService.getUserByPassword(userAdmin);
+        UserAdmin result = userAdminService.getUserByName(username);
         if (result==null){
-            System.out.println("用户名密码错误");
+            throw new UnknownAccountException("没有找到该账号");
         }
-        return new SimpleAuthenticationInfo(username,password,getName());
+        return new SimpleAuthenticationInfo(username,result.getPassword(),getName());
     }
 }

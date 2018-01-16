@@ -32,10 +32,9 @@ public class ImdadaController {
             String sign = ImdadaOrderUtils.getSign(paramMap);
             paramMap.put("signature", sign);
             String response = ImdadaOrderUtils.sendPost(ADD_ORDER_URL, ImdadaOrderUtils.toJson(paramMap));
-            System.out.println(response);
-            return R1.success(200,"订单发送成功");
+            return R1.add("result",response);
         }catch (Exception e){
-            return R1.success(500,"服务器内部错误");
+            return R1.error(500,"服务器内部错误");
         }
     }
 

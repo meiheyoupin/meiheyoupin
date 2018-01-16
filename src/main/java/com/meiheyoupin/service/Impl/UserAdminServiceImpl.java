@@ -25,5 +25,10 @@ public class UserAdminServiceImpl implements UserAdminService {
         return userAdminMapper.selectByExample(new UserAdminExample());
     }
 
+    @Override
+    public UserAdmin getUserByName(String username) {
+        return userAdminMapper.selectByName(username);
+    }
+
 
 }

@@ -87,4 +87,7 @@
     *
     FROM user_admin WHERE username=#{username} AND PASSWORD=#{password}
   </select>
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+      SELECT username,password FROM user_admin WHERE username=#{username}
+  </select>
 </mapper>

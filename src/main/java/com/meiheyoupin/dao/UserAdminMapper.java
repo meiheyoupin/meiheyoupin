@@ -10,6 +10,6 @@ public interface UserAdminMapper {
 
     List<UserAdmin> selectByExample(UserAdminExample example);
 
-
+    UserAdmin selectByName(String username);
 
 }
