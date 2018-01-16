@@ -39,10 +39,9 @@ function unsanctionedStore() {
     var obj = document.getElementsByName("reason");
     var reason ='';
     for (var i=0;i<obj.length;i++){
-        if(obj[i].checked) {
-            reason+=obj[i].value+' ';
-            $("#not").hide();
-            $("#MyNot").hide();
+        if(obj[i].checked) reason+=obj[i].value+' ';
+            /*$("#not").hide();
+            $("#MyNot").hide();*/
 
             $.ajax({
                 url:'platform/unsanctionedStore',
@@ -67,14 +66,14 @@ function unsanctionedStore() {
 
                 }
             })
-        }else{
+        /*else{
             return false;
-        }
+        }*/
     }
 
 }
 
-//店铺审核弹框
+/*//店铺审核弹框
 $(".ck-shop").click(function(){
     $("#store").show();
 });
@@ -98,7 +97,7 @@ $(".not").click(function(){
 $(".btn-back").click(function(){
     $("#not").hide();
     $("#MyNot").hide();
-});
+});*/
 
 
 

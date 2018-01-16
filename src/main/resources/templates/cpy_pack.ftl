@@ -13,7 +13,7 @@
 <!--页面开始-->
 <div id="main">
     <div class="container">
-    <#include "cpy_nav.ftl"/>
+    <#include "order-nav.ftl"/>
         <div class="orders">
             <div class="orders-head">
                 <ul>

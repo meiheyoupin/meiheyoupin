@@ -61,6 +61,6 @@ public class AdminController {
     @GetMapping("cpyPack")
     public String unauditPacks(Model model){
         model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
-        return "cpyPack";
+        return "cpy_pack";
     }
 }
