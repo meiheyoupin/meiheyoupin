@@ -33,6 +33,20 @@ public class orderInfo {
     public orderInfo() {
     }
 
+    public orderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback) {
+        this.shop_no = shop_no;
+        this.origin_id = origin_id;
+        this.city_code = city_code;
+        this.cargo_price = cargo_price;
+        this.is_prepay = is_prepay;
+        this.expected_fetch_time = expected_fetch_time;
+        this.receiver_name = receiver_name;
+        this.receiver_address = receiver_address;
+        this.receiver_lat = receiver_lat;
+        this.receiver_lng = receiver_lng;
+        this.callback = callback;
+    }
+
     public orderInfo(String shop_no, String origin_id, String city_code, Double cargo_price, Integer is_prepay, Long expected_fetch_time, String receiver_name, String receiver_address, Double receiver_lat, Double receiver_lng, String callback, Integer insurance_fee) {
         this.shop_no = shop_no;
         this.origin_id = origin_id;
