@@ -1,3 +1,8 @@
-/**
- * Created by 123 on 2018/1/16.
- */
+$(function () {
+    $(".spread").click(function () {
+        $(".custom-info").toggle();
+    });
+    $(".a-end").click(function () {
+        $(".Custom").toggle();
+    })
+});
