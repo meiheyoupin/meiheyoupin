@@ -3,6 +3,7 @@ package com.meiheyoupin.utils;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.meiheyoupin.common.ImdadaCityUtils;
 import com.meiheyoupin.common.ImdadaStoreUtils;
 import com.meiheyoupin.common.ImdadaOrderUtils;
 import com.meiheyoupin.dao.GoodsMapper;
@@ -99,6 +100,8 @@ public class ApplicationTest {
 
     private static final String ENTER_STORE_URL = "http://newopen.qa.imdada.cn/api/shop/add";
 
+    private static final String ENTER_CITY_URL = "http://newopen.qa.imdada.cn/api/cityCode/list";
+
     @Test
     public void test7(){
         StoreInfo storeInfo = new StoreInfo();
@@ -166,6 +169,15 @@ public class ApplicationTest {
                 System.out.println("==================================================================================");
             }
         }
+    }
+
+    @Test
+    public void test10(){
+        Map<String, Object> paramMap = ImdadaCityUtils.getRequestParam();
+        String sign = ImdadaOrderUtils.getSign(paramMap);
+        paramMap.put("signature", sign);
+        String response = ImdadaOrderUtils.sendPost(ENTER_CITY_URL, ImdadaOrderUtils.toJson(paramMap));
+        System.out.println(response);
     }
 }
 
