@@ -1,4 +1,4 @@
-package com.meiheyoupin.utils;
+package com.meiheyoupin.common;
 
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;

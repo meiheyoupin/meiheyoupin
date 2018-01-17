@@ -1,4 +1,4 @@
-package com.meiheyoupin.common;
+package com.meiheyoupin.utils;
 
 
 import com.meiheyoupin.entity.StoreInfo;

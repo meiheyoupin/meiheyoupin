@@ -45,10 +45,4 @@ public class LoginController {
         return "shiro/toError";
     }
 
-    @GetMapping("toLogin")
-    public String toLogin(){
-        return "shiro/toLogin";
-    }
-
-
 }

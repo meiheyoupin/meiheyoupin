@@ -1,8 +1,8 @@
 package com.meiheyoupin.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.meiheyoupin.common.CommonUtil;
-import com.meiheyoupin.common.ConvertUtil;
+import com.meiheyoupin.common.utils.CommonUtil;
+import com.meiheyoupin.common.utils.ConvertUtil;
 import com.meiheyoupin.common.controller.BaseController;
 import com.meiheyoupin.service.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;

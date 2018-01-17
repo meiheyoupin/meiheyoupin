@@ -1,11 +1,10 @@
 
-package com.meiheyoupin.utils;
+package com.meiheyoupin.common;
 
 
-import com.alibaba.fastjson.JSONObject;
-import com.meiheyoupin.common.ImdadaCityUtils;
-import com.meiheyoupin.common.ImdadaStoreUtils;
-import com.meiheyoupin.common.ImdadaOrderUtils;
+import com.meiheyoupin.utils.ImdadaCityUtils;
+import com.meiheyoupin.utils.ImdadaStoreUtils;
+import com.meiheyoupin.utils.ImdadaOrderUtils;
 import com.meiheyoupin.dao.GoodsMapper;
 import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.dao.UserAdminMapper;
@@ -13,7 +12,6 @@ import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.CORBA.DATA_CONVERSION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;

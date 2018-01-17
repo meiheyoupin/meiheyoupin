@@ -2,7 +2,7 @@ package com.meiheyoupin.controller;
 
 
 import com.meiheyoupin.service.OrdersService;
-import com.meiheyoupin.utils.R1;
+import com.meiheyoupin.common.R1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

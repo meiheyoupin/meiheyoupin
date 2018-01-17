@@ -2,7 +2,6 @@ package com.meiheyoupin.utils;
 
 
 import com.aliyuncs.exceptions.ClientException;
-import com.meiheyoupin.common.SMSUtils;
 import com.meiheyoupin.entity.Staffer;
 import com.meiheyoupin.service.BirthdayBlessingsService;
 import com.meiheyoupin.service.StafferService;

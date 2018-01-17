@@ -1,21 +1,14 @@
 package com.meiheyoupin.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
-import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.entity.UserAdmin;
-import com.meiheyoupin.service.GoodsService;
-import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.TokenService;
 import com.meiheyoupin.service.UserAdminService;
-import com.meiheyoupin.utils.R1;
-import org.apache.shiro.authz.annotation.RequiresRoles;
+import com.meiheyoupin.common.R1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 public class AdminController {
@@ -25,12 +18,6 @@ public class AdminController {
 
     @Autowired
     TokenService tokenService;
-
-    @Autowired
-    StoreService storeService;
-
-    @Autowired
-    GoodsService goodsService;
 
     @PostMapping("adminLogin")
     @ResponseBody
@@ -43,46 +30,5 @@ public class AdminController {
         return R1.error(404,"账号密码不正确");
     }
 
-    @GetMapping("cpyPerson")
-    public String toCpyPerson(){
-        return "cpy_person";
-    }
 
-    //未审核商家
-    @GetMapping("cpyStore")
-    public String unauditStores(Model model){
-        model.addAttribute("unauditStores",storeService.getUnauditStores());
-        return "cpy_store";
-    }
-
-    //未审核商品
-    @GetMapping("cpyShop")
-    public String unauditGoods(Model model){
-        List<Goods> unauditGoods = goodsService.getUnauditGoods();
-        model.addAttribute("unauditGoods",unauditGoods);
-        return "cpy_shop";
-    }
-
-    //未审核套餐
-    @GetMapping("cpyPack")
-    public String unauditPacks(Model model){
-        model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
-        return "cpy_pack";
-    }
-
-    @GetMapping("cpyCustom")
-    public String toCpyCustom(){
-        return "cpy_custom";
-    }
-
-    //@RequiresRoles("admin")
-    @GetMapping("admin/toAdmin")
-    public String toAdmin(){
-        return "shiro/toAdmin";
-    }
-
-    @GetMapping("user/toUser")
-    public String toUser(){
-        return "shiro/toUser";
-    }
 }

@@ -4,7 +4,7 @@ package com.meiheyoupin.controller;
 import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.UserAdminService;
-import com.meiheyoupin.utils.R1;
+import com.meiheyoupin.common.R1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
