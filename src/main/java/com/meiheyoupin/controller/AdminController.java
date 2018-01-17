@@ -60,7 +60,6 @@ public class AdminController {
     public String unauditGoods(Model model){
         List<Goods> unauditGoods = goodsService.getUnauditGoods();
         model.addAttribute("unauditGoods",unauditGoods);
-        //JSONObject jsonObject = JSONObject.parseObject(unauditGoods.)
         return "cpy_shop";
     }
 

@@ -46,7 +46,6 @@ public class BirthdayUtils {
             String birthday = dateToString(staffer.getBirthday());
             if (birthday.equals(current)){
                 String msg = birthdayBlessingsService.getMsgByCompany(staffer.getCompany());
-                System.out.println("2222222222222222222222222222222222222222222");
                 SMSUtils.sendBirthdayBlessings(staffer.getPhone(),msg);
             }
         }
