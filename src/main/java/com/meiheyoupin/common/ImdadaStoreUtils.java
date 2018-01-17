@@ -1,8 +1,8 @@
 package com.meiheyoupin.common;
 
 
-import org.codehaus.jackson.map.ObjectMapper;
 import com.meiheyoupin.entity.StoreInfo;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -70,7 +70,7 @@ public class ImdadaStoreUtils {
     }
 
     //根据业务需求按照文档构造请求参数
-    public static Map<String, Object> getRequestParam(Map storeInfo) {
+    public static Map<String, Object> getRequestParam(List storeInfo) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("body", toJson(storeInfo));  // 注意body是json字符串
         paramMap.put("format", "json");
@@ -81,7 +81,8 @@ public class ImdadaStoreUtils {
         return paramMap;
     }
 
-    public static Map toMap(StoreInfo storeInfo){
+    public static List toList(StoreInfo storeInfo){
+        List list = new ArrayList();
         Map map = new HashMap();
         map.put("station_name",storeInfo.getStation_name());
         map.put("business",storeInfo.getBusiness());
@@ -93,11 +94,12 @@ public class ImdadaStoreUtils {
         map.put("contact_name",storeInfo.getContact_name());
         map.put("phone",storeInfo.getPhone());
 
-        map.put("origin_shop_id",storeInfo.getOrigin_shop_id());
-        map.put("id_card",storeInfo.getId_card());
-        map.put("username",storeInfo.getUsername());
-        map.put("password",storeInfo.getPassword());
-        return map;
+//        map.put("origin_shop_id",storeInfo.getOrigin_shop_id());
+//        map.put("id_card",storeInfo.getId_card());
+//        map.put("username",storeInfo.getUsername());
+//        map.put("password",storeInfo.getPassword());
+        list.add(map);
+        return list;
     }
 
     // json 序列化

@@ -12,4 +12,6 @@ public interface UserAdminService {
     List<UserAdmin> getUser();
 
     UserAdmin getUserByName(String username);
+
+    String getRoleByName(String username);
 }

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meiheyoupin.dao.UserAdminMapper">
-  <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.UserAdmin">
+<mapper namespace="com.meiheyoupin.dao.BirthdayBlessingsMapper">
+  <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.BirthdayBlessings">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="msg" jdbcType="VARCHAR" property="msg" />
+    <result column="company" jdbcType="INTEGER" property="company" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,15 +65,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, password, role
+    id, msg, company
   </sql>
-  <select id="selectByExample" parameterType="com.meiheyoupin.entity.UserAdminExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.meiheyoupin.entity.BirthdayBlessingsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_admin
+    from birthday_blessings
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -82,15 +81,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByNameAndPassword" parameterType="com.meiheyoupin.entity.UserAdminExample" resultMap="BaseResultMap">
-    SELECT
-    *
-    FROM user_admin WHERE username=#{username} AND PASSWORD=#{password}
-  </select>
-  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
-      SELECT username,password FROM user_admin WHERE username=#{username}
-  </select>
-  <select id="selectRoleByName" parameterType="java.lang.String" resultType="java.lang.String">
-    SELECT role FROM user_admin WHERE username=#{username}
+  <select id="selectMsgByCompany" parameterType="java.lang.Integer" resultType="java.lang.String">
+    SELECT msg FROM birthday_blessings WHERE company=#{company}
   </select>
 </mapper>

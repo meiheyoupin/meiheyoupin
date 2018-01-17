@@ -40,7 +40,7 @@
         <!--<table tableName="goods" domainObjectName="Goods"></table>
         <table tableName="store" domainObjectName="Store"></table>-->
         <!--<table tableName="orders" domainObjectName="Orders"></table>-->
-        <table tableName="saler" domainObjectName="Saler"></table>
+        <table tableName="birthday_blessings" domainObjectName="birthdayBlessings"></table>
 
     </context>
 </generatorConfiguration>

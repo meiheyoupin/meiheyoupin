@@ -3,20 +3,23 @@ package com.meiheyoupin.entity;
 
 public class StoreInfo {
 
-    private String station_name;
-    private Integer business;
-    private String city_name;
-    private String area_name;
-    private String station_address;
-    private Double lng;
-    private Double lat;
-    private String contact_name;
-    private String phone;
+    private String station_name;    //门店名称
+    private Integer business;       //业务类型(食品小吃-1,饮料-2,鲜花-3,文印票务-8,便利店-9,水果生鲜-13,同城电商-19, 医药-20,蛋糕-21,酒品-24,小商品市场-25,服装-26,汽修零配-27,数码-28,小龙虾-29, 其他-5)
+    private String city_name;       //城市名称(如,上海)
+    private String area_name;       //区域名称(如,浦东新区)
+    private String station_address;     //门店地址
+    private Double lng;     //门店经度
+    private Double lat;     //门店纬度
+    private String contact_name;        //联系人姓名
+    private String phone;       //联系人电话
 
-    private String origin_shop_id;
-    private String id_card;
-    private String username;
-    private String password;
+    /*
+    非必需
+     */
+    private String origin_shop_id;      //门店编码,可自定义,但必须唯一;若不填写,则系统自动生成
+    private String id_card;         //联系人身份证
+    private String username;        //达达商家app账号(若不需要登陆app,则不用设置)
+    private String password;        //达达商家app密码(若不需要登陆app,则不用设置)
 
     public StoreInfo() {
     }

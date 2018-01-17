@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -43,9 +44,10 @@ public class ImdadaController {
     @PostMapping("imdada_enter")
     public R1 toImdadaEnter(@RequestBody StoreInfo storeInfo){
         try {
-            Map map = ImdadaStoreUtils.toMap(storeInfo);
-            Map<String, Object> paramMap = ImdadaStoreUtils.getRequestParam(map);
-            paramMap.put("signature",ImdadaStoreUtils.getSign(paramMap));
+            List list = ImdadaStoreUtils.toList(storeInfo);
+            Map<String, Object> paramMap = ImdadaStoreUtils.getRequestParam(list);
+            String sign = ImdadaStoreUtils.getSign(paramMap);
+            paramMap.put("signature",sign);
             String response = ImdadaStoreUtils.sendPost(ENTER_STORE_URL,ImdadaStoreUtils.toJson(paramMap));
             System.out.println(response);
             return R1.success(200,"商家入驻成功");

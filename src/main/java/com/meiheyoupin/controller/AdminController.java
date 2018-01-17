@@ -1,16 +1,21 @@
 package com.meiheyoupin.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
+import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.entity.UserAdmin;
 import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.TokenService;
 import com.meiheyoupin.service.UserAdminService;
 import com.meiheyoupin.utils.R1;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -53,7 +58,8 @@ public class AdminController {
     //未审核商品
     @GetMapping("cpyShop")
     public String unauditGoods(Model model){
-        model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
+        List<Goods> unauditGoods = goodsService.getUnauditGoods();
+        model.addAttribute("unauditGoods",unauditGoods);
         return "cpy_shop";
     }
 
@@ -69,6 +75,7 @@ public class AdminController {
         return "cpy_custom";
     }
 
+    //@RequiresRoles("admin")
     @GetMapping("admin/toAdmin")
     public String toAdmin(){
         return "shiro/toAdmin";
