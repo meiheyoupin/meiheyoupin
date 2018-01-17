@@ -7,7 +7,6 @@ import com.meiheyoupin.entity.Staffer;
 import com.meiheyoupin.service.BirthdayBlessingsService;
 import com.meiheyoupin.service.StafferService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -39,7 +38,7 @@ public class BirthdayUtils {
         return stafferService.getStaffers();
     }
 
-    @Scheduled(cron = "0 0 8 * * ?")
+    @Scheduled(cron = "0 0 0 * * ?")
     public void send() throws ClientException {
         for (Staffer staffer:getStaffer()){
             SimpleDateFormat df = new SimpleDateFormat("MM-dd");
@@ -47,6 +46,7 @@ public class BirthdayUtils {
             String birthday = dateToString(staffer.getBirthday());
             if (birthday.equals(current)){
                 String msg = birthdayBlessingsService.getMsgByCompany(staffer.getCompany());
+                System.out.println("2222222222222222222222222222222222222222222");
                 SMSUtils.sendBirthdayBlessings(staffer.getPhone(),msg);
             }
         }
