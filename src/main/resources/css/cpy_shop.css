@@ -1,52 +1,3 @@
-/*头部logo部分*/
-#header{
-	position: relative;
-	width: 100%;
-	height: 82px;
-	background: #fff;
-}
-#header .container{
-	position:relative;
-	width: 1090px;
-	margin: 0 auto;
-}
-#header .logo{
-	float: left;
-}
-#header .logo>a{
-	display: inline-block;
-	width: 251px;
-	height: 53px;
-	margin-top: 16px;
-	background: url(../img/logo.png) no-repeat;
-}
-#header .company-title{
-	display: inline-block;
-	float: left;
-	text-align: center;
-	width: 170px;
-	height: 82px;
-	line-height: 82px;
-	font-weight: lighter;
-	font-size: 38px;
-	color: #fff;
-	background: #FED500;
-	margin-left: 10px;
-}
-/*页脚*/	
-footer{
-    width:100%;
-    padding: 40px 0 20px;
-    background: #fff;
-}
-footer div{
-    /*width: 500px;*/
-    margin:0 auto;
-    text-align: center;
-    font-size: 14px;
-    color:#666;
-    margin-bottom:7px;
-}
 body{
 	background-color: #EBEBEB;
 }
@@ -60,40 +11,6 @@ body{
 	margin: 0 auto;
 	padding: 44px 0 62px;
 	overflow: hidden;
-}
-/*左侧导航*/
-#main .order-nav{
-	position: relative;
-	float: left;
-	width: 200px;
-	min-height: 700px;
-	background: #fff;
-}
-.order-nav dl{
-	padding: 40px 40px 45px 60px;
-	text-align: left;
-}
-.order-nav dt{
-	font-size: 20px;
-	font-weight: bold;
-	color: #333;
-	padding-top: 40px;
-    padding-bottom: 5px;
-}
-.order-nav dt:first-child{
-	padding: 0;
-}
-.order-nav dd{
-	padding-top: 15px;
-}
-.order-nav dd a{
-	font-size: 16px;
-	color: #999;
-	transition: .2s all;
-}
-.order-nav dd a:hover{
-	color: #FED500;
-	transition: .2s all;
 }
 /*右侧订单*/
 .orders{
@@ -120,7 +37,6 @@ body{
 .orders-head li{
 	width: 91px;
 	height: 35px;
-	margin: ;
 	float: left;
 	text-align: center;
 	border-bottom: 4px solid transparent;
@@ -261,13 +177,13 @@ body{
 	cursor: pointer;
 }
 #cpy-shop .info-check:before{
-	content: url(../img/company/shop-list-check.png);
+	content: url(/img/company/check.png);
 	position: relative;
 	top: 2px;
 	right: 5px;
 }
-/*弹框bg*/
-.black_overlay{
+/*商品信息审核弹框***/
+.Shop{
 display: none;
 position: fixed;
 top: 0%;
@@ -278,10 +194,8 @@ background-color: #aaa;
 z-index:1001;
 -moz-opacity: 0.8;
 opacity:.80;
-/*filter: alpha(opacity=80);*/
 }
-/*商品信息审核弹框******************/
-#MyShop {
+.MyShop {
 display: none;
 position: fixed;
 width: 682px;
@@ -293,10 +207,11 @@ background-color: #fff;
 z-index:1002;
 overflow: hidden;
 }
-#MyShop .check_add{
+.MyShop .check_add{
 	width: 100%;
+	text-align: left;
 }
-#MyShop .check_add .cont-box{
+.MyShop .check_add .cont-box{
 	position: relative;
 	width: 632px;
 	height: 430px;
@@ -305,7 +220,7 @@ overflow: hidden;
 	padding: 25px;
 	background: #fff;
 }
-#MyShop .check_add .cont-box .onClose{
+.MyShop .check_add .cont-box .onClose{
 	position: absolute;
 	right: 35px;
 	top: 25px;
@@ -313,16 +228,16 @@ overflow: hidden;
 	color: #333;
 	cursor: pointer;
 }
-#MyShop .check_add .cont-box h2{
+.MyShop .check_add .cont-box h2{
 	font-size: 26px;
 	color: #999;
 	font-weight: 500;
 	padding: 20px 0 30px;
 }
-#MyShop .check_add .cont-box .cont_lf{
+.MyShop .check_add .cont-box .cont_lf{
 	float: left;
 }
-#MyShop .check_add .shop-lf-title span{
+.MyShop .check_add .shop-lf-title span{
 	display: block;
 	width: 395px;
 	height: 50px;
@@ -331,16 +246,16 @@ overflow: hidden;
 	color: #333;
 	overflow: hidden;
 }
-#MyShop .check_add .shop-lf-img{
+.MyShop .check_add .shop-lf-img{
 	width: 395px;
 	height: 207px;
-	background: url(../img/shop_img.png);
+	background: url(/img/shop_img.png);
 }
-#MyShop .check_add .shop-lf-depict{
+.MyShop .check_add .shop-lf-depict{
 	position: relative;
 	margin-top: 20px;
 }
-#MyShop .check_add .shop-lf-depict textarea{
+.MyShop .check_add .shop-lf-depict textarea{
 	width: 395px;
 	height: 70px;
 	font-size: 20px;
@@ -349,11 +264,11 @@ overflow: hidden;
 	border: none;
 	outline: none;
 }
-#MyShop .check_add .cont_rt{
+.MyShop .check_add .cont_rt{
 	float: right;
 	margin-right: 30px;
 }
-#MyShop .check_add .shop-rt-price{
+.MyShop .check_add .shop-rt-price{
 	display: block;
 	width: 169px;
 	height: 50px;
@@ -362,26 +277,26 @@ overflow: hidden;
 	color: #333;
 	overflow: hidden;
 }
-#MyShop .check_add .shop-rt-price span{
+.MyShop .check_add .shop-rt-price span{
 	font-size: 24px;
 	color: #D71E1E;
 }
-#MyShop .check_add .shop-rt-price strong{
+.MyShop .check_add .shop-rt-price strong{
 	font-size: 24px;
 	color: #D71E1E;
 	font-weight: 500;
 }
-#MyShop .check_add .shop-rt-img{
+.MyShop .check_add .shop-rt-img{
 	width: 169px;
 	height: 98px;
-	background: url(../img/shop-rt-img.png);
+	background: url(/img/shop-rt-img.png);
 }
-#MyShop .check_add .shop-rt-img img{
+.MyShop .check_add .shop-rt-img img{
 	display: block;
 	width: 169px;
 	height: 98px;
 }
-#MyShop .btn-box{
+.MyShop .btn-box{
 	position: relative;
 	width: 632px;
 	height: 150px;
@@ -389,13 +304,13 @@ overflow: hidden;
 	border-top: 1px solid #F2F2F2;
 	margin: 0 25px;
 }
-#MyShop .btn{
+.MyShop .btn{
 	margin-top: 50px;
 	height: 35px;
 	line-height: 35px;
 	text-align: center;
 }
-#MyShop .pass{
+.MyShop .pass{
 	width: 108px;
 	height: 35px;
 	background: #FED500;
@@ -406,7 +321,7 @@ overflow: hidden;
 	cursor: pointer;
 	margin-right: 140px;
 }
-#MyShop .not{
+.MyShop .not{
 	width: 108px;
 	height: 35px;
 	background: #fff;
@@ -416,7 +331,7 @@ overflow: hidden;
 	outline: none;
 	cursor: pointer;
 }
-#MyShop .btn button:hover{
+.MyShop .btn button:hover{
 	opacity: .75;
 }
 /*通过/未通过弹框bg*/
@@ -431,7 +346,6 @@ background-color: #aaa;
 z-index:1003;
 -moz-opacity: 0.8;
 opacity:.80;
-/*filter: alpha(opacity=80);*/
 }
 /*审核通过弹框*/
 #MyPass {
@@ -474,8 +388,8 @@ overflow: hidden;
 }
 #MyPass .back{
 	position: absolute;
-	right: 0px;
-	top: 0px;
+	right: 0;
+	top: 0;
 	font-size: 30px;
 	color: #FED500;
 	font-family: simsun;
@@ -506,7 +420,6 @@ overflow: hidden;
 	width: 88px;
 	height: 35px;
 	left: 50%;
-	bottom: 0;
 	margin-left: -36px;
 	border-bottom: 4px solid #FED500;
 	text-align: center;

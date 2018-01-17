@@ -1,4 +1,5 @@
-<div id="MyShop" class="white_content">
+<div class="Shop"></div>
+<div class="MyShop">
     <div class="check_add">
         <div class="cont-box">
             <span class="onClose">×</span>

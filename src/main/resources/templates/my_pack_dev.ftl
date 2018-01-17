@@ -12,63 +12,35 @@
                     <span class="pri">套餐价:<i>￥</i><strong>148</strong></span>
                 </p>
                 <ul class="upload-img">
+                <#assign text>${good.pictureUrl}</#assign>
+                <#assign json=text?eval />
+                <#list json as pictureUrl>
                     <li>
-                        <img src="/img/company/pack-upload-img.jpg" alt="" />
+                        <img src="${pictureUrl}" alt=""/>
                     </li>
-                    <li>
-                        <img src="/img/company/pack-upload-img02.jpg" alt="" />
-                    </li>
-                    <li class="list-img-box">
-                        <ul>
-                            <li>
-                                <img src="/img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="/img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="/img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="/img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="/img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                            <li>
-                                <img src="/img/company/pack-upload-img04.jpg" alt="" />
-                            </li>
-                        </ul>
-                    </li>
+                </#list>
                 </ul>
             </div>
             <table border="0" cellspacing="0" cellpadding="0">
-                <tr><th>勾选商品</th></tr>
                 <tr>
-                    <td>激爽夏日可乐</td>
-                    <td>清新水果黄桃味</td>
-                    <td>包含1份</td>
-                    <td>甜甜的</td>
+                    <th>勾选商品</th>
                 </tr>
+            <#assign text>${good.content}</#assign>
+            <#assign json=text?eval />
+            <#list json as single>
                 <tr>
-                    <td>激爽夏日可乐</td>
-                    <td>清新水果黄桃味</td>
-                    <td>包含1份</td>
-                    <td>甜甜的</td>
+                    <td>${single.title}</td>
+                    <td>${single.taste}</td>
+                    <td>${single.count}</td>
                 </tr>
-                <tr>
-                    <td>激爽夏日可乐</td>
-                    <td>清新水果黄桃味</td>
-                    <td>包含1份</td>
-                    <td>甜甜的</td>
-                </tr>
+            </#list>
             </table>
             <textarea readonly="readonly" class="remarks">可乐聚会，激爽夏日，给这个热不可挡的夏日带来最酷的体验</textarea>
         </div>
         <div class="btn-box">
             <div class="btn">
                 <button class="pass" type="button" onclick="auditGood()">审核通过</button>
-                <button class="not" type="button" >审核未通过</button>
+                <button class="not" type="button">审核未通过</button>
             </div>
         </div>
     </div>

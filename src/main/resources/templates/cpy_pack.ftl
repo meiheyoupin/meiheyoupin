@@ -33,13 +33,14 @@
                                     </div>
                                     <div class="title-info">
                                         <input class="goodId" id="goodId" type="hidden" value="${good.id?c}"/>
+                                        <input class="goodId" id="goodId" type="hidden" value="${good.pictureUrl}"/>
                                         <span class="title">杭州佳妮万科安仁蛋糕店</span>
                                         <span class="times">${good.createTime?string('yyyy-MM-dd')}</span>
                                     </div>
                                 </div>
                                 <div class="pack-box">
                                     <div class="img-pack">
-                                        <img src="/img/company/pack-list-img.jpg" alt="" />
+                                        <img src="${good.primaryPictureUrl}" alt="" />
                                     </div>
                                     <div class="pack-info">
                                         <span class="info-title">${good.name}</span>

@@ -2,21 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="img/favicon.ico" rel="shortcut icon">
+    <link href="/img/favicon.ico" rel="shortcut icon">
     <title>美盒优品-公司后台</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/cpy_shop.css" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/cpy_shop.css" />
 </head>
 <body>
-<!--头部logo部分-->
-<div id="header">
-    <div class="container">
-        <h1 class="logo">
-            <a href="index.html" title="美盒优品"></a>
-        </h1>
-        <span class="company-title">公司后台</span>
-    </div>
-</div>
+<!--header-->
+<#include "cpy_header.html"/>
 <!--页面开始-->
 <div id="main">
     <div class="container">
@@ -30,16 +23,13 @@
             <div class="orders-body">
                 <!--商品审核信息-->
                 <div id="cpy-shop">
-                    <div class="menu">
-                        <a href="#">综合排序</a><a href="#">价格优先</a><a href="#">销量优先</a><a href="#">好评优先</a>
-                    </div>
                     <ul>
                         <#list unauditGoods as good>
-                        <li>
+                        <li class="shoplist">
                             <div class="content">
                                 <div class="title-box">
                                     <div class="img-bg">
-                                        <img src="img/company/shop-list-bg.png" alt="" />
+                                        <img src="/img/company/shop-list-bg.png" alt="" />
                                     </div>
                                     <div class="title-info">
                                         <input class="goodId" id="goodId" type="hidden" value="${good.id}"/>
@@ -49,17 +39,17 @@
                                 </div>
                                 <div class="shop-box">
                                     <div class="img-shop">
-                                        <img src="img/company/shop-list-img.jpg" alt="" />
+                                        <img src="/img/company/shop-list-img.jpg" alt="" />
                                     </div>
                                     <div class="shop-info">
                                         <span class="info-title">${good.name}</span>
                                         <span class="info-text">${good.content}</span>
                                         <span class="info-number">￥<strong class="price">${good.price}</strong></span>
                                         <span class="info-check">审核商品信息+</span>
-                                        <#include "myShop_dev.ftl"/>
                                     </div>
                                 </div>
                             </div>
+                            <#include "myShop_dev.ftl">
                         </li>
                         </#list>
                     </ul>
@@ -68,47 +58,12 @@
         </div>
     </div>
 </div>
-<!--审核商品信息弹框-->
-<div id="shop" class="black_overlay"></div>
-<#--<div id="MyShop" class="white_content">
-    <div class="check_add">
-        <div class="cont-box">
-            <span class="onClose">×</span>
-            <h2>审核商品信息</h2>
-            <div class="cont_lf">
-                <p class="shop-lf-title">
-                    <span>${good.content}</span>
-                </p>
-                <p class="shop-lf-img">
-                    <img src="${good.pictureUrl}" alt="" />
-                </p>
-                <p class="shop-lf-depict">
-                    <textarea readonly="readonly" placeholder="描述一下你的商品...">${good.content}</textarea>
-                </p>
-            </div>
-            <div class="cont_rt">
-                <p class="shop-rt-price">
-                    单价:<span>￥</span><strong>${good.price}</strong>
-                </p>
-                <p class="shop-rt-img">
-                    <img src="${good.primaryPictureUrl}" alt="" />
-                </p>
-            </div>
-        </div>
-        <div class="btn-box">
-            <div class="btn">
-                <button class="pass" type="button" onclick="auditGood()">审核通过</button>
-                <button class="not" type="button">审核未通过</button>
-            </div>
-        </div>
-    </div>
-</div>-->
 <!--审核通过弹框-->
-<div id="pass" class="black_overlay"></div>
-<div id="MyPass" class="white_content">
+<div id="pass"></div>
+<div id="MyPass">
     <div class="move">
         <div class="title">
-            <img src="img/complete.png" alt="" />
+            <img src="/img/complete.png" alt="" />
         </div>
     </div>
     <div class="list">
@@ -118,8 +73,8 @@
     <a class="back" href="javascript:;">×</a>
 </div>
 <!--审核未通过弹框-->
-<div id="not" class="black_overlay"></div>
-<div id="MyNot" class="white_content">
+<div id="not"></div>
+<div id="MyNot">
     <div class="move">
         <div class="title">
             <span>填写原因</span>
@@ -140,42 +95,10 @@
         <div class="btn-back"><a href="javascript:;">返回</a></div>
     </div>
 </div>
-<!--页脚-->
-<footer>
-    <div>客服电话：<span>0571-86438349</span>（每天9:00 - 22:00）</div>
-    <div>Copyright © 2017, meiheyoupin.com. All rights reserved | 浙ICP备16043943号-1 </div>
-</footer>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/shop.js"></script>
-<script type="text/javascript">
-    //商品审核弹框
-    $(".info-check").click(function(){
-        $("#shop").show();
-        $("#MyShop").show();
-    });
-    $(".onClose").click(function(){
-        $("#shop").hide();
-        $("#MyShop").hide();
-    });
-    //审核通过弹框
-    $(".pass").click(function(){
-        $("#pass").show();
-        $("#MyPass").show();
-    })
-    $(".back").click(function(){
-        $("#pass").hide();
-        $("#MyPass").hide();
-    })
-    //审核未通过弹框
-    $(".not").click(function(){
-        $("#not").show();
-        $("#MyNot").show();
-    });
-    $(".btn-back, .btn-send").click(function(){
-        $("#not").hide();
-        $("#MyNot").hide();
-    });
-</script>
+<!--footer-->
+<#include "cpy_footer.ftl"/>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/shop.js"></script>
 </body>
 </html>

@@ -129,7 +129,7 @@ body{
 	cursor: pointer;
 }
 #cpy-store .ck-shop:before{
-	content: url(/img/company/shop-list-check.png);
+	content: url(/img/company/check.png);
 	position: relative;
 	width: 14px;
 	height: 14px;
@@ -245,7 +245,7 @@ body{
 	font-size: 30px;
 	cursor: pointer;
 }
-/*弹框bg*/
+/*审核通过弹框*/
 #pass{
 display: none;
 position: fixed;
@@ -257,9 +257,7 @@ background-color: #aaa;
 z-index:1001;
 -moz-opacity: 0.8;
 opacity:.80;
-/*filter: alpha(opacity=80);*/
 }
-/*审核通过弹框*/
 #MyPass {
 display: none;
 position: fixed;
@@ -300,15 +298,15 @@ overflow: hidden;
 }
 #MyPass .back{
 	position: absolute;
-	right: 0px;
-	top: 0px;
+	right: 0;
+	top: 0;
 	font-size: 30px;
 	color: #FED500;
 	font-family: simsun;
 	padding: 5px 5px 0 0;
 }
-/*弹框*/
-#ot{
+/*审核未通过弹框*/
+#not{
 	display: none;
 	position: fixed;
 	top: 0%;
@@ -319,9 +317,7 @@ overflow: hidden;
 	z-index:1001;
 	-moz-opacity: 0.8;
 	opacity:.80;
-	/*filter: alpha(opacity=80);*/
 }
-/*审核未通过弹框*/
 #MyNot {
 display: none;
 position: fixed;
