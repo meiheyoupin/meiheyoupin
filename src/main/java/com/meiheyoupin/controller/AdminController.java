@@ -1,6 +1,8 @@
 package com.meiheyoupin.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
+import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.entity.UserAdmin;
 import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StoreService;
@@ -12,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -54,7 +58,9 @@ public class AdminController {
     //未审核商品
     @GetMapping("cpyShop")
     public String unauditGoods(Model model){
-        model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
+        List<Goods> unauditGoods = goodsService.getUnauditGoods();
+        model.addAttribute("unauditGoods",unauditGoods);
+        //JSONObject jsonObject = JSONObject.parseObject(unauditGoods.)
         return "cpy_shop";
     }
 

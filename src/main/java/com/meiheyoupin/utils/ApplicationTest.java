@@ -2,6 +2,7 @@
 package com.meiheyoupin.utils;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.meiheyoupin.common.ImdadaStoreUtils;
 import com.meiheyoupin.common.ImdadaOrderUtils;
 import com.meiheyoupin.dao.GoodsMapper;
@@ -11,16 +12,23 @@ import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.omg.CORBA.DATA_CONVERSION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ApplicationTest {
+
+    @Autowired
+    BirthdayBlessingsService birthdayBlessingsService;
 
     @Autowired
     UserAdminMapper userAdminMapper;
@@ -46,10 +54,15 @@ public class ApplicationTest {
     @Autowired
     OrdersService ordersService;
 
+    @Autowired
+    StafferService stafferService;
+
     @Test
     public void test1(){
-        UserAdmin userAdmin = userAdminMapper.selectByNameAndPassword(new UserAdmin("admin", "admin"));
-        System.out.println(userAdmin.getId());
+        SimpleDateFormat df = new SimpleDateFormat("MM-dd");
+        Date date = stafferService.getStaffers().get(0).getBirthday();
+        String current = df.format(date);
+        System.out.println(current);
     }
 
     @Test
@@ -63,12 +76,15 @@ public class ApplicationTest {
 
     @Test
     public void test3(){
-        System.out.println(userAdminService.getUser().get(0).getUsername());
+        String str = userAdminService.getUser().get(0).getUsername();
+        System.out.println(str);
     }
 
     @Test
     public void test4(){
-        System.out.println(userAdminService.getRoleByName("user"));
+        String str = goodsService.getUnauditGoods().get(0).getPictureUrl();
+        System.out.println(str);
+
     }
 
     @Test
@@ -86,7 +102,7 @@ public class ApplicationTest {
     @Test
     public void test7(){
         StoreInfo storeInfo = new StoreInfo();
-        storeInfo.setStation_name("新门店1");
+        storeInfo.setStation_name("新3门1店");
         storeInfo.setBusiness(1);
         storeInfo.setCity_name("上海");
         storeInfo.setArea_name("浦东新区");
@@ -95,14 +111,12 @@ public class ApplicationTest {
         storeInfo.setLat(31.229081);
         storeInfo.setContact_name("xxx");
         storeInfo.setPhone("13012345678");
-        storeInfo.setOrigin_shop_id("shop001");
+        //storeInfo.setOrigin_shop_id("shop001");
 
-        Map map = ImdadaStoreUtils.toMap(storeInfo);
-        Map<String, Object> paramMap = ImdadaStoreUtils.getRequestParam(map);
-        paramMap.put("signature",ImdadaStoreUtils.getSign(paramMap));
-        //String body = paramMap.get("body");
-        String res = ImdadaStoreUtils.toJson(paramMap);
-        System.out.println(res);
+        List list = ImdadaStoreUtils.toList(storeInfo);
+        Map<String, Object> paramMap = ImdadaStoreUtils.getRequestParam(list);
+        String sign = ImdadaStoreUtils.getSign(paramMap);
+        paramMap.put("signature",sign);
         String response = ImdadaStoreUtils.sendPost(ENTER_STORE_URL,ImdadaStoreUtils.toJson(paramMap));
         System.out.println(response);
     }
@@ -111,11 +125,11 @@ public class ApplicationTest {
     public void test8(){
         OrderInfo orderInfo = new OrderInfo();
         orderInfo.setShop_no("11047059");
-        orderInfo.setOrigin_id("2038091513");
+        orderInfo.setOrigin_id("2038291313");
         orderInfo.setCity_code("021");
         orderInfo.setCargo_price(10.0);
         orderInfo.setIs_prepay(1);
-        orderInfo.setExpected_fetch_time(1516103040L);
+        orderInfo.setExpected_fetch_time(1516184289L);
         orderInfo.setReceiver_name("测试");
         orderInfo.setReceiver_address("上海市崇明岛");
         orderInfo.setReceiver_tel("15988786205");
@@ -128,6 +142,30 @@ public class ApplicationTest {
         paramMap.put("signature", sign);
         String response = ImdadaOrderUtils.sendPost(ADD_ORDER_URL, ImdadaOrderUtils.toJson(paramMap));
         System.out.println(response);
+    }
+
+    public List<Staffer> getStaffer(){
+        return stafferService.getStaffers();
+    }
+    public String dateToString(Date date){
+        SimpleDateFormat df = new SimpleDateFormat("MM-dd");
+        String res = df.format(date);
+        return res;
+    }
+    @Test
+    public void test9(){
+        for (Staffer staffer:getStaffer()){
+            SimpleDateFormat df = new SimpleDateFormat("MM-dd");
+            String current = df.format(new Date());
+            String birthday = dateToString(staffer.getBirthday());
+            String msg = birthdayBlessingsService.getMsgByCompany(staffer.getCompany());
+            System.out.println(msg);
+            if (birthday.equals(current)){
+
+                //SMSUtils.sendBirthdayBlessings()
+                System.out.println("==================================================================================");
+            }
+        }
     }
 }
 

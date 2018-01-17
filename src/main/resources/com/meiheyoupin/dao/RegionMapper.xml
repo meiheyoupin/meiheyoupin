@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meiheyoupin.dao.RegionMapper">
+  <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.Region">
+    <id column="region_id" jdbcType="BIGINT" property="regionId" />
+    <result column="region_name" jdbcType="VARCHAR" property="regionName" />
+    <result column="region_code" jdbcType="VARCHAR" property="regionCode" />
+    <result column="parent_region_id" jdbcType="BIGINT" property="parentRegionId" />
+    <result column="layer" jdbcType="DECIMAL" property="layer" />
+    <result column="order_id" jdbcType="DECIMAL" property="orderId" />
+    <result column="zip_phone" jdbcType="DECIMAL" property="zipPhone" />
+    <result column="region_post" jdbcType="DECIMAL" property="regionPost" />
+    <result column="is_city" jdbcType="VARCHAR" property="isCity" />
+    <result column="region_mask" jdbcType="VARCHAR" property="regionMask" />
+    <result column="region_banner" jdbcType="VARCHAR" property="regionBanner" />
+    <result column="region_icon" jdbcType="VARCHAR" property="regionIcon" />
+    <result column="region_banner_old" jdbcType="VARCHAR" property="regionBannerOld" />
+    <result column="region_online_total" jdbcType="INTEGER" property="regionOnlineTotal" />
+    <result column="region_online_today" jdbcType="INTEGER" property="regionOnlineToday" />
+    <result column="region_online_date" jdbcType="TIMESTAMP" property="regionOnlineDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    region_id, region_name, region_code, parent_region_id, layer, order_id, zip_phone, 
+    region_post, is_city, region_mask, region_banner, region_icon, region_banner_old, 
+    region_online_total, region_online_today, region_online_date
+  </sql>
+  <select id="selectByExample" parameterType="com.meiheyoupin.entity.RegionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from region
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id = "getChildRegionList" parameterType = "java.util.Map" resultType = "java.util.Map">
+    SELECT region_id, region_name
+    FROM region
+    WHERE parent_region_id = ${regionId}
+    ORDER BY order_id
+  </select>
+  <!-- 获得地区详细名称的函数 -->
+  <select id="getRegionDetailName" parameterType="java.util.Map"
+          resultType="String">
+    SELECT GROUP_CONCAT(region_name ORDER BY region_id
+    SEPARATOR ' ' ) AS regionName FROM region WHERE region_id =
+    CONCAT(SUBSTR(${regionId},1,2),"0000") OR region_id =
+    CONCAT(SUBSTR(${regionId},1,4),"00") OR region_id = ${regionId}
+  </select>
+</mapper>

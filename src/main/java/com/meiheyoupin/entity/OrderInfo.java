@@ -3,32 +3,37 @@ package com.meiheyoupin.entity;
 
 
 public class OrderInfo {
-    private String shop_no;
-    private String origin_id;
-    private String city_code;
-    private Double cargo_price;
-    private Integer is_prepay;
-    private Long expected_fetch_time;
-    private String receiver_name;
-    private String receiver_address;
-    private Double receiver_lat;
-    private Double receiver_lng;
-    private String callback;
-    private String receiver_phone;
-    private String receiver_tel;
-    private Double tips;
-    private String info;
-    private Integer cargo_type;
-    private Double cargo_weight;
-    private Integer cargo_num;
-    private String invoice_title;
-    private String deliver_locker_code;
-    private String pickup_locker_code;
-    private String origin_mark;
-    private String origin_mark_no;
-    private Integer insurance_fee;
-    private Integer is_finish_code_needed;
-    private Integer delay_publish_time;
+
+    private String shop_no;     //门店编号，门店创建后可在门店列表和单页查看
+    private String origin_id;       //第三方订单ID
+    private String city_code;       //订单所在城市的code（查看各城市对应的code值）
+    private Double cargo_price;     //订单金额
+    private Integer is_prepay;      //是否需要垫付 1:是 0:否 (垫付订单金额，非运费)
+    private Long expected_fetch_time;       //期望取货时间（1.时间戳,以秒计算时间，即unix-timestamp; 2.该字段的设定，不会影响达达正常取货; 3.订单待接单时,该时间往后推半小时后，会自动被系统取消;4.建议取值为当前时间往后推10~15分钟）
+    private String receiver_name;       //收货人姓名
+    private String receiver_address;        //收货人地址
+    private Double receiver_lat;        //收货人地址维度（高德坐标系）
+    private Double receiver_lng;        //收货人地址经度（高德坐标系）
+    private String callback;        //回调URL（查看回调说明）
+
+    /*
+    非必需
+     */
+    private String receiver_phone;      //收货人手机号（手机号和座机号必填一项）
+    private String receiver_tel;        //收货人座机号（手机号和座机号必填一项）
+    private Double tips;        //小费（单位：元，精确小数点后一位）
+    private String info;        //订单备注
+    private Integer cargo_type;         //订单商品类型：食品小吃-1,饮料-2,鲜花-3,文印票务-8,便利店-9,水果生鲜-13,同城电商-19, 医药-20,蛋糕-21,酒品-24,小商品市场-25,服装-26,汽修零配-27,数码-28,小龙虾-29, 其他-5
+    private Double cargo_weight;        //订单重量（单位：Kg）
+    private Integer cargo_num;      //订单商品数量
+    private String invoice_title;       //发票抬头
+    private String deliver_locker_code;     //送货开箱码
+    private String pickup_locker_code;      //取货开箱码
+    private String origin_mark;         //	订单来源标示（该字段可以显示在达达app订单详情页面，只支持字母，最大长度为10）
+    private String origin_mark_no;      //订单来源编号（该字段可以显示在达达app订单详情页面，支持字母和数字，最大长度为30）
+    private Integer insurance_fee;      //商品保价费(当商品出现损坏，可获取一定金额的赔付)
+    private Integer is_finish_code_needed;      //收货码（0：不需要；1：需要。收货码的作用是：骑手必须输入收货码才能完成订单妥投）
+    private Integer delay_publish_time;     //预约发单时间（预约时间unix时间戳(10位),精确到分;整10分钟为间隔，并且需要至少提前20分钟预约。）
 
     public OrderInfo() {
     }
