@@ -30,5 +30,10 @@ public class UserAdminServiceImpl implements UserAdminService {
         return userAdminMapper.selectByName(username);
     }
 
+    @Override
+    public String getRoleByName(String username) {
+        return userAdminMapper.selectRoleByName(username);
+    }
+
 
 }

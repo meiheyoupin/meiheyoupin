@@ -12,4 +12,5 @@ public interface UserAdminMapper {
 
     UserAdmin selectByName(String username);
 
+    String selectRoleByName(String username);
 }

@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
     /**
@@ -43,15 +43,17 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+
+        //权限
+        filterChainDefinitionMap.put("/admin/**","authc,roles[admin]");
+        filterChainDefinitionMap.put("/user/**","authc,roles[user]");
+
+
         //登录
-        filterChainDefinitionMap.put("/toLogin","anon");
+        filterChainDefinitionMap.put("/toLogin","authc");
         filterChainDefinitionMap.put("/logout","logout");
         filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/**","authc");
-
-        //权限
-        filterChainDefinitionMap.put("/admin/**","roles[admin]");
-        filterChainDefinitionMap.put("/user/**","roles[user]");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 

@@ -21,11 +21,12 @@ public class MyShiroRealm extends AuthorizingRealm {
     //授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        SimpleAuthorizationInfo info = null;
-        String name = principals.toString();
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();;
         Set<String> roles = new HashSet<String>();
-        info = new SimpleAuthorizationInfo(roles);
-        //info.addRole("admin");
+        String name = principals.toString();
+        String role = userAdminService.getRoleByName(name);
+        roles.add(role);
+        info.addRoles(roles);
         return info;
     }
 

@@ -68,8 +68,7 @@ public class ApplicationTest {
 
     @Test
     public void test4(){
-        Integer[] integers = new Integer[]{4};
-        storeService.autidStores(integers);
+        System.out.println(userAdminService.getRoleByName("user"));
     }
 
     @Test
