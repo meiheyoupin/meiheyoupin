@@ -3,7 +3,7 @@ package com.meiheyoupin.service.Impl;
 
 
 
-import com.meiheyoupin.common.SMSUtils;
+import com.meiheyoupin.utils.SMSUtils;
 import com.meiheyoupin.dao.GoodsMapper;
 import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.entity.Goods;

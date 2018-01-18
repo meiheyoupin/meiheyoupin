@@ -1,4 +1,4 @@
-package com.meiheyoupin.common;
+package com.meiheyoupin.utils;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;

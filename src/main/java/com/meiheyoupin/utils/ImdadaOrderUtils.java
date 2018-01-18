@@ -1,6 +1,7 @@
-package com.meiheyoupin.common;
+package com.meiheyoupin.utils;
 
 
+import com.meiheyoupin.entity.OrderInfo;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.*;
@@ -8,24 +9,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
-/**
- * 发单接口示例代码
- * 以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
- * 该代码仅供学习和研究使用，只是提供一个参考
- */
-public class ImdadaCityUtils {
+
+public class ImdadaOrderUtils {
     //请使用开发者对应的 app key & app secret
     private static final String appSecret = "9acbd2d7755719045ee2f50bcdcd477d";
     private static final String appKey = "dada85a86c579633e89";
     // 测试环境发单url
-    private static final String ADD_ORDER_URL = "http://newopen.qa.imdada.cn/api/cityCode/list";
+    private static final String ADD_ORDER_URL = "http://newopen.qa.imdada.cn/api/order/addOrder";
 
     //json 序列化使用,本示例使用jackson
     private static ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] arg) {
         //根据需求按照文档构造请求参数
-        Map<String, Object> paramMap = getRequestParam();
+
+        Map<String, Object> paramMap = getRequestParam(new HashMap());
         //按照文档生成签名
         String sign = getSign(paramMap);
         paramMap.put("signature", sign);
@@ -66,9 +64,9 @@ public class ImdadaCityUtils {
     }
 
     //根据业务需求按照文档构造请求参数
-    public static Map<String, Object> getRequestParam() {
+    public static Map<String, Object> getRequestParam(Map map) {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("body", toJson(getBizParam()));  // 注意body是json字符串
+        paramMap.put("body", toJson(map));  // 注意body是json字符串
         paramMap.put("format", "json");
         paramMap.put("timestamp", System.currentTimeMillis());
         paramMap.put("app_key", appKey);
@@ -80,6 +78,18 @@ public class ImdadaCityUtils {
     //根据业务需求按照文档构造请求参数
     public static Map<String, Object> getBizParam() {
         Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("origin_id", "2038091414");
+        paramMap.put("city_code", "021");
+        paramMap.put("cargo_price", 10);
+        paramMap.put("is_prepay", 0);
+        paramMap.put("expected_fetch_time", 1516099967);
+        paramMap.put("receiver_name", "测试");
+        paramMap.put("receiver_address", "上海市崇明岛");
+        paramMap.put("receiver_tel", "18599999999");
+        paramMap.put("receiver_lat", 31.2);
+        paramMap.put("receiver_lng", 121.5);
+        paramMap.put("callback", "http,//localhost:8081/receive/");
+        paramMap.put("shop_no", 11047059);
         return paramMap;
     }
 
@@ -178,5 +188,38 @@ public class ImdadaCityUtils {
             }
         }
         return result.toString();
+    }
+
+    // 将对象转换成map
+    public static Map toMap(OrderInfo orderinfo){
+        Map map = new HashMap();
+        map.put("shop_no",orderinfo.getShop_no());
+        map.put("origin_id",orderinfo.getOrigin_id());
+        map.put("city_code",orderinfo.getCity_code());
+        map.put("cargo_price",orderinfo.getCargo_price());
+        map.put("is_prepay",orderinfo.getIs_prepay());
+        map.put("expected_fetch_time",orderinfo.getExpected_fetch_time());
+        map.put("receiver_name",orderinfo.getReceiver_name());
+        map.put("receiver_address",orderinfo.getReceiver_address());
+        map.put("receiver_lat",orderinfo.getReceiver_lat());
+        map.put("receiver_lng",orderinfo.getReceiver_lng());
+        map.put("callback",orderinfo.getCallback());
+        map.put("receiver_tel",orderinfo.getReceiver_tel());
+
+        /*map.put("receiver_phone",orderinfo.getReceiver_phone());
+        map.put("tips",orderinfo.getTips());
+        map.put("info",orderinfo.getInfo());
+        map.put("cargo_type",orderinfo.getCargo_type());
+        map.put("cargo_weight",orderinfo.getCargo_weight());
+        map.put("cargo_num",orderinfo.getCargo_num());
+        map.put("invoice_title",orderinfo.getInvoice_title());
+        map.put("deliver_locker_code",orderinfo.getDeliver_locker_code());
+        map.put("pickup_locker_code",orderinfo.getPickup_locker_code());
+        map.put("origin_mark",orderinfo.getOrigin_mark());
+        map.put("origin_mark_no",orderinfo.getOrigin_mark_no());
+        map.put("insurance_fee",orderinfo.getInsurance_fee());
+        map.put("is_finish_code_needed",orderinfo.getIs_finish_code_needed());
+        map.put("delay_publish_time",orderinfo.getDelay_publish_time());*/
+        return map;
     }
 }

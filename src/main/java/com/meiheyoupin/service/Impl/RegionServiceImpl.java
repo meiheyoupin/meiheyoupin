@@ -1,6 +1,6 @@
 package com.meiheyoupin.service.Impl;
 
-import com.meiheyoupin.common.ConvertUtil;
+import com.meiheyoupin.common.utils.ConvertUtil;
 import com.meiheyoupin.dao.RegionMapper;
 import com.meiheyoupin.service.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
