@@ -523,6 +523,7 @@ overflow: hidden;
 	height: 35px;
 	background: #FED500;
 	text-align: center;
+	cursor: pointer;
 }
 #MyNot .btn-send a{
 	display: block;
@@ -538,6 +539,7 @@ overflow: hidden;
 	height: 33px;
 	border: 1px solid #FED500;
 	text-align: center;
+	cursor: pointer;
 }
 #MyNot .btn-back a{
 	display: block;

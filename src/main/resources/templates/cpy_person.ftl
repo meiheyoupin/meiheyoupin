@@ -8,15 +8,8 @@
     <link rel="stylesheet" type="text/css" href="css/cpy_person.css" />
 </head>
 <body>
-<!--头部logo部分-->
-<div id="header">
-    <div class="container">
-        <h1 class="logo">
-            <a href="index.html" title="美盒优品"></a>
-        </h1>
-        <span class="company-title">公司后台</span>
-    </div>
-</div>
+<!--header-->
+<#include "cpy_header.html"/>
 <!--页面开始-->
 <div id="main">
     <div class="container">
@@ -101,12 +94,8 @@
         </div>
     </div>
 </div>
-
-<!--页脚-->
-<footer>
-    <div>客服电话：<span>0571-86438349</span>（每天9:00 - 22:00）</div>
-    <div>Copyright © 2017, meiheyoupin.com. All rights reserved | 浙ICP备16043943号-1 </div>
-</footer>
+<!--footer-->
+<#include "cpy_footer.ftl"/>
 
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
