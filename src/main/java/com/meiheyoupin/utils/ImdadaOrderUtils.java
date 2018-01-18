@@ -23,7 +23,7 @@ public class ImdadaOrderUtils {
     public static void main(String[] arg) {
         //根据需求按照文档构造请求参数
 
-        Map<String, Object> paramMap = getRequestParam(new HashMap());
+        Map<String, Object> paramMap = getRequestParam(getBizParam());
         //按照文档生成签名
         String sign = getSign(paramMap);
         paramMap.put("signature", sign);
@@ -78,11 +78,11 @@ public class ImdadaOrderUtils {
     //根据业务需求按照文档构造请求参数
     public static Map<String, Object> getBizParam() {
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("origin_id", "2038091414");
+        paramMap.put("origin_id", "2031011414");
         paramMap.put("city_code", "021");
         paramMap.put("cargo_price", 10);
         paramMap.put("is_prepay", 0);
-        paramMap.put("expected_fetch_time", 1516099967);
+        paramMap.put("expected_fetch_time", 1516269280);
         paramMap.put("receiver_name", "测试");
         paramMap.put("receiver_address", "上海市崇明岛");
         paramMap.put("receiver_tel", "18599999999");
