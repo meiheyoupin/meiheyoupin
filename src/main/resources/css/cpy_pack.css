@@ -179,13 +179,13 @@ opacity:.80;
 }
 .MyPack {
 display: none;
-position: absolute;
+position: fixed;
 width: 682px;
-height:895px;
-/*top: 50%;*/
+height:682px;
+top: 50%;
 left: 50%;
-margin-top: -256px;
-margin-left: -441px;
+margin-top: -341px;
+margin-left: -341px;
 background-color: #fff;
 z-index: 1002;
 overflow: hidden;
@@ -198,34 +198,33 @@ overflow: hidden;
 	width: 632px;
 	top: 0;
 	left: 0;
-	padding: 25px;
-	padding-bottom: 0;
+	padding: 0 25px;
 	background: #fff;
 }
 .MyPack .pack .upload-img{
 	display: flex;
 	flex-wrap: wrap;
 	width: 632px;
-	height: 360px;
+	height: 220px;
 	overflow: auto;
 }
 .MyPack .pack .upload-img>li{
 	margin-bottom: 6px;
 }
-.MyPack .pack .upload-img>li:nth-child(1){
-	width: 100%;
-	height: 356px;
-}
-.MyPack .pack .upload-img>li:nth-child(1) img{
-	display: block;
-	width: 615px;
-	height: 356px;
-}
-.MyPack .pack .upload-img>li:not(:first-child){
+/*.MyPack .pack .upload-img>li:nth-child(1){*/
+	/*width: 100%;*/
+	/*height: 356px;*/
+/*}*/
+/*.MyPack .pack .upload-img>li:nth-child(1) img{*/
+	/*display: block;*/
+	/*width: 615px;*/
+	/*height: 356px;*/
+/*}*/
+.MyPack .pack .upload-img>li{
 	width: 50%;
 	height: 200px;
 }
-.MyPack .pack .upload-img>li:not(:first-child) img{
+.MyPack .pack .upload-img>li img{
 	display: block;
 	width: 300px;
 	height: 200px;
@@ -252,7 +251,7 @@ overflow: hidden;
 	display: block;
 	width: 632px;
 	height: 144px;
-	margin: 20px 0;
+	margin-bottom: 20px;
 	overflow: auto;
 }
 .MyPack .pack table tr{
@@ -305,7 +304,12 @@ overflow: hidden;
 	font-size: 26px;
 	color: #999;
 	font-weight: 500;
-	padding: 20px 0;
+	padding: 20px 0 10px;
+}
+.MyPack .pack .title-pack {
+	display: block;
+	height: 54px;
+	overflow: hidden;
 }
 .MyPack .pack .title-pack span{
 	display: inline-block;
@@ -333,14 +337,15 @@ overflow: hidden;
 	font-weight: 500;
 }
 .MyPack .pack .remarks{
-	width: 100%;
-	height: 70px;
+	width: 622px;
+	height: 50px;
 	font-size: 16px;
 	color: #333;
 	border: 1px solid #EBEBEB;
 	resize: none;
 	outline: none;
 	text-indent: 1.2em;
+	padding:5px;
 }
 .MyPack .btn-box{
 	position: relative;
