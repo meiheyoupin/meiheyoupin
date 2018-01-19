@@ -5,6 +5,12 @@
             <a href="/" title="美盒优品"></a>
         </h1>
         <span class="company-title">公司后台</span>
-        <span class="out"><a href="#">退出</a></span>
+        <span class="out"><a href="javascript:;" onclick="logout()">退出</a></span>
     </div>
 </div>
+<script>
+    function logout() {
+        localStorage.removeItem("token")
+        window.location.href="/"
+    }
+</script>
