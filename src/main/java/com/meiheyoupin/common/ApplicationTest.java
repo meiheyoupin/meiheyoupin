@@ -155,5 +155,11 @@ public class ApplicationTest {
         String response = ImdadaOrderUtils.sendPost(ENTER_CITY_URL, ImdadaOrderUtils.toJson(paramMap));
         System.out.println(response);
     }
+
+    @Test
+    public void test11(){
+        Integer[] integers = new Integer[]{1};
+        goodsMapper.updateGoodsByStatus(integers,2);
+    }
 }
 

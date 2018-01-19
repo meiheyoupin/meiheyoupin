@@ -53,6 +53,22 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /*
+    套餐下架
+     */
+    @Override
+    public void downGoods(Integer[] goodIds) {
+        goodsMapper.updateGoodsByStatus(goodIds,3);
+    }
+
+    /*
+    套餐上架
+     */
+    @Override
+    public void upGoods(Integer[] goodIds) {
+        goodsMapper.updateGoodsByStatus(goodIds,1);
+    }
+
+    /*
     套餐审核通过短信发送
      */
     public void sendAuditGoodsMessage(Integer goodId){
