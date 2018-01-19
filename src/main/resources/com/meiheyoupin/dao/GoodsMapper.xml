@@ -120,4 +120,14 @@
       </foreach>
     </where>
   </update>
+
+  <update id="updateGoodsByStatus">
+    UPDATE goods SET state=#{state,jdbcType=INTEGER}
+    <where>
+      id
+      <foreach collection="goodIds" item="ids" open="in (" close=")" separator=",">
+        #{ids,jdbcType=INTEGER}
+      </foreach>
+    </where>
+  </update>
 </mapper>

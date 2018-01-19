@@ -73,7 +73,31 @@ public class PlatformController {
         }
     }
 
-    @GetMapping("administrator")
+    //套餐下架
+    @GetMapping("downGoods")
+    @ResponseBody
+    public R1 toDownGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
+        try {
+            goodsService.downGoods(goodIds);
+            return R1.success(200,"选中套餐已下架");
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    //套餐上架
+    @GetMapping("upGoods")
+    @ResponseBody
+    public R1 toUpGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
+        try {
+            goodsService.upGoods(goodIds);
+            return R1.success(200,"选中套餐已上架");
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    /*@GetMapping("administrator")
     public String getAdministrator(Model model){
         model.addAttribute("administrators",userAdminService.getUser());
         System.out.println(userAdminService.getUser().get(0).getUsername());
@@ -101,6 +125,6 @@ public class PlatformController {
     @ResponseBody
     public R1 unauditStores(){
         return R1.add("unauditStores",storeService.getUnauditStores());
-    }
+    }*/
 }
 

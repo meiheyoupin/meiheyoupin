@@ -103,7 +103,7 @@ public class ApplicationTest {
     @Test
     public void test7(){
         StoreInfo storeInfo = new StoreInfo();
-        storeInfo.setStation_name("新3门1店");
+        storeInfo.setStation_name("新31门1店");
         storeInfo.setBusiness(1);
         storeInfo.setCity_name("上海");
         storeInfo.setArea_name("浦东新区");
@@ -122,28 +122,6 @@ public class ApplicationTest {
         System.out.println(response);
     }
 
-    @Test
-    public void test8(){
-        OrderInfo orderInfo = new OrderInfo();
-        orderInfo.setShop_no("11047059");
-        orderInfo.setOrigin_id("2038291313");
-        orderInfo.setCity_code("021");
-        orderInfo.setCargo_price(10.0);
-        orderInfo.setIs_prepay(1);
-        orderInfo.setExpected_fetch_time(1516184289L);
-        orderInfo.setReceiver_name("测试");
-        orderInfo.setReceiver_address("上海市崇明岛");
-        orderInfo.setReceiver_tel("15988786205");
-        orderInfo.setReceiver_lat(31.2);
-        orderInfo.setReceiver_lng(121.5);
-        orderInfo.setCallback("http,//localhost:8081/receive/");
-        Map map = ImdadaOrderUtils.toMap(orderInfo);
-        Map<String, Object> paramMap = ImdadaOrderUtils.getRequestParam(map);
-        String sign = ImdadaOrderUtils.getSign(paramMap);
-        paramMap.put("signature", sign);
-        String response = ImdadaOrderUtils.sendPost(ADD_ORDER_URL, ImdadaOrderUtils.toJson(paramMap));
-        System.out.println(response);
-    }
 
     public List<Staffer> getStaffer(){
         return stafferService.getStaffers();
@@ -176,6 +154,12 @@ public class ApplicationTest {
         paramMap.put("signature", sign);
         String response = ImdadaOrderUtils.sendPost(ENTER_CITY_URL, ImdadaOrderUtils.toJson(paramMap));
         System.out.println(response);
+    }
+
+    @Test
+    public void test11(){
+        Integer[] integers = new Integer[]{1};
+        goodsMapper.updateGoodsByStatus(integers,2);
     }
 }
 
