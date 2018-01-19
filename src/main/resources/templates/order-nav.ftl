@@ -11,6 +11,7 @@
         <dd><a class="dd" href="/cpyPack">套餐审核</a></dd>
         <dd><a class="dd" href="cpy_shopage.html">商品管理</a></dd>
         <dd><a class="dd" href="cpy_package.html">套餐管理</a></dd>
+        <dd><a class="dd" href="#">待审核订单</a></dd>
         <dt class="order-age">订单管理</dt>
         <dd><a class="dd" href="#">普通订单</a></dd>
         <dd><a class="dd" href="/cpyCustom">企业定制订单</a></dd>
