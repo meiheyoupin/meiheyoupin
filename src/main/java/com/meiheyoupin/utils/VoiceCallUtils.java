@@ -12,9 +12,6 @@ import com.aliyuncs.profile.IClientProfile;
 public class VoiceCallUtils {
 
     public static void runCall(String tel) throws ClientException {
-        //设置访问超时时间
-        System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
-        System.setProperty("sun.net.client.defaultReadTimeout", "10000");
         //云通信产品-语音API服务产品名称（产品名固定，无需修改）
         final String product = "Dyvmsapi";
         //产品域名（接口地址固定，无需修改）
