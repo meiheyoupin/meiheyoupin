@@ -1,6 +1,8 @@
 package com.meiheyoupin.controller;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.meiheyoupin.entity.Saler;
 import com.meiheyoupin.service.SalerService;
 import com.meiheyoupin.common.R1;
@@ -8,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("platform/")
+//@RequestMapping("platform/")
 public class SalerController {
 
     @Autowired
@@ -20,8 +24,12 @@ public class SalerController {
      */
     @GetMapping("salers")
     @ResponseBody
-    public R1 getSalers(){
-        return R1.add("salers",salerService.getSalers());
+    public R1 getSalers(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
+                        @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Saler> list = salerService.getSalers();
+        PageInfo<Saler> pageInfo = new PageInfo<Saler>(list);
+        return R1.add("salers",pageInfo);
     }
 
     /*

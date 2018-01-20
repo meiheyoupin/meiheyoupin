@@ -1,7 +1,7 @@
 $(function () {
     //套餐审核弹框
     var list = document.getElementsByClassName("shoplist");
-    for (let i=0;i<list.length;i++){
+    for (i=0;i<list.length;i++){
         $(".info-check").eq(i).click(function(){
             $(".Shop").eq(i).show();
             $(".MyShop").eq(i).show();

@@ -9,7 +9,7 @@ public interface StoreService {
 
     void autidStores(Integer[] storeIds);
 
-    List<Store> getUnauditStores();
+    List<Store> getStoresByState(Integer state);
 
     void unsanctionedStores(Integer[] storeIds,String reason);
 }

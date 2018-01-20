@@ -93,11 +93,11 @@
     </where>
   </update>
 
-  <select id="selectUnauditStores" resultMap="BaseResultMap">
+  <select id="selectStoreByState" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     FROM store
-    WHERE state=0
+    WHERE state=#{state}
   </select>
 
   <select id="selectStoresByStoreId" parameterType="java.lang.Integer" resultMap="BaseResultMap">

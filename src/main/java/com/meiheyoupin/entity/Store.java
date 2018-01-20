@@ -9,7 +9,7 @@ public class Store {
 
     private String password;
 
-    private Byte state;
+    private Byte state;         //0：未审核，1：审核通过，2：审核未通过
 
     private String invitationCode;
 

@@ -12,9 +12,9 @@ public interface StoreMapper {
     int updateStoreStateByStoreId(Integer[] storeIds);
 
     /*
-    拿到所有未审核的商家
+    根据商家状态拿到商家
      */
-    List<Store> selectUnauditStores();
+    List<Store> selectStoreByState(Integer state);
 
     /*
     根据商家ID拿到商家实体

@@ -165,7 +165,7 @@ public class ApplicationTest {
 
     @Test
     public void test11(){
-        salerService.removeSaler(4);
+        System.out.println(storeService.getStoresByState(1).size());
     }
 }
 

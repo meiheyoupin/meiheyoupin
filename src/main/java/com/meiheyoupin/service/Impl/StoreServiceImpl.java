@@ -23,8 +23,8 @@ public class StoreServiceImpl implements StoreService {
     private StoreMapper storeMapper;
 
     @Override
-    public List<Store> getUnauditStores() {
-        return storeMapper.selectUnauditStores();
+    public List<Store> getStoresByState(Integer state) {
+        return storeMapper.selectStoreByState(state);
     }
 
     @Override

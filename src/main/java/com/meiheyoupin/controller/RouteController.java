@@ -33,7 +33,7 @@ public class RouteController {
     //未审核商家
     @GetMapping("cpyStore")
     public String unauditStores(Model model){
-        model.addAttribute("unauditStores",storeService.getUnauditStores());
+        model.addAttribute("unauditStores",storeService.getStoresByState(0));
         return "cpy_store";
     }
 
@@ -71,7 +71,6 @@ public class RouteController {
     public String toUser(){
         return "shiro/toUser";
     }
-
 
     @GetMapping("toLogin")
     public String toLogin(){
