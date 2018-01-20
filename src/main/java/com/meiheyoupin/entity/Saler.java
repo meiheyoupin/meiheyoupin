@@ -10,7 +10,9 @@ public class Saler extends SalerKey {
 
     private String password;
 
-    private Integer tel;
+    private String invitationCode;
+
+    private String tel;
 
     private Integer sex;
 
@@ -21,6 +23,67 @@ public class Saler extends SalerKey {
     private Integer boss;
 
     public Saler() {
+    }
+
+    public Saler(String name, String tel, Integer sex, Integer boss) {
+        this.name = name;
+        this.tel = tel;
+        this.sex = sex;
+        this.boss = boss;
+    }
+
+    public Saler(String name, String invitationCode, String tel, Integer sex, Date createTime, Date updateTime, Integer boss) {
+        this.name = name;
+        this.invitationCode = invitationCode;
+        this.tel = tel;
+        this.sex = sex;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.boss = boss;
+    }
+
+    public Saler(String name, String password, String invitationCode, String tel, Integer sex, Date createTime, Date updateTime, Integer boss) {
+        this.name = name;
+        this.password = password;
+        this.invitationCode = invitationCode;
+        this.tel = tel;
+        this.sex = sex;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.boss = boss;
+    }
+
+    public Saler(Integer id, String name, String invitationCode, String tel, Integer sex, Date createTime, Date updateTime, Integer boss) {
+        this.id = id;
+        this.name = name;
+        this.invitationCode = invitationCode;
+        this.tel = tel;
+        this.sex = sex;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.boss = boss;
+    }
+
+    public Saler(Integer id, String name, String password, String invitationCode, String tel, Integer sex, Date createTime, Date updateTime, Integer boss) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.invitationCode = invitationCode;
+        this.tel = tel;
+        this.sex = sex;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.boss = boss;
+    }
+
+    @Override
+    public String getInvitationCode() {
+        return invitationCode;
+    }
+
+    @Override
+    public void setInvitationCode(String invitationCode) {
+        this.invitationCode = invitationCode;
     }
 
     @Override
@@ -49,11 +112,11 @@ public class Saler extends SalerKey {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(Integer tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 

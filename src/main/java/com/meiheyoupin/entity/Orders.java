@@ -4,9 +4,29 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Orders {
+
+    //已下单
+    public static final Integer ORDER_STATE_ORDERED = 1;
+    //已付款
+    public static final Integer ORDER_STATE_PAID = 2;
+    //已接单
+    public static final Integer ORDER_STATE_RECEIVED = 3;
+    //已发货
+    public static final Integer ORDER_STATE_DEPARTED = 4;
+    //已交付
+    public static final Integer ORDER_STATE_DELIVERED = 5;
+    //已评价
+    public static final Integer ORDER_STATE_COMMENTED = 6;
+    //已申请退款
+    public static final Integer ORDER_STATE_REFUNDING = 7;
+    //已完成退款
+    public static final Integer ORDER_STATE_REFUNDED = 8;
+
     private String id;
 
     private Integer userId;
+
+    private Integer storeId;
 
     private BigDecimal paymentAmount;
 
@@ -18,7 +38,7 @@ public class Orders {
 
     private Integer count;
 
-    private String addressInfo;
+    private Integer addressId;
 
     private Byte deliveryDate;
 
@@ -34,9 +54,55 @@ public class Orders {
 
     private BigDecimal redEnvelopeAmount;
 
+    private String payWay;
+
+    private Integer storeRejectReason;
+
+    private Integer refundReason;
+
     private Date createTime;
 
     private Date updateTime;
+
+    public Integer getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
+    }
+
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
+    }
+
+    public String getPayWay() {
+        return payWay;
+    }
+
+    public void setPayWay(String payWay) {
+        this.payWay = payWay;
+    }
+
+    public Integer getStoreRejectReason() {
+        return storeRejectReason;
+    }
+
+    public void setStoreRejectReason(Integer storeRejectReason) {
+        this.storeRejectReason = storeRejectReason;
+    }
+
+    public Integer getRefundReason() {
+        return refundReason;
+    }
+
+    public void setRefundReason(Integer refundReason) {
+        this.refundReason = refundReason;
+    }
 
     public String getId() {
         return id;
@@ -92,14 +158,6 @@ public class Orders {
 
     public void setCount(Integer count) {
         this.count = count;
-    }
-
-    public String getAddressInfo() {
-        return addressInfo;
-    }
-
-    public void setAddressInfo(String addressInfo) {
-        this.addressInfo = addressInfo == null ? null : addressInfo.trim();
     }
 
     public Byte getDeliveryDate() {

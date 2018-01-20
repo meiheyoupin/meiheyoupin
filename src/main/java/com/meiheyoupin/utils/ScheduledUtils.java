@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @Component
-public class BirthdayUtils {
+public class ScheduledUtils {
 
     @Autowired
     StafferService stafferService;
@@ -37,8 +37,10 @@ public class BirthdayUtils {
         return stafferService.getStaffers();
     }
 
-    @Scheduled(cron = "0 0 0 * * ?")
-    public void send() throws ClientException {
+
+    //生日祝福定时器
+    @Scheduled(cron = "0 0 8 * * ?")        //每天早上八点
+    public void sendBirthday() throws ClientException {
         for (Staffer staffer:getStaffer()){
             SimpleDateFormat df = new SimpleDateFormat("MM-dd");
             String current = df.format(new Date());
@@ -48,5 +50,13 @@ public class BirthdayUtils {
                 SMSUtils.sendBirthdayBlessings(staffer.getPhone(),staffer.getName(),msg);
             }
         }
+    }
+
+
+
+    //月底账单定时器
+    @Scheduled(cron = "0 0 8 1 * ?")        //每月1号早上八点
+    public void sendBill(){
+        DirectMailUtils.sendMail("1341870251@qq.com","主题","正文");
     }
 }

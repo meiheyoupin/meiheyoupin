@@ -2,6 +2,7 @@
 package com.meiheyoupin.common;
 
 
+import com.meiheyoupin.dao.SalerMapper;
 import com.meiheyoupin.utils.ImdadaCityUtils;
 import com.meiheyoupin.utils.ImdadaStoreUtils;
 import com.meiheyoupin.utils.ImdadaOrderUtils;
@@ -55,6 +56,12 @@ public class ApplicationTest {
 
     @Autowired
     StafferService stafferService;
+
+    @Autowired
+    SalerService salerService;
+
+    @Autowired
+    SalerMapper salerMapper;
 
     @Test
     public void test1(){
@@ -158,8 +165,7 @@ public class ApplicationTest {
 
     @Test
     public void test11(){
-        Integer[] integers = new Integer[]{1};
-        goodsMapper.updateGoodsByStatus(integers,2);
+        salerService.removeSaler(4);
     }
 }
 

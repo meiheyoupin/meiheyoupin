@@ -7,6 +7,12 @@ import java.util.List;
 
 public interface SalerService {
 
-    List<Saler> getSaler();
+    List<Saler> getSalers();
+
+    void addSaler(Saler saler);
+
+    void putSaler(Saler saler);
+
+    void removeSaler(Integer id);
 }
 

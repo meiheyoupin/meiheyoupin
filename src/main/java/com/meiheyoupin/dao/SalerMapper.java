@@ -8,6 +8,13 @@ import org.apache.ibatis.annotations.Param;
 
 public interface SalerMapper {
 
-    List<Saler> selectByExample(SalerExample example);
+    List<Saler> selectSalers();
 
+    int insertSaler(Saler saler);
+
+    Integer selectSalerByCode(String invitationCode);
+
+    int updateSaler(Saler saler);
+
+    int deleteSaler(Integer id);
 }

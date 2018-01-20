@@ -3,7 +3,7 @@ package com.meiheyoupin.entity;
 public class SalerKey {
     private Integer id;
 
-    private Integer invitationCode;
+    private String invitationCode;
 
     public Integer getId() {
         return id;
@@ -13,11 +13,11 @@ public class SalerKey {
         this.id = id;
     }
 
-    public Integer getInvitationCode() {
+    public String getInvitationCode() {
         return invitationCode;
     }
 
-    public void setInvitationCode(Integer invitationCode) {
+    public void setInvitationCode(String invitationCode) {
         this.invitationCode = invitationCode;
     }
 }

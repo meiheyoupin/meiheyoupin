@@ -3,10 +3,10 @@
 <mapper namespace="com.meiheyoupin.dao.SalerMapper">
   <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.Saler">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <id column="invitation_code" jdbcType="INTEGER" property="invitationCode" />
+    <id column="invitation_code" jdbcType="VARCHAR" property="invitationCode" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="tel" jdbcType="INTEGER" property="tel" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="sex" jdbcType="INTEGER" property="sex" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -73,18 +73,31 @@
   <sql id="Base_Column_List">
     id, invitation_code, name, password, tel, sex, create_time, update_time, boss
   </sql>
-  <select id="selectByExample" parameterType="com.meiheyoupin.entity.SalerExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
+  <select id="selectSalers" resultMap="BaseResultMap">
+    SELECT
     <include refid="Base_Column_List" />
     from saler
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
   </select>
+  <insert id="insertSaler" parameterType="com.meiheyoupin.entity.Saler">
+    INSERT INTO saler (id,name,password,invitation_code,tel,sex,create_time,update_time,boss)
+    VALUES (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},
+    #{invitationCode,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR},#{sex,jdbcType=INTEGER},
+    #{createTime,jdbcType=DATE},#{updateTime,jdbcType=DATE},#{boss,jdbcType=INTEGER})
+  </insert>
+  <select id="selectSalerByCode" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT id FROM saler WHERE invitation_code=#{invitationCode}
+  </select>
+  <update id="updateSaler" parameterType="com.meiheyoupin.entity.Saler">
+    UPDATE saler
+    SET name=#{name},
+    invitation_code=#{invitationCode},
+    tel=#{tel},
+    sex=#{sex},
+    update_time=#{updateTime},
+    boss=#{boss}
+    WHERE id=#{id}
+  </update>
+  <delete id="deleteSaler" parameterType="java.lang.Integer">
+    DELETE FROM saler WHERE id=#{id}
+  </delete>
 </mapper>

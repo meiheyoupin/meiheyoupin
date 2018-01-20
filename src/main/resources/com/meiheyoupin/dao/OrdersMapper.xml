@@ -4,12 +4,13 @@
   <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.Orders">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
     <result column="payment_amount" jdbcType="DECIMAL" property="paymentAmount" />
     <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
     <result column="state" jdbcType="TINYINT" property="state" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="count" jdbcType="INTEGER" property="count" />
-    <result column="address_info" jdbcType="VARCHAR" property="addressInfo" />
+    <result column="address_id" jdbcType="INTEGER" property="addressId" />
     <result column="delivery_date" jdbcType="TINYINT" property="deliveryDate" />
     <result column="delivery_time" jdbcType="TINYINT" property="deliveryTime" />
     <result column="has_invoice" jdbcType="TINYINT" property="hasInvoice" />
@@ -17,6 +18,9 @@
     <result column="comment" jdbcType="VARCHAR" property="comment" />
     <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
     <result column="red_envelope_amount" jdbcType="DECIMAL" property="redEnvelopeAmount" />
+    <result column="pay_way" jdbcType="VARCHAR" property="payWay" />
+    <result column="store_reject_reason" jdbcType="TINYINT" property="storeRejectReason" />
+    <result column="refund_reason" jdbcType="TINYINT" property="refundReason" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
@@ -79,27 +83,13 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, payment_amount, total_amount, state, name, count, address_info, delivery_date, 
-    delivery_time, has_invoice, invoice_id, comment, coupon_amount, red_envelope_amount, 
+    id, user_id, store_id, payment_amount, total_amount, state, name, count, address_id, delivery_date,
+    delivery_time, has_invoice, invoice_id, comment, coupon_amount, red_envelope_amount, pay_way, store_reject_reason, refund_reason,
     create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.meiheyoupin.entity.OrdersExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from orders
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByState" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from orders
     WHERE state=#{state}
   </select>
