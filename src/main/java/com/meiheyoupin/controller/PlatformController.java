@@ -26,7 +26,9 @@ public class PlatformController {
     //商家审核通过
     @GetMapping("auditStores")
     @ResponseBody
-    public R1 toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,Model model){
+    public R1 toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,
+                            @RequestParam long lng,
+                            @RequestParam long lat){
         try {
             storeService.autidStores(storeIds);
             return R1.success(200,"请求成功");

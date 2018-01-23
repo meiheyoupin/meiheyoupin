@@ -23,6 +23,21 @@ public class Store {
 
     private String avatarUrl;
 
+    private String dadaShopId;
+
+    private Double lng;
+
+    private Double lat;
+
+    public Store(Integer id, String tel, String storeName, String avatarUrl, Double lng, Double lat) {
+        this.id = id;
+        this.tel = tel;
+        this.storeName = storeName;
+        this.avatarUrl = avatarUrl;
+        this.lng = lng;
+        this.lat = lat;
+    }
+
     public Store(Integer id, String password) {
         this.id = id;
         this.password = password;
@@ -64,6 +79,30 @@ public class Store {
     private Date createTime;
 
     private Date updateTime;
+
+    public String getDadaShopId() {
+        return dadaShopId;
+    }
+
+    public void setDadaShopId(String dadaShopId) {
+        this.dadaShopId = dadaShopId;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
 
     public Integer getId() {
         return id;
