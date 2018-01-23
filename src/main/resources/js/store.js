@@ -34,7 +34,6 @@ function auditStore() {
     var storeIds = [];
     var storeId = $("#storeId").val();
     var toInt = Number(storeId);
-    console.log(toInt);
     storeIds.push(toInt);
     $.ajax({
         url:'platform/auditStores',
