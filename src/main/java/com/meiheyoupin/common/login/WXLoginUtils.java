@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 
-public class WXLogin {
+public class WXLoginUtils {
 
     //appId appSecret
     private static final String AppID = "wx4a300c4010f4be69";
@@ -66,7 +66,7 @@ public class WXLogin {
         return GET_USERINFO_URL+"?access_token="+accessToken+"&openid="+openId;
     }
 
-    public static void toGet(String uri){
+    public static String toGet(String uri) {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
             HttpGet httpget = new HttpGet(uri);
@@ -75,14 +75,17 @@ public class WXLogin {
             try {
                 // 获取响应实体
                 HttpEntity entity = response.getEntity();
+
                 // 打印响应状态
                 System.out.println(response.getStatusLine());
-                if (entity != null) {
+                return EntityUtils.toString(entity);
+                /*if (entity != null) {
                     // 打印响应内容长度
                     System.out.println("Response content length: " + entity.getContentLength());
                     // 打印响应内容
                     System.out.println("Response content: " + EntityUtils.toString(entity));
-                }
+                    return EntityUtils.toString(entity);
+                }*/
             } finally {
                 response.close();
             }
@@ -99,9 +102,10 @@ public class WXLogin {
                 e.printStackTrace();
             }
         }
+        return null;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         toGet(getCodeApi("meiheyoupin.com"));       //拿到code
         toGet(getTokenApi("code"));                  //通过code拿到access_token
         toGet(refreshTokenApi("refreshToken"));              //通过refresh_token刷新access_token

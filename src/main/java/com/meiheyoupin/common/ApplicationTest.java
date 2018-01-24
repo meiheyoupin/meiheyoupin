@@ -163,9 +163,12 @@ public class ApplicationTest {
         System.out.println(response);
     }
 
+    @Autowired
+    GoodsService getGoodsService;
+
     @Test
     public void test11(){
-        System.out.println(storeService.getStoresByState(1).size());
+        System.out.println(goodsService.getUnauditGoods().size());
     }
 }
 
