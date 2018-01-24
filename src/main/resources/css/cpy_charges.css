@@ -1,0 +1,59 @@
+body{
+    background-color: #EBEBEB;
+}
+#main{
+    position: relative;
+    width: 100%;
+    background-color: #EBEBEB;
+}
+#main .container{
+    width: 1090px;
+    margin: 0 auto;
+    padding: 44px 0 62px;
+    overflow: hidden;
+}
+/*右侧订单*/
+.orders{
+    position: relative;
+    float: right;
+    width: 878px;
+    min-height: 500px;
+}
+/*头部*/
+.orders-head{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    margin-bottom: 21px;
+}
+.orders-head ul{
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.orders-head li{
+    width: 91px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    border-bottom: 4px solid transparent;
+    margin: 0 25px;
+}
+.orders-head li{
+    border-bottom: 4px solid #FED500;
+}
+.orders-head li a{
+    display: block;
+    line-height: 35px;
+    font-size: 20px;
+    color: #999;
+}
+/*详情内容*/
+.orders-body{
+    position: relative;
+    width: 100%;
+}
+/*提现管理******************/
+

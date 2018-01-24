@@ -23,7 +23,9 @@
             </div>
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <th>勾选商品</th>
+                    <th>商品名称</th>
+                    <th>口味</th>
+                    <th>份数</th>
                 </tr>
             <#assign text>${good.content}</#assign>
             <#assign json=text?eval />
@@ -31,11 +33,11 @@
                 <tr>
                     <td>${single.title}</td>
                     <td>${single.taste}</td>
-                    <td>${single.count}</td>
+                    <td>${single.count}份</td>
                 </tr>
             </#list>
             </table>
-            <textarea readonly="readonly" class="remarks">可乐聚会，激爽夏日，给这个热不可挡的夏日带来最酷的体验</textarea>
+            <textarea readonly="readonly" class="remarks"></textarea>
         </div>
         <div class="btn-box">
             <div class="btn">

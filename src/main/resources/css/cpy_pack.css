@@ -59,7 +59,7 @@ body{
 #cpy-pack ul{
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: -8px;
+	/*margin-bottom: -8px;*/
 	margin-right: -10px;
 }
 #cpy-pack .goodlist{
@@ -205,7 +205,7 @@ overflow: hidden;
 	display: flex;
 	flex-wrap: wrap;
 	width: 632px;
-	height: 220px;
+	height: 212px;
 	overflow: auto;
 }
 .MyPack .pack .upload-img>li{
@@ -251,7 +251,7 @@ overflow: hidden;
 	display: block;
 	width: 632px;
 	height: 144px;
-	margin-bottom: 20px;
+	margin:10px 0;
 	overflow: auto;
 }
 .MyPack .pack table tr{
