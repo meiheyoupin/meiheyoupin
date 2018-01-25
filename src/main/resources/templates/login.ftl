@@ -16,7 +16,7 @@
         <div class="login-img">
             <img src="/img/login-bg.png" alt=""/>
         </div>
-        <form id="loginForm">
+        <form id="loginForm" action="/adminLogin">
             <h2>登录美盒优品</h2>
             <div class="hidden">
                 <div id="error" style="display: none;">账号和密码不匹配，请重新输入!</div>
@@ -29,7 +29,7 @@
                 <input id="loginInputPassword" type="password" name="adminPassword" maxlength="16" placeholder="密码"/>
             </p>
             <p class="login-submit">
-                <input id="loginButton" type="button" value="登录"/>
+                <input id="loginButton" type="submit" value="登录"/>
             </p>
         </form>
     </div>

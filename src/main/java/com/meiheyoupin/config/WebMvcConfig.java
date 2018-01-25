@@ -22,8 +22,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     //拦截器
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(tokenInterceptor())
-                .addPathPatterns("/platform/**");
+        //registry.addInterceptor(tokenInterceptor()).addPathPatterns("/platform/**");
     }
 
     //转换date数据

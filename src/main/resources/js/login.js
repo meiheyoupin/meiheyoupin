@@ -6,31 +6,31 @@ $(function () {
   var loginInputPassword = $("#loginInputPassword");
 
   /* 登录处理 */
-  loginButton.on("click", function (event) {
-    var event = event || window.event;
-    event.preventDefault();
-    var form = new FormData();
-    form.append("adminName", loginInputName.val());
-    form.append("adminPassword", loginInputPassword.val());
-    console.log(form)
-    $.ajax({
-      url: '/adminLogin',
-      type: 'post',
-      data: form,
-      processData: false,
-      contentType: false,
-      success: function (data) {
-        if (data.code == 200) {
-          console.log(data.token);
-          localStorage.setItem("token", data.token);
-          window.location.href="/cpyPerson";
-        } else {
-          //此处写登陆失败的方法...
-          alert("登录失败:" + data.code);
-        }
-      }
-    });
-  });
+  // loginButton.on("click", function (event) {
+  //   var event = event || window.event;
+  //   event.preventDefault();
+  //   var form = new FormData();
+  //   form.append("adminName", loginInputName.val());
+  //   form.append("adminPassword", loginInputPassword.val());
+  //   console.log(form)
+  //   $.ajax({
+  //     url: '/adminLogin',
+  //     type: 'post',
+  //     data: form,
+  //     processData: false,
+  //     contentType: false,
+  //     success: function (data) {
+  //       if (data.code == 200) {
+  //         console.log(data.token);
+  //         localStorage.setItem("token", data.token);
+  //         window.location.href="/cpyPerson";
+  //       } else {
+  //         //此处写登陆失败的方法...
+  //         alert("登录失败:" + data.code);
+  //       }
+  //     }
+  //   });
+  // });
 });
 function adminIndex() {
     $.ajax({
@@ -121,3 +121,22 @@ function validate() {
   }
 }
 */
+
+//shiro Login
+// function shiroLogin() {
+//   var adminName = $('#loginInputName').val();
+//   var adminPassword = $('#loginInputPassword').val();
+//   console.log(adminPassword)
+//   $.ajax({
+//     url:'/adminLogin',
+//     type:'post',
+//     async:true,
+//     data:{
+//       adminName:adminName,
+//       adminPassword:adminPassword
+//     },
+//     success:function () {
+//
+//     }
+//   })
+// }
