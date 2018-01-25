@@ -17,11 +17,9 @@
     <result column="category" jdbcType="INTEGER" property="category" />
     <result column="subject" jdbcType="INTEGER" property="subject" />
     <result column="stock_amount" jdbcType="INTEGER" property="stockAmount" />
-    <result column="limit_count" jdbcType="INTEGER" property="limitCount" />
     <result column="recommended" jdbcType="INTEGER" property="recommended" />
     <result column="sales" jdbcType="INTEGER" property="sales" />
     <result column="store_id" jdbcType="INTEGER" property="storeId" />
-    <result column="description" jdbcType="VARCHAR" property="description"/>
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
@@ -85,49 +83,16 @@
   </sql>
   <sql id="Base_Column_List">
     id, name, state, amount, price, price_people, content, grade, num_of_people, occasion, 
-    picture_url, primary_picture_url, category, subject, stock_amount, limit_count, recommended, sales,
-    store_id, description, create_time, update_time
+    picture_url, primary_picture_url, category, subject, stock_amount, recommended, sales, 
+    store_id, create_time, update_time
   </sql>
 
-  <select id="selectGoodsBySate" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectUnauditGoods" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
-    from goods
-    WHERE state=#{state}
+    from goods where
+    state=0
   </select>
-
-  <update id="updateGoodByGoodId" parameterType="com.meiheyoupin.entity.Goods">
-    UPDATE goods
-    SET name=#{name},
-    state=#{state},
-    amount=#{amount},
-    price=#{price},
-    state=#{state},
-    price_people=#{pricePeople},
-    content=#{content},
-    grade=#{grade},
-    num_of_people=#{numOfPeople},
-    occasion=#{occasion},
-    picture_url=#{pictureUrl},
-    primary_picture_url=#{primaryPictureUrl},
-    category=#{category},
-    subject=#{subject},
-    stock_amount=#{stockAmount},
-    limit_count=#{limitCount},
-    recommended=#{recommended},
-    sales=#{sales},
-    store_id=#{storeId},
-    description=#{description},
-    create_time=#{createTime},
-    update_time=#{updateTime}
-    WHERE id=#{id}
-  </update>
-
-  <update id="updateGoodStateByGoodId">
-    UPDATE goods
-    SET state=#{state}
-    WHERE id=#{id}
-  </update>
 
   <update id="updateGoodsStateByGoodsIds" parameterType="Integer[]">
     UPDATE goods SET state=1

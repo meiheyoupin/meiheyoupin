@@ -37,11 +37,18 @@ public class RouteController {
         return "cpy_store";
     }
 
+    //未审核商品
+    @GetMapping("cpyShop")
+    public String unauditGoods(Model model){
+        List<Goods> unauditGoods = goodsService.getUnauditGoods();
+        model.addAttribute("unauditGoods",unauditGoods);
+        return "cpy_shop";
+    }
 
     //未审核套餐
     @GetMapping("cpyPack")
     public String unauditPacks(Model model){
-        model.addAttribute("unauditGoods",goodsService.getGoodsByState(0));
+        model.addAttribute("unauditGoods",goodsService.getUnauditGoods());
         return "cpy_pack";
     }
 

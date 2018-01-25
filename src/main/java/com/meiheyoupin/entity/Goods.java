@@ -8,13 +8,6 @@ public class Goods {
 
     private String name;
 
-    /*
-    0   未审核
-    1   审核通过\已上架
-    2   审核未通过
-    3   已下架
-    4   被删除
-     */
     private Byte state;
 
     private Integer amount;
@@ -39,8 +32,6 @@ public class Goods {
 
     private Integer subject;
 
-    private Integer limitCount;
-
     private Integer stockAmount;
 
     private Integer recommended;
@@ -53,22 +44,32 @@ public class Goods {
 
     private Date updateTime;
 
-    private String description;
-
-    public Integer getLimitCount() {
-        return limitCount;
+    public Goods() {
     }
 
-    public void setLimitCount(Integer limitCount) {
-        this.limitCount = limitCount;
-    }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Goods(Integer id, String name, Byte state, Integer amount, BigDecimal price, BigDecimal pricePeople, String content, Byte grade, Integer numOfPeople, String occasion, String pictureUrl, String primaryPictureUrl, Integer category, Integer subject, Integer stockAmount, Integer recommended, Integer sales, Integer storeId, Date createTime, Date updateTime) {
+        this.id = id;
+        this.name = name;
+        this.state = state;
+        this.amount = amount;
+        this.price = price;
+        this.pricePeople = pricePeople;
+        this.content = content;
+        this.grade = grade;
+        this.numOfPeople = numOfPeople;
+        this.occasion = occasion;
+        this.pictureUrl = pictureUrl;
+        this.primaryPictureUrl = primaryPictureUrl;
+        this.category = category;
+        this.subject = subject;
+        this.stockAmount = stockAmount;
+        this.recommended = recommended;
+        this.sales = sales;
+        this.storeId = storeId;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
     }
 
     public Integer getId() {

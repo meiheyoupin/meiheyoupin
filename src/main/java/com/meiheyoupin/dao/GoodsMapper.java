@@ -6,12 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface GoodsMapper {
-
-    List<Goods> selectGoodsBySate(Integer state);
-
-    void updateGoodByGoodId(Goods goods);
-
-    void updateGoodStateByGoodId(@Param("id")Integer id,@Param("state")Integer state);
+    List<Goods> selectUnauditGoods();
 
     int updateGoodsStateByGoodsIds(Integer[] goodsIds);
 

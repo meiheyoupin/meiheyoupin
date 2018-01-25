@@ -88,7 +88,9 @@ public class ApplicationTest {
 
     @Test
     public void test4(){
-        goodsService.removeGoods(688671);
+        String str = goodsService.getUnauditGoods().get(0).getPictureUrl();
+        System.out.println(str);
+
     }
 
     @Test
@@ -164,5 +166,9 @@ public class ApplicationTest {
     @Autowired
     GoodsService getGoodsService;
 
+    @Test
+    public void test11(){
+        System.out.println(goodsService.getUnauditGoods().size());
+    }
 }
 
