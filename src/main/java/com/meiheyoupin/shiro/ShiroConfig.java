@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
     /**
@@ -50,15 +50,18 @@ public class ShiroConfig {
 
 
         //登录
-        filterChainDefinitionMap.put("/toLogin","authc");
+        filterChainDefinitionMap.put("/","authc");
+        filterChainDefinitionMap.put("/css/**","anon");
+        filterChainDefinitionMap.put("/img/**","anon");
+        filterChainDefinitionMap.put("/js/**","anon");
         filterChainDefinitionMap.put("/logout","logout");
-        filterChainDefinitionMap.put("/login","anon");
+        filterChainDefinitionMap.put("/adminLogin","anon");
         filterChainDefinitionMap.put("/**","authc");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 
-        shiroFilterFactoryBean.setLoginUrl("/toLogin");
-        shiroFilterFactoryBean.setSuccessUrl("/toSuccess");
+        shiroFilterFactoryBean.setLoginUrl("/");
+        shiroFilterFactoryBean.setSuccessUrl("/cpyPerson");
 
         return shiroFilterFactoryBean;
     }
