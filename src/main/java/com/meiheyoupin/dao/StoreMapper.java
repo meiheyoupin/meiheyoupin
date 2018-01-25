@@ -30,4 +30,9 @@ public interface StoreMapper {
     根据商家ID进行审核(未通过审核）
      */
     int updateStoreStateByStoreIdRefuse(Integer[] storeIds);
+
+    /*
+    根据商家实体类修改商家
+     */
+    int updateStore(Store store);
 }

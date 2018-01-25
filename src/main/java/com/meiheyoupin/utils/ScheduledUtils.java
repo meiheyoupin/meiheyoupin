@@ -4,6 +4,7 @@ package com.meiheyoupin.utils;
 import com.aliyuncs.exceptions.ClientException;
 import com.meiheyoupin.entity.Staffer;
 import com.meiheyoupin.service.BirthdayBlessingsService;
+import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StafferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -22,6 +23,9 @@ public class ScheduledUtils {
 
     @Autowired
     BirthdayBlessingsService birthdayBlessingsService;
+
+    @Autowired
+    GoodsService goodsService;
 
     public List<String> getBirthdays(){
         return stafferService.getBirthdays();
@@ -58,5 +62,11 @@ public class ScheduledUtils {
     @Scheduled(cron = "0 0 8 1 * ?")        //每月1号早上八点
     public void sendBill(){
         DirectMailUtils.sendMail("1341870251@qq.com","主题","正文");
+    }
+
+    //每天恢复每日限量库存
+    @Scheduled(cron = "0 0 6 * * ?")        //每日六点
+    public void recoveryStock(){
+        goodsService.resetStock();
     }
 }

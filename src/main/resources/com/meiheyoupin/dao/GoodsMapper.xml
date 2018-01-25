@@ -165,4 +165,9 @@
       </foreach>
     </where>
   </update>
+
+  <update id="updateGoodsStockByLimit">
+    UPDATE goods
+    SET stock_amount=limit_count
+  </update>
 </mapper>

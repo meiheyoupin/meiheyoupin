@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -41,6 +42,12 @@ public class StoreServiceImpl implements StoreService {
         for (int i=0;i<storeIds.length;i++){
             sendSMSRefuse(storeIds[i],reason);
         }
+    }
+
+    @Override
+    public void modifyStore(Store store) {
+        store.setUpdateTime(new Date());
+        storeMapper.updateStore(store);
     }
 
     /*

@@ -12,4 +12,6 @@ public interface StoreService {
     List<Store> getStoresByState(Integer state);
 
     void unsanctionedStores(Integer[] storeIds,String reason);
+
+    void modifyStore(Store store);
 }

@@ -81,6 +81,14 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /*
+    恢复每日限量
+     */
+    @Override
+    public void resetStock() {
+        goodsMapper.updateGoodsStockByLimit();
+    }
+
+    /*
     套餐审核通过短信发送
      */
     public void sendAuditGoodsMessage(Integer goodId){
