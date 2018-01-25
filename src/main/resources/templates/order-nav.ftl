@@ -19,6 +19,6 @@
         <dt class="count-age">统计管理</dt>
         <dd><a class="dd" href="#">订单总额</a></dd>
         <dd><a class="dd" href="#">订单总数</a></dd>
-        <dd><a class="dd" href="#">提现管理</a></dd>
+        <dd><a class="dd" href="/cpyCharges">提现管理</a></dd>
     </dl>
 </div>

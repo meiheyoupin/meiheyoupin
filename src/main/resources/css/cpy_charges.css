@@ -56,4 +56,116 @@ body{
     width: 100%;
 }
 /*提现管理******************/
+#cpy_charges{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -8px;
+}
+#cpy_charges li{
+    position: relative;
+    width:878px;
+    margin-bottom: 8px;
+    background: #fff;
+    overflow: hidden;
+}
+#cpy_charges .title{
+    position: relative;
+}
+#cpy_charges .title .img-box{
+    position: absolute;
+}
+#cpy_charges .title .img-box img{
+    display: block;
+    width:746px;
+    height:42px;
+}
+#cpy_charges .title .title-info{
+    background: #333;
+    width:100%;
+    height:42px;
+    line-height: 42px;
+}
+#cpy_charges .title-info .store-title{
+    display: inline-block;
+    position: relative;
+    padding-left:20px;
+    font-size:20px;
+    color: #fff;
+}
+#cpy_charges .title-info .store-times{
+    float: right;
+    font-size:16px;
+    color: #666;
+    padding-right:10px;
+}
+#cpy_charges .draw-box{
+    position: relative;
+    padding:0 20px;
+}
+#cpy_charges .draw-box .draw-pri{
+    width:100%;
+    height:42px;
+    line-height: 42px;
+    font-size:24px;
+    color: #999;
+}
+#cpy_charges .draw-pri span{
+    font-size:24px;
+    color: #666;
+}
+#cpy_charges .draw-pri .price{
+    font-weight: 500;
+    margin-left: -5px;
+}
+#cpy_charges .draw-box .draw-info{
+    width:100%;
+    height:54px;
+    line-height: 54px;
+    border-top:1px dashed #f2f2f2;
+}
+#cpy_charges .draw-info .name{
+    font-size:20px;
+    color: #666;
+}
+#cpy_charges .draw-info .name strong{
+    font-weight: 500;
+    font-size:16px;
+    color: #999;
+    padding-left: 5px;
+}
+#cpy_charges .draw-info .phone{
+    font-size:18px;
+    color: #666;
+    margin-left:20px;
+}
+#cpy_charges .draw-info button{
+    float: right;
+    width:90px;
+    height:35px;
+    font-size:16px;
+    border-radius: 17px;
+    margin-top:10px;
+    outline:none;
+    border:none;
+    cursor: pointer;
+}
+#cpy_charges .draw-info .pass:hover{
+    opacity:.8;
+}
+#cpy_charges .draw-info .pass{
+    background: #FED500;
+    color: #fff;
+}
+#cpy_charges .draw-info .not{
+    background: #fff;
+    color: #FED500;
+    border:1px solid #FED500;
+    margin-right:30px;
+}
+
+
+
+
+
+
 

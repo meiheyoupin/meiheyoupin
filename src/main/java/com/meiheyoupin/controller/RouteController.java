@@ -57,6 +57,10 @@ public class RouteController {
         return "cpy_custom";
     }
 
+    @GetMapping("cpyCharges")
+    public String toCpyCharges(){
+        return "cpy_charges";
+    }
 
     /*
     以下皆为shiro
