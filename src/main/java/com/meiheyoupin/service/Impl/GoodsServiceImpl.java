@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -26,8 +27,19 @@ public class GoodsServiceImpl implements GoodsService {
     private StoreMapper storeMapper;
 
     @Override
-    public List<Goods> getUnauditGoods() {
-        return goodsMapper.selectUnauditGoods();
+    public List<Goods> getGoodsByState(Integer state) {
+        return goodsMapper.selectGoodsBySate(state);
+    }
+
+    @Override
+    public void modifyGoods(Goods goods) {
+        goods.setUpdateTime(new Date());
+        goodsMapper.updateGoodByGoodId(goods);
+    }
+
+    @Override
+    public void removeGoods(Integer goodId) {
+        goodsMapper.updateGoodStateByGoodId(goodId,4);
     }
 
     /*

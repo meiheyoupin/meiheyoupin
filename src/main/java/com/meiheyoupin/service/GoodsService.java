@@ -7,7 +7,11 @@ import java.util.List;
 
 public interface GoodsService {
 
-    List<Goods> getUnauditGoods();
+    List<Goods> getGoodsByState(Integer state);
+
+    void modifyGoods(Goods goods);
+
+    void removeGoods(Integer goodId);
 
     void auditGoods(Integer[] goodsIds);
 
