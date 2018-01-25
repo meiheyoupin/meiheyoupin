@@ -20,4 +20,7 @@ public interface GoodsService {
     void downGoods(Integer[] goodIds);
 
     void upGoods(Integer[] goodIds);
+
+    //恢复每日限量
+    void resetStock();
 }

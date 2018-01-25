@@ -97,7 +97,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM store
-    WHERE state=#{state}
+    WHERE state=#{state} ORDER BY create_time
   </select>
 
   <select id="selectStoresByStoreId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -121,5 +121,32 @@
         #{ids}
       </foreach>
     </where>
+  </update>
+
+  <update id="updateStore" parameterType="com.meiheyoupin.entity.Store">
+    update store set
+        area_name=#{areaName}
+        ,invitation_code=#{invitationCode}
+        ,store_inside_photo_url=#{storeInsidePhotoUrl}
+        ,lng=#{lng}
+        ,create_time=#{createTime}
+        ,store_addr=#{storeAddr}
+        ,boss_gender=#{bossGender}
+        ,boss_name=#{bossName}
+        ,password=#{password}
+        ,city_name=#{cityName}
+        ,update_time=#{updateTime}
+        ,avatar_url=#{avatarUrl}
+        ,boss_idcard_photo_url=#{bossIdcardPhotoUrl}
+        ,business_type=#{businessType}
+        ,certificate_photo_url=#{certificatePhotoUrl}
+        ,store_name=#{storeName}
+        ,tel=#{tel}
+        ,state=#{state}
+        ,store_licence_photo_url=#{storeLicencePhotoUrl}
+        ,store_outside_photo_url=#{storeOutsidePhotoUrl}
+        ,lat=#{lat}
+        ,dada_shop_id=#{dadaShopId}
+        where id=#{id}
   </update>
 </mapper>

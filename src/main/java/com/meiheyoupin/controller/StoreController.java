@@ -7,9 +7,7 @@ import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,35 @@ public class StoreController {
         List<Store> list = storeService.getStoresByState(1);
         PageInfo<Store> pageInfo = new PageInfo<Store>(list);
         return R1.add("auditStores",pageInfo);
+    }
+
+    /*
+    根据state拿到商铺s （分页）
+     */
+    @GetMapping("stores")
+    public R1 stores(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
+                     @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize,
+                     @RequestParam Integer state){
+        try {
+            PageHelper.startPage(pageNum,pageSize);
+            List<Store> list = storeService.getStoresByState(state);
+            PageInfo<Store> pageInfo = new PageInfo<Store>(list);
+            return R1.add("stores",pageInfo);
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    /*
+    修改一个商铺
+     */
+    @PostMapping("store")
+    public R1 updateStore(@RequestBody Store store){
+        try {
+            storeService.modifyStore(store);
+            return R1.success(200,"商铺修改成功");
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
     }
 }

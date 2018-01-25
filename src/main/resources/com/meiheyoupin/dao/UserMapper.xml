@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meiheyoupin.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="invitation_code" jdbcType="VARCHAR" property="invitationCode" />
+    <result column="contacts_name" jdbcType="VARCHAR" property="contactsName" />
+    <result column="contacts_gender" jdbcType="TINYINT" property="contactsGender" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_depart" jdbcType="VARCHAR" property="companyDepart" />
+    <result column="company_addr" jdbcType="VARCHAR" property="companyAddr" />
+    <result column="company_intro" jdbcType="VARCHAR" property="companyIntro" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="union_id" jdbcType="VARCHAR" property="unionId" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="company_credit_code" jdbcType="VARCHAR" property="companyCreditCode" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tel, password, invitation_code, contacts_name, contacts_gender, company_name, 
+    company_depart, company_addr, company_intro, avatar_url, open_id, union_id, email, 
+    company_credit_code, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.meiheyoupin.entity.User">
+    insert into user (id, tel, password, 
+      invitation_code, contacts_name, contacts_gender, 
+      company_name, company_depart, company_addr, 
+      company_intro, avatar_url, open_id, 
+      union_id, email, company_credit_code, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{invitationCode,jdbcType=VARCHAR}, #{contactsName,jdbcType=VARCHAR}, #{contactsGender,jdbcType=TINYINT}, 
+      #{companyName,jdbcType=VARCHAR}, #{companyDepart,jdbcType=VARCHAR}, #{companyAddr,jdbcType=VARCHAR}, 
+      #{companyIntro,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
+      #{unionId,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{companyCreditCode,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.meiheyoupin.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="invitationCode != null">
+        invitation_code,
+      </if>
+      <if test="contactsName != null">
+        contacts_name,
+      </if>
+      <if test="contactsGender != null">
+        contacts_gender,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyDepart != null">
+        company_depart,
+      </if>
+      <if test="companyAddr != null">
+        company_addr,
+      </if>
+      <if test="companyIntro != null">
+        company_intro,
+      </if>
+      <if test="avatarUrl != null">
+        avatar_url,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="unionId != null">
+        union_id,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="companyCreditCode != null">
+        company_credit_code,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="invitationCode != null">
+        #{invitationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsName != null">
+        #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsGender != null">
+        #{contactsGender,jdbcType=TINYINT},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDepart != null">
+        #{companyDepart,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddr != null">
+        #{companyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="companyIntro != null">
+        #{companyIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null">
+        #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCreditCode != null">
+        #{companyCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.meiheyoupin.entity.User">
+    update user
+    <set>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="invitationCode != null">
+        invitation_code = #{invitationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsName != null">
+        contacts_name = #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsGender != null">
+        contacts_gender = #{contactsGender,jdbcType=TINYINT},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDepart != null">
+        company_depart = #{companyDepart,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddr != null">
+        company_addr = #{companyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="companyIntro != null">
+        company_intro = #{companyIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarUrl != null">
+        avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null">
+        union_id = #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCreditCode != null">
+        company_credit_code = #{companyCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.meiheyoupin.entity.User">
+    update user
+    set tel = #{tel,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      invitation_code = #{invitationCode,jdbcType=VARCHAR},
+      contacts_name = #{contactsName,jdbcType=VARCHAR},
+      contacts_gender = #{contactsGender,jdbcType=TINYINT},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      company_depart = #{companyDepart,jdbcType=VARCHAR},
+      company_addr = #{companyAddr,jdbcType=VARCHAR},
+      company_intro = #{companyIntro,jdbcType=VARCHAR},
+      avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      union_id = #{unionId,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      company_credit_code = #{companyCreditCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectUser" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM user ORDER BY create_time DESC
+  </select>
+</mapper>

@@ -20,4 +20,6 @@ public interface GoodsMapper {
     int updateGoodsStateByGoodsIdsRefuse(Integer[] goodsIds);
 
     int updateGoodsByStatus(@Param("goodIds") Integer[] goodIds,@Param("state") Integer state);
+
+    int updateGoodsStockByLimit();
 }

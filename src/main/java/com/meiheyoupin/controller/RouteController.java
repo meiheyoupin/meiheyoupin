@@ -3,6 +3,7 @@ package com.meiheyoupin.controller;
 import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StoreService;
+import com.meiheyoupin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,13 +21,17 @@ public class RouteController {
     @Autowired
     GoodsService goodsService;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping("/")
     public String admin(){
         return "login";
     }
 
     @GetMapping("cpyPerson")
-    public String toCpyPerson(){
+    public String toCpyPerson(Model model){
+        model.addAttribute("user",userService.getUser());
         return "cpy_person";
     }
 
@@ -36,7 +41,6 @@ public class RouteController {
         model.addAttribute("unauditStores",storeService.getStoresByState(0));
         return "cpy_store";
     }
-
 
     //未审核套餐
     @GetMapping("cpyPack")

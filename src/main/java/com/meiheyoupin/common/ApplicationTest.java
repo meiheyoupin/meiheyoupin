@@ -63,12 +63,12 @@ public class ApplicationTest {
     @Autowired
     SalerMapper salerMapper;
 
+    @Autowired
+    UserService userService;
+
     @Test
     public void test1(){
-        SimpleDateFormat df = new SimpleDateFormat("MM-dd");
-        Date date = stafferService.getStaffers().get(0).getBirthday();
-        String current = df.format(date);
-        System.out.println(current);
+        System.out.println(userService.getUser().size());
     }
 
     @Test
