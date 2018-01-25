@@ -43,8 +43,8 @@
     </div>
     <div class="examine">
         <p>
-            <button class="pass" type="button" onclick="auditStore()">审核通过</button>
-            <button class="not" type="button">审核未通过</button>
+            <button class="btn-pass" type="button" onclick="auditStore()">审核通过</button>
+            <button class="btn-not" type="button">审核未通过</button>
         </p>
     </div>
     <span class="close">×</span>

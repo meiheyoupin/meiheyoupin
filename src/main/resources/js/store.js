@@ -8,26 +8,25 @@ $(function(){
         $(".close").eq(i).click(function(){
             $(".Store").eq(i).hide();
         });
+        $(".pass").eq(i).click(function(){
+            $(".pass").eq(i).show();
+            $(".MyPass").eq(i).show();
+        });
+        $(".back").eq(i).click(function(){
+            $(".pass").eq(i).hide();
+            $(".MyPass").eq(i).hide();
+        });
+        $(".btn-not").eq(i).click(function(){
+            $(".not").eq(i).show();
+            $(".MyNot").eq(i).show();
+        });
+        $(".btn-back, .btn-send").eq(i).click(function(){
+            alert(i);
+            $(".not").eq(i).hide();
+            $(".MyNot").eq(i).hide();
+        });
     }
 
-//审核通过弹框
-    $(".pass").click(function(){
-        $("#pass").show();
-        $("#MyPass").show();
-    });
-    $(".back").click(function(){
-        $("#pass").hide();
-        $("#MyPass").hide();
-    });
-//审核未通过弹框
-    $(".not").click(function(){
-        $("#not").show();
-        $("#MyNot").show();
-    });
-    $(".btn-back, .btn-send").click(function(){
-        $("#not").hide();
-        $("#MyNot").hide();
-    });
 });
 
 function auditStore() {

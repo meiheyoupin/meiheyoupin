@@ -214,7 +214,7 @@ body{
 .Store .examine p{
 	text-align: center;
 }
-.Store .pass{
+.Store .btn-pass{
 	width: 108px;
 	height: 35px;
 	background: #FED500;
@@ -225,7 +225,7 @@ body{
 	cursor: pointer;
 	margin-right: 140px;
 }
-.Store .not{
+.Store .btn-not{
 	width: 108px;
 	height: 35px;
 	background: #fff;
@@ -246,7 +246,7 @@ body{
 	cursor: pointer;
 }
 /*审核通过弹框*/
-#pass{
+.pass{
 display: none;
 position: fixed;
 top: 0%;
@@ -258,7 +258,7 @@ z-index:1001;
 -moz-opacity: 0.8;
 opacity:.80;
 }
-#MyPass {
+.MyPass {
 display: none;
 position: fixed;
 width: 470px;
@@ -271,32 +271,32 @@ background-color: #fff;
 z-index:1002;
 overflow: hidden;
 }
-#MyPass .move{
+.MyPass .move{
 	position: relative;
 	height: 140px;
 	margin-bottom: 20px;
 }
-#MyPass .title{
+.MyPass .title{
 	position: absolute;
 	left: 50%;
 	margin-left: -50px;
 	bottom: 0;
 	text-align: center;
 }
-#MyPass .title img{
+.MyPass .title img{
 	display: block;
 	width: 100px;
 	height: 100px;
 }
-#MyPass .list{
+.MyPass .list{
 	margin-top: 10px;
 }
-#MyPass .list p{
+.MyPass .list p{
 	font-size: 24px;
 	color: #666;
 	text-align: center;
 }
-#MyPass .back{
+.MyPass .back{
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -306,7 +306,7 @@ overflow: hidden;
 	padding: 5px 5px 0 0;
 }
 /*审核未通过弹框*/
-#not{
+.not{
 	display: none;
 	position: fixed;
 	top: 0%;
@@ -318,7 +318,7 @@ overflow: hidden;
 	-moz-opacity: 0.8;
 	opacity:.80;
 }
-#MyNot {
+.MyNot {
 display: none;
 position: fixed;
 width: 632px;
@@ -331,13 +331,13 @@ background-color: #fff;
 z-index:1002;
 overflow: hidden;
 }
-#MyNot .move{
+.MyNot .move{
 	position: relative;
 	height: 72px;
 	border-bottom: 1px solid #EBEBEB;
 	margin: 0 35px;
 }
-#MyNot .title{
+.MyNot .title{
 	position: absolute;
 	width: 88px;
 	height: 35px;
@@ -347,33 +347,33 @@ overflow: hidden;
 	text-align: center;
 	bottom: -1px;
 }
-#MyNot .title span{
+.MyNot .title span{
 	display: block;
 	line-height: 35px;
 	font-size: 20px;
 	color: #999;
 }
-#MyNot .list ul{
+.MyNot .list ul{
 	padding: 30px;
 	padding-left: 45px;
 }
-#MyNot .list ul li{
+.MyNot .list ul li{
 	position: relative;
 	line-height: 30px;
 	font-size: 16px;
 	color: #333;
 }
-#MyNot .list ul li input{
+.MyNot .list ul li input{
 	margin-right: 5px;
 	cursor: pointer;
 }
-#MyNot .list ul li span{
+.MyNot .list ul li span{
 	display: inline-block;
 	position: absolute;
 	line-height: 10px;
 	margin-left: 20px;
 }
-#MyNot .list ul li textarea{
+.MyNot .list ul li textarea{
 	width: 175px;
 	height: 50px;
 	font-size: 14px;
@@ -381,13 +381,13 @@ overflow: hidden;
 	outline: none;
 	margin-left: 60px;
 }
-#MyNot .list .last-item{
+.MyNot .list .last-item{
 	margin-top: 5px;
 }
-#MyNot .list .last-item input{
+.MyNot .list .last-item input{
 	position: absolute;
 }
-#MyNot .btn-send{
+.MyNot .btn-send{
 	position: absolute;
 	right: 90px;
 	top: 108px;
@@ -396,13 +396,13 @@ overflow: hidden;
 	background: #FED500;
 	text-align: center;
 }
-#MyNot .btn-send a{
+.MyNot .btn-send a{
 	display: block;
 	line-height: 35px;
 	font-size: 14px;
 	color: #fefefe;
 }
-#MyNot .btn-back{
+.MyNot .btn-back{
 	position: absolute;
 	right: 90px;
 	top: 156px;
@@ -411,7 +411,7 @@ overflow: hidden;
 	border: 1px solid #FED500;
 	text-align: center;
 }
-#MyNot .btn-back a{
+.MyNot .btn-back a{
 	display: block;
 	line-height: 33px;
 	font-size: 14px;

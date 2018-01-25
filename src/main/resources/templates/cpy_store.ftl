@@ -34,8 +34,8 @@
                                     <div class="title-info">
                                         <input class="storeId" id="storeId" type="hidden" value="${store.id?c}"/>
                                         <span class="title-box">${store.storeName}</span>
-                                        <span class="times-box">${store.createTime?string('yyyy-MM-dd')}</span>
-                                        <span class="num-box">${store.invitationCode}</span>
+                                        <span class="times-box">${store.createTime?string('yyyy-MM-dd HH:mm')}</span>
+                                        <#--<span class="num-box">${store.invitationCode}</span>-->
                                     </div>
                                 </div>
                                 <div class="check-shop">
@@ -51,6 +51,7 @@
                             </div>
                         </div>
                         <#include "my_store_dev.ftl"/>
+
                     </li>
                     </#list>
                 </ul>
@@ -59,8 +60,8 @@
     </div>
 </div>
 <!--审核通过弹框-->
-<div id="ass"></div>
-<div id="MyPass">
+<div class="pass"></div>
+<div class="MyPass">
     <div class="move">
         <div class="title">
             <img src="/img/complete.png" alt="" />
@@ -73,8 +74,8 @@
     <a class="back" href="javascript:;">×</a>
 </div>
 <!--审核未通过弹框-->
-<div id="not"></div>
-<div id="MyNot">
+<div class="not"></div>
+<div class="MyNot">
     <div class="move">
         <div class="title">
             <span>填写原因</span>
