@@ -47,7 +47,7 @@ public class AdminController {
             try {
                 subject.login(token);
                 model.addAttribute("userName",adminName);
-                return "cpy_person";
+                return "cpy_saler";
             } catch (UnknownAccountException uae){
                 msg = "没有用户名为"+token.getPrincipal()+"的用户";
                 System.out.println(msg);
