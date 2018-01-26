@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="img/favicon.ico" rel="shortcut icon">
+    <link href="/img/favicon.ico" rel="shortcut icon">
     <title>美盒优品-公司后台</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/cpy_person.css" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/cpy_saler.css" />
 </head>
 <body>
 <!--header-->
@@ -86,7 +86,7 @@
                     </table>
                     <div class="spread">
                         <span class="add">增加员工信息+</span>
-                        <span class="btn_up"><img src="img/cut.png" alt="" /></span>
+                        <span class="btn_up"><img src="/img/cut.png" alt="" /></span>
                         <span class="cut">收起员工信息</span>
                     </div>
                 </div>
@@ -97,8 +97,8 @@
 <!--footer-->
 <#include "cpy_footer.ftl"/>
 
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
 <script>
     <#if userName??>
     localStorage.setItem("username", "${userName}");

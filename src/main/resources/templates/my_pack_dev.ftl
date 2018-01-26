@@ -38,6 +38,7 @@
             </#list>
             </table>
             <textarea readonly="readonly" class="remarks"></textarea>
+            <textarea readonly="readonly" class="mark"></textarea>
         </div>
         <div class="btn-box">
             <div class="btn">

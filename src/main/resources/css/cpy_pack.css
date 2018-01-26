@@ -336,8 +336,8 @@ overflow: hidden;
 	color: #F74342;
 	font-weight: 500;
 }
-.MyPack .pack .remarks{
-	width: 622px;
+.MyPack .pack .remarks, .mark{
+	width: 300px;
 	height: 50px;
 	font-size: 16px;
 	color: #333;
