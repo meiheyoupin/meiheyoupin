@@ -51,6 +51,7 @@
                             </div>
                         </div>
                         <#include "my_store_dev.ftl"/>
+
                     </li>
                     </#list>
                 </ul>
