@@ -66,6 +66,6 @@ public class AdminController {
                 model.addAttribute("msg",msg);
             }
         }
-        return "/cpyPerson";
+        return "redirect:/logout";
     }
 }
