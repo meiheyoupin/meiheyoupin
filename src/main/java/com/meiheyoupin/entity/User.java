@@ -27,6 +27,8 @@ public class User {
 
     private String openId;
 
+    private String qqOpenId;
+
     private String unionId;
 
     private String email;
@@ -36,6 +38,14 @@ public class User {
     private Date createTime;
 
     private Date updateTime;
+
+    public String getQqOpenId() {
+        return qqOpenId;
+    }
+
+    public void setQqOpenId(String qqOpenId) {
+        this.qqOpenId = qqOpenId;
+    }
 
     public Integer getId() {
         return id;

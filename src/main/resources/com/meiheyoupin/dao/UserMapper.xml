@@ -14,6 +14,7 @@
     <result column="company_intro" jdbcType="VARCHAR" property="companyIntro" />
     <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
     <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="qq_open_id" jdbcType="VARCHAR" property="qqOpenId" />
     <result column="union_id" jdbcType="VARCHAR" property="unionId" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="company_credit_code" jdbcType="VARCHAR" property="companyCreditCode" />
@@ -22,7 +23,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     id, tel, password, invitation_code, contacts_name, contacts_gender, company_name, 
-    company_depart, company_addr, company_intro, avatar_url, open_id, union_id, email, 
+    company_depart, company_addr, company_intro, avatar_url, open_id, qq_open_id, union_id, email,
     company_credit_code, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -39,13 +40,13 @@
     insert into user (id, tel, password, 
       invitation_code, contacts_name, contacts_gender, 
       company_name, company_depart, company_addr, 
-      company_intro, avatar_url, open_id, 
+      company_intro, avatar_url, open_id, qq_open_id,
       union_id, email, company_credit_code, 
       create_time, update_time)
     values (#{id,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{invitationCode,jdbcType=VARCHAR}, #{contactsName,jdbcType=VARCHAR}, #{contactsGender,jdbcType=TINYINT}, 
       #{companyName,jdbcType=VARCHAR}, #{companyDepart,jdbcType=VARCHAR}, #{companyAddr,jdbcType=VARCHAR}, 
-      #{companyIntro,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
+      #{companyIntro,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{qqOpenId,jdbcType=VARCHAR},
       #{unionId,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{companyCreditCode,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -225,6 +226,7 @@
       company_intro = #{companyIntro,jdbcType=VARCHAR},
       avatar_url = #{avatarUrl,jdbcType=VARCHAR},
       open_id = #{openId,jdbcType=VARCHAR},
+      qq_open_id = #{qqOpenId,jdbcType=VARCHAR},
       union_id = #{unionId,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       company_credit_code = #{companyCreditCode,jdbcType=VARCHAR},
