@@ -96,4 +96,10 @@
   <select id="selectOrderSize" parameterType="java.lang.Integer" resultType="java.lang.Integer">
     SELECT COUNT(*) FROM orders WHERE state=#{state}
   </select>
+  <select id="selectOrderById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM orders
+    WHERE id=#{id}
+  </select>
 </mapper>

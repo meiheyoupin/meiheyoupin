@@ -25,5 +25,10 @@ public class OrdersServiceImpl implements OrdersService {
         return ordersMapper.selectOrderSize(state);
     }
 
+    @Override
+    public Orders getOrderById(String id) {
+        return ordersMapper.selectOrderById(id);
+    }
+
 
 }

@@ -56,8 +56,6 @@ public class ScheduledUtils {
         }
     }
 
-
-
     //月底账单定时器
     @Scheduled(cron = "0 0 8 1 * ?")        //每月1号早上八点
     public void sendBill(){

@@ -20,12 +20,18 @@ public class OrdersController {
     @Autowired
     OrdersService ordersService;
 
+    /*
+    根据订单状态拿到订单数量
+     */
     @GetMapping("ordersize")
     @ResponseBody
     public R1 toOrderSize(@RequestParam Integer state){
         return R1.add("count",ordersService.getOrderSize(state));
     }
 
+    /*
+    根据订单状态拿到订单
+     */
     @GetMapping("orders")
     @ResponseBody
     public R1 toFinishedOrders(@RequestParam Integer state,

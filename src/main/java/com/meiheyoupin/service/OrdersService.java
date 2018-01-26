@@ -11,4 +11,6 @@ public interface OrdersService {
     List<Orders> getOrders(Integer state);
 
     int getOrderSize(Integer state);
+
+    Orders getOrderById(String id);
 }

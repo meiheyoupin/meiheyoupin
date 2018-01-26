@@ -2,13 +2,10 @@
 package com.meiheyoupin.common;
 
 
-import com.meiheyoupin.dao.SalerMapper;
+import com.meiheyoupin.dao.*;
 import com.meiheyoupin.utils.ImdadaCityUtils;
 import com.meiheyoupin.utils.ImdadaStoreUtils;
 import com.meiheyoupin.utils.ImdadaOrderUtils;
-import com.meiheyoupin.dao.GoodsMapper;
-import com.meiheyoupin.dao.StoreMapper;
-import com.meiheyoupin.dao.UserAdminMapper;
 import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
 import org.junit.Test;
@@ -66,9 +63,19 @@ public class ApplicationTest {
     @Autowired
     UserService userService;
 
+    @Autowired
+    RefundService refundService;
+
+    @Autowired
+    RefundMapper refundMapper;
+
     @Test
     public void test1(){
-        System.out.println(userService.getUser().size());
+        Refund refund = refundMapper.selectByPrimaryKey(3);
+        refund.setState(1);
+        refund.setWxpayRefundId("wxpay");
+        refundMapper.updateRefund(refund);
+
     }
 
     @Test
