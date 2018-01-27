@@ -2,13 +2,13 @@
 <div class="order-nav">
     <dl>
         <dt class="news-age">信息管理</dt>
-        <dd><a class="dd" href="/cpySaler">人员信息</a></dd>
+        <dd><a class="dd" href="/cpySaler">销售员信息</a></dd>
         <dd><a class="dd" href="/cpyUser">用户信息</a></dd>
         <dd><a class="dd" href="#">商家信息</a></dd>
         <dt class="examine-age">审核管理</dt>
         <dd><a class="dd" href="/cpyStore">店铺审核</a></dd>
         <dd><a class="dd" href="/cpyPack">套餐审核</a></dd>
-        <dd><a class="dd" href="/cpyPackage">套餐管理</a></dd>
+        <dd><a class="dd" href="#">套餐管理</a></dd>
         <dd><a class="dd" href="#">待审核订单</a></dd>
         <dt class="order-age">订单管理</dt>
         <dd><a class="dd" href="#">普通订单</a></dd>

@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <#include "my_pack_dev.ftl"/>
+                            <#include "my_package_dev.ftl"/>
                         </li>
                     </#list>
                     </ul>
@@ -61,7 +61,7 @@
 </div>
 <!--footer-->
 <#include "cpy_footer.ftl"/>
-<#--<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>-->
-<#--<script type="text/javascript" src="/js/pack.js"></script>-->
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/package.js"></script>
 </body>
 </html>
