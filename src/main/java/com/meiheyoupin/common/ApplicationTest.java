@@ -71,11 +71,7 @@ public class ApplicationTest {
 
     @Test
     public void test1(){
-        Refund refund = refundMapper.selectByPrimaryKey(3);
-        refund.setState(1);
-        refund.setWxpayRefundId("wxpay");
-        refundMapper.updateRefund(refund);
-
+        userService.modifyUserToHRFail(9,"dsadsa");
     }
 
     @Test

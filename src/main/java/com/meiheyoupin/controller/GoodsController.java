@@ -20,7 +20,7 @@ public class GoodsController {
     根据套餐状态拿到套餐（分页）
      */
     @GetMapping("/goods")
-    public R1 goods(@RequestParam Integer state,
+    public R1 goods(@RequestParam(value = "1") Integer state,
                     @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                     @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
         try {

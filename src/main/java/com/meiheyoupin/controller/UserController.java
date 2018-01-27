@@ -7,9 +7,7 @@ import com.meiheyoupin.common.R1;
 import com.meiheyoupin.entity.User;
 import com.meiheyoupin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +28,45 @@ public class UserController {
             List<User> list = userService.getUser();
             PageInfo<User> pageInfo = new PageInfo<User>(list);
             return R1.add("users",pageInfo);
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    /*
+    拿到需要审核的公司账号
+     */
+    @GetMapping("hr")
+    public R1 hr(){
+        try {
+            return R1.add("hr",userService.getUserToAudit());
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    /*
+    公司账号审核通过
+     */
+    @PostMapping("hr")
+    public R1 auditHr(@RequestParam Integer id){
+        try {
+            userService.modifyUserToHRSuccess(id);
+            return R1.success(200,"审核通过");
+        }catch (Exception e){
+            return R1.error(500,"服务器内部错误");
+        }
+    }
+
+    /*
+    公司账号审核未通过
+     */
+    @DeleteMapping("hr")
+    public R1 unAuditHr(@RequestParam Integer id,
+                        @RequestParam String reason){
+        try {
+            userService.modifyUserToHRFail(id,reason);
+            return R1.success(200,"审核未通过");
         }catch (Exception e){
             return R1.error(500,"服务器内部错误");
         }
