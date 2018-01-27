@@ -59,6 +59,16 @@ public class RouteController {
         return "cpy_charges";
     }
 
+    @GetMapping("cpyUser")
+    public String tocpyUser(){
+        return "cpy_user";
+    }
+
+    @GetMapping("cpyPackage")
+    public String tocpyPackage(){
+        return "cpy_package";
+    }
+
     /*
     以下皆为shiro
      */

@@ -294,10 +294,30 @@ overflow: hidden;
 	cursor: pointer;
 }
 .MyPack .pack .cont-box .classify{
+	display: inline-block;
 	font-size: 20px;
 	color: #666;
 }
 .MyPack .pack .cont-box .classify span{
+	font-size: 18px;
+}
+.MyPack .pack .cont-box .budget{
+	float: right;
+	display: inline-block;
+	font-size: 20px;
+	color: #666;
+}
+.MyPack .pack .cont-box .budget span{
+	font-size: 18px;
+}
+.MyPack .pack .cont-box .ground{
+	float: right;
+	display: inline-block;
+	font-size: 20px;
+	color: #666;
+	margin-left:40px;
+}
+.MyPack .pack .cont-box .ground span{
 	font-size: 18px;
 }
 .MyPack .pack .cont-box h2{

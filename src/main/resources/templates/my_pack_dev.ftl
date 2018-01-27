@@ -7,6 +7,8 @@
             <div class="cont">
                 <input class="goodId" id="goodId" type="hidden" value="${good.id}"/>
                 <p class="classify">分类: <span>生日聚会</span>><span>蛋糕组合</span></p>
+                <p class="ground">上架数量: <span>99</span></p>
+                <p class="budget">适合人数: <span>8人</span></p>
                 <p class="title-pack">
                     <span>激爽夏日可乐聚会套餐</span>
                     <span class="pri">套餐价:<i>￥</i><strong>148</strong></span>
