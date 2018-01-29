@@ -39,8 +39,10 @@
                 </tr>
             </#list>
             </table>
-            <textarea readonly="readonly" class="remarks"></textarea>
-            <textarea readonly="readonly" class="mark"></textarea>
+            <#list unauditGoods as good>
+                <textarea readonly="readonly" class="remarks">${good.description}</textarea>
+                <textarea readonly="readonly" class="mark">${good.specification}</textarea>
+            </#list>
         </div>
         <div class="btn-box">
             <div class="btn">

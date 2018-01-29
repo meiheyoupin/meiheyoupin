@@ -37,10 +37,10 @@
                     <td>${single.taste}</td>
                     <td>${single.count}份</td>
                 </tr>
-            </table>
-            <textarea readonly="readonly" class="remarks">${good.description}</textarea>
-            <textarea readonly="readonly" class="mark">${good.specification}</textarea>
+            <#--<textarea readonly="readonly" class="remarks">${good.description}</textarea>-->
+            <#--<textarea readonly="readonly" class="mark">${good.specification}</textarea>-->
             </#list>
+            </table>
         </div>
         <div class="btn-box">
             <div class="btn">
