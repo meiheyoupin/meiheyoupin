@@ -28,7 +28,8 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> getGoodsByState(Integer state) {
-        return goodsMapper.selectGoodsBySate(state);
+        List<Goods> list = goodsMapper.selectGoodsBySate(state);
+        return list;
     }
 
     @Override
