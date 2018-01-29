@@ -1,6 +1,5 @@
 package com.meiheyoupin.controller;
 
-import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.UserService;
@@ -10,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
 
 @Controller
 public class RouteController {
@@ -27,6 +25,11 @@ public class RouteController {
     @RequestMapping("/")
     public String admin(){
         return "login";
+    }
+
+    @GetMapping("cpySaler")
+    public String toCpySaler(){
+        return "cpy_saler";
     }
 
     @GetMapping("cpyPerson")

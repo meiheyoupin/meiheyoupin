@@ -195,6 +195,9 @@
       <if test="openId != null">
         open_id = #{openId,jdbcType=VARCHAR},
       </if>
+      <if test="qqOpenId != null">
+        qq_open_id = #{qqOpenId,jdbcType=VARCHAR},
+      </if>
       <if test="unionId != null">
         union_id = #{unionId,jdbcType=VARCHAR},
       </if>
@@ -238,5 +241,12 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM user ORDER BY create_time DESC
+  </select>
+  <select id="selectUserToAudit" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM user
+    WHERE WHERE company_credit_code IS NULL AND company_name IS NOT NULL
+    ORDER BY update_time
   </select>
 </mapper>

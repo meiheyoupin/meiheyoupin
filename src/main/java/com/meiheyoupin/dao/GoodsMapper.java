@@ -22,4 +22,6 @@ public interface GoodsMapper {
     int updateGoodsByStatus(@Param("goodIds") Integer[] goodIds,@Param("state") Integer state);
 
     int updateGoodsStockByLimit();
+
+    int updateGoods(Goods goods);
 }

@@ -69,12 +69,13 @@ public class ApplicationTest {
     @Autowired
     RefundMapper refundMapper;
 
+    @Autowired
+    private OrderGoodsMapper orderGoodsMapper;
+
     @Test
     public void test1(){
-        Refund refund = refundMapper.selectByPrimaryKey(3);
-        refund.setState(1);
-        refund.setWxpayRefundId("wxpay");
-        refundMapper.updateRefund(refund);
+        OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId("2018012019025068564");
+        System.out.println(orderGoods.toString());
 
     }
 

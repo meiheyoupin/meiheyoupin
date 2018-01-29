@@ -55,6 +55,17 @@ public class Goods {
 
     private String description;
 
+    private String specification;
+
+
+    public String getSpecification() {
+        return specification;
+    }
+
+    public void setSpecification(String specification) {
+        this.specification = specification;
+    }
+
     public Integer getLimitCount() {
         return limitCount;
     }
@@ -229,5 +240,34 @@ public class Goods {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", state=" + state +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", pricePeople=" + pricePeople +
+                ", content='" + content + '\'' +
+                ", grade=" + grade +
+                ", numOfPeople=" + numOfPeople +
+                ", occasion='" + occasion + '\'' +
+                ", pictureUrl='" + pictureUrl + '\'' +
+                ", primaryPictureUrl='" + primaryPictureUrl + '\'' +
+                ", category=" + category +
+                ", subject=" + subject +
+                ", limitCount=" + limitCount +
+                ", stockAmount=" + stockAmount +
+                ", recommended=" + recommended +
+                ", sales=" + sales +
+                ", storeId=" + storeId +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", description='" + description + '\'' +
+                ", specification='" + specification + '\'' +
+                '}';
     }
 }
