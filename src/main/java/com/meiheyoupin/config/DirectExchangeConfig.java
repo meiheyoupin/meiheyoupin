@@ -66,7 +66,7 @@ public class DirectExchangeConfig {
             Orders orders = JSON.parseObject(msg,Orders.class);
             OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
             Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
-            goods.setStockAmount(goods.getStockAmount()-orders.getCount());
+            goods.setStockAmount(goods.getStockAmount()-orderGoods.getCount());
             goodsMapper.updateGoods(goods);
         }catch (Exception e){
             e.printStackTrace();
