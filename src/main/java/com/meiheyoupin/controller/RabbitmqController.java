@@ -23,8 +23,7 @@ public class RabbitmqController {
     public String toSend(){
         try {
             Orders orders = ordersMapper.selectOrderById("2018012019025068564");
-            String res = JSON.toJSONString(orders);
-            rabbitTemplate.convertAndSend("direct","key2",res);
+            rabbitTemplate.convertAndSend("direct","key2",JSON.toJSONString(orders));
             return "success";
         }catch (Exception e ){
             return "error";

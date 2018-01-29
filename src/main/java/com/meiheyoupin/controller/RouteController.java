@@ -27,6 +27,11 @@ public class RouteController {
         return "login";
     }
 
+    @GetMapping("cpySaler")
+    public String toCpySaler(){
+        return "cpy_saler";
+    }
+
     @GetMapping("cpyPerson")
     public String toCpyPerson(Model model){
         model.addAttribute("user",userService.getUser());
