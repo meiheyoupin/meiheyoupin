@@ -22,6 +22,7 @@
     <result column="sales" jdbcType="INTEGER" property="sales" />
     <result column="store_id" jdbcType="INTEGER" property="storeId" />
     <result column="description" jdbcType="VARCHAR" property="description"/>
+    <result column="specification" jdbcType="VARCHAR" property="specification"/>
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
@@ -86,7 +87,7 @@
   <sql id="Base_Column_List">
     id, name, state, amount, price, price_people, content, grade, num_of_people, occasion, 
     picture_url, primary_picture_url, category, subject, stock_amount, limit_count, recommended, sales,
-    store_id, description, create_time, update_time
+    store_id, description, specification, create_time, update_time
   </sql>
 
   <select id="selectGoodsBySate" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -169,5 +170,78 @@
   <update id="updateGoodsStockByLimit">
     UPDATE goods
     SET stock_amount=limit_count
+  </update>
+
+  <update id="updateGoods" parameterType="com.meiheyoupin.entity.Goods">
+    update goods
+    <set>
+      <if test="occasion != null">
+        occasion=#{occasion},
+      </if>
+      <if test="state != null">
+        state=#{state},
+      </if>
+      <if test="storeId != null">
+        store_id=#{storeId},
+      </if>
+      <if test="amount != null">
+        amount=#{amount},
+      </if>
+      <if test="pictureUrl != null">
+        picture_url=#{pictureUrl},
+      </if>
+      <if test="primaryPictureUrl != null">
+        primary_picture_url=#{primaryPictureUrl},
+      </if>
+      <if test="stockAmount != null">
+        stock_amount=#{stockAmount},
+      </if>
+      <if test="limitCount != null">
+        limit_count=#{limitCount},
+      </if>
+      <if test="createTime != null">
+        create_time=#{createTime},
+      </if>
+      <if test="subject != null">
+        subject=#{subject},
+      </if>
+      <if test="pricePeople != null">
+        price_people=#{pricePeople},
+      </if>
+      <if test="numOfPeople != null">
+        num_of_people=#{numOfPeople},
+      </if>
+      <if test="content != null">
+        content=#{content},
+      </if>
+      <if test="recommended != null">
+        recommended=#{recommended},
+      </if>
+      <if test="updateTime != null">
+        update_time=#{updateTime},
+      </if>
+      <if test="price != null">
+        price=#{price},
+      </if>
+      <if test="grade != null">
+        grade=#{grade},
+      </if>
+      <if test="name != null">
+        name=#{name},
+      </if>
+      <if test="category != null">
+        category=#{category},
+      </if>
+      <if test="sales != null">
+        category=#{sales},
+      </if>
+      <if test="description != null">
+        description=#{description},
+      </if>
+      <if test="specification != null">
+        specification=#{specification},
+      </if>
+    </set>
+    where id=#{id}
   </update>
 </mapper>

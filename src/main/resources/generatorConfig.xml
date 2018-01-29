@@ -39,7 +39,7 @@
         <!--<table tableName="token" domainObjectName="Token"></table>-->
         <!--<table tableName="goods" domainObjectName="Goods"></table>
         <table tableName="store" domainObjectName="Store"></table>-->
-        <table tableName="refund" domainObjectName="Refund"></table>
+        <table tableName="order_goods" domainObjectName="OrderGoods"></table>
         <!--<table tableName="birthday_blessings" domainObjectName="birthdayBlessings"></table>-->
 
     </context>

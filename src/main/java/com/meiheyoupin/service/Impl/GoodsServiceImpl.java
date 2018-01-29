@@ -3,12 +3,18 @@ package com.meiheyoupin.service.Impl;
 
 
 
+import com.alibaba.fastjson.JSON;
+import com.meiheyoupin.dao.OrderGoodsMapper;
+import com.meiheyoupin.entity.OrderGoods;
+import com.meiheyoupin.entity.Orders;
 import com.meiheyoupin.utils.SMSUtils;
 import com.meiheyoupin.dao.GoodsMapper;
 import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.service.GoodsService;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,17 +32,29 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private StoreMapper storeMapper;
 
+    @Autowired
+    private OrderGoodsMapper orderGoodsMapper;
+
+    /*
+    根据套餐状态查找套餐
+     */
     @Override
     public List<Goods> getGoodsByState(Integer state) {
         return goodsMapper.selectGoodsBySate(state);
     }
 
+    /*
+    修改套餐
+     */
     @Override
     public void modifyGoods(Goods goods) {
         goods.setUpdateTime(new Date());
         goodsMapper.updateGoodByGoodId(goods);
     }
 
+    /*
+    删除套餐
+     */
     @Override
     public void removeGoods(Integer goodId) {
         goodsMapper.updateGoodStateByGoodId(goodId,4);

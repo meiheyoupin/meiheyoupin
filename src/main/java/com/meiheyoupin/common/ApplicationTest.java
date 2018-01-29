@@ -69,9 +69,14 @@ public class ApplicationTest {
     @Autowired
     RefundMapper refundMapper;
 
+    @Autowired
+    private OrderGoodsMapper orderGoodsMapper;
+
     @Test
     public void test1(){
-        userService.modifyUserToHRFail(9,"dsadsa");
+        OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId("2018012019025068564");
+        System.out.println(orderGoods.toString());
+
     }
 
     @Test

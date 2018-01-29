@@ -231,4 +231,31 @@ public class Orders {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "id='" + id + '\'' +
+                ", userId=" + userId +
+                ", storeId=" + storeId +
+                ", paymentAmount=" + paymentAmount +
+                ", totalAmount=" + totalAmount +
+                ", state=" + state +
+                ", name='" + name + '\'' +
+                ", count=" + count +
+                ", addressId=" + addressId +
+                ", deliveryDate=" + deliveryDate +
+                ", deliveryTime=" + deliveryTime +
+                ", hasInvoice=" + hasInvoice +
+                ", invoiceId=" + invoiceId +
+                ", comment='" + comment + '\'' +
+                ", couponAmount=" + couponAmount +
+                ", redEnvelopeAmount=" + redEnvelopeAmount +
+                ", payWay='" + payWay + '\'' +
+                ", storeRejectReason=" + storeRejectReason +
+                ", refundReason=" + refundReason +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

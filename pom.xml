@@ -240,8 +240,9 @@
 
         <!--rabbitmq-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-amqp</artifactId>
+          <version>1.5.9.RELEASE</version>
         </dependency>
 
   </dependencies>
