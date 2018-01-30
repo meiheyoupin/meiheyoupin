@@ -72,4 +72,22 @@ public class DirectExchangeConfig {
             e.printStackTrace();
         }
     }
+
+    /*
+    套餐库存恢复
+     */
+//    @RabbitHandler
+//    @RabbitListener(queues = "queue1")
+//    @Transactional
+//    public void recoveryStock(String msg){
+//        try {
+//            Orders orders = JSON.parseObject(msg,Orders.class);
+//            OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
+//            Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
+//            goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
+//            goodsMapper.updateGoods(goods);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 }
