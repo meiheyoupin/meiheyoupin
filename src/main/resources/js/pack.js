@@ -10,32 +10,32 @@ $(function () {
             $(".Pack").eq(i).hide();
             $(".MyPack").eq(i).hide();
         });
+        //审核通过弹框
+        $(".via").eq(i).click(function(){
+            $(".pass").eq(i).show();
+            $(".MyPass").eq(i).show();
+        });
+        $(".back").eq(i).click(function(){
+            $(".pass").eq(i).hide();
+            $(".MyPass").eq(i).hide();
+        });
+        //审核未通过弹框
+        $(".no").eq(i).click(function(){
+            $(".not").eq(i).show();
+            $(".MyNot").eq(i).show();
+        });
+        $(".btn-back, .btn-send").eq(i).click(function(){
+            $(".not").eq(i).hide();
+            $(".MyNot").eq(i).hide();
+        });
     }
 
-//审核通过弹框
-    $(".pass").click(function(){
-        $("#pass").show();
-        $("#MyPass").show();
-    });
-    $(".back").click(function(){
-        $("#pass").hide();
-        $("#MyPass").hide();
-    });
-//审核未通过弹框
-    $(".not").click(function(){
-        $("#not").show();
-        $("#MyNot").show();
-    });
-    $(".btn-back, .btn-send").click(function(){
-        $("#not").hide();
-        $("#MyNot").hide();
-    });
 });
 
 function auditGood(id) {
     var goodIds = [];
-    //var goodId = $("#goodId").val();
     var goodId = id;
+    console.log(id);
     var toInt = Number(goodId);
     goodIds.push(toInt);
     $.ajax({
@@ -61,9 +61,10 @@ function auditGood(id) {
     })
 }
 
-function unsanctionedGood() {
+function unsanctionedGood(id) {
     var goodIds = [];
-    var goodId = $("#goodId").val();
+    var goodId = id;
+    console.log(id);
     var toInt = Number(goodId);
     goodIds.push(toInt);
     var obj = document.getElementsByName("reason");

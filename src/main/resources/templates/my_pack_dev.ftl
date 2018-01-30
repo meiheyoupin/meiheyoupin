@@ -10,8 +10,8 @@
                 <p class="ground">上架数量: <span>99</span></p>
                 <p class="budget">适合人数: <span>8人</span></p>
                 <p class="title-pack">
-                    <span>激爽夏日可乐聚会套餐</span>
-                    <span class="pri">套餐价:<i>￥</i><strong>148</strong></span>
+                    <span>${good.good.name}</span>
+                    <span class="pri">套餐价:<i>￥</i><strong>${good.good.price}</strong></span>
                 </p>
                 <ul class="upload-img">
                 <#assign text>${good.good.pictureUrl}</#assign>
@@ -44,8 +44,8 @@
         </div>
         <div class="btn-box">
             <div class="btn">
-                <button class="pass" type="button" onclick="auditGood(${good.good.id?c})">审核通过</button>
-                <button class="not" type="button">审核未通过</button>
+                <button class="via" type="button" onclick="auditGood(${good.good.id?c})">审核通过</button>
+                <button class="no" type="button">审核未通过</button>
             </div>
         </div>
     </div>
