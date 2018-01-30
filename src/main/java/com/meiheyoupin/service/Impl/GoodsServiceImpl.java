@@ -20,8 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Transactional
 @Service
@@ -32,16 +31,28 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private StoreMapper storeMapper;
 
-    @Autowired
-    private OrderGoodsMapper orderGoodsMapper;
-
     /*
-    根据套餐状态查找套餐
+      根据套餐状态查找套餐
      */
     @Override
     public List<Goods> getGoodsByState(Integer state) {
+        return goodsMapper.selectGoodsBySate(state);
+    }
+
+    /*
+      根据套餐状态查找套餐和对应的商家
+     */
+    @Override
+    public List<Map> getGoodsAndStoreByState(Integer state) {
+        List<Map> result = new ArrayList<>();
         List<Goods> list = goodsMapper.selectGoodsBySate(state);
-        return list;
+        for (Goods goods:list){
+            Map<String,Object> map = new HashMap<String,Object>();
+            map.put("good",goods);
+            map.put("store",storeMapper.selectStoresByStoreId(goods.getStoreId()));
+            result.add(map);
+        }
+        return result;
     }
 
     /*

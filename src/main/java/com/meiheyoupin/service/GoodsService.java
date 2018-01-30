@@ -4,10 +4,13 @@ package com.meiheyoupin.service;
 import com.meiheyoupin.entity.Goods;
 
 import java.util.List;
+import java.util.Map;
 
 public interface GoodsService {
 
     List<Goods> getGoodsByState(Integer state);
+
+    List<Map> getGoodsAndStoreByState(Integer state);
 
     void modifyGoods(Goods goods);
 

@@ -35,6 +35,10 @@ public class DirectExchangeConfig {
     public Queue queue2(){
         return new Queue("queue2");
     }
+    @Bean
+    public Queue queue3(){
+        return new Queue("queue3");
+    }
 
     @Bean
     public Binding binding1(){
@@ -44,9 +48,9 @@ public class DirectExchangeConfig {
     public Binding binding2(){
         return BindingBuilder.bind(queue2()).to(directExchange()).with("key2");
     }
-    //@Bean
+    @Bean
     public Binding binding3(){
-        return BindingBuilder.bind(queue2()).to(directExchange()).with("key3");
+        return BindingBuilder.bind(queue3()).to(directExchange()).with("key3");
     }
 
     @Autowired
@@ -76,18 +80,19 @@ public class DirectExchangeConfig {
     /*
     套餐库存恢复
      */
-//    @RabbitHandler
-//    @RabbitListener(queues = "queue1")
-//    @Transactional
-//    public void recoveryStock(String msg){
-//        try {
-//            Orders orders = JSON.parseObject(msg,Orders.class);
-//            OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
-//            Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
-//            goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
-//            goodsMapper.updateGoods(goods);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
+    @RabbitHandler
+    @RabbitListener(queues = "queue3")
+    @Transactional
+    public void recoveryStock(String msg){
+        try {
+            Orders orders = JSON.parseObject(msg,Orders.class);
+            System.out.println(orders.toString());
+            OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
+            Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
+            goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
+            goodsMapper.updateGoods(goods);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

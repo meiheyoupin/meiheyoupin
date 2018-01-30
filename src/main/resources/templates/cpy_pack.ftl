@@ -32,20 +32,20 @@
                                         <img src="/img/company/pack-list-bg.png" alt="" />
                                     </div>
                                     <div class="title-info">
-                                        <input class="goodId" id="goodId" type="hidden" value="${good.id?c}"/>
-                                        <input class="goodId" id="goodId" type="hidden" value="${good.pictureUrl}"/>
-                                        <span class="title">杭州佳妮万科安仁蛋糕店</span>
-                                        <span class="times">${good.createTime?string('yyyy-MM-dd')}</span>
+                                        <input class="goodId" id="goodId" type="hidden" value="${good.good.id?c}"/>
+                                        <input class="goodId" id="goodId" type="hidden" value="${good.good.pictureUrl}"/>
+                                        <span class="title">${good.store.storeName}</span>
+                                        <span class="times">${good.good.createTime?string('yyyy-MM-dd')}</span>
                                     </div>
                                 </div>
                                 <div class="pack-box">
                                     <div class="img-pack">
-                                        <img src="${good.primaryPictureUrl}" alt="" />
+                                        <img src="${good.good.primaryPictureUrl}" alt="" />
                                     </div>
                                     <div class="pack-info">
-                                        <span class="info-title">${good.name}</span>
-                                        <span class="info-text">此套餐包含的商品有<strong>${good.amount}</strong>个</span>
-                                        <span class="info-number">￥<strong class="price">${good.price}</strong></span>
+                                        <span class="info-title">${good.good.name}</span>
+                                        <span class="info-text">此套餐包含的商品有<strong>${good.good.amount}</strong>个</span>
+                                        <span class="info-number">￥<strong class="price">${good.good.price}</strong></span>
                                         <span class="info-check">审核套餐信息+</span>
                                     </div>
                                 </div>

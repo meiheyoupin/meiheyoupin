@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 @Controller
 public class RouteController {
@@ -48,7 +51,7 @@ public class RouteController {
     //未审核套餐
     @GetMapping("cpyPack")
     public String unauditPacks(Model model){
-        model.addAttribute("unauditGoods",goodsService.getGoodsByState(0));
+        model.addAttribute("unauditGoods",goodsService.getGoodsAndStoreByState(0));
         return "cpy_pack";
     }
 
@@ -70,25 +73,6 @@ public class RouteController {
     @GetMapping("cpyPackage")
     public String tocpyPackage(){
         return "cpy_package";
-    }
-
-    /*
-    以下皆为shiro
-     */
-    //@RequiresRoles("admin")
-    @GetMapping("admin/toAdmin")
-    public String toAdmin(){
-        return "shiro/toAdmin";
-    }
-
-    @GetMapping("user/toUser")
-    public String toUser(){
-        return "shiro/toUser";
-    }
-
-    @GetMapping("toLogin")
-    public String toLogin(){
-        return "shiro/toLogin";
     }
 
 }

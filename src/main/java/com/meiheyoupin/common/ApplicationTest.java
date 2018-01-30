@@ -74,8 +74,9 @@ public class ApplicationTest {
 
     @Test
     public void test1(){
-        OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId("2018012019025068564");
-        System.out.println(orderGoods.toString());
+
+        List<Map> list = goodsService.getGoodsAndStoreByState(0);
+        System.out.println(list.toString());
 
     }
 
