@@ -32,11 +32,11 @@ $(function () {
     });
 });
 
-function auditGood() {
+function auditGood(id) {
     var goodIds = [];
-    var goodId = $("#goodId").val();
+    //var goodId = $("#goodId").val();
+    var goodId = id;
     var toInt = Number(goodId);
-    console.log(toInt);
     goodIds.push(toInt);
     $.ajax({
         url:'platform/auditGoods',
@@ -65,7 +65,6 @@ function unsanctionedGood() {
     var goodIds = [];
     var goodId = $("#goodId").val();
     var toInt = Number(goodId);
-    console.log(toInt);
     goodIds.push(toInt);
     var obj = document.getElementsByName("reason");
     var reason ='';

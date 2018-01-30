@@ -43,7 +43,7 @@
     </div>
     <div class="examine">
         <p>
-            <button class="btn-pass" type="button" onclick="auditStore()">审核通过</button>
+            <button class="btn-pass" type="button" onclick="auditStore(${store.id?c})">审核通过</button>
             <button class="btn-not" type="button">审核未通过</button>
         </p>
     </div>

@@ -44,7 +44,7 @@
         </div>
         <div class="btn-box">
             <div class="btn">
-                <button class="pass" type="button" onclick="auditGood()">审核通过</button>
+                <button class="pass" type="button" onclick="auditGood(${good.good.id?c})">审核通过</button>
                 <button class="not" type="button">审核未通过</button>
             </div>
         </div>

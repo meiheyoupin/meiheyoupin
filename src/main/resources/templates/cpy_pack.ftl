@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="title-info">
                                         <input class="goodId" id="goodId" type="hidden" value="${good.good.id?c}"/>
-                                        <input class="goodId" id="goodId" type="hidden" value="${good.good.pictureUrl}"/>
+                                        <input class="goodPictureUrl" id="goodPictureUrl" type="hidden" value="${good.good.pictureUrl}"/>
                                         <span class="title">${good.store.storeName}</span>
                                         <span class="times">${good.good.createTime?string('yyyy-MM-dd')}</span>
                                     </div>

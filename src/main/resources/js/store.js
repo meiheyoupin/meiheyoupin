@@ -29,9 +29,9 @@ $(function(){
 
 });
 
-function auditStore() {
+function auditStore(id) {
     var storeIds = [];
-    var storeId = $("#storeId").val();
+    var storeId = id;
     var toInt = Number(storeId);
     storeIds.push(toInt);
     $.ajax({
