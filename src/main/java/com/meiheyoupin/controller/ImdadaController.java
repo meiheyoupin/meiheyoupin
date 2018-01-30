@@ -4,7 +4,7 @@ import com.meiheyoupin.utils.ImdadaOrderUtils;
 import com.meiheyoupin.utils.ImdadaStoreUtils;
 import com.meiheyoupin.entity.OrderInfo;
 import com.meiheyoupin.entity.StoreInfo;
-import com.meiheyoupin.common.R1;
+import com.meiheyoupin.common.utils.R1;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

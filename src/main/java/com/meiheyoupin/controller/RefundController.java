@@ -3,7 +3,7 @@ package com.meiheyoupin.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.meiheyoupin.common.R1;
+import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.Refund;
 import com.meiheyoupin.service.RefundService;
 import org.springframework.beans.factory.annotation.Autowired;

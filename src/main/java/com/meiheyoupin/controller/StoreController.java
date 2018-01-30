@@ -2,7 +2,7 @@ package com.meiheyoupin.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.meiheyoupin.common.R1;
+import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,8 @@
 package com.meiheyoupin.controller;
 
 
-import com.meiheyoupin.entity.UserAdmin;
 import com.meiheyoupin.service.TokenService;
 import com.meiheyoupin.service.UserAdminService;
-import com.meiheyoupin.common.R1;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;

@@ -1,4 +1,4 @@
-package com.meiheyoupin.common;
+package com.meiheyoupin.common.utils;
 
 import java.util.HashMap;
 import java.util.Map;
