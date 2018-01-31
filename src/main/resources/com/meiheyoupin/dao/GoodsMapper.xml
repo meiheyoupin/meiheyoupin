@@ -95,7 +95,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     from goods
-    WHERE state=#{state}
+    WHERE state=#{state} ORDER BY create_time
   </select>
 
   <update id="updateGoodByGoodId" parameterType="com.meiheyoupin.entity.Goods">
@@ -145,7 +145,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM goods
-    WHERE id=#{goodId}
+    WHERE id=#{goodId} ORDER BY create_time
   </select>
 
   <update id="updateGoodsStateByGoodsIdsRefuse" parameterType="Integer[]">

@@ -104,7 +104,7 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM store
-    WHERE id=#{storeId}
+    WHERE id=#{storeId} ORDER BY create_time
   </select>
 
   <update id="updatePasswordByStoreId" parameterType="com.meiheyoupin.entity.Store">
