@@ -23,6 +23,7 @@
     <result column="store_id" jdbcType="INTEGER" property="storeId" />
     <result column="description" jdbcType="VARCHAR" property="description"/>
     <result column="specification" jdbcType="VARCHAR" property="specification"/>
+    <result column="appointment" jdbcType="VARCHAR" property="appointment"/>
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
@@ -87,7 +88,7 @@
   <sql id="Base_Column_List">
     id, name, state, amount, price, price_people, content, grade, num_of_people, occasion, 
     picture_url, primary_picture_url, category, subject, stock_amount, limit_count, recommended, sales,
-    store_id, description, specification, create_time, update_time
+    store_id, description, specification, appointment, create_time, update_time
   </sql>
 
   <select id="selectGoodsBySate" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -240,6 +241,9 @@
       </if>
       <if test="specification != null">
         specification=#{specification},
+      </if>
+      <if test="appointment != null">
+        appointment=#{appointment},
       </if>
     </set>
     where id=#{id}

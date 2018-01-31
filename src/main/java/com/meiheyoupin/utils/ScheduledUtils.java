@@ -27,10 +27,6 @@ public class ScheduledUtils {
     @Autowired
     GoodsService goodsService;
 
-    public List<String> getBirthdays(){
-        return stafferService.getBirthdays();
-    }
-
     public String dateToString(Date date){
         SimpleDateFormat df = new SimpleDateFormat("MM-dd");
         String res = df.format(date);
@@ -42,7 +38,7 @@ public class ScheduledUtils {
     }
 
 
-    //生日祝福定时器
+    //生日祝福
     @Scheduled(cron = "0 0 8 * * ?")        //每天早上八点
     public void sendBirthday() throws ClientException {
         for (Staffer staffer:getStaffer()){
@@ -56,13 +52,13 @@ public class ScheduledUtils {
         }
     }
 
-    //月底账单定时器
+    //月底账单
     @Scheduled(cron = "0 0 8 1 * ?")        //每月1号早上八点
     public void sendBill(){
         DirectMailUtils.sendMail("1341870251@qq.com","主题","正文");
     }
 
-    //每天恢复每日限量库存
+    //每天恢复库存限量
     @Scheduled(cron = "0 0 6 * * ?")        //每日六点
     public void recoveryStock(){
         goodsService.resetStock();

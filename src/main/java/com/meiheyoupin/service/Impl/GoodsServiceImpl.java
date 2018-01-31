@@ -51,7 +51,7 @@ public class GoodsServiceImpl implements GoodsService {
         List<Map> result = new ArrayList<>();
         List<Goods> list = goodsMapper.selectGoodsBySate(state);
         for (Goods goods:list){
-            Map<String,Object> map = new HashMap<String,Object>();
+            Map<String, Object> map = new HashMap<String, Object>();
             map.put("good",goods);
             map.put("store",storeMapper.selectStoresByStoreId(goods.getStoreId()));
             map.put("category",goodsCategoryMapper.selectByPrimaryKey(goods.getCategory()));

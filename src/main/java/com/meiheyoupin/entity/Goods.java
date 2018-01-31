@@ -57,6 +57,15 @@ public class Goods {
 
     private String specification;
 
+    private String appointment;
+
+    public String getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(String appointment) {
+        this.appointment = appointment;
+    }
 
     public String getSpecification() {
         return specification;
@@ -268,6 +277,7 @@ public class Goods {
                 ", updateTime=" + updateTime +
                 ", description='" + description + '\'' +
                 ", specification='" + specification + '\'' +
+                ", appointment='" + appointment + '\'' +
                 '}';
     }
 }
