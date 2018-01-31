@@ -75,8 +75,8 @@ public class ApplicationTest {
     @Test
     public void test1(){
 
-        List<Map> list = goodsService.getGoodsAndStoreByState(0);
-        System.out.println(list.toString());
+        List<Map> map = goodsService.getGoodsAndStoreByState(0);
+        System.out.println(map.size());
 
     }
 

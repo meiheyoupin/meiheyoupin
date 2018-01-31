@@ -4,12 +4,10 @@ package com.meiheyoupin.service.Impl;
 
 
 import com.alibaba.fastjson.JSON;
-import com.meiheyoupin.dao.OrderGoodsMapper;
+import com.meiheyoupin.dao.*;
 import com.meiheyoupin.entity.OrderGoods;
 import com.meiheyoupin.entity.Orders;
 import com.meiheyoupin.utils.SMSUtils;
-import com.meiheyoupin.dao.GoodsMapper;
-import com.meiheyoupin.dao.StoreMapper;
 import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.service.GoodsService;
@@ -31,6 +29,12 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private StoreMapper storeMapper;
 
+    @Autowired
+    private GoodsCategoryMapper goodsCategoryMapper;
+
+    @Autowired
+    private GoodsSubjectMapper goodsSubjectMapper;
+
     /*
       根据套餐状态查找套餐
      */
@@ -50,6 +54,8 @@ public class GoodsServiceImpl implements GoodsService {
             Map<String,Object> map = new HashMap<String,Object>();
             map.put("good",goods);
             map.put("store",storeMapper.selectStoresByStoreId(goods.getStoreId()));
+            map.put("category",goodsCategoryMapper.selectByPrimaryKey(goods.getCategory()));
+            map.put("subject",goodsSubjectMapper.selectByPrimaryKey(goods.getSubject()));
             result.add(map);
         }
         return result;
