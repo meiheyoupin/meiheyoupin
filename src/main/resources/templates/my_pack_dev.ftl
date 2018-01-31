@@ -6,9 +6,9 @@
             <h2>审核套餐内容</h2>
             <div class="cont">
                 <input class="goodId" id="goodId" type="hidden" value="${good.good.id}"/>
-                <p class="classify">分类: <span>生日聚会</span>><span>蛋糕组合</span></p>
-                <p class="ground">上架数量: <span>99</span></p>
-                <p class="budget">适合人数: <span>8人</span></p>
+                <p class="classify">分类: <span>${good.subject.name}</span>><span>${good.category.name}</span></p>
+                <p class="ground">上架数量: <span><#if good.good.limitCount??>${good.good.limitCount}</#if></span></p>
+                <p class="budget">适合人数: <span>${good.good.numOfPeople}人</span></p>
                 <p class="title-pack">
                     <span>${good.good.name}</span>
                     <span class="pri">套餐价:<i>￥</i><strong>${good.good.price}</strong></span>
