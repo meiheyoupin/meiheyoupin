@@ -315,9 +315,19 @@ overflow: hidden;
 	display: inline-block;
 	font-size: 20px;
 	color: #666;
-	margin-left:40px;
+	margin-left:30px;
 }
 .MyPack .pack .cont-box .ground span{
+	font-size: 18px;
+}
+.MyPack .pack .cont-box .appo{
+	float: right;
+	display: inline-block;
+	font-size: 20px;
+	color: #666;
+	margin-left:30px;
+}
+.MyPack .pack .cont-box .appo span{
 	font-size: 18px;
 }
 .MyPack .pack .cont-box h2{

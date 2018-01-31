@@ -7,7 +7,21 @@
             <div class="cont">
                 <input class="goodId" id="goodId" type="hidden" value="${good.good.id}"/>
                 <p class="classify">分类: <span>${good.subject.name}</span>><span>${good.category.name}</span></p>
-                <p class="ground">上架数量: <span><#if good.good.limitCount??>${good.good.limitCount}</#if></span></p>
+                <p class="appo">预约天数: <span>
+                <#if good.good.appointment??>
+                    <#assign a=86400000 />
+                    ${good.good.appointment?number / a}
+                <#else>
+                    不预约
+                </#if>
+                </span></p>
+                <p class="ground">上架数量: <span>
+                <#if good.good.limitCount??>
+                ${good.good.limitCount}
+                <#else>
+                    不限
+                </#if>
+                </span></p>
                 <p class="budget">适合人数: <span>${good.good.numOfPeople}人</span></p>
                 <p class="title-pack">
                     <span>${good.good.name}</span>
