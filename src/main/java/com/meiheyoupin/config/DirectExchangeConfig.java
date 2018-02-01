@@ -89,7 +89,7 @@ public class DirectExchangeConfig {
     套餐库存恢复
      */
     @RabbitHandler
-    @RabbitListener(queues = "queue1")
+    @RabbitListener(queues = "queue4")
     @Transactional
     public void recoveryStock(String msg){
         try {

@@ -1,6 +1,10 @@
 package com.meiheyoupin.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.meiheyoupin.entity.Saler;
 import com.meiheyoupin.service.GoodsService;
+import com.meiheyoupin.service.SalerService;
 import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,13 +31,22 @@ public class RouteController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    SalerService salerService;
+
     @RequestMapping("/")
     public String admin(){
         return "login";
     }
 
     @GetMapping("cpySaler")
-    public String toCpySaler(){
+    public String toCpySaler(@RequestParam(value = "pageNum",defaultValue = "1",required = false)Integer pageNum,
+                             @RequestParam(value = "pageSize",defaultValue = "10",required = false)Integer pageSize,
+                             Model model){
+        PageHelper.startPage(pageNum,pageSize);
+        List<Saler> list = salerService.getSalers();
+        PageInfo<Saler> pageInfo = new PageInfo<Saler>(list);
+        model.addAttribute("salers",pageInfo);
         return "cpy_saler";
     }
 
@@ -51,7 +66,7 @@ public class RouteController {
     //未审核套餐
     @GetMapping("cpyPack")
     public String unauditPacks(Model model){
-        model.addAttribute("unauditGoods",goodsService.getGoodsAndStoreByState(0));
+        model.addAttribute("unauditGoods",goodsService.getCorrelationToGoodsByState(0));
         return "cpy_pack";
     }
 

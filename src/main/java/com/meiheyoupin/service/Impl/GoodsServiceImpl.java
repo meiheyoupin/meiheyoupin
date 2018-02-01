@@ -36,18 +36,10 @@ public class GoodsServiceImpl implements GoodsService {
     private GoodsSubjectMapper goodsSubjectMapper;
 
     /*
-      根据套餐状态查找套餐
+      根据套餐状态查找套餐其相关的分类，所属店铺，适合场合等信息
      */
     @Override
-    public List<Goods> getGoodsByState(Integer state) {
-        return goodsMapper.selectGoodsBySate(state);
-    }
-
-    /*
-      根据套餐状态查找套餐和对应的商家
-     */
-    @Override
-    public List<Map> getGoodsAndStoreByState(Integer state) {
+    public List<Map> getCorrelationToGoodsByState(Integer state) {
         List<Map> result = new ArrayList<>();
         List<Goods> list = goodsMapper.selectGoodsBySate(state);
         for (Goods goods:list){
@@ -149,5 +141,6 @@ public class GoodsServiceImpl implements GoodsService {
             e.printStackTrace();
         }
     }
+
 }
 

@@ -25,46 +25,16 @@
                 <div id="cpy-person">
                     <table border="0" cellspacing="0" cellpadding="0">
                         <tr><th>姓名</th><th>性别</th><th>手机号</th><th>邀请码</th><th>登记日期</th></tr>
+                        <#list salers.list as item>
                         <tr>
-                            <td>唐马儒</td>
-                            <td>男士</td>
-                            <td>138-4466-7788</td>
-                            <td>335461</td>
-                            <td>2018/12/12</td>
+                            <td>${item.name}</td>
+                            <td>${item.sex}</td>
+                            <td>${item.tel}</td>
+                            <td>${item.invitationCode}</td>
+                            <td>${item.createTime?string('yyyy-MM-dd')}</td>
                             <td>编辑</td>
                         </tr>
-                        <tr>
-                            <td>唐马儒</td>
-                            <td>男士</td>
-                            <td>138-4466-7788</td>
-                            <td>335461</td>
-                            <td>2018/12/12</td>
-                            <td>编辑</td>
-                        </tr>
-                        <tr>
-                            <td>唐马儒</td>
-                            <td>男士</td>
-                            <td>138-4466-7788</td>
-                            <td>335461</td>
-                            <td>2018/12/12</td>
-                            <td>编辑</td>
-                        </tr>
-                        <tr>
-                            <td>唐马儒</td>
-                            <td>男士</td>
-                            <td>138-4466-7788</td>
-                            <td>335461</td>
-                            <td>2018/12/12</td>
-                            <td>编辑</td>
-                        </tr>
-                        <tr>
-                            <td>唐马儒</td>
-                            <td>男士</td>
-                            <td>138-4466-7788</td>
-                            <td>335461</td>
-                            <td>2018/12/12</td>
-                            <td>编辑</td>
-                        </tr>
+                    </#list>
                     </table>
                     <table class="add_up" border="0" cellspacing="0" cellpadding="0" style="display: none;">
                         <tr>
@@ -91,6 +61,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -99,6 +70,7 @@
 
 <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/saler.js"></script>
 <script>
     <#if userName??>
     localStorage.setItem("username", "${userName}");

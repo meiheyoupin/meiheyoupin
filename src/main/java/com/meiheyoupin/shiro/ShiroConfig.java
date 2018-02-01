@@ -80,4 +80,5 @@ public class ShiroConfig {
         aasa.setSecurityManager(securityManager);
         return aasa;
     }
+
 }

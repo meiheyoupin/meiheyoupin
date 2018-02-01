@@ -8,9 +8,7 @@ import java.util.Map;
 
 public interface GoodsService {
 
-    List<Goods> getGoodsByState(Integer state);
-
-    List<Map> getGoodsAndStoreByState(Integer state);
+    List<Map> getCorrelationToGoodsByState(Integer state);
 
     void modifyGoods(Goods goods);
 

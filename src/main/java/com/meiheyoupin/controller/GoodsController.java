@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class GoodsController {
@@ -25,8 +26,8 @@ public class GoodsController {
                     @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
         try {
             PageHelper.startPage(pageNum,pageSize);
-            List<Goods> list = goodsService.getGoodsByState(state);
-            PageInfo<Goods> pageInfo = new PageInfo<Goods>(list);
+            List<Map> list = goodsService.getCorrelationToGoodsByState(state);
+            PageInfo<Map> pageInfo = new PageInfo<Map>(list);
             return R1.add("goods",pageInfo);
         }catch (Exception e){
             return R1.error(500,"服务器内部错误");

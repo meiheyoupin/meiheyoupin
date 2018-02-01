@@ -10,6 +10,7 @@ import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -72,12 +73,12 @@ public class ApplicationTest {
     @Autowired
     private OrderGoodsMapper orderGoodsMapper;
 
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+
     @Test
     public void test1(){
-
-        List<Map> map = goodsService.getGoodsAndStoreByState(0);
-        System.out.println(map.size());
-
+        rabbitTemplate.convertAndSend("direct","key4","{\"count\":5,\"goodsId\":\"159421\",\"name\":\"披萨之家套餐\",\"orderId\":\"2018012611354078433\",\"price\":126,\"totalPrice\":126}");
     }
 
     @Test
