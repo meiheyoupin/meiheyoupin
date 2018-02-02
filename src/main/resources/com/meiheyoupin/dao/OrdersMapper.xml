@@ -87,19 +87,89 @@
     delivery_time, has_invoice, invoice_id, comment, coupon_amount, red_envelope_amount, pay_way, store_reject_reason, refund_reason,
     create_time, update_time
   </sql>
+
   <select id="selectByState" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     from orders
     WHERE state=#{state}
   </select>
+
   <select id="selectOrderSize" parameterType="java.lang.Integer" resultType="java.lang.Integer">
     SELECT COUNT(*) FROM orders WHERE state=#{state}
   </select>
+
   <select id="selectOrderById" parameterType="java.lang.String" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     FROM orders
     WHERE id=#{id}
   </select>
+
+  <update id="updateOrderById" parameterType="com.meiheyoupin.entity.Orders">
+    update orders
+    <set>
+      <if test="couponAmount != null">
+        coupon_amount=#{couponAmount},
+      </if>
+      <if test="addressId != null">
+        address_id=#{addressId},
+      </if>
+      <if test="createTime != null">
+        create_time=#{createTime},
+      </if>
+      <if test="count != null">
+        count=#{count},
+      </if>
+      <if test="hasInvoice != null">
+        has_invoice=#{hasInvoice},
+      </if>
+      <if test="paymentAmount != null">
+        payment_amount=#{paymentAmount},
+      </if>
+      <if test="deliveryTime != null">
+        delivery_time=#{deliveryTime},
+      </if>
+      <if test="deliveryDate != null">
+        delivery_date=#{deliveryDate},
+      </if>
+      <if test="updateTime != null">
+        update_time=#{updateTime},
+      </if>
+      <if test="userId != null">
+        user_id=#{userId},
+      </if>
+      <if test="totalAmount != null">
+        total_amount=#{totalAmount},
+      </if>
+      <if test="name != null">
+        name=#{name},
+      </if>
+      <if test="invoiceId != null">
+        invoice_id=#{invoiceId},
+      </if>
+      <if test="comment != null">
+        comment=#{comment},
+      </if>
+      <if test="state != null">
+        state=#{state},
+      </if>
+      <if test="redEnvelopeAmount != null">
+        red_envelope_amount=#{redEnvelopeAmount},
+      </if>
+      <if test="storeId != null">
+        store_id=#{storeId},
+      </if>
+      <if test="payWay != null">
+        pay_way=#{payWay},
+      </if>
+      <if test="storeRejectReason != null">
+        store_reject_reason=#{storeRejectReason},
+      </if>
+      <if test="refundReason != null">
+        refund_reason=#{refundReason},
+      </if>
+    </set>
+    where id=#{id}
+  </update>
 </mapper>

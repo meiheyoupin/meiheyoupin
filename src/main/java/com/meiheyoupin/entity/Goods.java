@@ -25,7 +25,7 @@ public class Goods {
 
     private String content;
 
-    private Byte grade;
+    private Double grade;
 
     private Integer numOfPeople;
 
@@ -147,11 +147,11 @@ public class Goods {
         this.content = content == null ? null : content.trim();
     }
 
-    public Byte getGrade() {
+    public Double getGrade() {
         return grade;
     }
 
-    public void setGrade(Byte grade) {
+    public void setGrade(Double grade) {
         this.grade = grade;
     }
 

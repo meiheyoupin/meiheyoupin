@@ -12,4 +12,5 @@ public interface OrdersMapper {
 
     Orders selectOrderById(String id);
 
+    int updateOrderById(Orders orders);
 }

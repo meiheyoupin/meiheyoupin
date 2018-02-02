@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meiheyoupin.dao.GoodsMapper">
+
   <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.Goods">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -9,7 +10,7 @@
     <result column="price" jdbcType="DECIMAL" property="price" />
     <result column="price_people" jdbcType="DECIMAL" property="pricePeople" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="grade" jdbcType="TINYINT" property="grade" />
+    <result column="grade" jdbcType="DOUBLE" property="grade" />
     <result column="num_of_people" jdbcType="INTEGER" property="numOfPeople" />
     <result column="occasion" jdbcType="VARCHAR" property="occasion" />
     <result column="picture_url" jdbcType="VARCHAR" property="pictureUrl" />
@@ -27,64 +28,7 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
+
   <sql id="Base_Column_List">
     id, name, state, amount, price, price_people, content, grade, num_of_people, occasion, 
     picture_url, primary_picture_url, category, subject, stock_amount, limit_count, recommended, sales,
@@ -101,7 +45,6 @@
   <update id="updateGoodByGoodId" parameterType="com.meiheyoupin.entity.Goods">
     UPDATE goods
     SET name=#{name},
-    state=#{state},
     amount=#{amount},
     price=#{price},
     state=#{state},
@@ -120,6 +63,8 @@
     sales=#{sales},
     store_id=#{storeId},
     description=#{description},
+    specification=#{specification},
+    appointment=#{appointment},
     create_time=#{createTime},
     update_time=#{updateTime}
     WHERE id=#{id}
