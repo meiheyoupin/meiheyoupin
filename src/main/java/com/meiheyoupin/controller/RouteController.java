@@ -40,7 +40,10 @@ public class RouteController {
         return "login";
     }
 
-
+    @GetMapping("/toSaler")
+    public String toSaler(){
+        return "saler";
+    }
 
     @GetMapping("cpySaler")
     public String toCpySaler(@RequestParam(value = "pageNum",defaultValue = "1",required = false)Integer pageNum,
@@ -52,9 +55,6 @@ public class RouteController {
         model.addAttribute("salers",pageInfo);
         return "cpy_saler";
     }
-
-
-
 
     //未审核商家
     @RequiresRoles({"admin"})

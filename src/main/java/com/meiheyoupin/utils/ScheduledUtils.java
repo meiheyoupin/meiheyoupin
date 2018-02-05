@@ -101,8 +101,7 @@ public class ScheduledUtils {
     /*
     商家月底账单
      */
-    //@Scheduled(cron = "0 0 8 1 * ?")        //每月1号早上八点
-    @Scheduled(cron = "30 18 14 * * ?")
+    @Scheduled(cron = "0 0 8 1 * ?")        //每月1号早上八点
     public void sendBill(){
         ExecutorService es = Executors.newFixedThreadPool(10);
         List<Store> list = storeMapper.selectAvailableStore();

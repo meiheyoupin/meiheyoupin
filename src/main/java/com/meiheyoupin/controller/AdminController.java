@@ -45,7 +45,11 @@ public class AdminController {
             try {
                 subject.login(token);
                 model.addAttribute("userName",adminName);
-                return "redirect:/cpySaler";
+                if (subject.hasRole("admin")){
+                    return "redirect:/cpySaler";
+                }else if (subject.hasRole("saler")){
+                    return "redirect:/toSaler";
+                }
             } catch (UnknownAccountException uae){
                 msg = "没有用户名为"+token.getPrincipal()+"的用户";
                 System.out.println(msg);
