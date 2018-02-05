@@ -9,13 +9,15 @@ public class Store {
 
     private String password;
 
-    private Byte state;         //0：未审核，1：审核通过，2：审核未通过
+    private Byte state;         //0：未审核，1：审核通过/开店，2：审核未通过，3：关店
 
     private String invitationCode;
 
     private String storeName;
 
     private String storeAddr;
+
+    private String email;
 
     private String bossName;
 
@@ -28,43 +30,6 @@ public class Store {
     private Double lng;
 
     private Double lat;
-
-    public Store(Integer id, String tel, String storeName, String avatarUrl, Double lng, Double lat) {
-        this.id = id;
-        this.tel = tel;
-        this.storeName = storeName;
-        this.avatarUrl = avatarUrl;
-        this.lng = lng;
-        this.lat = lat;
-    }
-
-    public Store(Integer id, String password) {
-        this.id = id;
-        this.password = password;
-    }
-
-    public Store() {
-    }
-
-    public Store(Integer id, String tel, String password, Byte state, String invitationCode, String storeName, String storeAddr, String bossName, Byte bossGender, String avatarUrl, String storeOutsidePhotoUrl, String storeInsidePhotoUrl, String bossIdcardPhotoUrl, String certificatePhotoUrl, String storeLicencePhotoUrl, Date createTime, Date updateTime) {
-        this.id = id;
-        this.tel = tel;
-        this.password = password;
-        this.state = state;
-        this.invitationCode = invitationCode;
-        this.storeName = storeName;
-        this.storeAddr = storeAddr;
-        this.bossName = bossName;
-        this.bossGender = bossGender;
-        this.avatarUrl = avatarUrl;
-        this.storeOutsidePhotoUrl = storeOutsidePhotoUrl;
-        this.storeInsidePhotoUrl = storeInsidePhotoUrl;
-        this.bossIdcardPhotoUrl = bossIdcardPhotoUrl;
-        this.certificatePhotoUrl = certificatePhotoUrl;
-        this.storeLicencePhotoUrl = storeLicencePhotoUrl;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
 
     private String storeOutsidePhotoUrl;
 
@@ -79,6 +44,14 @@ public class Store {
     private Date createTime;
 
     private Date updateTime;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getDadaShopId() {
         return dadaShopId;

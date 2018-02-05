@@ -30,4 +30,7 @@ public class XMailUtils {
             return false;
         }
     }
+
+
+
 }

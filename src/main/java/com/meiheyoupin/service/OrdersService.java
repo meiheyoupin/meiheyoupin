@@ -13,4 +13,6 @@ public interface OrdersService {
     int getOrderSize(Integer state);
 
     Orders getOrderById(String id);
+
+    Integer getWithdrawalsCashByStoreId(Integer storeId);
 }

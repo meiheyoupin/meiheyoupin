@@ -30,4 +30,9 @@ public class OrdersServiceImpl implements OrdersService {
         return ordersMapper.selectOrderById(id);
     }
 
+    @Override
+    public Integer getWithdrawalsCashByStoreId(Integer storeId) {
+        return ordersMapper.selectWithdrawalsCashByStoreId(storeId);
+    }
+
 }

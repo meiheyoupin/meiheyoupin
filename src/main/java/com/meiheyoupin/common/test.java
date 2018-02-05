@@ -1,7 +1,9 @@
 package com.meiheyoupin.common;
 
 import com.aliyuncs.exceptions.ClientException;
+import com.meiheyoupin.utils.XMailUtils;
 
+import java.text.DecimalFormat;
 import java.util.concurrent.locks.ReentrantLock;
 
 
@@ -14,9 +16,9 @@ public class test {
     private static String o = "str";
 
     public static void main(String[] args) throws ClientException, InterruptedException {
-        test myTest = new test();
-        System.out.println("start");
-        myTest.myRun();
+        double i = 2.325321321;
+        String format = new DecimalFormat("#.00").format(i);
+        System.out.println(format);
     }
 
     private void myRun(){

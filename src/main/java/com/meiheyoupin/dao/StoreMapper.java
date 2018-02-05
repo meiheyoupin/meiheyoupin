@@ -35,4 +35,14 @@ public interface StoreMapper {
     根据商家实体类修改商家
      */
     int updateStore(Store store);
+
+    /*
+    根据商家实体类修改商家（实体类部分信息）
+     */
+    int updateStoreById(Store store);
+
+    /*
+    拿到已上线的商铺实体
+     */
+    List<Store> selectAvailableStore();
 }

@@ -8,6 +8,7 @@ import com.meiheyoupin.utils.ImdadaStoreUtils;
 import com.meiheyoupin.utils.ImdadaOrderUtils;
 import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
+import com.meiheyoupin.utils.ScheduledUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -76,9 +77,18 @@ public class ApplicationTest {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
+    @Autowired
+    CommentsMapper commentsMapper;
+
+    @Autowired
+    OrdersMapper ordersMapper;
+
     @Test
     public void test1(){
-        rabbitTemplate.convertAndSend("direct","key4","{\"count\":5,\"goodsId\":\"159421\",\"name\":\"披萨之家套餐\",\"orderId\":\"2018012611354078433\",\"price\":126,\"totalPrice\":126}");
+        List<Store> list = storeMapper.selectAvailableStore();
+        for (Store store:list){
+            System.out.println(store.getEmail());
+        }
     }
 
     @Test

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meiheyoupin.dao.CommentsMapper">
+  <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.Comments">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="goods_id" jdbcType="VARCHAR" property="goodsId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="stars" jdbcType="INTEGER" property="stars" />
+    <result column="pictures_url" jdbcType="VARCHAR" property="picturesUrl" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, goods_id, user_id, comment, stars, pictures_url, create_time, update_time, state
+  </sql>
+  <insert id="insertComments" parameterType="com.meiheyoupin.entity.Comments">
+    INSERT INTO comments (id,goods_id,user_id,comment,stars,pictures_url,create_time,update_time,state)
+    VALUES (#{id,jdbcType=INTEGER},#{goodsId,jdbcType=VARCHAR},#{userId,jdbcType=INTEGER},#{comment,jdbcType=VARCHAR},
+    #{stars,jdbcType=INTEGER},#{picturesUrl,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP},#{state,jdbcType=INTEGER})
+  </insert>
+  <select id="selectCommentsByGoodId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM comments
+    WHERE goods_id=#{goodId} AND state=1 ORDER BY create_time
+  </select>
+  <update id="deleteCommentById">
+    UPDATE comments SET state=#{state} WHERE id=#{id}
+  </update>
+  <update id="updateCommentById">
+    UPDATE comments
+    SET comment=#{comment}, pictures_url=#{picturesUrl}
+    WHERE id=#{id}
+  </update>
+  <select id="selectSumForStarsByGoodsId" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT SUM(stars) FROM comments WHERE goods_id=#{goodsId}
+  </select>
+  <select id="selectCountByGoodsId" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT COUNT(id) FROM comments WHERE goods_id=#{goodsId}
+  </select>
+  <update id="updateComment" parameterType="com.meiheyoupin.entity.Comments">
+    UPDATE comments
+    <set>
+      <if test="goodsId != null">
+        goods_id=#{goodsId}
+      </if>
+      <if test="userId != null">
+        user_id=#{userId}
+      </if>
+      <if test="userId != null">
+        user_id=#{userId}
+      </if>
+      <if test="comment != null">
+        comment=#{comment}
+      </if>
+      <if test="stars != null">
+        stars=#{stars}
+      </if>
+      <if test="picturesUrl != null">
+        pictures_url=#{picturesUrl}
+      </if>
+      <if test="createTime != null">
+        create_time=#{createTime}
+      </if>
+      <if test="updateTime != null">
+        update_time=#{updateTime}
+      </if>
+      <if test="state != null">
+        state=#{state}
+      </if>
+    </set>
+    WHERE id=#{id}
+  </update>
+  <select id="selectListGoodsIdForLastMonths" resultType="java.lang.String">
+    SELECT DISTINCT goods_id
+    FROM comments
+    WHERE DATE_FORMAT(update_time,'%Y-%m')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m')
+  </select>
+</mapper>

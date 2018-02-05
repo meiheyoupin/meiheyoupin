@@ -24,4 +24,12 @@ public interface GoodsMapper {
     int updateGoodsStockByLimit();
 
     int updateGoods(Goods goods);
+
+    Integer selectStoreIdByGoodsId(String id);
+
+    Double selectAvgGradeByStoreId(Integer storeId);
+
+    String selectMostPopularGoodsMonthlyByStoreId(Integer storeId);
+
+    String selectMostDismalGoodsMonthlyByStoreId(Integer storeId);
 }

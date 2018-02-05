@@ -172,4 +172,16 @@
     </set>
     where id=#{id}
   </update>
+
+  <select id="selectWithdrawalsCashByStoreId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    SELECT SUM(total_amount) FROM orders WHERE store_id=#{storeId} AND state=5 AND UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(update_time)>259200
+  </select>
+
+  <!--上个月成交的销售额-->
+  <select id="selectMonthlySalesByStoreId" parameterType="java.lang.Integer" resultType="com.meiheyoupin.entity.MonthlyCount">
+    SELECT SUM(total_amount) as MonthlySales,COUNT(id) as MonthlyOrders
+    FROM orders WHERE store_id =#{storeId}
+    AND state=5
+    AND DATE_FORMAT(update_time,'%Y-%m')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m')
+  </select>
 </mapper>

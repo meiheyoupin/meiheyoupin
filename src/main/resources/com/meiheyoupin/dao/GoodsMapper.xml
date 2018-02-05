@@ -193,4 +193,33 @@
     </set>
     where id=#{id}
   </update>
+
+  <select id="selectStoreIdByGoodsId" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT store_id FROM goods WHERE id=#{id}
+  </select>
+
+  <!--求指定商铺商品的平均评分-->
+  <select id="selectAvgGradeByStoreId" parameterType="java.lang.Integer" resultType="java.lang.Double">
+    SELECT AVG(grade)
+    FROM goods
+    WHERE store_id=#{storeId}
+    AND state=1
+  </select>
+
+  <!--拿到指定商铺上月销量最好的套餐（只取一）-->
+  <select id="selectMostPopularGoodsMonthlyByStoreId" parameterType="java.lang.Integer" resultType="java.lang.String">
+    SELECT NAME
+    FROM goods
+    WHERE sales=(SELECT MAX(sales) FROM goods WHERE store_id=#{storeId})
+    AND DATE_FORMAT(update_time,'%Y-%m')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m')
+    LIMIT 1
+  </select>
+
+  <select id="selectMostDismalGoodsMonthlyByStoreId" parameterType="java.lang.Integer" resultType="java.lang.String">
+    SELECT NAME
+    FROM goods
+    WHERE sales=(SELECT MIN(sales) FROM goods WHERE store_id=#{storeId})
+    AND DATE_FORMAT(update_time,'%Y-%m')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m')
+    LIMIT 1
+  </select>
 </mapper>

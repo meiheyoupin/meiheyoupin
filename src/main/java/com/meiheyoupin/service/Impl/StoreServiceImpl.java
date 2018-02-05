@@ -64,7 +64,8 @@ public class StoreServiceImpl implements StoreService {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            storeMapper.updatePasswordByStoreId(new Store(storeId,password));
+            store.setPassword(password);
+            storeMapper.updatePasswordByStoreId(store);
         }
     }
     /*

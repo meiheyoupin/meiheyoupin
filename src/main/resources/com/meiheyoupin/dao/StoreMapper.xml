@@ -9,6 +9,7 @@
     <result column="invitation_code" jdbcType="VARCHAR" property="invitationCode" />
     <result column="store_name" jdbcType="VARCHAR" property="storeName" />
     <result column="store_addr" jdbcType="VARCHAR" property="storeAddr" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="boss_name" jdbcType="VARCHAR" property="bossName" />
     <result column="boss_gender" jdbcType="TINYINT" property="bossGender" />
     <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
@@ -79,7 +80,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, tel, password, state, invitation_code, store_name, store_addr, boss_name, boss_gender, 
+    id, tel, password, state, invitation_code, store_name, store_addr, email, boss_name, boss_gender,
     avatar_url, store_outside_photo_url, store_inside_photo_url, boss_idcard_photo_url, 
     certificate_photo_url, store_licence_photo_url, create_time, update_time
   </sql>
@@ -97,7 +98,17 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM store
-    WHERE state=#{state} ORDER BY create_time
+    WHERE state=#{state}
+    ORDER BY create_time
+  </select>
+  
+  <!--已上线的店铺（开店/关店）-->
+  <select id="selectAvailableStore" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM store
+    WHERE state in (1,3)
+    ORDER BY create_time
   </select>
 
   <select id="selectStoresByStoreId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -132,6 +143,7 @@
         ,create_time=#{createTime}
         ,store_addr=#{storeAddr}
         ,boss_gender=#{bossGender}
+        ,email=#{email}
         ,boss_name=#{bossName}
         ,password=#{password}
         ,city_name=#{cityName}
@@ -148,5 +160,81 @@
         ,lat=#{lat}
         ,dada_shop_id=#{dadaShopId}
         where id=#{id}
+  </update>
+
+  <update id="updateStoreById" parameterType="com.meiheyoupin.entity.Store">
+    update store
+    <set>
+      <if test="areaName != null">
+        area_name=#{areaName},
+      </if>
+      <if test="email != null">
+        email=#{email},
+      </if>
+      <if test="invitationCode != null">
+        invitation_code=#{invitationCode},
+      </if>
+      <if test="storeInsidePhotoUrl != null">
+        store_inside_photo_url=#{storeInsidePhotoUrl},
+      </if>
+      <if test="lng != null">
+        lng=#{lng},
+      </if>
+      <if test="createTime != null">
+        create_time=#{createTime},
+      </if>
+      <if test="storeAddr != null">
+        store_addr=#{storeAddr},
+      </if>
+      <if test="bossGender != null">
+        boss_gender=#{bossGender},
+      </if>
+      <if test="bossName != null">
+        boss_name=#{bossName},
+      </if>
+      <if test="password != null">
+        password=#{password},
+      </if>
+      <if test="cityName != null">
+        city_name=#{cityName},
+      </if>
+      <if test="updateTime != null">
+        update_time=#{updateTime},
+      </if>
+      <if test="avatarUrl != null">
+        avatar_url=#{avatarUrl},
+      </if>
+      <if test="bossIdcardPhotoUrl != null">
+        boss_idcard_photo_url=#{bossIdcardPhotoUrl},
+      </if>
+      <if test="businessType != null">
+        business_type=#{businessType},
+      </if>
+      <if test="certificatePhotoUrl != null">
+        certificate_photo_url=#{certificatePhotoUrl},
+      </if>
+      <if test="storeName != null">
+        store_name=#{storeName},
+      </if>
+      <if test="tel != null">
+        tel=#{tel},
+      </if>
+      <if test="state != null">
+        state=#{state},
+      </if>
+      <if test="storeLicencePhotoUrl != null">
+        store_licence_photo_url=#{storeLicencePhotoUrl},
+      </if>
+      <if test="storeOutsidePhotoUrl != null">
+        store_outside_photo_url=#{storeOutsidePhotoUrl},
+      </if>
+      <if test="lat != null">
+        lat=#{lat},
+      </if>
+      <if test="dadaShopId != null">
+        dada_shop_id=#{dadaShopId},
+      </if>
+    </set>
+    where id=#{id}
   </update>
 </mapper>
