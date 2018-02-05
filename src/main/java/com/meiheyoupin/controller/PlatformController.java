@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("platform/")
-@RequiresRoles({"admin"})
 public class PlatformController {
 
     @Autowired
@@ -25,6 +24,7 @@ public class PlatformController {
     UserAdminService userAdminService;
 
     //商家审核通过
+    @RequiresRoles("admin")
     @GetMapping("auditStores")
     @ResponseBody
     public R1 toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds){
@@ -37,6 +37,7 @@ public class PlatformController {
     }
 
     //商家审核未通过
+    @RequiresRoles("admin")
     @PostMapping("unsanctionedStore")
     @ResponseBody
     public R1 toUnsanctionedStore(@RequestParam(value = "storeIds",required = false) Integer[] storeIds,
@@ -50,6 +51,7 @@ public class PlatformController {
     }
 
     //套餐审核通过
+    @RequiresRoles("admin")
     @GetMapping("auditGoods")
     @ResponseBody
     public R1 toAuditGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
@@ -62,6 +64,7 @@ public class PlatformController {
     }
 
     //套餐审核未通过
+    @RequiresRoles("admin")
     @PostMapping("unsanctionedGood")
     @ResponseBody
     public R1 toUnsanctionedGood(@RequestParam(value = "goodIds",required = false) Integer[] goodIds,
@@ -75,6 +78,7 @@ public class PlatformController {
     }
 
     //套餐下架
+    @RequiresRoles("admin")
     @GetMapping("downGoods")
     @ResponseBody
     public R1 toDownGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
@@ -87,6 +91,7 @@ public class PlatformController {
     }
 
     //套餐上架
+    @RequiresRoles("admin")
     @GetMapping("upGoods")
     @ResponseBody
     public R1 toUpGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){

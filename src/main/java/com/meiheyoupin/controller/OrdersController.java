@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.meiheyoupin.entity.Orders;
 import com.meiheyoupin.service.OrdersService;
 import com.meiheyoupin.common.utils.R1;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ public class OrdersController {
     /*
     根据订单状态拿到订单数量
      */
+    @RequiresRoles("admin")
     @GetMapping("ordersize")
     @ResponseBody
     public R1 toOrderSize(@RequestParam Integer state){
@@ -32,6 +34,7 @@ public class OrdersController {
     /*
     根据订单状态拿到订单
      */
+    @RequiresRoles("admin")
     @GetMapping("orders")
     @ResponseBody
     public R1 toFinishedOrders(@RequestParam Integer state,

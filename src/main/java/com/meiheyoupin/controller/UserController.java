@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.User;
 import com.meiheyoupin.service.UserService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ public class UserController {
     /*
     拿到所有用户 （分页）
      */
+    @RequiresRoles("admin")
     @GetMapping("users")
     public R1 users(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                     @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
@@ -36,6 +38,7 @@ public class UserController {
     /*
     拿到需要审核的公司账号
      */
+    @RequiresRoles("admin")
     @GetMapping("hr")
     public R1 hr(){
         try {
@@ -48,6 +51,7 @@ public class UserController {
     /*
     公司账号审核通过
      */
+    @RequiresRoles("admin")
     @PostMapping("hr")
     public R1 auditHr(@RequestParam Integer id){
         try {
@@ -61,6 +65,7 @@ public class UserController {
     /*
     公司账号审核未通过
      */
+    @RequiresRoles("admin")
     @DeleteMapping("hr")
     public R1 unAuditHr(@RequestParam Integer id,
                         @RequestParam String reason){

@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.Goods;
 import com.meiheyoupin.service.GoodsService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ public class GoodsController {
     /*
     根据套餐状态拿到套餐（分页）
      */
+    @RequiresRoles("admin")
     @GetMapping("/goods")
     public R1 goods(@RequestParam(value = "1") Integer state,
                     @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
@@ -37,6 +39,7 @@ public class GoodsController {
     /*
     修改套餐
      */
+    @RequiresRoles("admin")
     @PostMapping("goods")
     public R1 goods(@RequestBody Goods goods){
         try {
@@ -50,6 +53,7 @@ public class GoodsController {
     /*
     删除套餐
      */
+    @RequiresRoles("admin")
     @DeleteMapping("goods")
     public R1 goods(@RequestParam Integer goodId){
         try {

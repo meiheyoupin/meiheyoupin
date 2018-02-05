@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.Refund;
 import com.meiheyoupin.service.RefundService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,7 @@ public class RefundController {
     /*
     根据退款订单状态拿到退单
      */
+    @RequiresRoles("admin")
     @GetMapping("refunds")
     public R1 refunds(@RequestParam Integer state,
                       @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
@@ -39,6 +41,7 @@ public class RefundController {
     /*
     退款单审核通过
      */
+    @RequiresRoles("admin")
     @GetMapping("auditRefund")
     public R1 toAuditRefund(@RequestParam Integer id){
         try {

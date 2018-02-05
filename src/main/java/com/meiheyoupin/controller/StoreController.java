@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.service.StoreService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ public class StoreController {
     @Autowired
     StoreService storeService;
 
+    @RequiresRoles("admin")
     @GetMapping("auditStores")
     @ResponseBody
     public R1 toAuditStores(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
@@ -30,6 +32,7 @@ public class StoreController {
     /*
     根据state拿到商铺s （分页）
      */
+    @RequiresRoles("admin")
     @GetMapping("stores")
     public R1 stores(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                      @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize,
@@ -47,6 +50,7 @@ public class StoreController {
     /*
     修改一个商铺
      */
+    @RequiresRoles("admin")
     @PostMapping("store")
     public R1 updateStore(@RequestBody Store store){
         try {
