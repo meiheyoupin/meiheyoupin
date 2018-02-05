@@ -7,6 +7,7 @@ import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.SalerService;
 import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.UserService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +40,8 @@ public class RouteController {
         return "login";
     }
 
+
+
     @GetMapping("cpySaler")
     public String toCpySaler(@RequestParam(value = "pageNum",defaultValue = "1",required = false)Integer pageNum,
                              @RequestParam(value = "pageSize",defaultValue = "10",required = false)Integer pageSize,
@@ -50,13 +53,11 @@ public class RouteController {
         return "cpy_saler";
     }
 
-    @GetMapping("cpyPerson")
-    public String toCpyPerson(Model model){
-        model.addAttribute("user",userService.getUser());
-        return "cpy_person";
-    }
+
+
 
     //未审核商家
+    @RequiresRoles({"admin"})
     @GetMapping("cpyStore")
     public String unauditStores(Model model){
         model.addAttribute("unauditStores",storeService.getStoresByState(0));
@@ -64,27 +65,32 @@ public class RouteController {
     }
 
     //未审核套餐
+    @RequiresRoles({"admin"})
     @GetMapping("cpyPack")
     public String unauditPacks(Model model){
         model.addAttribute("unauditGoods",goodsService.getCorrelationToGoodsByState(0));
         return "cpy_pack";
     }
 
+    @RequiresRoles({"admin"})
     @GetMapping("cpyCustom")
     public String toCpyCustom(){
         return "cpy_custom";
     }
 
+    @RequiresRoles({"admin"})
     @GetMapping("cpyCharges")
     public String toCpyCharges(){
         return "cpy_charges";
     }
 
+    @RequiresRoles({"admin"})
     @GetMapping("cpyUser")
     public String tocpyUser(){
         return "cpy_user";
     }
 
+    @RequiresRoles({"admin"})
     @GetMapping("cpyPackage")
     public String tocpyPackage(){
         return "cpy_package";

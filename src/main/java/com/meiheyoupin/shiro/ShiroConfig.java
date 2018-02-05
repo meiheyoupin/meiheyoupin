@@ -45,8 +45,8 @@ public class ShiroConfig {
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
 
         //权限
-        filterChainDefinitionMap.put("/admin/**","authc,roles[admin]");
-        filterChainDefinitionMap.put("/user/**","authc,roles[user]");
+        //filterChainDefinitionMap.put("/**","authc,roles[admin]");
+        //filterChainDefinitionMap.put("/cpySaler","authc,roles[saler]");
 
 
         //登录

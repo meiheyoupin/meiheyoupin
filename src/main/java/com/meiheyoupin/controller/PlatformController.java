@@ -5,12 +5,14 @@ import com.meiheyoupin.service.GoodsService;
 import com.meiheyoupin.service.StoreService;
 import com.meiheyoupin.service.UserAdminService;
 import com.meiheyoupin.common.utils.R1;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("platform/")
+@RequiresRoles({"admin"})
 public class PlatformController {
 
     @Autowired

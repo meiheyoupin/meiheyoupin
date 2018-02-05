@@ -25,7 +25,10 @@ public class MyShiroRealm extends AuthorizingRealm {
         Set<String> roles = new HashSet<String>();
         String name = principals.toString();
         String role = userAdminService.getRoleByName(name);
-        roles.add(role);
+        String[] strArray = role.split(",");
+        for (int i=0;i<strArray.length;i++){
+            roles.add(strArray[i]);
+        }
         info.addRoles(roles);
         return info;
     }

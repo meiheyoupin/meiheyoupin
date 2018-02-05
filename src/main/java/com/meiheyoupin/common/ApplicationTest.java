@@ -85,10 +85,8 @@ public class ApplicationTest {
 
     @Test
     public void test1(){
-        List<Store> list = storeMapper.selectAvailableStore();
-        for (Store store:list){
-            System.out.println(store.getEmail());
-        }
+
+        System.out.println(userAdminService.getRoleByName("luxiaotao"));
     }
 
     @Test
