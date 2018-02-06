@@ -121,7 +121,7 @@ public class ScheduledUtils {
         @Override
         public void run() {
             MonthlyCount monthlyCount = getMonthlySalesAndOrders(store.getId());
-            String content = "尊敬的"+store.getStoreName()+"美盒掌柜您好，" +
+            String content = "尊敬的"+store.getName()+"美盒掌柜您好，" +
                     "您上月销售额度为："+monthlyCount.getMonthlySales()+"元，成交订单数为："+monthlyCount.getMonthlyOrders()+"。用户"+
                     "对本店商品评价了"+CommentsOfCount(store.getId())+"个。本店商品总体评价"+getAvgGradeByStoreId(store.getId())+"分"+
                     "。本店最受欢迎的商品是："+getMostPopularGoodsByStoreId(store.getId())+"。本店被冷漠的商品是："+getMostDismalGoodsByStoreId(store.getId());

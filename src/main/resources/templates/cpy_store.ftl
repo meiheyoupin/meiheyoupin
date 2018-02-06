@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="title-info">
                                         <input class="storeId" id="storeId" type="hidden" value="${store.id?c}"/>
-                                        <span class="title-box">${store.storeName}</span>
+                                        <span class="title-box">${store.name}</span>
                                         <span class="times-box">${store.createTime?string('yyyy-MM-dd HH:mm')}</span>
                                         <#--<span class="num-box">${store.invitationCode}</span>-->
                                     </div>

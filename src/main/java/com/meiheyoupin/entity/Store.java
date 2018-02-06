@@ -1,215 +1,248 @@
 package com.meiheyoupin.entity;
 
-import java.util.Date;
-
 public class Store {
     private Integer id;
-
-    private String tel;
-
-    private String password;
-
-    private Byte state;         //0：未审核，1：审核通过/开店，2：审核未通过，3：关店
-
     private String invitationCode;
-
-    private String storeName;
-
-    private String storeAddr;
-
-    private String email;
-
-    private String bossName;
-
-    private Byte bossGender;
-
-    private String avatarUrl;
-
-    private String dadaShopId;
-
+    private String address;
     private Double lng;
-
+    private String storeInsidePhotoUrl;
+    private java.util.Date createTime;
+    private String description;
+    private Integer bossGender;
+    private String bossName;
+    private String password;
+    private java.util.Date updateTime;
+    private String avatarUrl;
+    private String bossIdcardPhotoUrl;
+    private Integer businessType;
+    private String name;
+    private String certificatePhotoUrl;
+    private String tel;
+    private Integer state;
+    private String storeLicencePhotoUrl;
+    private String storeOutsidePhotoUrl;
+    private String email;
     private Double lat;
 
-    private String storeOutsidePhotoUrl;
-
-    private String storeInsidePhotoUrl;
-
-    private String bossIdcardPhotoUrl;
-
-    private String certificatePhotoUrl;
-
-    private String storeLicencePhotoUrl;
-
-    private Date createTime;
-
-    private Date updateTime;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDadaShopId() {
-        return dadaShopId;
-    }
-
-    public void setDadaShopId(String dadaShopId) {
-        this.dadaShopId = dadaShopId;
-    }
-
-    public Double getLng() {
-        return lng;
-    }
-
-    public void setLng(Double lng) {
-        this.lng = lng;
-    }
-
-    public Double getLat() {
-        return lat;
-    }
-
-    public void setLat(Double lat) {
-        this.lat = lat;
-    }
+    private String verificationCode;
+    private String storeInsidePhotoUrl1;
+    private String storeInsidePhotoUrl2;
+    private String bossIdcardPhotoUrl1;
+    private String bossIdcardPhotoUrl2;
 
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel == null ? null : tel.trim();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
-
-    public Byte getState() {
-        return state;
-    }
-
-    public void setState(Byte state) {
-        this.state = state;
-    }
-
     public String getInvitationCode() {
-        return invitationCode;
+        return this.invitationCode;
     }
 
     public void setInvitationCode(String invitationCode) {
-        this.invitationCode = invitationCode == null ? null : invitationCode.trim();
+        this.invitationCode = invitationCode;
     }
 
-    public String getStoreName() {
-        return storeName;
+    public String getAddress() {
+        return this.address;
     }
 
-    public void setStoreName(String storeName) {
-        this.storeName = storeName == null ? null : storeName.trim();
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getStoreAddr() {
-        return storeAddr;
+    public Double getLng() {
+        return this.lng;
     }
 
-    public void setStoreAddr(String storeAddr) {
-        this.storeAddr = storeAddr == null ? null : storeAddr.trim();
-    }
-
-    public String getBossName() {
-        return bossName;
-    }
-
-    public void setBossName(String bossName) {
-        this.bossName = bossName == null ? null : bossName.trim();
-    }
-
-    public Byte getBossGender() {
-        return bossGender;
-    }
-
-    public void setBossGender(Byte bossGender) {
-        this.bossGender = bossGender;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl == null ? null : avatarUrl.trim();
-    }
-
-    public String getStoreOutsidePhotoUrl() {
-        return storeOutsidePhotoUrl;
-    }
-
-    public void setStoreOutsidePhotoUrl(String storeOutsidePhotoUrl) {
-        this.storeOutsidePhotoUrl = storeOutsidePhotoUrl == null ? null : storeOutsidePhotoUrl.trim();
+    public void setLng(Double lng) {
+        this.lng = lng;
     }
 
     public String getStoreInsidePhotoUrl() {
-        return storeInsidePhotoUrl;
+        return this.storeInsidePhotoUrl;
     }
 
     public void setStoreInsidePhotoUrl(String storeInsidePhotoUrl) {
-        this.storeInsidePhotoUrl = storeInsidePhotoUrl == null ? null : storeInsidePhotoUrl.trim();
+        this.storeInsidePhotoUrl = storeInsidePhotoUrl;
     }
 
-    public String getBossIdcardPhotoUrl() {
-        return bossIdcardPhotoUrl;
+    public java.util.Date getCreateTime() {
+        return this.createTime;
     }
 
-    public void setBossIdcardPhotoUrl(String bossIdcardPhotoUrl) {
-        this.bossIdcardPhotoUrl = bossIdcardPhotoUrl == null ? null : bossIdcardPhotoUrl.trim();
-    }
-
-    public String getCertificatePhotoUrl() {
-        return certificatePhotoUrl;
-    }
-
-    public void setCertificatePhotoUrl(String certificatePhotoUrl) {
-        this.certificatePhotoUrl = certificatePhotoUrl == null ? null : certificatePhotoUrl.trim();
-    }
-
-    public String getStoreLicencePhotoUrl() {
-        return storeLicencePhotoUrl;
-    }
-
-    public void setStoreLicencePhotoUrl(String storeLicencePhotoUrl) {
-        this.storeLicencePhotoUrl = storeLicencePhotoUrl == null ? null : storeLicencePhotoUrl.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(java.util.Date createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getDescription() {
+        return this.description;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getBossGender() {
+        return this.bossGender;
+    }
+
+    public void setBossGender(Integer bossGender) {
+        this.bossGender = bossGender;
+    }
+
+    public String getBossName() {
+        return this.bossName;
+    }
+
+    public void setBossName(String bossName) {
+        this.bossName = bossName;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public java.util.Date getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(java.util.Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public String getBossIdcardPhotoUrl() {
+        return this.bossIdcardPhotoUrl;
+    }
+
+    public void setBossIdcardPhotoUrl(String bossIdcardPhotoUrl) {
+        this.bossIdcardPhotoUrl = bossIdcardPhotoUrl;
+    }
+
+    public Integer getBusinessType() {
+        return this.businessType;
+    }
+
+    public void setBusinessType(Integer businessType) {
+        this.businessType = businessType;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCertificatePhotoUrl() {
+        return this.certificatePhotoUrl;
+    }
+
+    public void setCertificatePhotoUrl(String certificatePhotoUrl) {
+        this.certificatePhotoUrl = certificatePhotoUrl;
+    }
+
+    public String getTel() {
+        return this.tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public Integer getState() {
+        return this.state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public String getStoreLicencePhotoUrl() {
+        return this.storeLicencePhotoUrl;
+    }
+
+    public void setStoreLicencePhotoUrl(String storeLicencePhotoUrl) {
+        this.storeLicencePhotoUrl = storeLicencePhotoUrl;
+    }
+
+    public String getStoreOutsidePhotoUrl() {
+        return this.storeOutsidePhotoUrl;
+    }
+
+    public void setStoreOutsidePhotoUrl(String storeOutsidePhotoUrl) {
+        this.storeOutsidePhotoUrl = storeOutsidePhotoUrl;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Double getLat() {
+        return this.lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public String getStoreInsidePhotoUrl1() {
+        return storeInsidePhotoUrl1;
+    }
+
+    public void setStoreInsidePhotoUrl1(String storeInsidePhotoUrl1) {
+        this.storeInsidePhotoUrl1 = storeInsidePhotoUrl1;
+    }
+
+    public String getStoreInsidePhotoUrl2() {
+        return storeInsidePhotoUrl2;
+    }
+
+    public void setStoreInsidePhotoUrl2(String storeInsidePhotoUrl2) {
+        this.storeInsidePhotoUrl2 = storeInsidePhotoUrl2;
+    }
+
+    public String getBossIdcardPhotoUrl1() {
+        return bossIdcardPhotoUrl1;
+    }
+
+    public void setBossIdcardPhotoUrl1(String bossIdcardPhotoUrl1) {
+        this.bossIdcardPhotoUrl1 = bossIdcardPhotoUrl1;
+    }
+
+    public String getBossIdcardPhotoUrl2() {
+        return bossIdcardPhotoUrl2;
+    }
+
+    public void setBossIdcardPhotoUrl2(String bossIdcardPhotoUrl2) {
+        this.bossIdcardPhotoUrl2 = bossIdcardPhotoUrl2;
     }
 }

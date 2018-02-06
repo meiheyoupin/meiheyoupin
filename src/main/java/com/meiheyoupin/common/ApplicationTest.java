@@ -113,7 +113,7 @@ public class ApplicationTest {
     public void test5(){
         Goods good = goodsMapper.selectGoodByGoodId(1);
         Store store = storeMapper.selectStoresByStoreId(good.getStoreId());
-        System.out.println(store.getStoreName());
+        System.out.println(store.getName());
         System.out.println(good.getName());
     }
 

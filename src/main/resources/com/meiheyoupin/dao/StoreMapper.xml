@@ -2,24 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.meiheyoupin.dao.StoreMapper">
   <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.Store">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="tel" jdbcType="VARCHAR" property="tel" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="state" jdbcType="TINYINT" property="state" />
-    <result column="invitation_code" jdbcType="VARCHAR" property="invitationCode" />
-    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
-    <result column="store_addr" jdbcType="VARCHAR" property="storeAddr" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="boss_name" jdbcType="VARCHAR" property="bossName" />
-    <result column="boss_gender" jdbcType="TINYINT" property="bossGender" />
-    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
-    <result column="store_outside_photo_url" jdbcType="VARCHAR" property="storeOutsidePhotoUrl" />
-    <result column="store_inside_photo_url" jdbcType="VARCHAR" property="storeInsidePhotoUrl" />
-    <result column="boss_idcard_photo_url" jdbcType="VARCHAR" property="bossIdcardPhotoUrl" />
-    <result column="certificate_photo_url" jdbcType="VARCHAR" property="certificatePhotoUrl" />
-    <result column="store_licence_photo_url" jdbcType="VARCHAR" property="storeLicencePhotoUrl" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <id column="id" property="id"/>
+    <result column="invitation_code" property="invitationCode"/>
+    <result column="address" property="address"/>
+    <result column="lng" property="lng"/>
+    <result column="store_inside_photo_url" property="storeInsidePhotoUrl"/>
+    <result column="create_time" property="createTime"/>
+    <result column="description" property="description"/>
+    <result column="boss_gender" property="bossGender"/>
+    <result column="boss_name" property="bossName"/>
+    <result column="password" property="password"/>
+    <result column="update_time" property="updateTime"/>
+    <result column="avatar_url" property="avatarUrl"/>
+    <result column="boss_idcard_photo_url" property="bossIdcardPhotoUrl"/>
+    <result column="business_type" property="businessType"/>
+    <result column="name" property="name"/>
+    <result column="certificate_photo_url" property="certificatePhotoUrl"/>
+    <result column="tel" property="tel"/>
+    <result column="state" property="state"/>
+    <result column="store_licence_photo_url" property="storeLicencePhotoUrl"/>
+    <result column="store_outside_photo_url" property="storeOutsidePhotoUrl"/>
+    <result column="email" property="email"/>
+    <result column="lat" property="lat"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -80,9 +84,28 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, tel, password, state, invitation_code, store_name, store_addr, email, boss_name, boss_gender,
-    avatar_url, store_outside_photo_url, store_inside_photo_url, boss_idcard_photo_url, 
-    certificate_photo_url, store_licence_photo_url, create_time, update_time
+    store.id as id
+        ,store.invitation_code as invitation_code
+        ,store.address as address
+        ,store.lng as lng
+        ,store.store_inside_photo_url as store_inside_photo_url
+        ,store.create_time as create_time
+        ,store.description as description
+        ,store.boss_gender as boss_gender
+        ,store.boss_name as boss_name
+        ,store.password as password
+        ,store.update_time as update_time
+        ,store.avatar_url as avatar_url
+        ,store.boss_idcard_photo_url as boss_idcard_photo_url
+        ,store.business_type as business_type
+        ,store.name as name
+        ,store.certificate_photo_url as certificate_photo_url
+        ,store.tel as tel
+        ,store.state as state
+        ,store.store_licence_photo_url as store_licence_photo_url
+        ,store.store_outside_photo_url as store_outside_photo_url
+        ,store.email as email
+        ,store.lat as lat
   </sql>
   <update id="updateStoreStateByStoreId" parameterType="Integer[]">
     UPDATE store SET state=1
@@ -136,55 +159,50 @@
 
   <update id="updateStore" parameterType="com.meiheyoupin.entity.Store">
     update store set
-        area_name=#{areaName}
-        ,invitation_code=#{invitationCode}
-        ,store_inside_photo_url=#{storeInsidePhotoUrl}
-        ,lng=#{lng}
-        ,create_time=#{createTime}
-        ,store_addr=#{storeAddr}
-        ,boss_gender=#{bossGender}
-        ,email=#{email}
-        ,boss_name=#{bossName}
-        ,password=#{password}
-        ,city_name=#{cityName}
-        ,update_time=#{updateTime}
-        ,avatar_url=#{avatarUrl}
-        ,boss_idcard_photo_url=#{bossIdcardPhotoUrl}
-        ,business_type=#{businessType}
-        ,certificate_photo_url=#{certificatePhotoUrl}
-        ,store_name=#{storeName}
-        ,tel=#{tel}
-        ,state=#{state}
-        ,store_licence_photo_url=#{storeLicencePhotoUrl}
-        ,store_outside_photo_url=#{storeOutsidePhotoUrl}
-        ,lat=#{lat}
-        ,dada_shop_id=#{dadaShopId}
+            invitation_code=#{invitationCode}
+            ,address=#{address}
+            ,lng=#{lng}
+            ,store_inside_photo_url=#{storeInsidePhotoUrl}
+            ,create_time=#{createTime}
+            ,description=#{description}
+            ,boss_gender=#{bossGender}
+            ,boss_name=#{bossName}
+            ,password=#{password}
+            ,update_time=#{updateTime}
+            ,avatar_url=#{avatarUrl}
+            ,boss_idcard_photo_url=#{bossIdcardPhotoUrl}
+            ,business_type=#{businessType}
+            ,name=#{name}
+            ,certificate_photo_url=#{certificatePhotoUrl}
+            ,tel=#{tel}
+            ,state=#{state}
+            ,store_licence_photo_url=#{storeLicencePhotoUrl}
+            ,store_outside_photo_url=#{storeOutsidePhotoUrl}
+            ,email=#{email}
+            ,lat=#{lat}
         where id=#{id}
   </update>
 
   <update id="updateStoreById" parameterType="com.meiheyoupin.entity.Store">
     update store
     <set>
-      <if test="areaName != null">
-        area_name=#{areaName},
-      </if>
-      <if test="email != null">
-        email=#{email},
-      </if>
       <if test="invitationCode != null">
         invitation_code=#{invitationCode},
       </if>
-      <if test="storeInsidePhotoUrl != null">
-        store_inside_photo_url=#{storeInsidePhotoUrl},
+      <if test="address != null">
+        address=#{address},
       </if>
       <if test="lng != null">
         lng=#{lng},
       </if>
+      <if test="storeInsidePhotoUrl != null">
+        store_inside_photo_url=#{storeInsidePhotoUrl},
+      </if>
       <if test="createTime != null">
         create_time=#{createTime},
       </if>
-      <if test="storeAddr != null">
-        store_addr=#{storeAddr},
+      <if test="description != null">
+        description=#{description},
       </if>
       <if test="bossGender != null">
         boss_gender=#{bossGender},
@@ -194,9 +212,6 @@
       </if>
       <if test="password != null">
         password=#{password},
-      </if>
-      <if test="cityName != null">
-        city_name=#{cityName},
       </if>
       <if test="updateTime != null">
         update_time=#{updateTime},
@@ -210,11 +225,11 @@
       <if test="businessType != null">
         business_type=#{businessType},
       </if>
+      <if test="name != null">
+        name=#{name},
+      </if>
       <if test="certificatePhotoUrl != null">
         certificate_photo_url=#{certificatePhotoUrl},
-      </if>
-      <if test="storeName != null">
-        store_name=#{storeName},
       </if>
       <if test="tel != null">
         tel=#{tel},
@@ -228,11 +243,11 @@
       <if test="storeOutsidePhotoUrl != null">
         store_outside_photo_url=#{storeOutsidePhotoUrl},
       </if>
+      <if test="email != null">
+        email=#{email},
+      </if>
       <if test="lat != null">
         lat=#{lat},
-      </if>
-      <if test="dadaShopId != null">
-        dada_shop_id=#{dadaShopId},
       </if>
     </set>
     where id=#{id}

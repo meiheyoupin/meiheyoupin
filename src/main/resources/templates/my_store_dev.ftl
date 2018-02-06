@@ -2,7 +2,7 @@
     <div class="shop-name">
         <p class="title-shop">店铺名称</p>
         <p class="name-box">
-            <span class="name1">${store.storeName}</span>
+            <span class="name1">${store.name}</span>
             <span class="name2"> 账号: </span>
             <span class="name3">${store.tel}</span>
         </p>
@@ -10,7 +10,7 @@
     <div class="shop-addr">
         <p class="title-shop">店铺地址</p>
         <p class="addr-box">
-            <span class="addr1">${store.storeAddr}</span>
+            <span class="addr1">${store.address}</span>
         </p>
     </div>
     <div class="shop-env">
