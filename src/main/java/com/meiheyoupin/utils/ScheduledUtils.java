@@ -130,7 +130,7 @@ public class ScheduledUtils {
                     "本店被冷漠的商品是："+getMostDismalGoodsByStoreId(store.getId());
             LocalDate date = LocalDate.now();
             date = date.minusMonths(1);
-            String theme = store.getName()+"店铺"+ date +"月份数据分析";
+            String theme = store.getName() + "店铺" + date.getYear()+ "-" +date.getMonthValue() + "月份数据分析";
             System.out.println(DirectMailUtils.sendMail(email,theme,content));
         }
     }
