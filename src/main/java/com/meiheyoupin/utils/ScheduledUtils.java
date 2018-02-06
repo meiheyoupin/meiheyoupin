@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -122,10 +123,15 @@ public class ScheduledUtils {
         public void run() {
             MonthlyCount monthlyCount = getMonthlySalesAndOrders(store.getId());
             String content = "尊敬的"+store.getName()+"美盒掌柜您好，" +
-                    "您上月销售额度为："+monthlyCount.getMonthlySales()+"元，成交订单数为："+monthlyCount.getMonthlyOrders()+"。用户"+
+                    "您上月销售额度为："+monthlyCount.getMonthlySales()+"元，上月总运费为："+getMonthlyCarriageByStoreId(store.getId())+
+                    "元，成交订单数为："+monthlyCount.getMonthlyOrders()+"。用户"+
                     "对本店商品评价了"+CommentsOfCount(store.getId())+"个。本店商品总体评价"+getAvgGradeByStoreId(store.getId())+"分"+
-                    "。本店最受欢迎的商品是："+getMostPopularGoodsByStoreId(store.getId())+"。本店被冷漠的商品是："+getMostDismalGoodsByStoreId(store.getId());
-            XMailUtils.sendMail(email,content);
+                    "。本店最受欢迎的商品是："+getMostPopularGoodsByStoreId(store.getId())+"。" +
+                    "本店被冷漠的商品是："+getMostDismalGoodsByStoreId(store.getId());
+            LocalDate date = LocalDate.now();
+            date = date.minusMonths(1);
+            String theme = store.getName()+"店铺"+ date +"月份数据分析";
+            System.out.println(DirectMailUtils.sendMail(email,theme,content));
         }
     }
     //上个月某商铺的成交销售额(MonthlySales),成交订单数(MonthlyOrders)
@@ -155,5 +161,8 @@ public class ScheduledUtils {
     private String getMostDismalGoodsByStoreId(Integer storeId){
         return goodsMapper.selectMostDismalGoodsMonthlyByStoreId(storeId);
     }
-
+    //上个月某商铺的月运费总结
+    private String getMonthlyCarriageByStoreId(Integer storeId){
+        return new DecimalFormat("#.00").format(ordersMapper.selectMonthlyCarriageByStoreId(storeId));
+    }
 }

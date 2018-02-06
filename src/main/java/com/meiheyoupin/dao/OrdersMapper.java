@@ -18,4 +18,6 @@ public interface OrdersMapper {
     Integer selectWithdrawalsCashByStoreId(Integer storeId);
 
     MonthlyCount selectMonthlySalesByStoreId(Integer storeId);
+
+    double selectMonthlyCarriageByStoreId(Integer storeId);
 }

@@ -16,6 +16,7 @@
     <result column="has_invoice" jdbcType="TINYINT" property="hasInvoice" />
     <result column="invoice_id" jdbcType="INTEGER" property="invoiceId" />
     <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="carriage_amount" jdbcType="DECIMAL" property="carriageAmount"/>
     <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
     <result column="red_envelope_amount" jdbcType="DECIMAL" property="redEnvelopeAmount" />
     <result column="pay_way" jdbcType="VARCHAR" property="payWay" />
@@ -84,7 +85,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, user_id, store_id, payment_amount, total_amount, state, name, count, address_id, delivery_date,
-    delivery_time, has_invoice, invoice_id, comment, coupon_amount, red_envelope_amount, pay_way, store_reject_reason, refund_reason,
+    delivery_time, has_invoice, invoice_id, comment, carriage_amount, coupon_amount, red_envelope_amount, pay_way, store_reject_reason, refund_reason,
     create_time, update_time
   </sql>
 
@@ -151,6 +152,9 @@
       <if test="comment != null">
         comment=#{comment},
       </if>
+      <if test="carriageAmount != null">
+        carriage_amount=#{carriageAmount},
+      </if>
       <if test="state != null">
         state=#{state},
       </if>
@@ -183,5 +187,14 @@
     FROM orders WHERE store_id =#{storeId}
     AND state=5
     AND DATE_FORMAT(update_time,'%Y-%m')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m')
+  </select>
+
+  <!--根据商家ID到上个月的运费总额-->
+  <select id="selectMonthlyCarriageByStoreId" parameterType="java.lang.Integer" resultType="java.lang.Double">
+    SELECT SUM(carriage_amount)
+    FROM orders
+    WHERE store_id=#{storeId}
+    AND DATE_FORMAT(create_time,'%Y-%m')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m')
+    AND state IN (5,6)
   </select>
 </mapper>

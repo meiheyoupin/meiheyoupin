@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -86,7 +87,7 @@ public class ApplicationTest {
     @Test
     public void test1(){
 
-        System.out.println(userAdminService.getRoleByName("luxiaotao"));
+        System.out.println(new DecimalFormat("#.00").format(ordersMapper.selectMonthlyCarriageByStoreId(29)));
     }
 
     @Test

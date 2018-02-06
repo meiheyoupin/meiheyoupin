@@ -32,7 +32,7 @@ public class DirectMailUtils {
         SingleSendMailRequest request = new SingleSendMailRequest();
         try {
             //request.setVersion("2017-06-22");// 如果是除杭州region外的其它region（如新加坡region）,必须指定为2017-06-22
-            request.setAccountName("控制台创建的发信地址");       //管理控制台中配置的发信地址。
+            request.setAccountName("mhyp-info@mail.meiheyoupin.com");       //管理控制台中配置的发信地址。
             request.setFromAlias("美盒优品");                   //发信人昵称,长度小于 15 个字符。
             request.setAddressType(1);                          //取值范围 0~1: 0 为随机账号；1 为发信地址。
             request.setTagName("monthly");                      //控制台创建的标签

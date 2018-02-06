@@ -50,6 +50,8 @@ public class Orders {
 
     private String comment;
 
+    private Double carriageAmount;
+
     private BigDecimal couponAmount;
 
     private BigDecimal redEnvelopeAmount;
@@ -63,6 +65,14 @@ public class Orders {
     private Date createTime;
 
     private Date updateTime;
+
+    public Double getCarriageAmount() {
+        return carriageAmount;
+    }
+
+    public void setCarriageAmount(Double carriageAmount) {
+        this.carriageAmount = carriageAmount;
+    }
 
     public Integer getStoreId() {
         return storeId;

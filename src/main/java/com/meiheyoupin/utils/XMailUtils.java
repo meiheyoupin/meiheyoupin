@@ -12,9 +12,17 @@ public class XMailUtils {
         try {
             JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
             //发送方
+
+            //陆晓涛 网易 个人
             mailSender.setHost("smtp.163.com");
             mailSender.setUsername("t1341870251@163.com");
             mailSender.setPassword("xltys1995");
+
+            //美盒优品 阿里 企业
+            /*mailSender.setHost("smtp.mxhichina.com");
+            mailSender.setPort(465);
+            mailSender.setUsername("postmaster@meiheyoupin.com");
+            mailSender.setPassword("MHYP_2018");*/
 
             MimeMessage mailMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mailMessage,true,"GBK");
