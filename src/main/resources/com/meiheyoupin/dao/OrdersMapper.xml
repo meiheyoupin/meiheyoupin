@@ -25,6 +25,12 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+
+  <resultMap id="CashResultMap" type="com.meiheyoupin.entity.WithdrawCash">
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="cash" jdbcType="DOUBLE" property="cash"/>
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -88,6 +94,43 @@
     delivery_time, has_invoice, invoice_id, comment, carriage_amount, coupon_amount, red_envelope_amount, pay_way, store_reject_reason, refund_reason,
     create_time, update_time
   </sql>
+
+  <select id="listOrderByObj" parameterType="com.meiheyoupin.entity.Orders" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from orders
+    <where>
+      <if test="redEnvelopeAmount != null ">and orders.red_envelope_amount = #{redEnvelopeAmount}</if>
+      <if test="state != null ">and orders.state = #{state}</if>
+      <if test="stateArray != null and stateArray.length > 0">
+        and orders.state in
+        <foreach collection="stateArray" item="state" index="index" open="(" close=")" separator=",">
+          #{state, jdbcType=INTEGER}
+        </foreach>
+      </if>
+      <if test="comment != null ">and orders.comment = #{comment}</if>
+      <if test="invoiceId != null ">and orders.invoice_id = #{invoiceId}</if>
+      <if test="name != null ">and orders.name = #{name}</if>
+      <if test="totalAmount != null ">and orders.total_amount = #{totalAmount}</if>
+      <if test="userId != null ">and orders.user_id = #{userId}</if>
+      <if test="updateTime != null ">and orders.update_time = #{updateTime}</if>
+      <if test="deliveryDate != null ">and orders.delivery_date = #{deliveryDate}</if>
+      <if test="deliveryTime != null ">and orders.delivery_time = #{deliveryTime}</if>
+      <if test="paymentAmount != null ">and orders.payment_amount = #{paymentAmount}</if>
+      <if test="hasInvoice != null ">and orders.has_invoice = #{hasInvoice}</if>
+      <if test="count != null ">and orders.count = #{count}</if>
+      <if test="createTime != null ">and orders.create_time = #{createTime}</if>
+      <if test="addressId != null ">and orders.address_id = #{addressId}</if>
+      <if test="couponAmount != null ">and orders.coupon_amount = #{couponAmount}</if>
+      <if test="storeId != null ">and orders.store_id = #{storeId}</if>
+      <if test="payWay != null ">and orders.pay_way = #{payWay}</if>
+      <if test="storeRejectReason != null ">and orders.store_reject_reason = #{storeRejectReason}</if>
+      <if test="refundReason != null ">and orders.refund_reason = #{refundReason}</if>
+      <if test="carriageAmount != null ">and orders.carriage_amount = #{carriageAmount}</if>
+      <if test="id != null ">and orders.id = #{id}</if>
+    </where>
+    order by update_time
+  </select>
 
   <select id="selectByState" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT
@@ -177,10 +220,6 @@
     where id=#{id}
   </update>
 
-  <select id="selectWithdrawalsCashByStoreId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-    SELECT SUM(total_amount) FROM orders WHERE store_id=#{storeId} AND state=5 AND UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(update_time)>259200
-  </select>
-
   <!--上个月成交的销售额-->
   <select id="selectMonthlySalesByStoreId" parameterType="java.lang.Integer" resultType="com.meiheyoupin.entity.MonthlyCount">
     SELECT SUM(total_amount) as MonthlySales,COUNT(id) as MonthlyOrders
@@ -196,5 +235,15 @@
     WHERE store_id=#{storeId}
     AND DATE_FORMAT(create_time,'%Y-%m')=DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 MONTH),'%Y-%m')
     AND state IN (5,6)
+  </select>
+
+  <!--遍历出可提现的商家ID和可提现金额-->
+  <select id="selectAvaiableWithdrawCash" resultMap="CashResultMap">
+    SELECT store_id,SUM(total_amount) AS cash
+    FROM orders
+    WHERE state IN (5,6)
+    AND UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(update_time)>259200
+    GROUP BY store_id
+    ORDER BY cash DESC
   </select>
 </mapper>

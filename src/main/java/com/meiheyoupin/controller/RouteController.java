@@ -81,12 +81,6 @@ public class RouteController {
     }
 
     @RequiresRoles("admin")
-    @GetMapping("cpyCharges")
-    public String toCpyCharges(){
-        return "cpy_charges";
-    }
-
-    @RequiresRoles("admin")
     @GetMapping("cpyUser")
     public String tocpyUser(){
         return "cpy_user";

@@ -14,5 +14,4 @@ public interface OrdersService {
 
     Orders getOrderById(String id);
 
-    Integer getWithdrawalsCashByStoreId(Integer storeId);
 }

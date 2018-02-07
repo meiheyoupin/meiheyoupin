@@ -22,6 +22,7 @@
             </div>
             <div class="orders-body">
                 <!--提现管理-->
+                <#list withdrawCashes.withdrawCashes as item>
                 <ul id="cpy_charges">
                     <li>
                         <div class="title">
@@ -29,21 +30,21 @@
                                 <img src="/img/charges-list-bg.png" alt="">
                             </div>
                             <div class="title-info">
-                                <span class="store-title">看酸辣粉蛋糕店</span>
-                                <span class="store-times">2018-1-18-10:12</span>
+                                <span class="store-title"></span>
                             </div>
                         </div>
                         <div class="draw-box">
-                            <p class="draw-pri">申请提现: <span>￥<strong class="price">123</strong></span></p>
+                            <p class="draw-pri">申请提现: <span>￥<strong class="price">${item.cash}</strong></span></p>
                             <div class="draw-info">
-                                <span class="name">唐马儒 <strong>先生</strong></span>
-                                <span class="phone">13854651231</span>
+                                <span class="name">${item.storeName} <strong>店铺</strong></span>
+                                <span class="phone">${item.storeTel}</span>
                                 <button class="pass">通过</button>
                                 <button class="not">驳回</button>
                             </div>
                         </div>
                     </li>
                 </ul>
+                </#list>
             </div>
         </div>
     </div>
@@ -51,6 +52,7 @@
 <!--footer-->
 <#include "cpy_footer.ftl"/>
 <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://r.meiheyoupin.com/js/template-web.js"></script>
 <script type="text/javascript" src="/js/custom.js"></script>
 </body>
 </html>

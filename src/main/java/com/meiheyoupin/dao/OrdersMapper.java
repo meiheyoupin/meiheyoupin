@@ -2,10 +2,14 @@ package com.meiheyoupin.dao;
 
 import com.meiheyoupin.entity.MonthlyCount;
 import com.meiheyoupin.entity.Orders;
+import com.meiheyoupin.entity.WithdrawCash;
+
 import java.util.List;
 
 
 public interface OrdersMapper {
+
+    List<Orders> listOrderByObj(Orders orders);
 
     List<Orders> selectByState(Integer state);
 
@@ -15,9 +19,9 @@ public interface OrdersMapper {
 
     int updateOrderById(Orders orders);
 
-    Integer selectWithdrawalsCashByStoreId(Integer storeId);
-
     MonthlyCount selectMonthlySalesByStoreId(Integer storeId);
 
     double selectMonthlyCarriageByStoreId(Integer storeId);
+
+    List<WithdrawCash>  selectAvaiableWithdrawCash();
 }

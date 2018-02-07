@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Orders {
-
     //已下单
     public static final Integer ORDER_STATE_ORDERED = 1;
     //已付款
@@ -21,6 +20,10 @@ public class Orders {
     public static final Integer ORDER_STATE_REFUNDING = 7;
     //已完成退款
     public static final Integer ORDER_STATE_REFUNDED = 8;
+    //已备货
+    public static final Integer ORDER_STATE_RAADIED = 9;
+    //已提现
+    public static final Integer ORDER_STATE_CASH = 10;
 
     private String id;
 
