@@ -24,4 +24,6 @@ public interface OrdersMapper {
     double selectMonthlyCarriageByStoreId(Integer storeId);
 
     List<WithdrawCash>  selectAvaiableWithdrawCash();
+
+    List<Orders> selectOrdersForSalerInviteCode(String inviteCode);
 }

@@ -37,16 +37,15 @@ public class AdminController {
     public String platformLogin(@RequestParam("adminName") String adminName,
                             @RequestParam("adminPassword") String adminPassword,
                             Model model){
-        tokenService.checkExpire();
         Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()==false){
+        if (!subject.isAuthenticated()){
             String msg = "";
             UsernamePasswordToken token = new UsernamePasswordToken(adminName,adminPassword);
             try {
                 subject.login(token);
                 model.addAttribute("userName",adminName);
                 if (subject.hasRole("admin")){
-                    return "redirect:/cpySaler";
+                    return "forward:/cpySaler";
                 }else if (subject.hasRole("saler")){
                     return "redirect:/toSaler";
                 }

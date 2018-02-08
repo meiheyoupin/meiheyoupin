@@ -3,6 +3,7 @@ package com.meiheyoupin.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.meiheyoupin.common.utils.R;
 import com.meiheyoupin.entity.Orders;
 import com.meiheyoupin.service.OrdersService;
 import com.meiheyoupin.common.utils.R1;
@@ -44,5 +45,18 @@ public class OrdersController {
         List<Orders> list = ordersService.getOrders(state);
         PageInfo<Orders> pageInfo = new PageInfo<Orders>(list);
         return R1.add("orders",pageInfo);
+    }
+
+    /*
+    根据销售员的邀请码拿到所有与之相关的订单
+     */
+    @RequiresRoles("saler")
+    @GetMapping("salerOrders")
+    public R toSalerOrders(@RequestParam String invitationCode,
+                           @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
+                           @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        PageInfo<Orders> pageInfo = new PageInfo<Orders>(ordersService.getOrdersForInviteCode(invitationCode));
+        return R.ok().put("salerOrders",pageInfo);
     }
 }

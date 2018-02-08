@@ -6,6 +6,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StoreMapper {
+
+    /*
+    根据商家实体类查询所对应的商家
+     */
+    List<Store> selectStoreByObj(Store store);
+
     /*
     根据商家ID进行审核(通过审核）
      */
