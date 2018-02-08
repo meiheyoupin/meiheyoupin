@@ -246,4 +246,13 @@
     GROUP BY store_id
     ORDER BY cash DESC
   </select>
+  
+  <select id="selectOrdersForSalerInviteCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM orders
+    WHERE store_id=(SELECT id FROM store WHERE invitation_code=#{inviteCode})
+    AND state IN (5,6,10)
+    ORDER BY create_time
+  </select>
 </mapper>

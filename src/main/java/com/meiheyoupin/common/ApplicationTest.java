@@ -96,11 +96,7 @@ public class ApplicationTest {
 
     @Test
     public void test2(){
-        tokenService.checkExpire();
-        UserAdmin userAdmin = userAdminService.getUserByPassword(new UserAdmin("admin","admin"));
-        if(userAdmin!=null){
-            System.out.println(tokenService.createToken(userAdmin).get("token"));
-        }
+        System.out.println(ordersService.getOrdersForInviteCode("1111"));
     }
 
     @Test

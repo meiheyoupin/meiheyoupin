@@ -2,6 +2,7 @@ package com.meiheyoupin.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.meiheyoupin.common.utils.R;
 import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.Store;
 import com.meiheyoupin.service.StoreService;
@@ -59,5 +60,14 @@ public class StoreController {
         }catch (Exception e){
             return R1.error(500,"服务器内部错误");
         }
+    }
+
+    /*
+    根据邀请码拿到商家s
+     */
+    @RequiresRoles("saler")
+    @GetMapping("salerStores")
+    public R toSalerStores(@RequestParam String inviteCode){
+        return R.ok(storeService.getStoresByInvitationCode(inviteCode));
     }
 }

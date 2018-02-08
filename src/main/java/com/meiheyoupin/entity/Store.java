@@ -245,4 +245,37 @@ public class Store {
     public void setBossIdcardPhotoUrl2(String bossIdcardPhotoUrl2) {
         this.bossIdcardPhotoUrl2 = bossIdcardPhotoUrl2;
     }
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", invitationCode='" + invitationCode + '\'' +
+                ", address='" + address + '\'' +
+                ", lng=" + lng +
+                ", storeInsidePhotoUrl='" + storeInsidePhotoUrl + '\'' +
+                ", createTime=" + createTime +
+                ", description='" + description + '\'' +
+                ", bossGender=" + bossGender +
+                ", bossName='" + bossName + '\'' +
+                ", password='" + password + '\'' +
+                ", updateTime=" + updateTime +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", bossIdcardPhotoUrl='" + bossIdcardPhotoUrl + '\'' +
+                ", businessType=" + businessType +
+                ", name='" + name + '\'' +
+                ", certificatePhotoUrl='" + certificatePhotoUrl + '\'' +
+                ", tel='" + tel + '\'' +
+                ", state=" + state +
+                ", storeLicencePhotoUrl='" + storeLicencePhotoUrl + '\'' +
+                ", storeOutsidePhotoUrl='" + storeOutsidePhotoUrl + '\'' +
+                ", email='" + email + '\'' +
+                ", lat=" + lat +
+                ", verificationCode='" + verificationCode + '\'' +
+                ", storeInsidePhotoUrl1='" + storeInsidePhotoUrl1 + '\'' +
+                ", storeInsidePhotoUrl2='" + storeInsidePhotoUrl2 + '\'' +
+                ", bossIdcardPhotoUrl1='" + bossIdcardPhotoUrl1 + '\'' +
+                ", bossIdcardPhotoUrl2='" + bossIdcardPhotoUrl2 + '\'' +
+                '}';
+    }
 }

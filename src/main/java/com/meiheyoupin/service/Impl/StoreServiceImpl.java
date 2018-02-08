@@ -11,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 
 @Service
@@ -48,6 +46,18 @@ public class StoreServiceImpl implements StoreService {
     public void modifyStore(Store store) {
         store.setUpdateTime(new Date());
         storeMapper.updateStore(store);
+    }
+
+    /*
+    根据商家实体类查询所对应的商家
+     */
+    @Override
+    public Map<String, Object> getStoresByInvitationCode(String inviteCode) {
+        Map<String,Object> map = new HashMap<String,Object>();
+        Store store = new Store();
+        store.setInvitationCode(inviteCode);
+        map.put("stores",storeMapper.selectStoreByObj(store));
+        return map;
     }
 
     /*

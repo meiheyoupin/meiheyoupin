@@ -107,6 +107,37 @@
         ,store.email as email
         ,store.lat as lat
   </sql>
+
+  <select id="selectStoreByObj" parameterType="com.meiheyoupin.entity.Store" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from store
+    <where>
+      <if test="lat != null ">and store.lat = #{lat}</if>
+      <if test="email != null ">and store.email = #{email}</if>
+      <if test="storeOutsidePhotoUrl != null ">and store.store_outside_photo_url = #{storeOutsidePhotoUrl}</if>
+      <if test="storeLicencePhotoUrl != null ">and store.store_licence_photo_url = #{storeLicencePhotoUrl}</if>
+      <if test="state != null ">and store.state = #{state}</if>
+      <if test="tel != null ">and store.tel = #{tel}</if>
+      <if test="certificatePhotoUrl != null ">and store.certificate_photo_url = #{certificatePhotoUrl}</if>
+      <if test="name != null ">and store.name = #{name}</if>
+      <if test="businessType != null ">and store.business_type = #{businessType}</if>
+      <if test="bossIdcardPhotoUrl != null ">and store.boss_idcard_photo_url = #{bossIdcardPhotoUrl}</if>
+      <if test="avatarUrl != null ">and store.avatar_url = #{avatarUrl}</if>
+      <if test="updateTime != null ">and store.update_time = #{updateTime}</if>
+      <if test="password != null ">and store.password = #{password}</if>
+      <if test="bossName != null ">and store.boss_name = #{bossName}</if>
+      <if test="bossGender != null ">and store.boss_gender = #{bossGender}</if>
+      <if test="description != null ">and store.description = #{description}</if>
+      <if test="createTime != null ">and store.create_time = #{createTime}</if>
+      <if test="storeInsidePhotoUrl != null ">and store.store_inside_photo_url = #{storeInsidePhotoUrl}</if>
+      <if test="lng != null ">and store.lng = #{lng}</if>
+      <if test="address != null ">and store.address = #{address}</if>
+      <if test="invitationCode != null ">and store.invitation_code = #{invitationCode}</if>
+      <if test="id != null ">and store.id = #{id}</if>
+    </where>
+  </select>
+
   <update id="updateStoreStateByStoreId" parameterType="Integer[]">
     UPDATE store SET state=1
     <where>
