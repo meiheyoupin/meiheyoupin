@@ -2,6 +2,7 @@
 package com.meiheyoupin.common;
 
 
+import com.meiheyoupin.common.entity.pojo;
 import com.meiheyoupin.dao.*;
 import com.meiheyoupin.utils.ImdadaCityUtils;
 import com.meiheyoupin.utils.ImdadaStoreUtils;
@@ -19,6 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Stream;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -96,7 +98,6 @@ public class ApplicationTest {
 
     @Test
     public void test2(){
-        System.out.println(ordersService.getOrdersForInviteCode("1111"));
     }
 
     @Test
