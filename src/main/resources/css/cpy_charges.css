@@ -59,7 +59,7 @@ body{
 #cpy_charges{
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: -8px;
+    /*margin-bottom: -8px;*/
 }
 #cpy_charges li{
     position: relative;
