@@ -44,7 +44,7 @@ public class StoreController {
             PageInfo<Store> pageInfo = new PageInfo<Store>(list);
             return R1.add("stores",pageInfo);
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error("服务器内部错误");
         }
     }
 
@@ -56,9 +56,9 @@ public class StoreController {
     public R1 updateStore(@RequestBody Store store){
         try {
             storeService.modifyStore(store);
-            return R1.success(200,"商铺修改成功");
+            return R1.success("商铺修改成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 

@@ -31,9 +31,9 @@ public class Orders {
 
     private Integer storeId;
 
-    private BigDecimal paymentAmount;
+    private Double paymentAmount;
 
-    private BigDecimal totalAmount;
+    private Double totalAmount;
 
     private Byte state;
 
@@ -55,9 +55,9 @@ public class Orders {
 
     private Double carriageAmount;
 
-    private BigDecimal couponAmount;
+    private Double couponAmount;
 
-    private BigDecimal redEnvelopeAmount;
+    private Double redEnvelopeAmount;
 
     private String payWay;
 
@@ -133,19 +133,19 @@ public class Orders {
         this.userId = userId;
     }
 
-    public BigDecimal getPaymentAmount() {
+    public Double getPaymentAmount() {
         return paymentAmount;
     }
 
-    public void setPaymentAmount(BigDecimal paymentAmount) {
+    public void setPaymentAmount(Double paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 
-    public BigDecimal getTotalAmount() {
+    public Double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(BigDecimal totalAmount) {
+    public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
@@ -213,19 +213,19 @@ public class Orders {
         this.comment = comment == null ? null : comment.trim();
     }
 
-    public BigDecimal getCouponAmount() {
+    public Double getCouponAmount() {
         return couponAmount;
     }
 
-    public void setCouponAmount(BigDecimal couponAmount) {
+    public void setCouponAmount(Double couponAmount) {
         this.couponAmount = couponAmount;
     }
 
-    public BigDecimal getRedEnvelopeAmount() {
+    public Double getRedEnvelopeAmount() {
         return redEnvelopeAmount;
     }
 
-    public void setRedEnvelopeAmount(BigDecimal redEnvelopeAmount) {
+    public void setRedEnvelopeAmount(Double redEnvelopeAmount) {
         this.redEnvelopeAmount = redEnvelopeAmount;
     }
 

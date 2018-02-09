@@ -1,20 +1,29 @@
 package com.meiheyoupin.service.Impl;
 
+import com.alipay.api.response.AlipayTradeRefundResponse;
+import com.aliyuncs.exceptions.ClientException;
 import com.meiheyoupin.common.pay.PayUtils;
+import com.meiheyoupin.dao.OrdersMapper;
 import com.meiheyoupin.dao.RefundMapper;
+import com.meiheyoupin.dao.UserMapper;
 import com.meiheyoupin.entity.Orders;
 import com.meiheyoupin.entity.Refund;
+import com.meiheyoupin.entity.User;
 import com.meiheyoupin.service.OrdersService;
 import com.meiheyoupin.service.RefundService;
+import com.meiheyoupin.utils.SMSUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
 @Service
+@Transactional
 public class RefundServiceImpl implements RefundService {
 
     @Autowired
@@ -22,6 +31,12 @@ public class RefundServiceImpl implements RefundService {
 
     @Autowired
     OrdersService ordersService;
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Autowired
+    OrdersMapper ordersMapper;
 
     /*
     根据退款单状态遍历退款单
@@ -35,24 +50,64 @@ public class RefundServiceImpl implements RefundService {
     退款单审核通过
      */
     @Override
-    public void modifyRefundById(Integer id) {
+    public int auditRefund(Integer id) {
+        Refund refund = refundMapper.selectByPrimaryKey(id);
+        refund.setState(2);
+        refund.setUpdateTime(new Date());
+        User user = userMapper.selectUserFromRefundId(id);
+        try {
+            thirdPartyDealRefund(id);
+        }catch (Exception e){
+            return -1;
+        }
+        new Thread(()->{
+            try {
+                SMSUtils.sendUserRefundSuccess(user.getTel(),user.getContactsName(),ordersMapper.selectOrderById(refund.getOrderId()).getName());
+            } catch (ClientException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        return refundMapper.updateByPrimaryKeySelective(refund);
+    }
+
+    /*
+    退款单审核不通过
+     */
+    @Override
+    public int unAuditRefund(Integer id,String reason) {
+        Refund refund = refundMapper.selectByPrimaryKey(id);
+        refund.setState(6);
+        refund.setUpdateTime(new Date());
+        User user = userMapper.selectUserFromRefundId(id);
+        new Thread(()->{
+            try {
+                SMSUtils.sendUserRefundFail(user.getTel(),user.getContactsName(),ordersMapper.selectOrderById(refund.getOrderId()).getName(),reason);
+            } catch (ClientException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        return refundMapper.updateByPrimaryKeySelective(refund);
+    }
+
+    /*
+    第三方申请退款中
+     */
+    private void thirdPartyDealRefund(Integer id) {
         Refund refund = refundMapper.selectByPrimaryKey(id);
         Orders orders = ordersService.getOrderById(refund.getOrderId());
         if ("wxpay".equalsIgnoreCase(orders.getPayWay())) {
-            //微信支付
-            Map<String, String> wxpayRefundDetail = PayUtils.wxpayRefund(orders.getId(), orders.getPaymentAmount().doubleValue(),
-                    orders.getPaymentAmount().doubleValue(), refund.getReason());
-            if (wxpayRefundDetail != null && "SUCCESS".equals(wxpayRefundDetail.get("result_code"))) {
-                String wxpayRefundId = wxpayRefundDetail.get("refund_id_0");
-                if (wxpayRefundId != null) {
-                    refund.setWxpayRefundId(wxpayRefundId);
-                    refund.setState(1);
-                    refundMapper.updateRefund(refund);
-                }
+            Map<String, String> response = PayUtils.wxpayRefund(orders.getId(), orders.getPaymentAmount(),
+                    orders.getPaymentAmount(), refund.getReason());
+            if (response != null && "SUCCESS".equals(response.get("result_code"))) {
+                refund.setWxpayRefundId(response.get("refund_id_0"));
+                refund.setState(3);
             }
-        } else if ("aliPay".equalsIgnoreCase(orders.getPayWay())) {
-            //支付宝支付
-            // TODO
+        } else if ("alipay".equalsIgnoreCase(orders.getPayWay())) {
+            AlipayTradeRefundResponse response = PayUtils.alipayRefund(orders.getId(), orders.getPaymentAmount());
+            if (response != null && response.isSuccess()) {
+                refund.setAlipayRefundId(response.getTradeNo());
+                refund.setState(3);
+            }
         }
         if (refund.getState() != 1) {
 

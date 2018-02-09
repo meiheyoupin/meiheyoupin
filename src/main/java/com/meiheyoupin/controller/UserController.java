@@ -31,7 +31,7 @@ public class UserController {
             PageInfo<User> pageInfo = new PageInfo<User>(list);
             return R1.add("users",pageInfo);
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -44,7 +44,7 @@ public class UserController {
         try {
             return R1.add("hr",userService.getUserToAudit());
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -56,9 +56,9 @@ public class UserController {
     public R1 auditHr(@RequestParam Integer id){
         try {
             userService.modifyUserToHRSuccess(id);
-            return R1.success(200,"审核通过");
+            return R1.success("审核通过");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -71,9 +71,9 @@ public class UserController {
                         @RequestParam String reason){
         try {
             userService.modifyUserToHRFail(id,reason);
-            return R1.success(200,"审核未通过");
+            return R1.success("审核未通过");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 }

@@ -182,4 +182,28 @@ public class User {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", tel='" + tel + '\'' +
+                ", password='" + password + '\'' +
+                ", invitationCode='" + invitationCode + '\'' +
+                ", contactsName='" + contactsName + '\'' +
+                ", contactsGender=" + contactsGender +
+                ", companyName='" + companyName + '\'' +
+                ", companyDepart='" + companyDepart + '\'' +
+                ", companyAddr='" + companyAddr + '\'' +
+                ", companyIntro='" + companyIntro + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", openId='" + openId + '\'' +
+                ", qqOpenId='" + qqOpenId + '\'' +
+                ", unionId='" + unionId + '\'' +
+                ", email='" + email + '\'' +
+                ", companyCreditCode='" + companyCreditCode + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

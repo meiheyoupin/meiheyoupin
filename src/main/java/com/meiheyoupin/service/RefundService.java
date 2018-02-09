@@ -9,6 +9,7 @@ public interface RefundService {
 
     List<Refund> getRefundsByState(Integer state);
 
-    void modifyRefundById(Integer id);
+    int auditRefund(Integer id);
 
+    int unAuditRefund(Integer id,String reason);
 }

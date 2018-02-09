@@ -249,4 +249,14 @@
     WHERE WHERE company_credit_code IS NULL AND company_name IS NOT NULL
     ORDER BY update_time
   </select>
+
+  <select id="selectUserFromRefundId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM USER
+    WHERE id = (
+    SELECT user_id FROM orders
+    WHERE id = (SELECT order_id FROM refund WHERE id = #{refundId})
+    )
+  </select>
 </mapper>

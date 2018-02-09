@@ -66,11 +66,10 @@ public class StoreServiceImpl implements StoreService {
     public void sendSMSSuccess(Integer storeId){
         Store store = storeMapper.selectStoresByStoreId(storeId);
         String password = UUID.randomUUID().toString().substring(0,8);
-        Boolean Sms = false;
         try {
-            Sms = SMSUtils.auditStoresMessage(store.getTel(),
-                    store.getTel(),
-                    password);
+            SMSUtils.auditStoresMessage(store.getTel(),
+                store.getTel(),
+                password);
         }catch (Exception e){
             e.printStackTrace();
         }finally {

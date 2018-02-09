@@ -30,9 +30,9 @@ public class PlatformController {
     public R1 toAuditStores(@RequestParam(value = "storeIds",required = false) Integer[] storeIds){
         try {
             storeService.autidStores(storeIds);
-            return R1.success(200,"请求成功");
+            return R1.success("请求成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -44,9 +44,9 @@ public class PlatformController {
                                   @RequestParam(value = "reason",required = false) String reason){
         try {
             storeService.unsanctionedStores(storeIds,reason);
-            return R1.success(200,"请求成功");
+            return R1.success("请求成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -57,9 +57,9 @@ public class PlatformController {
     public R1 toAuditGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
         try {
             goodsService.auditGoods(goodIds);
-            return R1.success(200,"请求成功");
+            return R1.success("请求成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -71,9 +71,9 @@ public class PlatformController {
                                  @RequestParam(value = "reason",required = false) String reason){
         try {
             goodsService.unsanctionedGoods(goodIds,reason);
-            return R1.success(200,"请求成功");
+            return R1.success("请求成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -84,9 +84,9 @@ public class PlatformController {
     public R1 toDownGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
         try {
             goodsService.downGoods(goodIds);
-            return R1.success(200,"选中套餐已下架");
+            return R1.success("选中套餐已下架");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -97,9 +97,9 @@ public class PlatformController {
     public R1 toUpGoods(@RequestParam(value = "goodIds",required = false) Integer[] goodIds){
         try {
             goodsService.upGoods(goodIds);
-            return R1.success(200,"选中套餐已上架");
+            return R1.success("选中套餐已上架");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
