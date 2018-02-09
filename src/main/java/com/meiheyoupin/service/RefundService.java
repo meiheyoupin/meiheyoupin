@@ -11,5 +11,5 @@ public interface RefundService {
 
     int auditRefund(Integer id);
 
-    int unAuditRefund(Integer id);
+    int unAuditRefund(Integer id,String reason);
 }

@@ -21,4 +21,6 @@ public interface UserMapper {
     List<User> selectUser();
 
     List<User> selectUserToAudit();
+
+    User selectUserFromRefundId(Integer refundId);
 }

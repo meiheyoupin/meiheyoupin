@@ -83,6 +83,23 @@ public class SMSUtils {
         return sendMessage(tel,templateCode,templateParam);
     }
 
+    /*
+    退款单通过审核
+     */
+    public static Boolean sendUserRefundSuccess(String tel,String username, String goodsname) throws ClientException {
+        String templateCode = "SMS_125022244";
+        String templateParam = "{\"username\":\"" + username +"\",\"goodsname\":\"" + goodsname + "\"}";
+        return sendMessage(tel,templateCode,templateParam);
+    }
+
+    /*
+    退款单未通过审核
+     */
+    public static Boolean sendUserRefundFail(String tel,String username, String goodsname, String reason) throws ClientException {
+        String templateCode = "SMS_125027319";
+        String templateParam = "{\"username\":\"" + username +"\",\"goodsname\":\"" + goodsname + "\",\"reason\":\"" + reason + "\"}";
+        return sendMessage(tel,templateCode,templateParam);
+    }
 
     private static boolean sendMessage(String tel,String templateCode,String templateParam){
         IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", ACCESS_KEY_ID,

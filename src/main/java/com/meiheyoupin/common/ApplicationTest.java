@@ -84,6 +84,9 @@ public class ApplicationTest {
     @Autowired
     OrdersMapper ordersMapper;
 
+    @Autowired
+    UserMapper userMapper;
+
     @Test
     public void test1(){
         Map<String, Object> map = new HashMap<>();
@@ -98,8 +101,8 @@ public class ApplicationTest {
 
     @Test
     public void test2(){
-        System.out.println(refundService.unAuditRefund(4));
-        ;
+        User user = userMapper.selectUserFromRefundId(5);
+        System.out.println(ordersMapper.selectOrderById(refundMapper.selectByPrimaryKey(5).getOrderId()).getName());
     }
 
     @Test

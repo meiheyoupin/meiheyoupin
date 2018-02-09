@@ -11,6 +11,7 @@ import io.swagger.models.auth.In;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -47,7 +48,7 @@ public class RefundController {
      * @return  code:200成功/500失败    msg:异常信息
      */
     @RequiresRoles("admin")
-    @GetMapping("auditRefund")
+    @PostMapping("auditRefund")
     public R1 toAuditRefund(@RequestParam Integer id){
         int res = refundService.auditRefund(id);
         if ( res > 0){
@@ -64,9 +65,10 @@ public class RefundController {
      * @return  code:200成功/500失败    msg:异常信息
      */
     @RequiresRoles("admin")
-    @GetMapping("unauditRefund")
-    public R1 toUnauditRefund(@RequestParam Integer id){
-        if (refundService.unAuditRefund(id)>0){
+    @PostMapping("unauditRefund")
+    public R1 toUnauditRefund(@RequestParam Integer id,
+                              @RequestParam String reason){
+        if (refundService.unAuditRefund(id,reason)>0){
             return R1.success("审核未通过处理成功");
         }
         return R1.error();

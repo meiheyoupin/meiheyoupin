@@ -1,16 +1,22 @@
 package com.meiheyoupin.service.Impl;
 
 import com.alipay.api.response.AlipayTradeRefundResponse;
+import com.aliyuncs.exceptions.ClientException;
 import com.meiheyoupin.common.pay.PayUtils;
+import com.meiheyoupin.dao.OrdersMapper;
 import com.meiheyoupin.dao.RefundMapper;
+import com.meiheyoupin.dao.UserMapper;
 import com.meiheyoupin.entity.Orders;
 import com.meiheyoupin.entity.Refund;
+import com.meiheyoupin.entity.User;
 import com.meiheyoupin.service.OrdersService;
 import com.meiheyoupin.service.RefundService;
+import com.meiheyoupin.utils.SMSUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +32,12 @@ public class RefundServiceImpl implements RefundService {
     @Autowired
     OrdersService ordersService;
 
+    @Autowired
+    UserMapper userMapper;
+
+    @Autowired
+    OrdersMapper ordersMapper;
+
     /*
     根据退款单状态遍历退款单
      */
@@ -39,14 +51,22 @@ public class RefundServiceImpl implements RefundService {
      */
     @Override
     public int auditRefund(Integer id) {
-        Refund refund = new Refund();
-        refund.setId(id);
+        Refund refund = refundMapper.selectByPrimaryKey(id);
         refund.setState(2);
+        refund.setUpdateTime(new Date());
+        User user = userMapper.selectUserFromRefundId(id);
         try {
             thirdPartyDealRefund(id);
         }catch (Exception e){
             return -1;
         }
+        new Thread(()->{
+            try {
+                SMSUtils.sendUserRefundSuccess(user.getTel(),user.getContactsName(),ordersMapper.selectOrderById(refund.getOrderId()).getName());
+            } catch (ClientException e) {
+                e.printStackTrace();
+            }
+        }).start();
         return refundMapper.updateByPrimaryKeySelective(refund);
     }
 
@@ -54,10 +74,18 @@ public class RefundServiceImpl implements RefundService {
     退款单审核不通过
      */
     @Override
-    public int unAuditRefund(Integer id) {
-        Refund refund = new Refund();
-        refund.setId(id);
+    public int unAuditRefund(Integer id,String reason) {
+        Refund refund = refundMapper.selectByPrimaryKey(id);
         refund.setState(6);
+        refund.setUpdateTime(new Date());
+        User user = userMapper.selectUserFromRefundId(id);
+        new Thread(()->{
+            try {
+                SMSUtils.sendUserRefundFail(user.getTel(),user.getContactsName(),ordersMapper.selectOrderById(refund.getOrderId()).getName(),reason);
+            } catch (ClientException e) {
+                e.printStackTrace();
+            }
+        }).start();
         return refundMapper.updateByPrimaryKeySelective(refund);
     }
 
