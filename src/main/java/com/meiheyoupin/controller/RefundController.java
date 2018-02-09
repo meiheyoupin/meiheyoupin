@@ -7,6 +7,7 @@ import com.meiheyoupin.common.utils.R;
 import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.Refund;
 import com.meiheyoupin.service.RefundService;
+import io.swagger.models.auth.In;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,19 +41,35 @@ public class RefundController {
         }
     }
 
-    /*
-    退款单审核通过
+    /**
+     * 审核退款单通过
+     * @param id 退款单ID
+     * @return  code:200成功/500失败    msg:异常信息
      */
     @RequiresRoles("admin")
     @GetMapping("auditRefund")
     public R1 toAuditRefund(@RequestParam Integer id){
-        try {
-            refundService.modifyRefundById(id);
-            return R1.success("审核退款单成功");
-        }catch (Exception e ){
-            return R1.error();
+        int res = refundService.auditRefund(id);
+        if ( res > 0){
+            return R1.success("退款单已通过审核");
+        }else if (res == -1){
+            return R1.error("第三方申请退款失败");
         }
+        return R1.error();
     }
 
+    /**
+     * 审核退款单不通过
+     * @param id 审核单ID
+     * @return  code:200成功/500失败    msg:异常信息
+     */
+    @RequiresRoles("admin")
+    @GetMapping("unauditRefund")
+    public R1 toUnauditRefund(@RequestParam Integer id){
+        if (refundService.unAuditRefund(id)>0){
+            return R1.success("审核未通过处理成功");
+        }
+        return R1.error();
+    }
 
 }

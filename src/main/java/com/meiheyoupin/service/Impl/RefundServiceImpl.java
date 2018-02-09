@@ -9,6 +9,7 @@ import com.meiheyoupin.service.OrdersService;
 import com.meiheyoupin.service.RefundService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 
 @Service
+@Transactional
 public class RefundServiceImpl implements RefundService {
 
     @Autowired
@@ -36,7 +38,33 @@ public class RefundServiceImpl implements RefundService {
     退款单审核通过
      */
     @Override
-    public void modifyRefundById(Integer id) {
+    public int auditRefund(Integer id) {
+        Refund refund = new Refund();
+        refund.setId(id);
+        refund.setState(2);
+        try {
+            thirdPartyDealRefund(id);
+        }catch (Exception e){
+            return -1;
+        }
+        return refundMapper.updateByPrimaryKeySelective(refund);
+    }
+
+    /*
+    退款单审核不通过
+     */
+    @Override
+    public int unAuditRefund(Integer id) {
+        Refund refund = new Refund();
+        refund.setId(id);
+        refund.setState(6);
+        return refundMapper.updateByPrimaryKeySelective(refund);
+    }
+
+    /*
+    第三方申请退款中
+     */
+    private void thirdPartyDealRefund(Integer id) {
         Refund refund = refundMapper.selectByPrimaryKey(id);
         Orders orders = ordersService.getOrderById(refund.getOrderId());
         if ("wxpay".equalsIgnoreCase(orders.getPayWay())) {
