@@ -5,8 +5,8 @@
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="store_id" jdbcType="INTEGER" property="storeId" />
-    <result column="payment_amount" jdbcType="DECIMAL" property="paymentAmount" />
-    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="payment_amount" jdbcType="DOUBLE" property="paymentAmount" />
+    <result column="total_amount" jdbcType="DOUBLE" property="totalAmount" />
     <result column="state" jdbcType="TINYINT" property="state" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="count" jdbcType="INTEGER" property="count" />
@@ -16,9 +16,9 @@
     <result column="has_invoice" jdbcType="TINYINT" property="hasInvoice" />
     <result column="invoice_id" jdbcType="INTEGER" property="invoiceId" />
     <result column="comment" jdbcType="VARCHAR" property="comment" />
-    <result column="carriage_amount" jdbcType="DECIMAL" property="carriageAmount"/>
-    <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
-    <result column="red_envelope_amount" jdbcType="DECIMAL" property="redEnvelopeAmount" />
+    <result column="carriage_amount" jdbcType="DOUBLE" property="carriageAmount"/>
+    <result column="coupon_amount" jdbcType="DOUBLE" property="couponAmount" />
+    <result column="red_envelope_amount" jdbcType="DOUBLE" property="redEnvelopeAmount" />
     <result column="pay_way" jdbcType="VARCHAR" property="payWay" />
     <result column="store_reject_reason" jdbcType="TINYINT" property="storeRejectReason" />
     <result column="refund_reason" jdbcType="TINYINT" property="refundReason" />

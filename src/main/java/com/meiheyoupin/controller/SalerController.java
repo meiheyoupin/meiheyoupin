@@ -44,7 +44,7 @@ public class SalerController {
             salerService.addSaler(saler);
             return R1.success(201,"创建成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -57,9 +57,9 @@ public class SalerController {
     public R1 updateSaler(@RequestBody Saler saler){
         try {
             salerService.putSaler(saler);
-            return R1.success(200,"修改成功");
+            return R1.success("修改成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -72,9 +72,9 @@ public class SalerController {
     public R1 deleteSaler(@RequestParam Integer salerId){
         try {
             salerService.removeSaler(salerId);
-            return R1.success(200,"删除成功");
+            return R1.success("删除成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 }

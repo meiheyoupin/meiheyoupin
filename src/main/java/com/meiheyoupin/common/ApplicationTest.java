@@ -98,6 +98,7 @@ public class ApplicationTest {
 
     @Test
     public void test2(){
+        System.out.println(refundService.getRefundsByState(2));
     }
 
     @Test

@@ -32,7 +32,7 @@ public class GoodsController {
             PageInfo<Map> pageInfo = new PageInfo<Map>(list);
             return R1.add("goods",pageInfo);
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -44,9 +44,9 @@ public class GoodsController {
     public R1 goods(@RequestBody Goods goods){
         try {
             goodsService.modifyGoods(goods);
-            return R1.success(200,"修改套餐成功");
+            return R1.success("修改套餐成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 
@@ -58,9 +58,9 @@ public class GoodsController {
     public R1 goods(@RequestParam Integer goodId){
         try {
             goodsService.removeGoods(goodId);
-            return R1.success(200,"删除套餐成功");
+            return R1.success("删除套餐成功");
         }catch (Exception e){
-            return R1.error(500,"服务器内部错误");
+            return R1.error();
         }
     }
 }

@@ -12,6 +12,14 @@ public class Refund {
 
     private BigDecimal refundAmount;
 
+    /*
+    1:待审核
+    2:审核通过
+    3:第三方申请退款中
+    4:第三方申请退款成功
+    5:第三方申请退款失败
+    6:审核不通过
+     */
     private Integer state;
 
     private String reason;

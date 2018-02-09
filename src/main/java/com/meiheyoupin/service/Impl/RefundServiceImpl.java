@@ -1,5 +1,6 @@
 package com.meiheyoupin.service.Impl;
 
+import com.alipay.api.response.AlipayTradeRefundResponse;
 import com.meiheyoupin.common.pay.PayUtils;
 import com.meiheyoupin.dao.RefundMapper;
 import com.meiheyoupin.entity.Orders;
@@ -39,20 +40,18 @@ public class RefundServiceImpl implements RefundService {
         Refund refund = refundMapper.selectByPrimaryKey(id);
         Orders orders = ordersService.getOrderById(refund.getOrderId());
         if ("wxpay".equalsIgnoreCase(orders.getPayWay())) {
-            //微信支付
-            Map<String, String> wxpayRefundDetail = PayUtils.wxpayRefund(orders.getId(), orders.getPaymentAmount().doubleValue(),
-                    orders.getPaymentAmount().doubleValue(), refund.getReason());
-            if (wxpayRefundDetail != null && "SUCCESS".equals(wxpayRefundDetail.get("result_code"))) {
-                String wxpayRefundId = wxpayRefundDetail.get("refund_id_0");
-                if (wxpayRefundId != null) {
-                    refund.setWxpayRefundId(wxpayRefundId);
-                    refund.setState(1);
-                    refundMapper.updateRefund(refund);
-                }
+            Map<String, String> response = PayUtils.wxpayRefund(orders.getId(), orders.getPaymentAmount(),
+                    orders.getPaymentAmount(), refund.getReason());
+            if (response != null && "SUCCESS".equals(response.get("result_code"))) {
+                refund.setWxpayRefundId(response.get("refund_id_0"));
+                refund.setState(3);
             }
-        } else if ("aliPay".equalsIgnoreCase(orders.getPayWay())) {
-            //支付宝支付
-            // TODO
+        } else if ("alipay".equalsIgnoreCase(orders.getPayWay())) {
+            AlipayTradeRefundResponse response = PayUtils.alipayRefund(orders.getId(), orders.getPaymentAmount());
+            if (response != null && response.isSuccess()) {
+                refund.setAlipayRefundId(response.getTradeNo());
+                refund.setState(3);
+            }
         }
         if (refund.getState() != 1) {
 

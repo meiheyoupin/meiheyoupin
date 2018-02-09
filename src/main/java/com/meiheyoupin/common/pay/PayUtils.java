@@ -3,7 +3,12 @@ package com.meiheyoupin.common.pay;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
-import com.alipay.api.request.AlipayTradeQueryRequest;
+import com.alipay.api.request.AlipayTradeFastpayRefundQueryRequest;
+import com.alipay.api.request.AlipayTradePrecreateRequest;
+import com.alipay.api.request.AlipayTradeRefundRequest;
+import com.alipay.api.response.AlipayTradeFastpayRefundQueryResponse;
+import com.alipay.api.response.AlipayTradePrecreateResponse;
+import com.alipay.api.response.AlipayTradeRefundResponse;
 import com.github.wxpay.sdk.WXPay;
 import com.github.wxpay.sdk.WXPayConstants;
 
@@ -12,6 +17,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PayUtils {
+
+    public static String WXPAY_RESPONSE_SUCCESS = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>" + "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
+    public static String WXPAY_RESPONSE_FAIL = "<xml>\" + \"<return_code><![CDATA[FAIL]]></return_code>\" + \"<return_msg></return_msg>\" + \"</xml> ";
+    public static String ALIPAY_RESPONSE_SUCCESS = "success";
+    public static String ALIPAY_RESPONSE_FAIL = "fail";
 
     private static com.github.wxpay.sdk.WXPayConfig config;
 
@@ -27,6 +37,36 @@ public class PayUtils {
         }
     }
 
+
+    /**
+     * 微信支付下单交易
+     *
+     * @param orderNumber   订单号
+     * @param orderName     订单名
+     * @param paymentAmount 支付金额
+     * @param remoteAddress 客户端ip地址
+     * @return 二维码url
+     */
+    public static String wxpayTrade(String orderNumber, String orderName, Double paymentAmount, String remoteAddress) {
+        WXPay wxpay = new WXPay(config);
+        // 所需支付金额以分为单位
+        paymentAmount *= 100;
+        Map<String, String> params = new HashMap<>();
+        params.put("body", orderName);
+        params.put("out_trade_no", orderNumber);
+        params.put("fee_type", "CNY");
+        params.put("total_fee", String.valueOf(paymentAmount.intValue()));
+        params.put("spbill_create_ip", remoteAddress);
+        params.put("notify_url", "http://www.meiheyoupin.com/wxpay/notify");
+        params.put("trade_type", "NATIVE");  // 此处指定为扫码支付
+        try {
+            Map<String, String> map = wxpay.unifiedOrder(params);
+            return map.get("code_url");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public static Map<String, String> wxpayOrderQuery(String orderId) {
         WXPay wxpay = new WXPay(config);
@@ -71,16 +111,48 @@ public class PayUtils {
         return null;
     }
 
-    public static String alipayRefundQuery(String orderNumber) {
-        AlipayTradeQueryRequest aliPayRequest = new AlipayTradeQueryRequest();
-        aliPayRequest.setBizContent("{\"out_trade_no\":\"" + orderNumber + "\"}");
-        String result = null;
+    public static AlipayTradeRefundResponse alipayRefund(String orderNumber, Double refundAmount) {
+        AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
+        request.setBizContent("{" +
+                "\"out_trade_no\":\"" + orderNumber + "\"," +
+                "\"refund_amount\":" + refundAmount +
+                "  }");
         try {
-            result = alipayClient.execute(aliPayRequest).getBody();
+            return alipayClient.execute(request);
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
-        return result;
+        return null;
+    }
+
+    public static AlipayTradePrecreateResponse alipayTrade(String orderNumber, Double paymentAmount, String orderName) {
+        AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();
+        request.setNotifyUrl(AlipayConfig.notify_url);
+        request.setBizContent("{" +
+                "\"out_trade_no\":\"" + orderNumber + "\"," +
+                "\"total_amount\":" + paymentAmount + "," +
+                "\"subject\":\"" + orderName + "\"" +
+                "}");
+        try {
+            return alipayClient.execute(request);
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static AlipayTradeFastpayRefundQueryResponse alipayRefundQuery(String orderNumber) {
+        AlipayTradeFastpayRefundQueryRequest request = new AlipayTradeFastpayRefundQueryRequest();
+        request.setBizContent("{" +
+                "\"out_trade_no\":\"" + orderNumber + "\"," +
+                "\"out_request_no\":\"" + orderNumber + "\"" +
+                "}");
+        try {
+            return alipayClient.execute(request);
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

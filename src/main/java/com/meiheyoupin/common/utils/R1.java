@@ -11,7 +11,7 @@ public class R1 extends HashMap<String,Object>{
     private static final long serialVersionUID = 1L;
 
     public R1(){
-        put("code",200);
+        put("code",HttpStatus.SC_OK);
     }
 
     public static R1 error() {

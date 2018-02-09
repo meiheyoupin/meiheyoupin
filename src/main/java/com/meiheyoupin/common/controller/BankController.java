@@ -1,4 +1,4 @@
-package com.meiheyoupin.controller;
+package com.meiheyoupin.common.controller;
 
 
 import com.meiheyoupin.common.utils.BankInfo;
