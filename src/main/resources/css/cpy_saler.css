@@ -57,6 +57,9 @@ body{
 	width: 100%;
 }
 /*人员信息******************/
+.order-nav .one{
+	color: #FED500;
+}
 #cpy-person{
 	background: #fff;
 	padding: 15px 25px;

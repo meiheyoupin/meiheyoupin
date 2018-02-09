@@ -40,7 +40,6 @@
             </#list>
             </table>
         <textarea readonly="readonly" class="remarks">${good.description}</textarea>
-        <textarea readonly="readonly" class="mark">${good.specification}</textarea>
         </div>
         <div class="btn-box">
             <div class="btn">
