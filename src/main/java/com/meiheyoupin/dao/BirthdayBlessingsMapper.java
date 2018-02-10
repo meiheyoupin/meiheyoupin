@@ -8,5 +8,7 @@ public interface BirthdayBlessingsMapper {
 
     List<BirthdayBlessings> selectByExample(BirthdayBlessingsExample example);
 
-    String selectMsgByCompany(Integer company);
+    String selectMsgByCompany(String companyCreditCode);
+
+    int insertBirthdayBlessings(String companyCreditCode);
 }

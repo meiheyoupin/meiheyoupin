@@ -5,7 +5,7 @@ public class BirthdayBlessings {
 
     private String msg;
 
-    private Integer company;
+    private String companyCreditCode;
 
     public Integer getId() {
         return id;
@@ -23,11 +23,11 @@ public class BirthdayBlessings {
         this.msg = msg == null ? null : msg.trim();
     }
 
-    public Integer getCompany() {
-        return company;
+    public String getCompanyCreditCode() {
+        return companyCreditCode;
     }
 
-    public void setCompany(Integer company) {
-        this.company = company;
+    public void setCompanyCreditCode(String companyCreditCode) {
+        this.companyCreditCode = companyCreditCode;
     }
 }

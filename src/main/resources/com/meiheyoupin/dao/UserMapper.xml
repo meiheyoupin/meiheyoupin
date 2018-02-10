@@ -8,6 +8,7 @@
     <result column="invitation_code" jdbcType="VARCHAR" property="invitationCode" />
     <result column="contacts_name" jdbcType="VARCHAR" property="contactsName" />
     <result column="contacts_gender" jdbcType="TINYINT" property="contactsGender" />
+    <result column="head_img_url" jdbcType="VARCHAR" property="headImgUrl" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="company_depart" jdbcType="VARCHAR" property="companyDepart" />
     <result column="company_addr" jdbcType="VARCHAR" property="companyAddr" />
@@ -22,34 +23,38 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, tel, password, invitation_code, contacts_name, contacts_gender, company_name, 
+    id, tel, password, invitation_code, contacts_name, contacts_gender, head_img_url, company_name,
     company_depart, company_addr, company_intro, avatar_url, open_id, qq_open_id, union_id, email,
     company_credit_code, create_time, update_time
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.meiheyoupin.entity.User">
     insert into user (id, tel, password, 
-      invitation_code, contacts_name, contacts_gender, 
+      invitation_code, contacts_name, contacts_gender, head_img_url,
       company_name, company_depart, company_addr, 
       company_intro, avatar_url, open_id, qq_open_id,
       union_id, email, company_credit_code, 
       create_time, update_time)
     values (#{id,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{invitationCode,jdbcType=VARCHAR}, #{contactsName,jdbcType=VARCHAR}, #{contactsGender,jdbcType=TINYINT}, 
+      #{invitationCode,jdbcType=VARCHAR}, #{contactsName,jdbcType=VARCHAR}, #{contactsGender,jdbcType=TINYINT}, #{headImgUrl,jdbcType=VARCHAR},
       #{companyName,jdbcType=VARCHAR}, #{companyDepart,jdbcType=VARCHAR}, #{companyAddr,jdbcType=VARCHAR}, 
       #{companyIntro,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, #{qqOpenId,jdbcType=VARCHAR},
       #{unionId,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{companyCreditCode,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
+
   <insert id="insertSelective" parameterType="com.meiheyoupin.entity.User">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -70,6 +75,9 @@
       </if>
       <if test="contactsGender != null">
         contacts_gender,
+      </if>
+      <if test="headImgUrl != null">
+        head_img_url,
       </if>
       <if test="companyName != null">
         company_name,
@@ -124,6 +132,9 @@
       <if test="contactsGender != null">
         #{contactsGender,jdbcType=TINYINT},
       </if>
+      <if test="headImgUrl != null">
+        #{headImgUrl,jdbcType=VARCHAR},
+      </if>
       <if test="companyName != null">
         #{companyName,jdbcType=VARCHAR},
       </if>
@@ -159,6 +170,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.meiheyoupin.entity.User">
     update user
     <set>
@@ -176,6 +188,9 @@
       </if>
       <if test="contactsGender != null">
         contacts_gender = #{contactsGender,jdbcType=TINYINT},
+      </if>
+      <if test="headImgUrl != null">
+        head_img_url = #{headImgUrl,jdbcType=VARCHAR},
       </if>
       <if test="companyName != null">
         company_name = #{companyName,jdbcType=VARCHAR},
@@ -216,6 +231,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.meiheyoupin.entity.User">
     update user
     set tel = #{tel,jdbcType=VARCHAR},
@@ -223,6 +239,7 @@
       invitation_code = #{invitationCode,jdbcType=VARCHAR},
       contacts_name = #{contactsName,jdbcType=VARCHAR},
       contacts_gender = #{contactsGender,jdbcType=TINYINT},
+      head_img_url = #{headImgUrl,jdbcType=VARCHAR},
       company_name = #{companyName,jdbcType=VARCHAR},
       company_depart = #{companyDepart,jdbcType=VARCHAR},
       company_addr = #{companyAddr,jdbcType=VARCHAR},
@@ -237,11 +254,13 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
   <select id="selectUser" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
     FROM user ORDER BY create_time DESC
   </select>
+
   <select id="selectUserToAudit" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>

@@ -11,11 +11,19 @@ public class Staffer {
 
     private String phone;
 
-    private Integer company;
+    private String companyCreditCode;
 
     private Date birthday;
 
     private String position;
+
+    public String getCompanyCreditCode() {
+        return companyCreditCode;
+    }
+
+    public void setCompanyCreditCode(String companyCreditCode) {
+        this.companyCreditCode = companyCreditCode;
+    }
 
     public Integer getId() {
         return id;
@@ -47,14 +55,6 @@ public class Staffer {
 
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
-    }
-
-    public Integer getCompany() {
-        return company;
-    }
-
-    public void setCompany(Integer company) {
-        this.company = company;
     }
 
     public Date getBirthday() {

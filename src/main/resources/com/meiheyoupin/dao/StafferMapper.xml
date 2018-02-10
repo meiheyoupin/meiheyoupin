@@ -6,7 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="sex" jdbcType="INTEGER" property="sex" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="company" jdbcType="INTEGER" property="company" />
+    <result column="company_credit_code" jdbcType="VARCHAR" property="companyCreditCode" />
     <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
     <result column="position" jdbcType="VARCHAR" property="position" />
   </resultMap>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, sex, phone, company, birthday, position
+    id, name, sex, phone, company_credit_code, birthday, position
   </sql>
   <select id="selectByExample" parameterType="com.meiheyoupin.entity.StafferExample" resultMap="BaseResultMap">
     select

@@ -12,7 +12,7 @@ public class BirthdayBlessingsServiceImpl implements BirthdayBlessingsService{
     BirthdayBlessingsMapper birthdayBlessingsMapper;
 
     @Override
-    public String getMsgByCompany(Integer company) {
-        return birthdayBlessingsMapper.selectMsgByCompany(company);
+    public String getMsgByCompany(String companyCreditCode) {
+        return birthdayBlessingsMapper.selectMsgByCompany(companyCreditCode);
     }
 }

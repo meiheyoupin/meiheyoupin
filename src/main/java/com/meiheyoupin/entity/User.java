@@ -11,6 +11,8 @@ public class User {
 
     private String invitationCode;
 
+    private String headImgUrl;
+
     private String contactsName;
 
     private Byte contactsGender;
@@ -38,6 +40,14 @@ public class User {
     private Date createTime;
 
     private Date updateTime;
+
+    public String getHeadImgUrl() {
+        return headImgUrl;
+    }
+
+    public void setHeadImgUrl(String headImgUrl) {
+        this.headImgUrl = headImgUrl;
+    }
 
     public String getQqOpenId() {
         return qqOpenId;

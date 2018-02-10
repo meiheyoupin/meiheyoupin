@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.meiheyoupin.entity.BirthdayBlessings">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="msg" jdbcType="VARCHAR" property="msg" />
-    <result column="company" jdbcType="INTEGER" property="company" />
+    <result column="company_credit_code" jdbcType="VARCHAR" property="companyCreditCode" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, msg, company
+    id, msg, company_credit_code
   </sql>
   <select id="selectByExample" parameterType="com.meiheyoupin.entity.BirthdayBlessingsExample" resultMap="BaseResultMap">
     select
@@ -81,7 +81,12 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectMsgByCompany" parameterType="java.lang.Integer" resultType="java.lang.String">
-    SELECT msg FROM birthday_blessings WHERE company=#{company}
+  <select id="selectMsgByCompany" parameterType="java.lang.String" resultType="java.lang.String">
+    SELECT msg FROM birthday_blessings WHERE company_credit_code=#{companyCreditCode}
   </select>
+
+  <insert id="insertBirthdayBlessings" parameterType="java.lang.String">
+    INSERT INTO birthday_blessings(id,msg,company_credit_code)
+    values(#{id,jdbcType=INTEGER},#{msg,jdbcType=VARCHAR},#{company_credit_code,jdbcType=VARCHAR})
+  </insert>
 </mapper>

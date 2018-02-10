@@ -87,6 +87,9 @@ public class ApplicationTest {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    DemandService demandService;
+
     @Test
     public void test1(){
         Map<String, Object> map = new HashMap<>();
@@ -101,8 +104,8 @@ public class ApplicationTest {
 
     @Test
     public void test2(){
-        User user = userMapper.selectUserFromRefundId(5);
-        System.out.println(ordersMapper.selectOrderById(refundMapper.selectByPrimaryKey(5).getOrderId()).getName());
+        System.out.println(demandService.getDemands().get(0).toString());
+
     }
 
     @Test
@@ -160,21 +163,6 @@ public class ApplicationTest {
         SimpleDateFormat df = new SimpleDateFormat("MM-dd");
         String res = df.format(date);
         return res;
-    }
-    @Test
-    public void test9(){
-        for (Staffer staffer:getStaffer()){
-            SimpleDateFormat df = new SimpleDateFormat("MM-dd");
-            String current = df.format(new Date());
-            String birthday = dateToString(staffer.getBirthday());
-            String msg = birthdayBlessingsService.getMsgByCompany(staffer.getCompany());
-            System.out.println(msg);
-            if (birthday.equals(current)){
-
-                //SMSUtils.sendBirthdayBlessings()
-                System.out.println("==================================================================================");
-            }
-        }
     }
 
     @Test

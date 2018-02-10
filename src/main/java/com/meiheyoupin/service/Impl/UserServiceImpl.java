@@ -3,6 +3,7 @@ package com.meiheyoupin.service.Impl;
 
 import com.aliyuncs.exceptions.ClientException;
 import com.meiheyoupin.common.utils.TTUtils;
+import com.meiheyoupin.dao.BirthdayBlessingsMapper;
 import com.meiheyoupin.dao.UserMapper;
 import com.meiheyoupin.entity.User;
 import com.meiheyoupin.service.UserService;
@@ -18,6 +19,9 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    BirthdayBlessingsMapper birthdayBlessingsMapper;
 
     @Override
     public List<User> getUser() {
@@ -38,12 +42,14 @@ public class UserServiceImpl implements UserService{
     @Override
     public void modifyUserToHRSuccess(Integer id) {
         User user = userMapper.selectByPrimaryKey(id);
-        user.setCompanyCreditCode(TTUtils.getUUIDByAmount(6));
+        String companyCreditCode = TTUtils.getUUIDByAmount(6);
+        user.setCompanyCreditCode(companyCreditCode);
         try {
             SMSUtils.sendUserToHRSuccess(user.getTel(),user.getContactsName());
         }catch (Exception e){
             throw new RuntimeException("短信发送失败");
         }
+        birthdayBlessingsMapper.insertBirthdayBlessings(companyCreditCode);
         userMapper.updateByPrimaryKeySelective(user);
     }
 

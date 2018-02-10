@@ -39,8 +39,7 @@
         <!--<table tableName="token" domainObjectName="Token"></table>-->
         <!--<table tableName="goods" domainObjectName="Goods"></table>
         <table tableName="store" domainObjectName="Store"></table>-->
-        <table tableName="goods_category" domainObjectName="goodsCategory"></table>
-        <table tableName="goods_subject" domainObjectName="goodsSubject"></table>
+        <table tableName="demand" domainObjectName="Demand"></table>
         <!--<table tableName="birthday_blessings" domainObjectName="birthdayBlessings"></table>-->
 
     </context>

@@ -87,7 +87,7 @@ public class SMSUtils {
     退款单通过审核
      */
     public static Boolean sendUserRefundSuccess(String tel,String username, String goodsname) throws ClientException {
-        String templateCode = "SMS_125022244";
+        String templateCode = "SMS_125017448";
         String templateParam = "{\"username\":\"" + username +"\",\"goodsname\":\"" + goodsname + "\"}";
         return sendMessage(tel,templateCode,templateParam);
     }

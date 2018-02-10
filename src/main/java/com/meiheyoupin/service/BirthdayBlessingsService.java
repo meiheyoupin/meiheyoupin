@@ -2,5 +2,5 @@ package com.meiheyoupin.service;
 
 
 public interface BirthdayBlessingsService {
-    String getMsgByCompany(Integer company);
+    String getMsgByCompany(String companyCreditCode);
 }

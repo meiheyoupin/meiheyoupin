@@ -71,14 +71,15 @@ public class ScheduledUtils {
     /*
     生日祝福
      */
-    @Scheduled(cron = "0 0 8 * * ?")        //每天早上八点
+    //@Scheduled(cron = "0 0 8 * * ?")        //每天早上八点
+    @Scheduled(cron = "0 31 11 * * ?")
     public void sendBirthday() throws ClientException {
         for (Staffer staffer:getStaffer()){
             SimpleDateFormat df = new SimpleDateFormat("MM-dd");
             String current = df.format(new Date());
             String birthday = dateToString(staffer.getBirthday());
             if (birthday.equals(current)){
-                String msg = birthdayBlessingsService.getMsgByCompany(staffer.getCompany());
+                String msg = birthdayBlessingsService.getMsgByCompany(staffer.getCompanyCreditCode());
                 SMSUtils.sendBirthdayBlessings(staffer.getPhone(),staffer.getName(),msg);
             }
         }
