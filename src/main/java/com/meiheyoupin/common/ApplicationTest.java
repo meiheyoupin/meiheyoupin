@@ -104,7 +104,7 @@ public class ApplicationTest {
 
     @Test
     public void test2(){
-        System.out.println(demandService.getDemands().get(0).toString());
+        rabbitTemplate.convertAndSend("sendToFront","frontKey1","hello world!");
 
     }
 

@@ -8,7 +8,9 @@ import com.meiheyoupin.service.DemandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DemandServiceImpl implements DemandService{
@@ -18,6 +20,13 @@ public class DemandServiceImpl implements DemandService{
 
     @Override
     public List<Demand> getDemands() {
+        List<Map<String,Object>> list = new ArrayList<>();
+
+
+
+
+
+
         DemandExample example = new DemandExample();
         DemandExample.Criteria criteria = example.createCriteria();
         criteria.andStateEqualTo((byte)1);

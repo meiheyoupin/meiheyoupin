@@ -85,6 +85,6 @@ public class OrdersController {
     public R demands(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                      @RequestParam(value = "pageSize",defaultValue = "10")Integer pageSize){
         PageHelper.startPage(pageNum,pageSize);
-        return R.ok().put("demands",new PageInfo<>(demandService.getDemands()));
+        return R.ok().put("demands",demandService.getDemands());
     }
 }

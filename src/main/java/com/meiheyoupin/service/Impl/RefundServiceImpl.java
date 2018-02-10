@@ -1,17 +1,15 @@
 package com.meiheyoupin.service.Impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alipay.api.response.AlipayTradeRefundResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.meiheyoupin.common.pay.PayUtils;
-import com.meiheyoupin.dao.OrdersMapper;
-import com.meiheyoupin.dao.RefundMapper;
-import com.meiheyoupin.dao.UserMapper;
-import com.meiheyoupin.entity.Orders;
-import com.meiheyoupin.entity.Refund;
-import com.meiheyoupin.entity.User;
+import com.meiheyoupin.dao.*;
+import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.OrdersService;
 import com.meiheyoupin.service.RefundService;
 import com.meiheyoupin.utils.SMSUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +36,15 @@ public class RefundServiceImpl implements RefundService {
     @Autowired
     OrdersMapper ordersMapper;
 
+    @Autowired
+    OrderGoodsMapper orderGoodsMapper;
+
+    @Autowired
+    GoodsMapper goodsMapper;
+
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+
     /*
     根据退款单状态遍历退款单
      */
@@ -60,6 +67,19 @@ public class RefundServiceImpl implements RefundService {
         }catch (Exception e){
             return -1;
         }
+        //恢复库存
+        Orders orders = ordersMapper.selectOrderById(refund.getOrderId());
+        OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
+        Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
+        goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
+        goodsMapper.updateGoods(goods);
+        //修改订单状态
+        orders.setState((byte) 8);
+        ordersMapper.updateOrderById(orders);
+        //发布消息至rabbitmq
+        String ordeToString = JSON.toJSONString(orders);
+        rabbitTemplate.convertAndSend("sendToFront","frontKey1",ordeToString);
+        //短信通知
         new Thread(()->{
             try {
                 SMSUtils.sendUserRefundSuccess(user.getTel(),user.getContactsName(),ordersMapper.selectOrderById(refund.getOrderId()).getName());

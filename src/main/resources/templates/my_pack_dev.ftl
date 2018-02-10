@@ -6,7 +6,7 @@
             <h2>审核套餐内容</h2>
             <div class="cont">
                 <input class="goodId" id="goodId" type="hidden" value="${good.good.id}"/>
-                <p class="classify">分类: <span>${good.subject.name}</span>><span>${good.category.name}</span></p>
+                <p class="classify">分类: <span>${good.subject.name}</span><span>${good.category.name}</span></p>
                 <p class="appo">预约天数: <span>
                 <#if good.good.appointment??>
                     <#assign a=86400000 />

@@ -28,6 +28,11 @@ public class DirectExchangeConfig {
     }
 
     @Bean
+    public DirectExchange toFrontDirect(){
+        return new DirectExchange("sendToFront");
+    }
+
+    @Bean
     public Queue queue1(){
         return new Queue("queue1");
     }
@@ -42,6 +47,14 @@ public class DirectExchangeConfig {
     @Bean
     public Queue queue4(){
         return new Queue("queue4");
+    }
+
+    @Bean Queue toFront1(){
+        return new Queue("front1");
+    }
+
+    @Bean Queue toFront2(){
+        return new Queue("front2");
     }
 
     @Bean
@@ -59,6 +72,16 @@ public class DirectExchangeConfig {
     @Bean
     public Binding binding4(){
         return BindingBuilder.bind(queue4()).to(directExchange()).with("key4");
+    }
+
+    @Bean
+    public Binding frontBinding1(){
+        return BindingBuilder.bind(toFront1()).to(toFrontDirect()).with("frontKey1");
+    }
+
+    @Bean
+    public Binding frontBinding2(){
+        return BindingBuilder.bind(toFront2()).to(toFrontDirect()).with("frontKey2");
     }
 
     @Autowired
