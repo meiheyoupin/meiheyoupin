@@ -71,8 +71,10 @@ public class RefundServiceImpl implements RefundService {
         Orders orders = ordersMapper.selectOrderById(refund.getOrderId());
         OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
         Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
-        goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
-        goodsMapper.updateGoods(goods);
+        if (goods.getLimitCount()!=null){
+            goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
+            goodsMapper.updateGoods(goods);
+        }
         //修改订单状态
         orders.setState((byte) 8);
         ordersMapper.updateOrderById(orders);

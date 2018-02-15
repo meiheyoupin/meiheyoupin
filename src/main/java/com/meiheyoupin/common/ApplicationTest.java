@@ -2,27 +2,26 @@
 package com.meiheyoupin.common;
 
 
-import com.meiheyoupin.common.entity.pojo;
 import com.meiheyoupin.dao.*;
 import com.meiheyoupin.utils.ImdadaCityUtils;
 import com.meiheyoupin.utils.ImdadaStoreUtils;
 import com.meiheyoupin.utils.ImdadaOrderUtils;
 import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
-import com.meiheyoupin.utils.ScheduledUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Stream;
 
-
+@Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ApplicationTest {
@@ -104,8 +103,14 @@ public class ApplicationTest {
 
     @Test
     public void test2(){
-        rabbitTemplate.convertAndSend("sendToFront","frontKey1","hello world!");
-
+        Goods goods = goodsMapper.selectGoodByGoodId(105824);
+        System.out.println(goods.toString());
+        if (goods.getLimitCount()!=null){
+            System.out.println("恢复库存");
+        }
+        String name = "陆晓涛";
+        log.error("name:"+name);
+        log.error("name:{}",name);
     }
 
     @Test
