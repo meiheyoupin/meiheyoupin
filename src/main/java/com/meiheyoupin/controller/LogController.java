@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class LogController {
-    @GetMapping("/error")
+    @GetMapping("/lxterror")
     public R1 error(){
         try {
             log.error("error log success");
@@ -18,7 +18,7 @@ public class LogController {
         }
     }
 
-    @GetMapping("/info")
+    @GetMapping("/lxtinfo")
     public R1 info(){
         try {
             log.info("info log success");
