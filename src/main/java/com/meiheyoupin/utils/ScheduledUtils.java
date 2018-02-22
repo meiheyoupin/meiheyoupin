@@ -71,8 +71,7 @@ public class ScheduledUtils {
     /*
     生日祝福
      */
-    //@Scheduled(cron = "0 0 8 * * ?")        //每天早上八点
-    @Scheduled(cron = "0 31 11 * * ?")
+    @Scheduled(cron = "0 0 8 * * ?")        //每天早上八点
     public void sendBirthday() throws ClientException {
         for (Staffer staffer:getStaffer()){
             SimpleDateFormat df = new SimpleDateFormat("MM-dd");

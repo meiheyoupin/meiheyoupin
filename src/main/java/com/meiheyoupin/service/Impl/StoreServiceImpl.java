@@ -15,7 +15,7 @@ import java.util.*;
 
 
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class StoreServiceImpl implements StoreService {
 
     @Autowired

@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import static com.meiheyoupin.entity.UserAdmin.ADMINUSER_ROLE_ADMIN;
+import static com.meiheyoupin.entity.UserAdmin.ADMINUSER_ROLE_SALER;
+
 
 @Controller
 public class AdminController {
@@ -44,9 +47,9 @@ public class AdminController {
             try {
                 subject.login(token);
                 model.addAttribute("userName",adminName);
-                if (subject.hasRole("admin")){
+                if (subject.hasRole(ADMINUSER_ROLE_ADMIN)){
                     return "forward:/cpySaler";
-                }else if (subject.hasRole("saler")){
+                }else if (subject.hasRole(ADMINUSER_ROLE_SALER)){
                     return "redirect:/toSaler";
                 }
             } catch (UnknownAccountException uae){

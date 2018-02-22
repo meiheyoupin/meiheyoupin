@@ -91,14 +91,7 @@ public class ApplicationTest {
 
     @Test
     public void test1(){
-        Map<String, Object> map = new HashMap<>();
-        Optional<List<WithdrawCash>> optional = Optional.ofNullable(ordersMapper.selectAvaiableWithdrawCash());
-        if (optional.isPresent()){
-            map.put("withdrawCash",optional.get());
-        }else {
-            map.put("ok","暂时没有可提现的金额");
-        }
-        System.out.println(map.get("withdrawCash"));
+        rabbitTemplate.convertAndSend("sendToFront","frontKey2","=========");
     }
 
     @Test

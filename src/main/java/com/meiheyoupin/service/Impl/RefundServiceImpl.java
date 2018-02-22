@@ -21,7 +21,7 @@ import java.util.Map;
 
 
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class RefundServiceImpl implements RefundService {
 
     @Autowired
