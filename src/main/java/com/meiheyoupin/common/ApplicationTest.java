@@ -8,10 +8,8 @@ import com.meiheyoupin.utils.ImdadaStoreUtils;
 import com.meiheyoupin.utils.ImdadaOrderUtils;
 import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
-<<<<<<< HEAD
-=======
+
 import lombok.extern.slf4j.Slf4j;
->>>>>>> fc005c60c7014013d78de9f41ccedb80eb4efa91
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,11 +22,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-<<<<<<< HEAD
 import java.util.concurrent.ConcurrentHashMap;
 
-=======
->>>>>>> fc005c60c7014013d78de9f41ccedb80eb4efa91
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -108,6 +103,13 @@ public class ApplicationTest {
 
     @Test
     public void test1(){
+        redisTemplate.opsForValue().set("key","========================");
+    }
+
+    @Test
+    public void test2(){
+        System.out.println(redisTemplate.opsForValue().get("key"));
+
     }
 
     @Test
