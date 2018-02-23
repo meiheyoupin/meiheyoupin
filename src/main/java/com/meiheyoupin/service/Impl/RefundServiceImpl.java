@@ -57,28 +57,36 @@ public class RefundServiceImpl implements RefundService {
     退款单审核通过
      */
     @Override
-    public int auditRefund(Integer id) {
+    public Map<String, Object> auditRefund(Integer id) {
+        Map<String, Object> map = new HashMap<>();
         Refund refund = refundMapper.selectByPrimaryKey(id);
-        refund.setState(2);
-        refund.setUpdateTime(new Date());
         User user = userMapper.selectUserFromRefundId(id);
         try {
             thirdPartyDealRefund(id);
         }catch (Exception e){
-            return -1;
+            map.put("error","第三方退款申请API失败");
+            return map;
         }
         //恢复库存
         Orders orders = ordersMapper.selectOrderById(refund.getOrderId());
         OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
         Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
         goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
-        goodsMapper.updateGoods(goods);
+        if (goodsMapper.updateGoods(goods)==0){
+            map.put("error","恢复库存失败");
+            return map;
+        }
         //修改订单状态
         orders.setState((byte) 8);
         ordersMapper.updateOrderById(orders);
         //发布消息至rabbitmq
         String ordeToString = JSON.toJSONString(orders);
-        rabbitTemplate.convertAndSend("sendToFront","frontKey1",ordeToString);
+        try {
+            rabbitTemplate.convertAndSend("sendToFront","frontKey1",ordeToString);
+        }catch (Exception e){
+            map.put("error","rabbitmq消息发布失败");
+            return map;
+        }
         //短信通知
         new Thread(()->{
             try {
@@ -87,7 +95,14 @@ public class RefundServiceImpl implements RefundService {
                 e.printStackTrace();
             }
         }).start();
-        return refundMapper.updateByPrimaryKeySelective(refund);
+        refund.setState(2);
+        refund.setUpdateTime(new Date());
+        if (refundMapper.updateByPrimaryKeySelective(refund)<=0){
+            map.put("error","数据库操作失败");
+            return map;
+        }
+        map.put("ok","退款处理成功");
+        return map;
     }
 
     /*

@@ -2,30 +2,30 @@
 package com.meiheyoupin.common;
 
 
-import com.meiheyoupin.common.entity.pojo;
 import com.meiheyoupin.dao.*;
 import com.meiheyoupin.utils.ImdadaCityUtils;
 import com.meiheyoupin.utils.ImdadaStoreUtils;
 import com.meiheyoupin.utils.ImdadaOrderUtils;
 import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
-import com.meiheyoupin.utils.ScheduledUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Stream;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ApplicationTest {
+
+    public static ConcurrentHashMap<String, Thread> THREAD_CONCURRENTHASHMAP = new ConcurrentHashMap<>();
 
     @Autowired
     BirthdayBlessingsService birthdayBlessingsService;
@@ -90,22 +90,25 @@ public class ApplicationTest {
     @Autowired
     DemandService demandService;
 
+    @Autowired
+    RedisTemplate<String, String> redisTemplate;
+
+    @Autowired
+    StafferMapper stafferMapper;
+
     @Test
     public void test1(){
-        Map<String, Object> map = new HashMap<>();
-        Optional<List<WithdrawCash>> optional = Optional.ofNullable(ordersMapper.selectAvaiableWithdrawCash());
-        if (optional.isPresent()){
-            map.put("withdrawCash",optional.get());
-        }else {
-            map.put("ok","暂时没有可提现的金额");
-        }
-        System.out.println(map.get("withdrawCash"));
+        throw new RuntimeException("dsad");
     }
 
     @Test
-    public void test2(){
-        rabbitTemplate.convertAndSend("sendToFront","frontKey1","hello world!");
-
+    public void test2() throws InterruptedException {
+        Thread thread = null;
+        thread= THREAD_CONCURRENTHASHMAP.get("0331");
+        Thread.sleep(5000);
+        assert thread != null;
+        thread.interrupt();
+        while (true);
     }
 
     @Test

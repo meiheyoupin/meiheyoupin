@@ -5,6 +5,8 @@ import com.meiheyoupin.service.BirthdayBlessingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 @Service
 public class BirthdayBlessingsServiceImpl implements BirthdayBlessingsService{
 

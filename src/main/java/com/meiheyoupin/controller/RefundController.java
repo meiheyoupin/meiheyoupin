@@ -48,13 +48,7 @@ public class RefundController {
     @RequiresRoles("admin")
     @PostMapping("auditRefund")
     public R1 toAuditRefund(@RequestParam Integer id){
-        int res = refundService.auditRefund(id);
-        if ( res > 0){
-            return R1.success("退款单已通过审核");
-        }else if (res == -1){
-            return R1.error("第三方申请退款失败");
-        }
-        return R1.error();
+        return R1.ok(refundService.auditRefund(id));
     }
 
     /**

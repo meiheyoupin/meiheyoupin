@@ -3,14 +3,20 @@ package com.meiheyoupin.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.meiheyoupin.common.utils.R;
 import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.entity.User;
+import com.meiheyoupin.service.Impl.BirthdayBlessingsServiceImpl;
 import com.meiheyoupin.service.UserService;
 import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -76,4 +82,5 @@ public class UserController {
             return R1.error();
         }
     }
+
 }

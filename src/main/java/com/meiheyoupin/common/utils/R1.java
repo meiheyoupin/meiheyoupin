@@ -55,7 +55,7 @@ public class R1 extends HashMap<String,Object>{
     public static R1 add(String key,Object value){
         R1 r1 = new R1();
         r1.put(key,value);
-        r1.ok(r1);
+        ok(r1);
         return r1;
     }
 
