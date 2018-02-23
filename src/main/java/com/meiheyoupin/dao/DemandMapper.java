@@ -4,10 +4,12 @@ import com.meiheyoupin.entity.Demand;
 import com.meiheyoupin.entity.DemandExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author vincent
  */
+@Repository
 public interface DemandMapper {
     long countByExample(DemandExample example);
 

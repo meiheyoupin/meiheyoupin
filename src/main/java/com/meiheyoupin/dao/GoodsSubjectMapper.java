@@ -1,10 +1,12 @@
 package com.meiheyoupin.dao;
 
 import com.meiheyoupin.entity.GoodsSubject;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author vincent
  */
+@Repository
 public interface GoodsSubjectMapper {
 
     int deleteByPrimaryKey(Integer id);

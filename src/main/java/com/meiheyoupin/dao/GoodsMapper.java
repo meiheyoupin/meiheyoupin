@@ -4,10 +4,12 @@ import com.meiheyoupin.entity.Goods;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author vincent
  */
+@Repository
 public interface GoodsMapper {
 
     List<Goods> selectGoodsBySate(Integer state);

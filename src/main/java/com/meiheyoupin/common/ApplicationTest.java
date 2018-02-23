@@ -103,7 +103,7 @@ public class ApplicationTest {
 
     @Test
     public void test1(){
-        redisTemplate.opsForValue().set("key","========================");
+        System.out.println(refundService.getRefundsByState().get("refunds").toString());
     }
 
     @Test

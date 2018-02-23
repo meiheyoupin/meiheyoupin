@@ -1,16 +1,14 @@
 package com.meiheyoupin.service;
 
+import com.meiheyoupin.common.utils.R;
 
-import com.meiheyoupin.entity.Refund;
-
-import java.util.List;
 import java.util.Map;
 
 public interface RefundService {
 
-    List<Refund> getRefundsByState(Integer state);
+    R getRefundsByState();
 
     Map<String, Object> auditRefund(Integer id);
 
-    int unAuditRefund(Integer id,String reason);
+    R unAuditRefund(Integer id,String reason);
 }

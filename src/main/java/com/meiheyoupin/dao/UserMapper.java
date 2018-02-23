@@ -1,12 +1,14 @@
 package com.meiheyoupin.dao;
 
 import com.meiheyoupin.entity.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @author vincent
  */
+@Repository
 public interface UserMapper {
 
     int deleteByPrimaryKey(Integer id);

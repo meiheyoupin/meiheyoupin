@@ -3,12 +3,14 @@ package com.meiheyoupin.dao;
 import com.meiheyoupin.entity.MonthlyCount;
 import com.meiheyoupin.entity.Orders;
 import com.meiheyoupin.entity.WithdrawCash;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @author vincent
  */
+@Repository
 public interface OrdersMapper {
 
     List<Orders> listOrderByObj(Orders orders);

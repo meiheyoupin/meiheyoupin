@@ -5,10 +5,12 @@ import com.meiheyoupin.entity.SalerExample;
 import com.meiheyoupin.entity.SalerKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author vincent
  */
+@Repository
 public interface SalerMapper {
 
     List<Saler> selectSalers();
