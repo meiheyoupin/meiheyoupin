@@ -3,6 +3,11 @@ package com.meiheyoupin.entity;
 import java.util.Date;
 
 public class UserAdmin {
+
+    public static final String ADMINUSER_ROLE_ADMIN = "admin";
+
+    public static final String ADMINUSER_ROLE_SALER = "saler";
+
     private Integer id;
 
     private String username;

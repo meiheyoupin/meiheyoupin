@@ -21,7 +21,7 @@ import java.util.Map;
 
 
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class RefundServiceImpl implements RefundService {
 
     @Autowired
@@ -72,9 +72,9 @@ public class RefundServiceImpl implements RefundService {
         OrderGoods orderGoods = orderGoodsMapper.selectObjByOrderId(orders.getId());
         Goods goods = goodsMapper.selectGoodByGoodId(Integer.valueOf(orderGoods.getGoodsId()));
         goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
-        if (goodsMapper.updateGoods(goods)==0){
-            map.put("error","恢复库存失败");
-            return map;
+        if (goods.getLimitCount()!=null){
+            goods.setStockAmount(goods.getStockAmount()+orderGoods.getCount());
+            goodsMapper.updateGoods(goods);
         }
         //修改订单状态
         orders.setState((byte) 8);
