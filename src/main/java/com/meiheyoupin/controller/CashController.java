@@ -1,14 +1,15 @@
 package com.meiheyoupin.controller;
 
-import com.meiheyoupin.common.utils.R1;
 import com.meiheyoupin.service.StoreOrdersService;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author vincent
+ */
 @Controller
 public class CashController {
 

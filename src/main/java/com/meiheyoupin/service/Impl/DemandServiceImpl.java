@@ -7,12 +7,17 @@ import com.meiheyoupin.entity.DemandExample;
 import com.meiheyoupin.service.DemandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author vincent
+ */
 @Service
+@Transactional
 public class DemandServiceImpl implements DemandService{
 
     @Autowired

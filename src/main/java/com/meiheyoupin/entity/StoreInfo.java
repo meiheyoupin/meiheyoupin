@@ -1,6 +1,8 @@
 package com.meiheyoupin.entity;
 
-
+/**
+ * @author vincent
+ */
 public class StoreInfo {
 
     private String station_name;    //门店名称

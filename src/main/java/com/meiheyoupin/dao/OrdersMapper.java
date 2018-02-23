@@ -6,7 +6,9 @@ import com.meiheyoupin.entity.WithdrawCash;
 
 import java.util.List;
 
-
+/**
+ * @author vincent
+ */
 public interface OrdersMapper {
 
     List<Orders> listOrderByObj(Orders orders);

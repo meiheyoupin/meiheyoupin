@@ -6,6 +6,9 @@ import com.meiheyoupin.entity.SalerKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author vincent
+ */
 public interface SalerMapper {
 
     List<Saler> selectSalers();

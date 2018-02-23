@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 public class RegionExample {
     protected String orderByClause;
 

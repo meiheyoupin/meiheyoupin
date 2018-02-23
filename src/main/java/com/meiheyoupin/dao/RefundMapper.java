@@ -5,6 +5,9 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 public interface RefundMapper {
 
     int deleteByPrimaryKey(Integer id);

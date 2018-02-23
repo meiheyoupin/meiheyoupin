@@ -5,6 +5,9 @@ import com.meiheyoupin.entity.UserAdminExample;
 
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 public interface UserAdminMapper {
     UserAdmin selectByNameAndPassword(UserAdmin userAdmin);
 

@@ -2,6 +2,9 @@ package com.meiheyoupin.entity;
 
 import java.sql.Timestamp;
 
+/**
+ * @author vincent
+ */
 public class Comments {
     private Integer id;
 

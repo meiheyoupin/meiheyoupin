@@ -3,6 +3,9 @@ package com.meiheyoupin.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author vincent
+ */
 public class Orders {
     //已下单
     public static final Integer ORDER_STATE_ORDERED = 1;

@@ -3,6 +3,9 @@ package com.meiheyoupin.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 public class BirthdayBlessingsExample {
     protected String orderByClause;
 

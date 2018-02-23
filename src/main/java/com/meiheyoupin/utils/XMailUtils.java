@@ -6,6 +6,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 
 import javax.mail.internet.MimeMessage;
 
+/**
+ * @author vincent
+ */
 public class XMailUtils {
 
     public static boolean sendMail(String receiver,String content){

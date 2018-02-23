@@ -2,6 +2,9 @@ package com.meiheyoupin.entity;
 
 import java.util.Date;
 
+/**
+ * @author vincent
+ */
 public class Saler extends SalerKey {
 
     private Integer id;

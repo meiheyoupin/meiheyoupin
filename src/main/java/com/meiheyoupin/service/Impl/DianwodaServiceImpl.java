@@ -3,12 +3,18 @@ package com.meiheyoupin.service.Impl;
 import com.meiheyoupin.common.entity.DianwodaResponseData;
 import com.meiheyoupin.service.DianwodaService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.meiheyoupin.utils.DianwodaUtils.doRequest;
 
+/**
+ * @author vincent
+ */
 @Service
+@Transactional
 public class DianwodaServiceImpl implements DianwodaService {
 
     //创建发货点测试url

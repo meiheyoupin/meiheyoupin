@@ -5,6 +5,9 @@ import com.meiheyoupin.entity.StoreExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author vincent
+ */
 public interface StoreMapper {
 
     /*

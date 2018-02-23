@@ -8,11 +8,12 @@ import com.meiheyoupin.entity.UserAdmin;
 import com.meiheyoupin.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
-
 @Service("tokenService")
+@Transactional
 public class TokenServiceImpl implements TokenService {
 
     private static final int Expire = 3600*25;

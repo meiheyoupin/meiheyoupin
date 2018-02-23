@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 @Controller
 public class SalerController {
 

@@ -2,6 +2,9 @@ package com.meiheyoupin.entity;
 
 import java.math.BigDecimal;
 
+/**
+ * @author vincent
+ */
 public class OrderGoods{
 
     private String orderId;

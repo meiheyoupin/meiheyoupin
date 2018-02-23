@@ -5,6 +5,9 @@ import com.meiheyoupin.entity.TokenExample;
 
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 public interface TokenMapper {
 
     List<Token> selectByExample(TokenExample example);

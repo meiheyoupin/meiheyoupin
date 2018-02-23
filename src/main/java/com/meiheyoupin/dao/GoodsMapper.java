@@ -5,6 +5,9 @@ import com.meiheyoupin.entity.Goods;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author vincent
+ */
 public interface GoodsMapper {
 
     List<Goods> selectGoodsBySate(Integer state);

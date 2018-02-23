@@ -9,6 +9,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * @author vincent
+ */
 public class ImdadaStoreUtils {
 
     private static final String appKey = "dada85a86c579633e89";

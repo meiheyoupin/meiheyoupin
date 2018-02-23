@@ -9,7 +9,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
-
+/**
+ * @author vincent
+ */
 public class ImdadaOrderUtils {
     //请使用开发者对应的 app key & app secret
     private static final String appSecret = "9acbd2d7755719045ee2f50bcdcd477d";

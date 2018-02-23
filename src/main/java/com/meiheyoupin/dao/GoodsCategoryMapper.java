@@ -2,6 +2,9 @@ package com.meiheyoupin.dao;
 
 import com.meiheyoupin.entity.GoodsCategory;
 
+/**
+ * @author vincent
+ */
 public interface GoodsCategoryMapper {
 
     int deleteByPrimaryKey(Integer id);

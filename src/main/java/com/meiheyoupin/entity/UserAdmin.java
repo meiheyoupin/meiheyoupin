@@ -2,6 +2,9 @@ package com.meiheyoupin.entity;
 
 import java.util.Date;
 
+/**
+ * @author vincent
+ */
 public class UserAdmin {
 
     public static final String ADMINUSER_ROLE_ADMIN = "admin";

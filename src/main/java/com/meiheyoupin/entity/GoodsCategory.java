@@ -1,5 +1,8 @@
 package com.meiheyoupin.entity;
 
+/**
+ * @author vincent
+ */
 public class GoodsCategory {
     private Integer id;
 

@@ -7,6 +7,9 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author vincent
+ */
 public interface RegionMapper {
 
     List<Region> selectByExample(RegionExample example);

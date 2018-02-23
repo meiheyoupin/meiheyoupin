@@ -6,10 +6,12 @@ import com.meiheyoupin.entity.StafferExample;
 import com.meiheyoupin.service.StafferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class StafferServiceImpl implements StafferService{
 
     @Autowired

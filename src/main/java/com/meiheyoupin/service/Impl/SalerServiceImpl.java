@@ -6,12 +6,17 @@ import com.meiheyoupin.entity.SalerExample;
 import com.meiheyoupin.service.SalerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * @author vincent
+ */
 @Service
+@Transactional
 public class SalerServiceImpl implements SalerService {
 
     @Autowired

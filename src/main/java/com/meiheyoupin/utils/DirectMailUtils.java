@@ -10,6 +10,9 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 
+/**
+ * @author vincent
+ */
 public class DirectMailUtils {
 
 

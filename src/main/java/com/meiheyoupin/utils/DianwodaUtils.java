@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author vincent
+ */
 public class DianwodaUtils {
 
     private static final String appSecret = "8da01c8e262543ef617fd7c0171b9bdb";

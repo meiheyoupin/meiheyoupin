@@ -3,7 +3,11 @@ package com.meiheyoupin.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author vincent
+ */
 public class Demand {
+
     private Integer id;
 
     private String contactsTel;

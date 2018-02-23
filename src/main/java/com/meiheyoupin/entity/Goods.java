@@ -3,6 +3,9 @@ package com.meiheyoupin.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author vincent
+ */
 public class Goods {
     private Integer id;
 

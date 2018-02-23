@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 public class TokenExample {
     protected String orderByClause;
 

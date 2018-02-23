@@ -1,6 +1,5 @@
 package com.meiheyoupin.shiro;
 
-
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -13,6 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * @author vincent
+ */
 @Configuration
 public class ShiroConfig {
 

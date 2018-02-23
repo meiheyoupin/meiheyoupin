@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 @Controller
 public class RegionController extends BaseController {
 

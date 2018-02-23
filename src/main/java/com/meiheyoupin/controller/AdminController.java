@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import static com.meiheyoupin.entity.UserAdmin.ADMINUSER_ROLE_ADMIN;
 import static com.meiheyoupin.entity.UserAdmin.ADMINUSER_ROLE_SALER;
 
-
+/**
+ * @author vincent
+ */
 @Controller
 public class AdminController {
 

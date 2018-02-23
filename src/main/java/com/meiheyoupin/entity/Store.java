@@ -1,5 +1,8 @@
 package com.meiheyoupin.entity;
 
+/**
+ * @author vincent
+ */
 public class Store {
     private Integer id;
     private String invitationCode;

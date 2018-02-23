@@ -3,7 +3,24 @@ package com.meiheyoupin.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * @author vincent
+ */
 public class Refund {
+
+    //待审核
+    public static final Integer REFUND_STATE_TOBEAUDIT = 1;
+    //审核通过
+    public static final Integer REFUND_STATE_AUDIT = 2;
+    //第三方申请退款中
+    public static final Integer REFUND_STATE_APPLICATION = 3;
+    //第三方申请退款成功
+    public static final Integer REFUND_STATE_APPLICATION_SUCCESS = 4;
+    //第三方申请退款失败
+    public static final Integer REFUND_STATE_APPLICATION_FAIL = 5;
+    //审核不通过
+    public static final Integer REFUND_STATE_UNAUDIT = 6;
+
     private Integer id;
 
     private String orderId;
@@ -12,14 +29,6 @@ public class Refund {
 
     private BigDecimal refundAmount;
 
-    /*
-    1:待审核
-    2:审核通过
-    3:第三方申请退款中
-    4:第三方申请退款成功
-    5:第三方申请退款失败
-    6:审核不通过
-     */
     private Integer state;
 
     private String reason;

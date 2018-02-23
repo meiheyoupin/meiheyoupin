@@ -1,7 +1,4 @@
-
 package com.meiheyoupin.service.Impl;
-
-
 
 import com.meiheyoupin.dao.*;
 import com.meiheyoupin.utils.SMSUtils;
@@ -15,8 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
-@Transactional
+/**
+ * @author vincent
+ */
 @Service
+@Transactional
 public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private GoodsMapper goodsMapper;

@@ -9,6 +9,9 @@ import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 
+/**
+ * @author vincent
+ */
 public class SMSUtils {
 
     private static final String PRODUCT = "Dysmsapi";

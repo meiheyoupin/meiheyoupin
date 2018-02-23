@@ -1,6 +1,8 @@
 package com.meiheyoupin.entity;
 
-
+/**
+ * @author vincent
+ */
 public class WithdrawCash {
 
     private Integer storeId;

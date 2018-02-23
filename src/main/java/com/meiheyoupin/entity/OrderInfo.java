@@ -1,7 +1,8 @@
 package com.meiheyoupin.entity;
 
-
-
+/**
+ * @author vincent
+ */
 public class OrderInfo {
 
     private String shop_no;     //门店编号，门店创建后可在门店列表和单页查看

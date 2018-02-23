@@ -6,10 +6,12 @@ import com.meiheyoupin.entity.UserAdminExample;
 import com.meiheyoupin.service.UserAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service("UserAdminService")
+@Transactional
 public class UserAdminServiceImpl implements UserAdminService {
 
     @Autowired

@@ -4,6 +4,9 @@ import com.meiheyoupin.entity.User;
 
 import java.util.List;
 
+/**
+ * @author vincent
+ */
 public interface UserMapper {
 
     int deleteByPrimaryKey(Integer id);
