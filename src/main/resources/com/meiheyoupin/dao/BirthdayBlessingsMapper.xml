@@ -85,8 +85,8 @@
     SELECT msg FROM birthday_blessings WHERE company_credit_code=#{companyCreditCode}
   </select>
 
-  <insert id="insertBirthdayBlessings" parameterType="java.lang.String">
+  <insert id="insertBirthdayBlessings" parameterType="com.meiheyoupin.entity.BirthdayBlessings">
     INSERT INTO birthday_blessings(id,msg,company_credit_code)
-    values(#{id,jdbcType=INTEGER},#{msg,jdbcType=VARCHAR},#{company_credit_code,jdbcType=VARCHAR})
+    values(#{id,jdbcType=INTEGER},#{msg,jdbcType=VARCHAR},#{companyCreditCode,jdbcType=VARCHAR})
   </insert>
 </mapper>

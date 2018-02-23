@@ -91,7 +91,7 @@ public class RefundServiceImpl implements RefundService {
             goodsMapper.updateGoods(goods);
         }
         //修改订单状态
-        orders.setState((byte) 8);
+        orders.setState(Orders.ORDER_STATE_REFUNDED);
         if (ordersMapper.updateOrderById(orders)==0){
             return R.error("修改订单状态失败");
         }
@@ -112,7 +112,7 @@ public class RefundServiceImpl implements RefundService {
                 e.printStackTrace();
             }
         }).start());
-        refund.setState(2);
+        refund.setState(Refund.REFUND_STATE_AUDIT);
         refund.setUpdateTime(new Date());
         if (refundMapper.updateByPrimaryKeySelective(refund)==0){
             return R.error("数据库操作失败");
@@ -167,13 +167,13 @@ public class RefundServiceImpl implements RefundService {
                     orders.getPaymentAmount(), refund.getReason());
             if (response != null && "SUCCESS".equals(response.get("result_code"))) {
                 refund.setWxpayRefundId(response.get("refund_id_0"));
-                refund.setState(3);
+                refund.setState(Refund.REFUND_STATE_APPLICATION);
             }
         } else if ("alipay".equalsIgnoreCase(orders.getPayWay())) {
             AlipayTradeRefundResponse response = PayUtils.alipayRefund(orders.getId(), orders.getPaymentAmount());
             if (response != null && response.isSuccess()) {
                 refund.setAlipayRefundId(response.getTradeNo());
-                refund.setState(3);
+                refund.setState(Refund.REFUND_STATE_APPLICATION);
             }
         }
         if (refund.getState() != 1) {

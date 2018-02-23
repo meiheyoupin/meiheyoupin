@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * @author vincent
  */
-@Configuration
+//@Configuration
 public class ShiroConfig {
 
     /**

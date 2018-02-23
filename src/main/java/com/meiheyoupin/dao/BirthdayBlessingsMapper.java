@@ -16,5 +16,5 @@ public interface BirthdayBlessingsMapper {
 
     String selectMsgByCompany(String companyCreditCode);
 
-    int insertBirthdayBlessings(String companyCreditCode);
+    int insertBirthdayBlessings(BirthdayBlessings birthdayBlessings);
 }

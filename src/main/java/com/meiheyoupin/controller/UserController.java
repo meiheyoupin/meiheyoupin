@@ -27,8 +27,11 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    /*
-    拿到所有用户 （分页）
+    /**
+     * 拿到所有用户 （分页）
+     * @param pageNum
+     * @param pageSize
+     * @return
      */
     @RequiresRoles("admin")
     @GetMapping("users")
@@ -44,8 +47,9 @@ public class UserController {
         }
     }
 
-    /*
-    拿到需要审核的公司账号
+    /**
+     * 拿到需要审核的公司账号
+     * @return
      */
     @RequiresRoles("admin")
     @GetMapping("hr")
@@ -57,33 +61,27 @@ public class UserController {
         }
     }
 
-    /*
-    公司账号审核通过
+    /**
+     * 公司账号审核通过
+     * @param id    账号id
+     * @return  code 200成功/500失败    msg 信息
      */
-    @RequiresRoles("admin")
-    @PostMapping("hr")
-    public R1 auditHr(@RequestParam Integer id){
-        try {
-            userService.modifyUserToHRSuccess(id);
-            return R1.success("审核通过");
-        }catch (Exception e){
-            return R1.error();
-        }
+    //@RequiresRoles("admin")
+    @PostMapping("hrSuccess")
+    public R auditHr(@RequestParam Integer id){
+        return R.ok(userService.modifyUserToHRSuccess(id));
     }
 
-    /*
-    公司账号审核未通过
+    /**
+     * 公司账号审核未通过
+     * @param id
+     * @param reason
+     * @return
      */
-    @RequiresRoles("admin")
-    @DeleteMapping("hr")
-    public R1 unAuditHr(@RequestParam Integer id,
-                        @RequestParam String reason){
-        try {
-            userService.modifyUserToHRFail(id,reason);
-            return R1.success("审核未通过");
-        }catch (Exception e){
-            return R1.error();
-        }
+    //@RequiresRoles("admin")
+    @PostMapping("hrFail")
+    public R unAuditHr(@RequestParam Integer id, @RequestParam String reason){
+        return R.ok(userService.modifyUserToHRFail(id,reason));
     }
 
 }

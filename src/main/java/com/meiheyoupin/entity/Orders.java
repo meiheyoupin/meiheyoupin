@@ -37,7 +37,7 @@ public class Orders {
 
     private Double totalAmount;
 
-    private Byte state;
+    private Integer state;
 
     private String name;
 
@@ -45,11 +45,11 @@ public class Orders {
 
     private Integer addressId;
 
-    private Byte deliveryDate;
+    private Integer deliveryDate;
 
-    private Byte deliveryTime;
+    private Integer deliveryTime;
 
-    private Byte hasInvoice;
+    private Integer hasInvoice;
 
     private Integer invoiceId;
 
@@ -151,11 +151,11 @@ public class Orders {
         this.totalAmount = totalAmount;
     }
 
-    public Byte getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(Byte state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 
@@ -175,27 +175,27 @@ public class Orders {
         this.count = count;
     }
 
-    public Byte getDeliveryDate() {
+    public Integer getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(Byte deliveryDate) {
+    public void setDeliveryDate(Integer deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 
-    public Byte getDeliveryTime() {
+    public Integer getDeliveryTime() {
         return deliveryTime;
     }
 
-    public void setDeliveryTime(Byte deliveryTime) {
+    public void setDeliveryTime(Integer deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
 
-    public Byte getHasInvoice() {
+    public Integer getHasInvoice() {
         return hasInvoice;
     }
 
-    public void setHasInvoice(Byte hasInvoice) {
+    public void setHasInvoice(Integer hasInvoice) {
         this.hasInvoice = hasInvoice;
     }
 

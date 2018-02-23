@@ -4,6 +4,9 @@ package com.meiheyoupin.entity;
  * @author vincent
  */
 public class BirthdayBlessings {
+
+    public static final String BIRTHDAY_DEFAULT_MSG = "Happy Birthday!";
+
     private Integer id;
 
     private String msg;

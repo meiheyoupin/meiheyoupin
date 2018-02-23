@@ -1,5 +1,6 @@
 package com.meiheyoupin.service;
 
+import com.meiheyoupin.common.utils.R;
 import com.meiheyoupin.entity.User;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface UserService {
 
     List<User> getUserToAudit();
 
-    void modifyUserToHRSuccess(Integer id);
+    R modifyUserToHRSuccess(Integer id);
 
-    void modifyUserToHRFail(Integer id,String reason);
+    R modifyUserToHRFail(Integer id,String reason);
 }

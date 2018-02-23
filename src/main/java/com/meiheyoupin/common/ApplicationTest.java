@@ -9,6 +9,7 @@ import com.meiheyoupin.utils.ImdadaOrderUtils;
 import com.meiheyoupin.entity.*;
 import com.meiheyoupin.service.*;
 
+import com.meiheyoupin.utils.SMSUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -101,14 +102,26 @@ public class ApplicationTest {
     @Autowired
     StafferMapper stafferMapper;
 
+    @Autowired
+    BirthdayBlessingsMapper birthdayBlessingsMapper;
+
     @Test
     public void test1(){
-        System.out.println(refundService.getRefundsByState().get("refunds").toString());
+        Optional<User> userOptional = Optional.ofNullable(userMapper.selectByPrimaryKey(10));
+        //短信发送
+        userOptional.ifPresent( user -> new Thread(() -> {
+            try {
+                System.out.println("===================================================================");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }).start());
     }
 
     @Test
     public void test2(){
-        System.out.println(redisTemplate.opsForValue().get("key"));
+        System.out.println(birthdayBlessingsMapper.selectMsgByCompany("231231"));
+
 
     }
 
